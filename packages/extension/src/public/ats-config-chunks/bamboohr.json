@@ -1,0 +1,437 @@
+{
+  "atsName": "bamboohr",
+  "urls": [
+    "*://*.bamboohr.com/careers/*"
+  ],
+  "detectPageQuestions": true,
+  "submitButtonPaths": [
+    ".//button[contains(., 'Submit Application')]"
+  ],
+  "validationCheckFormValidity": false,
+  "waitForSubmitOutcome": false,
+  "backStepButtonPaths": [],
+  "backStepDiscardButtonPaths": [],
+  "validationErrorXPaths": [
+    "//div[contains(@id, 'status-message') and @role='region']",
+    "//p[text()='Please fill in this field.']",
+    "//p[text()='Please make a selection.']",
+    "//p[text()='Please upload a file']",
+    "//p[contains(@data-fabric-component,'BodyText') and (contains(.,'robot') or contains(.,'not a robot') or contains(.,'confirm'))]"
+  ],
+  "captchaXpath": [],
+  "networkOptions": {
+    "blacklistedUrlParts": [
+      "linkedin",
+      "analytics",
+      "insights",
+      "collect"
+    ]
+  },
+  "pageFailureKeywords": [],
+  "monitorSubmitFlow": true,
+  "tabWillNotUpdateAfterSubmit": true,
+  "errorBannerXPaths": [
+    "//div[contains(@id, 'status-message') and @role='region']",
+    "//p[text()='Please fill in this field.']",
+    "//p[text()='Please make a selection.']",
+    "//p[text()='Please upload a file']",
+    "//p[contains(@data-fabric-component,'BodyText') and (contains(.,'robot') or contains(.,'not a robot') or contains(.,'confirm'))]"
+  ],
+  "confirmSubmittedForm": {
+    "confirmMessageXPath": [
+      ".//h3[contains(., 'Thank You')]",
+      ".//p[contains(., 'submitted successfully')]"
+    ],
+    "urls": [
+      "*://*.bamboohr.com/careers/*"
+    ],
+    "confirmMessageSelector": "div > div:has(> svg + div > h3, > svg + div > p)"
+  },
+  "questionValidationErrorSelectors": [
+    "div[id*='status-message'][role='region']"
+  ],
+  "targetNodeXPath": [
+    "//main[@id='micro-container2']"
+  ],
+  "expiredJob": [
+    {
+      "container": [
+        ".//h1",
+        ".//h2"
+      ],
+      "keywords": [
+        "current openings"
+      ]
+    }
+  ],
+  "forceNewJobSearch": false,
+  "canJobBeAppliedXPaths": {
+    "applyButton": []
+  },
+  "formatElements": "",
+  "customQuestions": {
+    "patterns": {
+      "questionId": "",
+      "questionParent": "",
+      "selectInputXPath": [
+        ".//div[@role='button' and @tabindex='0']"
+      ]
+    },
+    "selectors": {
+      "question": "div[role='radiogroup'], input[type='text']:not([aria-hidden]):not([tabindex='-1']):not([readonly]), textarea[id]:not([aria-hidden]):not([tabindex='-1']):not([readonly]), input[type='checkbox']:not([aria-hidden]):not([tabindex='-1']):not([readonly]), div[role='button'][tabindex='0']",
+      "subTitle": "",
+      "label": "label",
+      "legend": "legend",
+      "ariaLabelledBy": "",
+      "roleOption": "div[role='menuitem'], div[role='option']",
+      "radioInput": "input[type='radio']",
+      "checkbox": "input[type='checkbox']",
+      "questionParent": "fieldset[role='radiogroup'], div[data-fabric-component*='SelectField']",
+      "mapOption": "div[class*='MenuOption__row']",
+      "optionsSelector": "div[class*='MenuOption__row']",
+      "selectPopup": "div[role='menu'][id='__controls__'], div[role='listbox'][id='__controls__']"
+    },
+    "xpaths": {
+      "currentListItem": [],
+      "listInputBackBtnText": [],
+      "selectPopupXPath": [],
+      "listBoxPopupXPath": [],
+      "selectedItemListXPath": [],
+      "requiredFieldXPath": [
+        ".//span[contains(@class, 'MuiFormLabel-asterisk')]"
+      ]
+    },
+    "ignoreQuestions": [
+      "//input[@name='streetAddress.value']",
+      "//input[@name='city.value']",
+      "//input[@name='zip.value']",
+      ".//button[contains(@aria-label, 'State –Select–')]",
+      ".//div[contains(@aria-label, 'State –Select–') and @role='button']",
+      ".//div[contains(@aria-label, 'Country ') and @role='button']"
+    ]
+  },
+  "jobXPaths": {
+    "entities": [
+      [
+        "titleDisplay",
+        [
+          ".//h3[1]"
+        ]
+      ],
+      [
+        "originalCompanyName",
+        [
+          ".//img/@alt"
+        ]
+      ],
+      [
+        "jobTypes",
+        [
+          "((.//div[@data-fabric-component='Flex' and contains(., 'Employment Type')])[last()])//div[2]//p"
+        ]
+      ],
+      [
+        "url",
+        [
+          ".//meta[@property='og:url']/@content"
+        ]
+      ],
+      [
+        "desc",
+        [
+          ".//div[@class='BambooRichText']"
+        ]
+      ],
+      [
+        "locationDisplay",
+        [
+          "((.//div[@data-fabric-component='Flex' and contains(., 'Location')])[last()])//div[2]//p"
+        ]
+      ]
+    ]
+  },
+  "preApply": {
+    "urls": [
+      "*://*.bamboohr.com/careers/*"
+    ],
+    "entities": [
+      [
+        "applyButton",
+        {
+          "actions": [
+            {
+              "path": [
+                ".//button[@data-bi-id='careers-site-apply-button']"
+              ],
+              "method": "click",
+              "options": {
+                "wait": 1000
+              }
+            }
+          ]
+        },
+        {
+          "keywords": [
+            "apply"
+          ]
+        }
+      ]
+    ],
+    "forceConditions": {
+      "urls": [
+        "*://*.bamboohr.com/careers/*"
+      ]
+    },
+    "continueFilling": true
+  },
+  "entities": [
+    [
+      "firstName",
+      [
+        ".//input[@name='firstName']"
+      ],
+      {
+        "keywords": [
+          "first name"
+        ]
+      }
+    ],
+    [
+      "lastName",
+      [
+        ".//input[@name='lastName']"
+      ],
+      {
+        "keywords": [
+          "last name"
+        ]
+      }
+    ],
+    [
+      "email",
+      [
+        ".//input[@name='email']"
+      ],
+      {
+        "keywords": [
+          "email"
+        ]
+      }
+    ],
+    [
+      "phoneFormatted",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//input[@name='phone']"
+            ],
+            "method": "setValue"
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "phone"
+        ]
+      }
+    ],
+    [
+      "addressLine1",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//input[@name='streetAddress.value']"
+            ],
+            "method": "setValue",
+            "options": {
+              "ignoreExistingValue": true
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "address"
+        ]
+      }
+    ],
+    [
+      "city",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//input[@name='city.value']"
+            ],
+            "method": "setValue",
+            "options": {
+              "ignoreExistingValue": true
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "city"
+        ]
+      }
+    ],
+    [
+      "stateName",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//button[contains(@aria-label, 'State –Select–')]",
+              ".//div[contains(@aria-label, 'State –Select–') and @role='button']"
+            ],
+            "method": "click"
+          },
+          {
+            "path": [
+              ".//div[@data-menu-id=//button[contains(@aria-label, 'State –Select–')]/@aria-controls]//div[@role='menu']",
+              ".//div[@id=//div[contains(@aria-label, 'State –Select–') and @role='button']/@data-menu-id and @role='menu']"
+            ],
+            "method": "clickOption"
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "state"
+        ]
+      }
+    ],
+    [
+      "postalCode",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//input[@name='zip.value']"
+            ],
+            "method": "setValue",
+            "options": {
+              "ignoreExistingValue": true
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "zip"
+        ]
+      }
+    ],
+    [
+      "resume",
+      {
+        "actions": [
+          {
+            "path": [
+              "(.//input[@name='resumeFileId']/ancestor::*[@data-fabric-component='FileUpload'][1])//input[@type='file' and @aria-label='file-input']"
+            ],
+            "method": "uploadResume"
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "resume"
+        ]
+      }
+    ],
+    [
+      "minYearlySalaryDesired",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//input[@name='desiredPay']"
+            ],
+            "method": "setValue"
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "desired pay",
+          "salary"
+        ]
+      }
+    ],
+    [
+      "linkedin",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//input[@name='linkedinUrl']"
+            ],
+            "method": "setValue"
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "linkedin"
+        ]
+      }
+    ],
+    [
+      "sponsorship",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//fieldset[contains(., 'sponsorship')]//div[@role='radiogroup']"
+            ],
+            "method": "clickOption",
+            "values": {
+              "true": "Yes",
+              "false": "No"
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "sponsorship"
+        ]
+      }
+    ],
+    [
+      "highestEducation.name",
+      {
+        "actions": [
+          {
+            "path": [
+              "//button[contains(translate(@aria-label,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'highest education obtained')]"
+            ],
+            "method": "click",
+            "options": {
+              "wait": 500
+            }
+          },
+          {
+            "path": [
+              "//div[contains(@aria-owns, 'menu')]"
+            ],
+            "method": "clickOption",
+            "options": {
+              "optionMapper": true
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "Highest Education"
+        ]
+      }
+    ]
+  ],
+  "alwaysSyncWindowId": true
+}

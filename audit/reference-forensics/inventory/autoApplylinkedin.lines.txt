@@ -1,0 +1,17 @@
+    2335  autoApplylinkedin/content/content.js
+    1416  autoApplylinkedin/content/utils.js
+     497  autoApplylinkedin/background.js
+     430  autoApplylinkedin/popup/formControl/formControl.js
+     417  autoApplylinkedin/popup/cvManager/cvManager.js
+     330  autoApplylinkedin/browser-polyfill.js
+     329  autoApplylinkedin/popup/popup/popup.js
+     324  autoApplylinkedin/popup/applyHistory/applyHistory.js
+     188  autoApplylinkedin/pack-extension-firefox.js
+     172  autoApplylinkedin/popup/filterSettings/filterSettings.js
+     157  autoApplylinkedin/pack-extension-firefox-mobile.js
+     136  autoApplylinkedin/popup/externalApply/externalApply.js
+      99  autoApplylinkedin/content/createElements.js
+      74  autoApplylinkedin/pack-extension.js
+      66  autoApplylinkedin/popup/settings/settings.js
+      50  autoApplylinkedin/content/xpaths.js
+      18  autoApplylinkedin/modals/modals.js

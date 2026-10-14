@@ -1,0 +1,38 @@
+Execute Phase B: Static Analysis & Security Pre-Scan.
+
+TASKS:
+1. Verify field policies to ensure sensitive fields (e.g. passwords, Aadhaar, PAN, bank accounts) are flagged. Test inputs against non-English labels to check translation safety.
+2. Check for XSS and DOM sanitization in content scripts (e.g. filler.ts, detector.ts).
+3. Scan for hardcoded API keys or credentials.
+4. Perform a permissions audit on manifest.json, highlighting any sensitive permissions.
+5. Conduct an SMTP header injection audit in reply-agent.ts/smtp-sender.ts.
+6. Verify rate governor bypass vectors (e.g. restarts or page refreshes).
+
+Produce a JSON output matching the Phase B handoff schema exactly.
+Example schema output format:
+===HANDOFF_JSON_START===
+{
+  "phase": "B",
+  "security_findings": [
+    {
+      "id": "SEC-...",
+      "category": "...",
+      "severity": "high",
+      "file": "...",
+      "line": 10,
+      "description": "...",
+      "exploit_scenario": "...",
+      "fix": "..."
+    }
+  ],
+  "permission_audit": [
+    {
+      "permission": "...",
+      "used": true,
+      "where": "...",
+      "store_risk": "..."
+    }
+  ],
+  "critical_blockers": []
+}
+===HANDOFF_JSON_END===

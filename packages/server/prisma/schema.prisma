@@ -1,0 +1,298 @@
+// SuperJobAgent Enterprise — PostgreSQL Schema (Prisma ORM)
+//
+// GAP 2.2 FIX: Replace store.json (single-file, in-process mutex) with a
+// fully relational, multi-tenant PostgreSQL schema. This is the target state
+// for cloud deployment. The local extension continues to use the existing
+// in-memory/file KV store.
+//
+// Migration path:
+//   1. Set DATABASE_URL in .env (PostgreSQL / Supabase / AWS RDS)
+//   2. npm run db:generate   → generates Prisma Client
+//   3. npm run db:migrate    → applies migrations to the database
+//
+// Row Level Security (RLS): Implement in PostgreSQL for additional defense-in-depth.
+// Each table has a userId column that maps to the tenant. The application layer
+// (AsyncLocalStorage in tenant.ts) is the primary enforcement mechanism.
+
+generator client {
+  provider      = "prisma-client-js"
+  output        = "../node_modules/.prisma/client"
+  binaryTargets = ["native", "linux-musl-arm64-openssl-3.0.x", "linux-musl-openssl-3.0.x"]
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// ── Users & Tenants ──────────────────────────────────────────────────────────
+
+model User {
+  userId                    String         @id @default(cuid())
+  email                     String         @unique
+  name                      String
+  picture                   String?
+  provider                  String         @default("local")
+  passwordHash              String?
+  tokenEpoch                Int            @default(0)
+  tier                      String         @default("free")
+  stripeCustomerId          String?        @unique
+  stripeSubscriptionId      String?
+  stripeCurrentPeriodEnd    DateTime?
+  monthlyApplicationsUsed   Int            @default(0)
+  monthlyApplicationsResetAt DateTime?
+  createdAt                 DateTime       @default(now())
+  lastLoginAt               DateTime?
+  updatedAt                 DateTime       @updatedAt
+
+  // Relations
+  profile        Profile?
+  applications   Application[]
+  resumes        Resume[]
+  syncCheckpoints SyncCheckpoint[]
+  jobAlerts      JobAlert[]
+  stripeEvents   StripeEvent[]
+
+  @@index([email])
+  @@index([stripeCustomerId])
+  @@map("users")
+}
+
+// ── Profile ──────────────────────────────────────────────────────────────────
+
+model Profile {
+  id              String    @id @default(cuid())
+  userId          String    @unique
+  user            User      @relation(fields: [userId], references: [userId], onDelete: Cascade)
+
+  // Personal identity
+  firstName       String    @default("")
+  lastName        String    @default("")
+  headline        String    @default("")
+  middleName      String    @default("")
+  preferredName   String    @default("")
+  pronouns        String    @default("")
+  gender          String    @default("")
+  dateOfBirth     String    @default("")
+  nationality     String    @default("")
+  maritalStatus   String    @default("")
+
+  // Contact
+  email           String    @default("")
+  phone           String    @default("")
+  phoneCountryCode String   @default("+91")
+  alternatePhone  String    @default("")
+
+  // Address
+  address         String    @default("")
+  addressLine2    String    @default("")
+  city            String    @default("")
+  state           String    @default("")
+  pincode         String    @default("")
+  country         String    @default("")
+  location        String    @default("")
+
+  // Online presence
+  linkedin        String    @default("")
+  github          String    @default("")
+  website         String    @default("")
+  portfolio       String    @default("")
+  twitter         String    @default("")
+
+  // Resume artifacts
+  resumeUrl       String    @default("")
+  resumeFileName  String    @default("")
+  resumeMimeType  String    @default("")
+  resumeUploadedAt BigInt   @default(0)
+  coverLetter     String    @default("")
+  masterResumeText String   @default("") @db.Text
+
+  // Work auth
+  workAuthorization   String @default("")
+  requiresSponsorship String @default("")
+  citizenship         String @default("")
+  visaType            String @default("")
+  visaExpiryDate      String @default("")
+
+  // Work preferences
+  willingToRelocate   String @default("")
+  immediateJoiner     String @default("")
+  yearsOfExperience   String @default("")
+  noticePeriod        String @default("")
+
+  // Compensation
+  currentCTC          String @default("")
+  expectedCTC         String @default("")
+  ctcCurrency         String @default("INR")
+  salaryExpectation   String @default("")
+  salaryCurrency      String @default("USD")
+
+  // Structured arrays (stored as JSONB)
+  skills              Json   @default("[]")
+  experience          Json   @default("[]")
+  education           Json   @default("[]")
+  projects            Json   @default("[]")
+  certifications      Json   @default("[]")
+  languages           Json   @default("[]")
+  publications        Json   @default("[]")
+  awards              Json   @default("[]")
+  savedAnswers        Json   @default("{}")
+  jobPreferences      Json   @default("{}")
+
+  // Compliance / EEOC
+  ethnicity           String @default("")
+  race                String @default("")
+  veteranStatus       String @default("")
+  disabilityStatus    String @default("")
+
+  // Sensitive IDs (encrypted at rest using pg_crypto in production)
+  pan                 String @default("")
+  aadhaar             String @default("")
+  ssn                 String @default("")
+  passportNumber      String @default("")
+
+  updatedAt           DateTime @updatedAt
+  createdAt           DateTime @default(now())
+
+  @@map("profiles")
+}
+
+// ── Job Applications ─────────────────────────────────────────────────────────
+
+model Application {
+  id              String    @id @default(cuid())
+  userId          String
+  user            User      @relation(fields: [userId], references: [userId], onDelete: Cascade)
+
+  jobId           String    @default("")
+  url             String    @default("")
+  title           String
+  company         String    @default("")
+  location        String    @default("")
+  salary          String    @default("")
+  source          String    @default("")   // "linkedin" | "indeed" | "naukri" etc.
+
+  stage           String    @default("saved") // "saved" | "applied" | "interview" | "offer" | "rejected"
+  notes           String    @default("") @db.Text
+
+  matchScore      Float     @default(0)
+  filledFields    Int       @default(0)
+  dryRun          Boolean   @default(false)
+
+  appliedAt       DateTime?
+  updatedAt       DateTime  @updatedAt
+  createdAt       DateTime  @default(now())
+
+  // AI tailoring: link to tailored resume version
+  tailoredResumeId String?
+  tailoredResume   Resume?   @relation(fields: [tailoredResumeId], references: [id])
+
+  @@index([userId, stage])
+  @@index([userId, appliedAt])
+  @@index([userId, source])
+  @@map("applications")
+}
+
+// ── Resumes & Tailored Versions ──────────────────────────────────────────────
+
+model Resume {
+  id              String    @id @default(cuid())
+  userId          String
+  user            User      @relation(fields: [userId], references: [userId], onDelete: Cascade)
+
+  name            String    @default("Master Resume")
+  text            String    @db.Text
+  fileUrl         String    @default("")
+  fileName        String    @default("")
+  mimeType        String    @default("")
+
+  // If tailored, which job was it tailored for?
+  tailoredForJobId String?
+  tailoredForJobTitle String?
+
+  atsScore        Float?
+  keywordsMatched Json      @default("[]")
+
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  applications    Application[]
+
+  @@index([userId])
+  @@map("resumes")
+}
+
+// ── Sync Checkpoints (extension ↔ cloud sync) ────────────────────────────────
+
+model SyncCheckpoint {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [userId], onDelete: Cascade)
+
+  key       String   // "profile" | "settings" | "applications" | "llmConfig"
+  updatedAt BigInt   // epoch ms — used to resolve push/pull conflicts
+
+  @@unique([userId, key])
+  @@map("sync_checkpoints")
+}
+
+// ── Job Alerts ───────────────────────────────────────────────────────────────
+
+model JobAlert {
+  id          String    @id @default(cuid())
+  userId      String
+  user        User      @relation(fields: [userId], references: [userId], onDelete: Cascade)
+
+  keywords    String[]
+  location    String    @default("")
+  minSalary   String    @default("")
+  remoteOnly  Boolean   @default(false)
+  sources     String[]  @default(["linkedin"])
+  active      Boolean   @default(true)
+
+  lastRunAt   DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@index([userId, active])
+  @@map("job_alerts")
+}
+
+// ── Stripe Event Idempotency ─────────────────────────────────────────────────
+
+model StripeEvent {
+  id          String    @id // Stripe event ID (evt_...)
+  userId      String?
+  user        User?     @relation(fields: [userId], references: [userId])
+
+  type        String    // e.g. "customer.subscription.updated"
+  processedAt DateTime  @default(now())
+
+  @@map("stripe_events")
+}
+
+// ── WS Tickets (Redis-backed in production — this table is for SQLite fallback) ──
+
+model WsTicket {
+  nonce       String    @id
+  userId      String
+  expiresAt   DateTime
+
+  @@index([expiresAt])
+  @@map("ws_tickets")
+}
+
+// ── Universal KV Store (PostgresStore backing table for tenant isolation) ──
+
+model KvStore {
+  namespace String
+  key       String
+  value     Json
+  updatedAt DateTime @default(now()) @map("updated_at")
+
+  @@id([namespace, key])
+  @@index([namespace])
+  @@map("kv_store")
+}
+

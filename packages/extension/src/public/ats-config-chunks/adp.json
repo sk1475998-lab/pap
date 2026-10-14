@@ -1,0 +1,1042 @@
+{
+  "atsName": "adp",
+  "urls": [
+    "*://recruiting.adp.com/srccar/public/*?appUI*",
+    "*://recruiting.adp.com/srccar/public/*&appUI=*",
+    "*://recruiting.adp.com/srccar/public/nghome.guid*",
+    "*://recruiting.adp.com/srccar/public/RTI.home*"
+  ],
+  "urlsExclude": [],
+  "submitButtonPaths": [
+    ".//button[@id='submitBtn']"
+  ],
+  "nextStepButtonPaths": [
+    ".//div[@data-dojo-attach-point='thePagerSingleGo']",
+    ".//button[@id='recruitment_jobDescription_apply']"
+  ],
+  "validationErrorPersistent": true,
+  "validationErrorXPaths": [
+    ".//div[contains(@class, 'dijitError')]",
+    ".//input[contains(@class, 'dijitError')]",
+    ".//table[contains(@class, 'dijitError')]"
+  ],
+  "errorBannerXPaths": [
+    ".//div[@role='dialog']//div[text()='Errors Found']"
+  ],
+  "targetNodeXPath": [
+    ".//div[@id='theViewNode']"
+  ],
+  "questionValidationErrorSelectors": [
+    "div[class*='dijitError'] > input, table[class*='dijitError']"
+  ],
+  "targetFrameNodeXPath": [],
+  "customQuestions": {
+    "patterns": {
+      "maxLabelLevel": "5"
+    },
+    "selectors": {
+      "question": "input[id], textarea[id], table[id], div[class*='dojositeMultiSelect'], div[id^='uniqName_'], div[id^='question_row'], fieldset[class='radio']",
+      "title": "div[class='header']",
+      "subTitle": "h3",
+      "checkbox": "input[type='checkbox']",
+      "label": "label"
+    },
+    "xpaths": {
+      "targetNodeXPath": [
+        ".//form[@data-dojo-id='theFormNode']"
+      ],
+      "listBoxPopupXPath": [
+        ".//table[@role='listbox' and @id='__id__']//tr//td//span[class='label']",
+        ".//table[@role='listbox' and @id='__id__']//tr//td[starts-with(@data-dojo-attach-point, 'containerNode')]"
+      ]
+    },
+    "ignoreQuestions": [
+      ".//td[contains(@class, 'dijitButtonContents') and .//input[@name='_dd']]",
+      ".//td[contains(@class, 'dijitButtonContents') and .//input[@name='_mm']]"
+    ]
+  },
+  "jobXPaths": {
+    "entities": [
+      [
+        "titleDisplay",
+        [
+          ".//span[contains(@class, 'jobTitle')]"
+        ]
+      ],
+      [
+        "originalCompanyName",
+        [
+          "substring(normalize-space(.//div[@id='app_body']//span[@class='company-name']/text()), 4)",
+          "substring-after(.//meta[(@property='og:site_name' or @name='application-name') and starts-with(@content, 'Careers at ')]/@content, 'Careers at ')",
+          ".//meta[@property='og:site_name' or @name='application-name']/@content"
+        ]
+      ],
+      [
+        "jobTypes",
+        [
+          ".//div[text()='Position Type' or text()='Position Status']/following-sibling::*[1]"
+        ]
+      ],
+      [
+        "postingDate",
+        []
+      ],
+      [
+        "url",
+        []
+      ],
+      [
+        "desc",
+        [
+          ".//div[text()='Job Description']/following-sibling::*[1]"
+        ]
+      ],
+      [
+        "locationDisplay",
+        [
+          ".//i[contains(@class, 'fa-map-mark')]/following-sibling::*[1]",
+          ".//div[text()='Location']/following-sibling::*[1]"
+        ]
+      ]
+    ]
+  },
+  "canJobBeAppliedXPaths": {
+    "applyButton": [
+      ".//button[contains(., 'Apply') and contains(@class, 'btn-primary')]"
+    ]
+  },
+  "contextData": {
+    "classifier": {
+      "applyBtnPath": [
+        "//a[contains(@href, 'recruiting.adp.com/srccar/public/') and CONTAINS_TEXT('apply', true)]"
+      ]
+    },
+    "options": {}
+  },
+  "preApply": {
+    "urls": [
+      "*://*.adp.com/*/*/public/RTI.home*"
+    ],
+    "entities": [
+      [
+        "applyBtn",
+        {
+          "actions": [
+            {
+              "key": "canJobBeAppliedXPaths.applyButton",
+              "method": "click"
+            }
+          ]
+        }
+      ],
+      [
+        "email",
+        [
+          {
+            "actions": [
+              {
+                "path": [
+                  ".//form[@id='enterEmailForm']//input[@id='email']"
+                ],
+                "method": "setValue"
+              },
+              {
+                "path": [
+                  ".//form[@id='enterEmailForm']//input[@id='enterEmailSubmitButton']"
+                ],
+                "method": "click"
+              }
+            ]
+          }
+        ]
+      ]
+    ]
+  },
+  "signIn": {
+    "urls": [],
+    "submitButton": [],
+    "createAccount": [],
+    "forgotPassword": [],
+    "email": [],
+    "password": [],
+    "errorMessage": [],
+    "endpoint": ""
+  },
+  "signUp": {
+    "errorMessage": [],
+    "submitButton": [],
+    "email": [],
+    "password": [],
+    "verifyPassword": [],
+    "endpoint": ""
+  },
+  "entities": [
+    [
+      "answerSource",
+      {
+        "actions": [
+          {
+            "path": [
+              "//div[contains(@class, 'source_display')]//div[contains(@class, 'sourcerow')][1]//table"
+            ],
+            "options": {
+              "waitForNetworkBeforeInteraction": true
+            },
+            "method": "click"
+          },
+          {
+            "path": [
+              "//div[@dijitpopupparent=//div[contains(@class, 'source_display')]//div[contains(@class, 'sourcerow')][1]//table/@widgetid]"
+            ],
+            "method": "clickOptionWithMultiAnswers",
+            "values": {
+              "source": [
+                "Google",
+                "Other",
+                "Internet",
+                "Web",
+                "Board",
+                "website",
+                "social network",
+                "job board",
+                "job site"
+              ]
+            },
+            "options": {
+              "lowPriority": [
+                "Indeed",
+                "ZipRecruiter",
+                "LinkedIn",
+                "Glassdoor",
+                "Simplyhired",
+                "Dice",
+                "CareerBuilder",
+                "Monster"
+              ],
+              "prohibited": [
+                "referral",
+                "referred",
+                "connection",
+                "at the company",
+                "for the organization",
+                "employee",
+                "select",
+                "current worker"
+              ],
+              "ignoreFirst": true,
+              "selectFirstExcludingProhibited": true
+            }
+          },
+          {
+            "path": [
+              "//div[contains(@class, 'source_display')]//div[contains(@class, 'sourcerow')][2]//table"
+            ],
+            "method": "click"
+          },
+          {
+            "path": [
+              "//div[@dijitpopupparent=//div[contains(@class, 'source_display')]//div[contains(@class, 'sourcerow')][2]//table/@widgetid]"
+            ],
+            "method": "clickOptionWithMultiAnswers",
+            "values": {
+              "source": [
+                "Other",
+                "Google"
+              ]
+            },
+            "options": {
+              "lowPriority": [
+                "Indeed",
+                "ZipRecruiter",
+                "LinkedIn",
+                "Glassdoor",
+                "Simplyhired",
+                "Dice",
+                "CareerBuilder",
+                "Monster"
+              ],
+              "prohibited": [
+                "referral",
+                "referred",
+                "connection",
+                "at the company",
+                "for the organization",
+                "employee",
+                "select",
+                "current worker"
+              ],
+              "ignoreFirst": true,
+              "selectFirstExcludingProhibited": true
+            }
+          },
+          {
+            "path": [
+              "//div[contains(@class, 'source_display')]//div[contains(@class, 'sourcerow')]//input[@type='text' and @value='']"
+            ],
+            "method": "setValue",
+            "defaultValue": "Job Board"
+          }
+        ]
+      }
+    ],
+    [
+      "firstName",
+      [
+        ".//input[starts-with(@name, 'firstName')]",
+        "//input[@id='guestFirstName']"
+      ]
+    ],
+    [
+      "lastName",
+      [
+        ".//input[starts-with(@name, 'lastName')]",
+        "//input[@id='guestLastName']"
+      ]
+    ],
+    [
+      "email",
+      [
+        ".//input[starts-with(@name, 'emailAddress')]",
+        ".//input[@id='guestEmail']"
+      ]
+    ],
+    [
+      "phoneType",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//label[contains(., 'Phone Type')]/following-sibling::*[1]",
+              ".//label[contains(., 'Phone Type')]/following-sibling::*[1]//table"
+            ],
+            "method": "click"
+          },
+          {
+            "path": [
+              ".//table[@id='__ariaOwns__']"
+            ],
+            "ariaPath": [
+              ".//label[contains(., 'Phone Type')]/following-sibling::*[1]",
+              ".//label[contains(., 'Phone Type')]/following-sibling::*[1]//table"
+            ],
+            "values": {
+              "mobile": [
+                "Cell Phone"
+              ]
+            },
+            "method": "clickOption",
+            "attributes": {
+              "ariaOwns": "aria-owns"
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "phone",
+      [
+        ".//input[starts-with(@name, 'phone')]",
+        ".//input[@id='login_view_phone']"
+      ]
+    ],
+    [
+      "addressType",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//select[contains(@id, 'PersonProfileFields.AddressType')]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "home": [
+                "Home"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "addressLine1",
+      [
+        ".//input[starts-with(@name, 'address1')]"
+      ]
+    ],
+    [
+      "city",
+      [
+        ".//input[starts-with(@name, 'city')]"
+      ]
+    ],
+    [
+      "postalCode",
+      [
+        ".//input[starts-with(@name, 'zip')]"
+      ]
+    ],
+    [
+      "stateName",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//label[contains(., 'State')]/following-sibling::*[1]",
+              ".//label[contains(., 'State')]/following-sibling::*[1]//table"
+            ],
+            "method": "click"
+          },
+          {
+            "path": [
+              ".//table[@id='__ariaOwns__']"
+            ],
+            "ariaPath": [
+              ".//label[contains(., 'State')]/following-sibling::*[1]",
+              ".//label[contains(., 'State')]/following-sibling::*[1]//table"
+            ],
+            "method": "clickOption",
+            "attributes": {
+              "ariaOwns": "aria-owns"
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "resume",
+      [
+        ".//div[@name='desktopButton' and contains(@id, 'resume')]//input[@type='file' and contains(@name, 'resume')]"
+      ]
+    ],
+    [
+      "experience",
+      {
+        "addButtonPath": [
+          ".//div[@id='theAddRepeatButton' and contains(., 'Add Employer')]"
+        ],
+        "containerPath": [
+          "//div[@id='_eformrender_repeat___indexPlusOne__' and not(@style[contains(., 'display: none')]) and descendant::label[contains(., 'Employer')]]",
+          "//div[@id='_eformrender_repeat___indexPlusOne__' and descendant::label[contains(., 'Employer')]]"
+        ],
+        "entities": [
+          [
+            "title",
+            [
+              ".//input[starts-with(@name, '$$employerEndTitle')]"
+            ]
+          ],
+          [
+            "companyName",
+            [
+              ".//input[starts-with(@name, '$$employerName')]"
+            ]
+          ],
+          [
+            "city",
+            [
+              ".//input[starts-with(@name, '$$employerCity')]"
+            ]
+          ],
+          [
+            "reasonLeaving",
+            [
+              ".//textarea[starts-with(@name, '$$employerReasonForLeaving')]"
+            ]
+          ],
+          [
+            "country",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//label[contains(., 'Country')]/table",
+                    ".//label[contains(., 'Country')]/following-sibling::*[1]//table"
+                  ],
+                  "method": "click"
+                },
+                {
+                  "path": [
+                    ".//table[@id='__ariaOwns__']"
+                  ],
+                  "ariaPath": [
+                    ".//label[contains(., 'Country')]/table",
+                    ".//label[contains(., 'Country')]/following-sibling::*[1]//table"
+                  ],
+                  "method": "clickOption",
+                  "options": {
+                    "containerElement": "document"
+                  },
+                  "attributes": {
+                    "ariaOwns": "aria-owns"
+                  },
+                  "values": {
+                    "": [
+                      "United States"
+                    ],
+                    "United States": [
+                      "United States"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "stateName",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//label[contains(., 'State')]/following-sibling::*[1]//table"
+                  ],
+                  "method": "click"
+                },
+                {
+                  "path": [
+                    ".//table[@id='__ariaOwns__']"
+                  ],
+                  "ariaPath": [
+                    ".//label[contains(., 'State')]/following-sibling::*[1]//table"
+                  ],
+                  "method": "clickOption",
+                  "options": {
+                    "containerElement": "document"
+                  },
+                  "attributes": {
+                    "ariaOwns": "aria-owns"
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "startDate",
+            [
+              ".//input[starts-with(@name, '$$employerStartDate')]/preceding-sibling::*[2]"
+            ]
+          ],
+          [
+            "startDateSlashes_MMDDYYYY",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[contains(@name, 'employerStartDate___indexPlusOne___RTiCandidateDate')]"
+                  ],
+                  "method": "click"
+                },
+                {
+                  "path": [
+                    ".//input[contains(@name, 'employerStartDate___indexPlusOne___RTiCandidateDate')]"
+                  ],
+                  "method": "setValue"
+                }
+              ]
+            }
+          ],
+          [
+            "endDate",
+            [
+              ".//input[starts-with(@name, '$$employerEndDate')]/preceding-sibling::*[2]"
+            ]
+          ],
+          [
+            "isCurrent",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//div[contains(@data-dojosite-fld, 'employerType')]//table"
+                  ],
+                  "method": "click"
+                },
+                {
+                  "path": [
+                    ".//table[@id='__ariaOwns__']"
+                  ],
+                  "ariaPath": [
+                    ".//div[contains(@data-dojosite-fld, 'employerType')]//table"
+                  ],
+                  "method": "clickOption",
+                  "values": {
+                    "true": [
+                      "Current"
+                    ],
+                    "false": [
+                      "Previous"
+                    ],
+                    "": [
+                      "No Previous Work Experience"
+                    ]
+                  },
+                  "options": {
+                    "containerElement": "document"
+                  },
+                  "attributes": {
+                    "ariaOwns": "aria-owns"
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "mayWeContact",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//label[contains(., 'May We Contact')]/following-sibling::*[1]//table"
+                  ],
+                  "method": "click"
+                },
+                {
+                  "path": [
+                    ".//table[@id='__ariaOwns__']"
+                  ],
+                  "ariaPath": [
+                    ".//label[contains(., 'May We Contact')]/following-sibling::*[1]//table"
+                  ],
+                  "method": "clickOption",
+                  "values": {
+                    "true": [
+                      "Yes"
+                    ],
+                    "false": [
+                      "No"
+                    ]
+                  },
+                  "options": {
+                    "containerElement": "document"
+                  },
+                  "attributes": {
+                    "ariaOwns": "aria-owns"
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "description",
+            [
+              ".//textarea[starts-with(@name, '$$employerJobDuties')]"
+            ]
+          ]
+        ]
+      }
+    ],
+    [
+      "education",
+      {
+        "addButtonPath": [
+          ".//div[@id='theAddRepeatButton' and contains(., 'Add Education')]"
+        ],
+        "containerPath": [
+          ".//div[@id='_eformrender_repeat___indexPlusOne__' and descendant::label[contains(., 'Education Level')]]"
+        ],
+        "entities": [
+          [
+            "name",
+            [
+              ".//input[starts-with(@name, '$$educationSchoolName')]"
+            ]
+          ],
+          [
+            "city",
+            [
+              ".//input[starts-with(@name, '$$educationCity')]"
+            ]
+          ],
+          [
+            "major",
+            [
+              ".//input[starts-with(@name, '$$educationMajor')]"
+            ]
+          ],
+          [
+            "degree",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//label[contains(., 'Education Level')]/following-sibling::*[1]//table"
+                  ],
+                  "method": "click"
+                },
+                {
+                  "path": [
+                    ".//table[@id='__ariaOwns__']"
+                  ],
+                  "ariaPath": [
+                    ".//label[contains(., 'Education Level')]/following-sibling::*[1]//table"
+                  ],
+                  "method": "clickOption",
+                  "values": {
+                    "bachelor's": [
+                      "Bachelor",
+                      "Bachelor's Level Degree"
+                    ],
+                    "master's": [
+                      "Master",
+                      "Master's Level Degree"
+                    ],
+                    "associate": [
+                      "2 - Year College Degree",
+                      "Associate",
+                      "Some Graduate School"
+                    ],
+                    "doctorate": [
+                      "Doctorate"
+                    ],
+                    "highschool": [
+                      "High School",
+                      "Some High School",
+                      "HS Graduate or Equivalent"
+                    ],
+                    "High School / GED": [
+                      "High School",
+                      "Some High School"
+                    ]
+                  },
+                  "options": {
+                    "containerElement": "document"
+                  },
+                  "attributes": {
+                    "ariaOwns": "aria-owns"
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "country",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//label[contains(., 'Country')]/table",
+                    ".//label[contains(., 'Country')]/following-sibling::*[1]//table"
+                  ],
+                  "method": "click"
+                },
+                {
+                  "path": [
+                    ".//table[@id='__ariaOwns__']"
+                  ],
+                  "ariaPath": [
+                    ".//label[contains(., 'Country')]/table",
+                    ".//label[contains(., 'Country')]/following-sibling::*[1]//table"
+                  ],
+                  "method": "clickOption",
+                  "options": {
+                    "containerElement": "document"
+                  },
+                  "attributes": {
+                    "ariaOwns": "aria-owns"
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "stateName",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//label[contains(., 'State')]/table",
+                    ".//label[contains(., 'State')]/following-sibling::*[1]//table"
+                  ],
+                  "method": "click"
+                },
+                {
+                  "path": [
+                    ".//table[@id='__ariaOwns__']"
+                  ],
+                  "ariaPath": [
+                    ".//label[contains(., 'State')]/table",
+                    ".//label[contains(., 'State')]/following-sibling::*[1]//table"
+                  ],
+                  "method": "clickOption",
+                  "options": {
+                    "containerElement": "document"
+                  },
+                  "attributes": {
+                    "ariaOwns": "aria-owns"
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "isCurrent",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//label[contains(., 'Graduated?')]/following-sibling::*[1]//table"
+                  ],
+                  "method": "click"
+                },
+                {
+                  "path": [
+                    ".//table[@id='__ariaOwns__']"
+                  ],
+                  "ariaPath": [
+                    ".//label[contains(., 'Graduated?')]/following-sibling::*[1]//table"
+                  ],
+                  "method": "clickOption",
+                  "values": {
+                    "true": [
+                      "No"
+                    ],
+                    "false": [
+                      "Yes"
+                    ]
+                  },
+                  "options": {
+                    "containerElement": "document"
+                  },
+                  "attributes": {
+                    "ariaOwns": "aria-owns"
+                  }
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    [
+      "gender",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//fieldset[@for='eeoGender']"
+            ],
+            "method": "clickOption",
+            "values": {
+              "Male": [
+                "Male",
+                "Man"
+              ],
+              "Female": [
+                "Female",
+                "Woman"
+              ],
+              "Other": [
+                "Other"
+              ],
+              "Decline to identify": [
+                "Decline to identify",
+                "Decline",
+                "I don't wish",
+                "Prefer not",
+                "Opt Out"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "deviceType",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//div[text()='Phone Type']/following-sibling::*[1]"
+            ],
+            "method": "click",
+            "delay": 200
+          },
+          {
+            "path": [
+              ".//div[starts-with(@class, 'dijitPopup')]//table[@role='listbox']//td[contains(., 'Cell')]"
+            ],
+            "method": "click"
+          }
+        ]
+      }
+    ],
+    [
+      "hispanicLatino",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//span[contains(., 'Are you Hispanic or Latino?')]/.."
+            ],
+            "method": "clickOption",
+            "values": {
+              "true": [
+                "Yes",
+                "Hispanic"
+              ],
+              "false": [
+                "No",
+                "Not Hispanic",
+                "Prefer not"
+              ],
+              "": [
+                "Decline",
+                "No",
+                "I don't wish",
+                "Prefer not",
+                "Decline To Identify"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "over18",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//div[contains(., 'Are you at least 18 years of age?')]/..",
+              ".//div[@id='question_row_238816215']//div[contains(@class, 'required') and contains(text(), 'Are you at least 18 years of age?')]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "true": [
+                "Yes"
+              ],
+              "false": [
+                "No"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "birthDay",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//td[contains(@class, 'dijitButtonContents') and .//input[@name='_dd']]"
+            ],
+            "method": "click"
+          },
+          {
+            "path": [
+              ".//td[contains(@class, 'dijitMenuItemLabel')]//span[text() = '__birthDay__ ']"
+            ],
+            "method": "click"
+          }
+        ]
+      }
+    ],
+    [
+      "birthMonth",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//td[contains(@class, 'dijitButtonContents') and .//input[@name='_mm']]"
+            ],
+            "method": "click"
+          },
+          {
+            "path": [
+              ".//table[@id='_mm_menu']"
+            ],
+            "method": "clickOption",
+            "values": {
+              "1": [
+                "Jan",
+                "January",
+                "01"
+              ],
+              "2": [
+                "Feb",
+                "February",
+                "02"
+              ],
+              "3": [
+                "Mar",
+                "March",
+                "03"
+              ],
+              "4": [
+                "Apr",
+                "April",
+                "04"
+              ],
+              "5": [
+                "May",
+                "05"
+              ],
+              "6": [
+                "Jun",
+                "June",
+                "06"
+              ],
+              "7": [
+                "Jul",
+                "July",
+                "07"
+              ],
+              "8": [
+                "Aug",
+                "August",
+                "08"
+              ],
+              "9": [
+                "Sep",
+                "September",
+                "09"
+              ],
+              "10": [
+                "Oct",
+                "October",
+                "10"
+              ],
+              "11": [
+                "Nov",
+                "November",
+                "11"
+              ],
+              "12": [
+                "Dec",
+                "December",
+                "12"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "country",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//label[contains(., 'Country')]/table",
+              ".//label[contains(., 'Country')]/following-sibling::*[1]//table"
+            ],
+            "method": "prefilled"
+          }
+        ]
+      }
+    ],
+    [
+      "county",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//label[text()='County']/following-sibling::*[1]"
+            ],
+            "method": "prefilled"
+          }
+        ]
+      }
+    ]
+  ]
+}

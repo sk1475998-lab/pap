@@ -1,0 +1,40 @@
+Execute Phase C: Headless Unit & Integration Tests.
+
+TASKS:
+1. Run and verify unit tests for resolver.ts (Unicode, script injection, length limits).
+2. Run and verify unit tests for salary-engine.ts.
+3. Run and verify cosine match matching.
+4. Run and verify rate-governor.ts hours, limits, and cooldown behavior.
+5. Run and verify otp-interceptor.ts timeout and extraction.
+6. Run and verify filler.ts Virtual DOM framework bindings.
+
+Produce a JSON output matching the Phase C handoff schema exactly.
+Example schema output format:
+===HANDOFF_JSON_START===
+{
+  "phase": "C",
+  "test_results": [
+    {
+      "test_id": "C1-...",
+      "module": "resolver.ts",
+      "input": "...",
+      "expected": "...",
+      "actual": "...",
+      "passed": true,
+      "bug_id": null
+    }
+  ],
+  "bugs_found": [
+    {
+      "id": "...",
+      "severity": "medium",
+      "module": "...",
+      "description": "...",
+      "root_cause_hypothesis": "...",
+      "fix_location": "...",
+      "fix_suggestion": "..."
+    }
+  ],
+  "critical_blockers": []
+}
+===HANDOFF_JSON_END===

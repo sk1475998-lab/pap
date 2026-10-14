@@ -1,0 +1,3947 @@
+{
+  "atsName": "oraclecloud",
+  "urls": [
+    "*://*.com/hcmUI/CandidateExperience/en/sites/CX*/job/*/apply",
+    "*://*.com/hcmUI/CandidateExperience/en/sites/CX*/apply",
+    "*://*.fa.*.oraclecloud.com/hcmUI/CandidateExperience/es/sites/*/job/*/apply",
+    "*://*.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/*/job/*/apply",
+    "*://*.fa.*.oraclecloud.com/hcmUI/CandidateExperience/*/sites/CX*/job/*/easy-apply/*",
+    "*://*.fa.*.oraclecloud.com/hcmUI/CandidateExperience/*/sites/*/jobs/preview/*/apply/*"
+  ],
+  "globalOptions": {
+    "waitForAllRequestsBeforeFillingStep": true,
+    "waitForInteractionNetworkRequests": true
+  },
+  "validationErrorPersistent": true,
+  "formLoadingAfterNextStepClick": true,
+  "formLoadingXPaths": [
+    "//indeterminate-progress-bar/div[contains(@class, 'indeterminate-progress-bar')]",
+    "//div[contains(@class, 'checklist__progress') and count(.//oj-progress-bar) > 1]"
+  ],
+  "loadingSpinnerXPath": [
+    "//div[@class='app-loading-spinner']"
+  ],
+  "detectPageQuestions": true,
+  "highPriority": [
+    "country",
+    "addressLine1",
+    "city",
+    "state",
+    "county",
+    "postalCode"
+  ],
+  "lowPriorityEntities": [
+    "resume"
+  ],
+  "monitorSubmitFlow": true,
+  "formLoadingAfterSubmitClick": true,
+  "verificationAfterSubmit": true,
+  "expiredJob": [
+    {
+      "container": [
+        ".//h1",
+        ".//h2"
+      ],
+      "keywords": [
+        "current openings",
+        "current job openings",
+        "no current openings.",
+        "open positions",
+        "no longer available"
+      ]
+    }
+  ],
+  "networkOptions": {
+    "blacklistedUrlParts": [
+      "linkedin",
+      "analytics",
+      "insights",
+      "doubleclick",
+      "track",
+      "trackings",
+      "drafts",
+      "mapviewer",
+      "blob"
+    ]
+  },
+  "urlsExclude": [],
+  "exitModalWindow": [
+    ".//button[contains(@data-qa, 'addTileItemDialogButton')]"
+  ],
+  "submitButtonPaths": [
+    ".//button[contains(@class, 'button apply-flow-pagination__button') and not(@data-qa='applyFlowPaginationNextButton') and not(@title='Back') and .//span[contains(@class, 'button__label') and normalize-space(text()) = 'Submit']]"
+  ],
+  "nextStepButtonPaths": [
+    ".//button[contains(@class, 'button apply-flow-pagination__button') and @data-qa='applyFlowPaginationNextButton']",
+    "//button[contains(@class, 'apply-flow-pagination__button') and not(contains(translate(@aria-label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'back')) and not(contains(translate(@aria-label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'cancel'))]",
+    ".//button[contains(@class, 'apply-flow-dialog__button') and @type='submit' and .//span[contains(@class, 'button__label') and normalize-space(text()) = 'Verify']]",
+    ".//button[contains(@id, 'applyFlowLegalDisclaimer')]",
+    "//a[contains(@class, 'quick-apply-flow__manually--link')]"
+  ],
+  "validationErrorXPaths": [
+    ".//div[contains(@class, 'dijitError')]",
+    ".//input[contains(@class, 'dijitError')]",
+    ".//table[contains(@class, 'dijitError')]",
+    ".//div[contains(@class, 'docUploadLocalError')]",
+    ".//p[@role='alert' and contains(@data-bind, 'getError')]",
+    ".//p[@role='alert' and contains(@class, 'input-row__validation')]"
+  ],
+  "errorBannerXPaths": [
+    "//button[contains(@class, 'apply-flow-fixer__button')][.//span[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'view error')]]"
+  ],
+  "clickErrorBannerAfterFailedSubmit": true,
+  "waitForSubmitOutcome": true,
+  "checkVerificationAfterSubmit": true,
+  "targetNodeXPath": [
+    ".//form[@class='apply-flow__content']",
+    ".//div[contains(@class,'job-details-page-container')]",
+    ".//section[contains(@class, 'apply-flow__content')]",
+    ".//span[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'view error')]"
+  ],
+  "verificationRequired": {
+    "errorXPath": [
+      "//h1[contains(translate(normalize-space(.),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'confirm') and contains(translate(normalize-space(.),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'identity')]",
+      "//button[contains(translate(@data-bind,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'verify') and .//span[contains(translate(normalize-space(.),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'verify')]]"
+    ]
+  },
+  "questionValidationErrorSelectors": [
+    "[class*='validation-error']",
+    "[class*='row__validation']"
+  ],
+  "confirmSubmittedForm": {
+    "urls": [
+      "my-profile"
+    ],
+    "confirmMessageXPath": [
+      "//h1[contains(translate(normalize-space(.),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'thank you for applying')]",
+      "//div[contains(translate(normalize-space(.),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'has been submitted')]"
+    ]
+  },
+  "questionsInSubmitPage": true,
+  "alwaysSyncWindowId": true,
+  "targetFrameNodeXPath": [],
+  "customQuestions": {
+    "patterns": {
+      "questionId": "input-"
+    },
+    "selectors": {
+      "title": "h2",
+      "label": "label",
+      "labelInputGroup": ".apply-flow-input-radio__label, .apply-flow-input-checkbox__label, .cx-select-pill-name",
+      "question": "input[type='text'], input[aria-required='true'], textarea[class],input[aria-label='${label.textContent}'], div[role='radiogroup'], div[role='group'], div[class*='has-picker']:not([class*='geo-hierarchy'])",
+      "ariaLabelledBy": "[aria-labelledby*=__labelId__]",
+      "roleOption": "[role='option']",
+      "radioInput": "input[type='radio']",
+      "monthInput": "input[aria-valuetext='MM']",
+      "dateInput": "input[aria-valuetext='DD']",
+      "yearInput": "input[aria-valuetext='YYYY']",
+      "checkbox": "span[class='apply-flow-input-checkbox__button'], span[class='cx-select-pill-name']",
+      "optionsSelector": ".apply-flow-input-radio, .apply-flow-input-checkbox, li[role='listitem'] button",
+      "questionParent": ".input-row-composite__inputs",
+      "formGroup": ".input-row__control-container",
+      "mapOption": "[role='row'], [role='presentation'] > div, li[role='option'] > div",
+      "contextSelector": "span[class='input-field__label']"
+    },
+    "xpaths": {
+      "currentListItem": [],
+      "listInputBackBtnText": [],
+      "selectPopupXPath": [],
+      "listBoxPopupXPath": [],
+      "selectedItemListXPath": [],
+      "requiredFieldXPath": [
+        "//span[contains(@class, 'required')]"
+      ]
+    },
+    "ignoreQuestions": [
+      ".//input[contains(@aria-label, 'Veteran Discharge Date')]",
+      "//div[@class='oj-text-field-middle']//span[text()='Day']/ancestor::oj-label/following-sibling::input",
+      "//div[@class='oj-text-field-middle']//span[text()='Month']/ancestor::oj-label/following-sibling::input",
+      ".//input[contains(@aria-label, 'TERRITORIES')]",
+      ".//input[contains(@aria-label, 'TERRITORIES')]/ancestor::div[2]/following-sibling::oj-input-text//input",
+      "//div[label[contains(translate(normalize-space(.), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'country')]]//input[contains(@id, 'filter')]",
+      ".//input[starts-with(@aria-label, 'State')]/ancestor::div[2]/following-sibling::oj-input-text//input",
+      ".//input[contains(@aria-label, 'TERRITORIES')]/ancestor::div[2]/following-sibling::oj-input-text//input",
+      "//div[label[contains(translate(normalize-space(.), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'state')]]//input[contains(@id, 'filter')]",
+      "//input[@name='region2']",
+      ".//input[starts-with(@aria-label, 'State') and contains(@id, 'filter')]",
+      ".//input[starts-with(translate(@aria-label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'county')]",
+      "//input[@name='region1']",
+      ".//input[starts-with(translate(@aria-label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'city')]/ancestor::div[2]/following-sibling::oj-input-text//input",
+      "//input[@name='city']",
+      "//div[label[contains(translate(normalize-space(.), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'city')]]//input[contains(@id, 'filter')]",
+      ".//input[starts-with(translate(@aria-label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'zip code')]/ancestor::div[2]/following-sibling::oj-input-text//input",
+      ".//input[starts-with(translate(@aria-label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'postal code')]/ancestor::div[2]/following-sibling::oj-input-text//input",
+      "//input[@name='postalCode']",
+      "//div[contains(@class, 'input-row--has-picker') and .//label[contains(., 'Phone')]]",
+      "//input[@name='phoneNumber']"
+    ]
+  },
+  "jobXPaths": {
+    "entities": [
+      [
+        "titleDisplay",
+        [
+          ".//h1[contains(@class, 'job-details__title')]"
+        ]
+      ],
+      [
+        "originalCompanyName",
+        [
+          "//meta[contains(@property, 'site_name')]/@content"
+        ]
+      ],
+      [
+        "jobTypes",
+        []
+      ],
+      [
+        "postingDate",
+        []
+      ],
+      [
+        "locationDisplay",
+        [
+          ".//span[contains(@data-bind, 'postingLocationsContent')]"
+        ]
+      ],
+      [
+        "url",
+        []
+      ],
+      [
+        "desc",
+        [
+          ".//div[contains(@class, 'job-details__description-content')]"
+        ]
+      ]
+    ]
+  },
+  "canJobBeAppliedXPaths": {
+    "applyButton": [
+      ".//button[contains(@class, 'apply-now-button') and not(@disabled) and not(contains(@class, 'already-applied'))]"
+    ]
+  },
+  "contextData": {
+    "classifier": {
+      "applyBtnPath": [
+        "//a[contains(@href, 'oraclecloud.com') and CONTAINS_TEXT('apply', true)]",
+        "//a[contains(@data-apply-url, 'oraclecloud.com') and CONTAINS_TEXT('apply', true)]"
+      ]
+    },
+    "options": {}
+  },
+  "preApply": {
+    "urls": [
+      "*://*.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/*/job/*",
+      "*://*.fa.*.oraclecloud.com/hcmUI/CandidateExperience/en/sites/*/job/*",
+      "*://*.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/*/sites/*/job/*"
+    ],
+    "entities": [
+      [
+        "cookieConsent",
+        {
+          "actions": [
+            {
+              "path": [
+                "//button[@id='onetrust-accept-btn-handler']"
+              ],
+              "method": "click"
+            }
+          ]
+        }
+      ],
+      [
+        "applyBtn",
+        {
+          "actions": [
+            {
+              "key": "canJobBeAppliedXPaths.applyButton",
+              "method": "click",
+              "time": 500
+            }
+          ]
+        }
+      ]
+    ],
+    "continueFilling": true
+  },
+  "signIn": {
+    "urls": [],
+    "submitButton": [],
+    "createAccount": [],
+    "forgotPassword": [],
+    "email": [],
+    "password": [],
+    "errorMessage": [],
+    "endpoint": ""
+  },
+  "signUp": {
+    "errorMessage": [],
+    "submitButton": [],
+    "email": [],
+    "password": [],
+    "verifyPassword": [],
+    "endpoint": ""
+  },
+  "verification": {
+    "enabled": true,
+    "interval": 15000,
+    "maxDuration": 120000,
+    "codeConfig": [
+      {
+        "type": "segments",
+        "inputs": [
+          "//input[contains(translate(@aria-label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'verification code')]"
+        ],
+        "confirmButton": [
+          "//button[CONTAINS_TEXT('verify', true)]"
+        ]
+      }
+    ]
+  },
+  "entities": [
+    [
+      "email",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//input[starts-with(@name, 'emailAddress') or @id='guestEmail' or contains(@id, 'primary-email')]"
+            ],
+            "method": "setValue",
+            "options": {
+              "waitForNetworkBeforeInteraction": true,
+              "waitForElementTimeout": 3500
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "email",
+          "apply"
+        ]
+      }
+    ],
+    [
+      "privacyAgreement",
+      {
+        "actions": [
+          {
+            "path": [
+              "//span[contains(@class, 'apply-flow-input-checkbox__button') and contains(@data-bind, 'legalDisclaimer') and not(contains(@class, 'hide'))]",
+              "//button[contains(@id, 'applyFlowLegalDisclaimer') and contains(@data-bind, 'acceptance') and not(contains(@class, 'hide'))]"
+            ],
+            "method": "click",
+            "options": {
+              "waitForNetworkAfterInteraction": true
+            },
+            "time": 750
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "privacy agreement",
+          "legal disclaimer",
+          "terms and conditions",
+          "apply",
+          "i agree",
+          "have an account",
+          "communicate",
+          "get started"
+        ]
+      }
+    ],
+    [
+      "verification",
+      {
+        "actions": [
+          {
+            "method": "checkVerificationRequired"
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "confirm your identity",
+          "verify",
+          "verification code"
+        ]
+      }
+    ],
+    [
+      "lastName",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//input[starts-with(@name, 'lastName')]",
+              "//input[@id='guestLastName']"
+            ],
+            "method": "setValue",
+            "options": {
+              "waitForNetworkBeforeInteraction": true
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "last name",
+          "surname",
+          "family name"
+        ]
+      }
+    ],
+    [
+      "firstName",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//input[starts-with(@name, 'firstName')]",
+              "//input[@id='guestFirstName']"
+            ],
+            "method": "setValue",
+            "options": {
+              "waitForNetworkBeforeInteraction": true
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "first name"
+        ]
+      }
+    ],
+    [
+      "preferredFirstName",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//input[contains(@name, 'knownAs')]"
+            ],
+            "method": "setValue",
+            "options": {
+              "waitForNetworkBeforeInteraction": true,
+              "waitForNetworkAfterInteraction": true
+            },
+            "time": 750
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "preferred name"
+        ]
+      }
+    ],
+    [
+      "phoneCode",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//label[contains(., 'Country code')]/../../following-sibling::*[1]",
+              "//input[@id='country-codes-dropdownphoneNumber']"
+            ],
+            "method": "click",
+            "options": {
+              "checkElementVisibility": true,
+              "waitForNetworkBeforeInteraction": true,
+              "waitForNetworkAfterInteraction": true
+            },
+            "time": 500
+          },
+          {
+            "path": [
+              "//oj-label[.//span[text()='Country code']]/following-sibling::input",
+              "//input[@id='country-codes-dropdownphoneNumber']"
+            ],
+            "method": "setValue",
+            "defaultValue": "+1 (United States)",
+            "options": {
+              "triggerBlurEvent": false,
+              "resetValue": true,
+              "triggerChangeEvent": true,
+              "triggerKeyDownEvent": true,
+              "triggerKeyUpEvent": true,
+              "triggerInputEvent": true,
+              "waitForNetworkAfterInteraction": true,
+              "waitForNetworkBeforeInteraction": true,
+              "optionMapper": true
+            }
+          },
+          {
+            "path": [
+              "//ul[@role='grid'][li[contains(@class, 'listview-item')]]",
+              "//div[contains(@id, 'country-codes-dropdownphoneNumber') and contains(@class, 'options')]//div"
+            ],
+            "method": "clickOption",
+            "options": {
+              "forceOptionSearch": true,
+              "defaultValue": "+1 (United States)",
+              "waitForNetworkBeforeInteraction": true
+            },
+            "time": 750
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "phone code",
+          "country code"
+        ]
+      }
+    ],
+    [
+      "phoneStripped",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//input[contains(@class, 'phone-row__input')]"
+            ],
+            "method": "setValue",
+            "options": {
+              "waitForNetworkAfterInteraction": true,
+              "waitForNetworkBeforeInteraction": true
+            },
+            "time": 500
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "phone"
+        ]
+      }
+    ],
+    [
+      "addressType",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//select[contains(@id, 'PersonProfileFields.AddressType')]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "home": [
+                "Home"
+              ]
+            },
+            "options": {
+              "checkElementVisibility": true
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "workAuth",
+      {
+        "actions": [
+          {
+            "path": [
+              "//input[not(contains(@aria-label, 'sponsorship')) and (contains(@aria-label, 'work') and (contains(@aria-label, 'authorized') or contains(@aria-label, 'permitted') or contains(@aria-label, 'eligible') or contains(@aria-label, 'lawfully') or contains(@aria-label, 'legally') or contains(@aria-label, 'right'))) and contains(@id, 'filter')]"
+            ],
+            "method": "click",
+            "options": {
+              "checkElementVisibility": true,
+              "waitForNetworkAfterInteraction": true
+            }
+          },
+          {
+            "path": [
+              "//ul[@role='grid'][li[contains(@class, 'listview-item')] and @role='grid']"
+            ],
+            "method": "clickOption",
+            "options": {
+              "containerElement": "document",
+              "waitForNetworkBeforeInteraction": true
+            },
+            "values": {
+              "true": [
+                "Yes",
+                "I am authorized to work"
+              ],
+              "false": [
+                "No",
+                "I require sponsorship to work"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "work authorization",
+          "right to work",
+          "authorized",
+          "permitted",
+          "eligible"
+        ]
+      }
+    ],
+    [
+      "sponsorship",
+      {
+        "actions": [
+          {
+            "path": [
+              "//div[@role='radiogroup' and .//label[contains(normalize-space(.), 'require sponsorship')]]"
+            ],
+            "method": "clickOption",
+            "options": {
+              "containerElement": "document",
+              "waitForNetworkBeforeInteraction": true
+            },
+            "values": {
+              "true": [
+                "Yes",
+                "I am authorized to work"
+              ],
+              "false": [
+                "No",
+                "I require sponsorship to work"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "sponsorship"
+        ]
+      }
+    ],
+    [
+      "answerSource",
+      {
+        "actions": [
+          {
+            "path": [
+              "//input[not(contains(translate(@style, 'HIDEN', 'hiden'), 'hidden')) and (contains(translate(@aria-label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'how did you hear about this job') or contains(translate(@aria-label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'how did you hear about us') or contains(translate(@aria-label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'how did you first find out') or contains(translate(@aria-label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'source') or contains(translate(@aria-label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'how did you find out about this position'))] | //div[contains(@class, 'input-row') and .//span[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'how you heard about this job')]]//input[not(contains(@style, 'display: none'))]",
+              "//input[contains(@aria-label, 'How did you hear about') and contains(@id, 'filter')]",
+              "//button[contains(@aria-label, 'How did you hear about us?')]/ancestor::div[contains(@class, 'input-field-container')]//input"
+            ],
+            "method": "click",
+            "options": {
+              "waitForNetworkAfterInteraction": true
+            }
+          },
+          {
+            "path": [
+              "//ul[@role='grid'][li[contains(@class, 'listview-item')]]",
+              "//div[contains(@class, 'option')]",
+              "//ul[@aria-label='How did you hear about this opportunity?']"
+            ],
+            "method": "clickOption",
+            "values": {
+              "source": [
+                "Other",
+                "Google",
+                "Email, Text or Other Marketing",
+                "Personal Network",
+                "Job Fair",
+                "Career Fair",
+                "Give “Other” Explanation",
+                "Website"
+              ]
+            },
+            "options": {
+              "lowPriority": [
+                "Indeed",
+                "ZipRecruiter",
+                "LinkedIn",
+                "Glassdoor",
+                "Simplyhired",
+                "Dice",
+                "CareerBuilder",
+                "Monster"
+              ],
+              "prohibited": [
+                "referral",
+                "referred",
+                "connection",
+                "at the company",
+                "for the organization",
+                "employee",
+                "select",
+                "current worker"
+              ],
+              "ignoreFirst": true,
+              "selectFirstExcludingProhibited": true,
+              "waitForNetworkBeforeInteraction": true
+            },
+            "time": 750
+          },
+          {
+            "path": [
+              "//div[contains(@class, 'input-row') and .//label/span[contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'please specify')]]//textarea[not(@aria-hidden='true')]",
+              "//div[contains(@class, 'input-row') and .//span[contains(text(), 'Please explain further.')]]//textarea[not(contains(@style, 'display: none'))]",
+              "//label[contains(translate(normalize-space(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'please specify') or contains(translate(normalize-space(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'if you selected other') or contains(translate(normalize-space(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'explanation')]/ancestor::div[contains(@class, 'input-row')]//textarea"
+            ],
+            "method": "setValue",
+            "defaultValue": "Job Board",
+            "options": {
+              "triggerBlurEvent": false,
+              "waitForNetworkBeforeInteraction": true
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "how did you hear"
+        ]
+      }
+    ],
+    [
+      "race",
+      {
+        "actions": [
+          {
+            "path": [
+              "//div[contains(@class, 'input-row')][.//label[contains(., 'race') and contains(., 'identify')]]"
+            ],
+            "method": "clickOptionWithMultiAnswers",
+            "values": {
+              "Black or African American": [
+                "Black",
+                "African"
+              ],
+              "East Asian": [
+                "East Asian",
+                "Asian"
+              ],
+              "Hispanic or Latino": "Hispanic",
+              "Southeast Asian": [
+                "Southeast Asian",
+                "Asian"
+              ],
+              "South Asian": [
+                "South Asian",
+                "Asian"
+              ],
+              "Native Hawaiian or Other Pacific Islander": [
+                "Native Hawaiian",
+                "Pacific Islander"
+              ],
+              "American Indian or Alaska Native": [
+                "American Indian",
+                "Alaskan Native"
+              ],
+              "White": "White",
+              "Two or More Races": "Two or More",
+              "Some Other Race": [
+                "Other",
+                "Decline"
+              ],
+              "Decline to Answer": [
+                "Decline",
+                "Prefer not"
+              ],
+              "": [
+                "Decline"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "race",
+          "identify"
+        ]
+      }
+    ],
+    [
+      "gender",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//input[contains(@aria-label,'gender') or contains(@aria-label,'Gender')]"
+            ],
+            "method": "click",
+            "options": {
+              "checkElementVisibility": true
+            }
+          },
+          {
+            "path": [
+              ".//div[@id='__ariaOwns__']"
+            ],
+            "ariaPath": [
+              ".//input[contains(@aria-label,'gender') or contains(@aria-label,'Gender')]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "Male": [
+                "Male",
+                "Man"
+              ],
+              "Female": [
+                "Female",
+                "Woman"
+              ],
+              "I do not want to answer": [
+                "Decline",
+                "I don't wish",
+                "Prefer not"
+              ],
+              "": [
+                "Decline",
+                "I don't wish",
+                "Prefer not"
+              ]
+            },
+            "options": {
+              "containerElement": "document",
+              "ariaKey": "ariaOwns"
+            },
+            "attributes": {
+              "ariaOwns": "aria-owns",
+              "ariaControls": "aria-controls"
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "gender"
+        ]
+      }
+    ],
+    [
+      "disability",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//input[contains(@aria-label, 'disability')]"
+            ],
+            "method": "click"
+          },
+          {
+            "path": [
+              ".//div[@id='__ariaOwns__']",
+              "//div[@class='input-row input-row--radiogroup' and @role='radiogroup' and contains(@aria-labelledby,'US-STANDARD-ORA_DISABILITY_STATUS-STANDARD-')]"
+            ],
+            "ariaPath": [
+              ".//input[contains(@aria-label, 'disability')]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "true": [
+                "Yes",
+                "I have"
+              ],
+              "false": [
+                "No",
+                "I do not have",
+                "Prefer not"
+              ],
+              "": [
+                "Decline",
+                "I don't wish",
+                "Prefer not",
+                "No",
+                "Do not wish"
+              ]
+            },
+            "options": {
+              "containerElement": "document",
+              "ariaKey": "ariaOwns"
+            },
+            "attributes": {
+              "ariaOwns": "aria-owns",
+              "ariaControls": "aria-controls"
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "disability",
+          "disabilities"
+        ]
+      }
+    ],
+    [
+      "veteran",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//input[contains(@aria-label, 'Military/Reservist') or contains(@aria-label, 'Veteran Status')]"
+            ],
+            "method": "click",
+            "options": {
+              "checkElementVisibility": true
+            }
+          },
+          {
+            "path": [
+              "//ul[@role='grid' and .//text()[contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'veteran')]]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "true": [
+                "I am a ",
+                "I identify ",
+                "Yes",
+                "Protected"
+              ],
+              "false": [
+                "I am not a ",
+                "I don't ",
+                "No",
+                "Prefer not",
+                "Not a"
+              ],
+              "": [
+                "Decline",
+                "I am not a ",
+                "I don't ",
+                "No",
+                "Prefer not",
+                "Decline To Identify"
+              ]
+            },
+            "options": {
+              "waitForNetworkBeforeInteraction": true
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "veteran",
+          "military",
+          "reservist"
+        ]
+      }
+    ],
+    [
+      "startMonthNameAvailabilityString",
+      {
+        "actions": [
+          {
+            "path": [
+              "//oj-select-single[@aria-label='What date are you available to begin work? Month']//input[@id]",
+              "//oj-select-single[@aria-label='Earliest Available Date Month']//input[contains(@id, 'filter')]",
+              "//oj-select-single[contains(@aria-label, 'available to start? Month')]//input[contains(@id, 'filter')]"
+            ],
+            "method": "click",
+            "options": {
+              "checkElementVisibility": true,
+              "waitForNetworkBeforeInteraction": true,
+              "waitForNetworkAfterInteraction": true
+            }
+          },
+          {
+            "path": [
+              "//ul[@role='grid' and .//text()[contains(., 'January')]]"
+            ],
+            "method": "clickOption",
+            "options": {
+              "waitForNetworkBeforeInteraction": true
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "available to begin",
+          "available to start"
+        ]
+      }
+    ],
+    [
+      "startDayAvailabilityString",
+      {
+        "actions": [
+          {
+            "path": [
+              "//oj-select-single[@aria-label='What date are you available to begin work? Day']//input[@id]",
+              "//oj-select-single[@aria-label='Earliest Available Date Day']//input[contains(@id, 'filter')]",
+              "//oj-select-single[contains(@aria-label, 'available to start? Day')]//input[contains(@id, 'filter')]"
+            ],
+            "method": "click",
+            "options": {
+              "checkElementVisibility": true,
+              "waitForNetworkBeforeInteraction": true,
+              "waitForNetworkAfterInteraction": true
+            }
+          },
+          {
+            "path": [
+              "//ul[@role='grid' and .//text()[contains(., '1')]]"
+            ],
+            "method": "clickOption",
+            "options": {
+              "waitForNetworkBeforeInteraction": true
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "available to begin",
+          "available to start"
+        ]
+      }
+    ],
+    [
+      "startYearAvailabilityString",
+      {
+        "actions": [
+          {
+            "path": [
+              "//input[@aria-label='What date are you available to begin work? Year']",
+              "//input[@aria-label='Earliest Available Date Year']",
+              "//input[@aria-label='What day are you available to start? Year']"
+            ],
+            "method": "setValue",
+            "options": {
+              "checkElementVisibility": true,
+              "waitForNetworkAfterInteraction": true
+            }
+          },
+          {
+            "path": [
+              "//ul[@role='grid'][li]"
+            ],
+            "method": "clickOption",
+            "options": {
+              "waitForNetworkBeforeInteraction": true
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "available to begin",
+          "available to start"
+        ]
+      }
+    ],
+    [
+      "country",
+      {
+        "actions": [
+          {
+            "path": [
+              "//div[label[contains(translate(normalize-space(.), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'country')]]//input"
+            ],
+            "method": "click",
+            "options": {
+              "waitForElementTimeout": 3000,
+              "waitForNetworkBeforeInteraction": true,
+              "waitForNetworkAfterInteraction": true
+            }
+          },
+          {
+            "path": [
+              "//div[label[contains(translate(normalize-space(.), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'country')]]//input[contains(@id, 'filter')]"
+            ],
+            "method": "setValue",
+            "defaultValue": "United States",
+            "options": {
+              "checkElementVisibility": true,
+              "waitForElementTimeout": 3000,
+              "waitForNetworkAfterInteraction": true
+            }
+          },
+          {
+            "path": [
+              "//ul[@role='grid'][li[contains(@class, 'listview-item')]]",
+              "//div[contains(@id, 'country') and @role='grid']"
+            ],
+            "method": "clickOption",
+            "options": {
+              "containerElement": "document",
+              "ariaKey": "ariaOwns"
+            },
+            "time": 1000
+          },
+          {
+            "path": [
+              "//div[label[contains(translate(normalize-space(.), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'country')]]//input"
+            ],
+            "method": "pressEnterKey",
+            "options": {
+              "waitForNetworkAfterInteraction": true
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "country",
+          "home address"
+        ]
+      }
+    ],
+    [
+      "addressLine1",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//input[starts-with(@name, 'addressLine1')]"
+            ],
+            "method": "setValue",
+            "time": 250
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "address line 1",
+          "street address",
+          "home address"
+        ]
+      }
+    ],
+    [
+      "state",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//input[starts-with(@aria-label, 'State')]",
+              ".//input[starts-with(@aria-label, 'State') and contains(@id,'search')]",
+              ".//input[contains(@aria-label, 'TERRITORIES') and contains(@id,'search')]",
+              "//div[label[contains(translate(normalize-space(.), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'state')]]//input",
+              "//input[@name='region2']"
+            ],
+            "method": "click",
+            "options": {
+              "checkElementVisibility": true,
+              "waitForNetworkAfterInteraction": true,
+              "checkForValue": true
+            }
+          },
+          {
+            "path": [
+              ".//input[starts-with(@aria-label, 'State')]/ancestor::div[2]/following-sibling::oj-input-text//input",
+              ".//input[contains(@aria-label, 'TERRITORIES')]/ancestor::div[2]/following-sibling::oj-input-text//input",
+              "//div[label[contains(translate(normalize-space(.), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'state')]]//input[contains(@id, 'filter')]",
+              "//input[@name='region2']"
+            ],
+            "method": "setValue",
+            "options": {
+              "resetValue": true,
+              "waitForNetworkBeforeInteraction": true,
+              "waitForElementTimeout": 3000,
+              "trackQuestion": true
+            }
+          },
+          {
+            "path": [
+              ".//input[starts-with(@aria-label, 'State')]",
+              ".//input[starts-with(@aria-label, 'State') and contains(@id,'search')]",
+              ".//input[contains(@aria-label, 'TERRITORIES') and contains(@id,'search')]",
+              "//div[label[contains(translate(normalize-space(.), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'state')]]//input[contains(@id, 'filter')]",
+              "//input[@name='region2']"
+            ],
+            "method": "click",
+            "options": {
+              "checkElementVisibility": true,
+              "waitForNetworkAfterInteraction": true,
+              "checkForValue": true
+            },
+            "time": 500
+          },
+          {
+            "path": [
+              "//ul[@role='grid'][li[contains(@class, 'listview-item')]]",
+              "//div[contains(@id, 'region2') and @role='grid']"
+            ],
+            "method": "clickOption",
+            "options": {
+              "containerElement": "document",
+              "optionMapper": true
+            }
+          },
+          {
+            "path": [
+              "//div[label[contains(translate(normalize-space(.), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'country')]]//input",
+              "//input[@name='region2']"
+            ],
+            "method": "pressEnterKey",
+            "options": {
+              "waitForNetworkAfterInteraction": true
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "state",
+          "territories",
+          "home address"
+        ]
+      }
+    ],
+    [
+      "stateName",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//input[starts-with(@aria-label, 'State') and contains(@id, 'filter')]"
+            ],
+            "method": "click",
+            "options": {
+              "checkForValue": true
+            }
+          },
+          {
+            "path": [
+              ".//input[starts-with(@aria-label, 'State') and contains(@id, 'filter')]"
+            ],
+            "method": "setValue",
+            "options": {
+              "checkForValue": true,
+              "waitForNetworkAfterInteraction": true
+            }
+          },
+          {
+            "path": [
+              "//ul[@role='grid'][li[contains(@class, 'listview-item')]]"
+            ],
+            "method": "clickOption",
+            "options": {
+              "waitForNetworkBeforeInteraction": true,
+              "containerElement": "document"
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "state name",
+          "home address"
+        ]
+      }
+    ],
+    [
+      "county",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//input[starts-with(translate(@aria-label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'county')]",
+              "//input[@name='region1']"
+            ],
+            "method": "click",
+            "options": {
+              "checkForValue": true,
+              "checkElementVisibility": true
+            }
+          },
+          {
+            "path": [
+              ".//input[starts-with(translate(@aria-label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'county')]/ancestor::div[2]/following-sibling::oj-input-text//input",
+              "//input[@name='region1']"
+            ],
+            "method": "getCounty",
+            "time": 500,
+            "options": {
+              "waitForNetworkAfterInteraction": true
+            }
+          },
+          {
+            "path": [
+              ".//input[starts-with(translate(@aria-label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'county')]/ancestor::div[2]/following-sibling::oj-input-text//input",
+              "//input[@name='region1']"
+            ],
+            "method": "setValue",
+            "options": {
+              "resetValue": true,
+              "waitForNetworkBeforeInteraction": true,
+              "triggerBlurEvent": false,
+              "triggerChangeEvent": true
+            },
+            "time": 500
+          },
+          {
+            "path": [
+              ".//input[starts-with(translate(@aria-label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'county')]",
+              "//input[@name='region1']"
+            ],
+            "method": "click",
+            "options": {
+              "checkElementVisibility": true,
+              "checkForValue": true,
+              "waitForNetworkBeforeInteraction": true,
+              "waitForNetworkAfterInteraction": true
+            },
+            "time": 750
+          },
+          {
+            "path": [
+              "//ul[@role='grid'][li[contains(@class, 'listview-item')] and @role='grid']",
+              "//div[contains(@id, 'region1') and contains(@id,'listbox-container')]"
+            ],
+            "method": "clickOption",
+            "options": {
+              "waitForNetworkBeforeInteraction": true,
+              "containerElement": "document"
+            }
+          },
+          {
+            "path": [
+              "//input[@name='region1']"
+            ],
+            "method": "pressEnterKey"
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "county",
+          "region",
+          "home address"
+        ]
+      }
+    ],
+    [
+      "city",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//input[starts-with(translate(@aria-label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'city') and not(contains(@style,'hidden'))]",
+              "//div[label[contains(translate(normalize-space(.), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'city')]]//input"
+            ],
+            "method": "click",
+            "options": {
+              "checkForValue": true,
+              "checkElementVisibility": true
+            }
+          },
+          {
+            "path": [
+              ".//input[starts-with(translate(@aria-label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'city')]/ancestor::div[2]/following-sibling::oj-input-text//input",
+              "//input[@name='city']",
+              "//div[label[contains(translate(normalize-space(.), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'city')]]//input[contains(@id, 'filter')]"
+            ],
+            "method": "setValue",
+            "options": {
+              "resetValue": true,
+              "waitForNetworkBeforeInteraction": true,
+              "waitForNetworkAfterInteraction": true,
+              "triggerBlurEvent": false,
+              "triggerChangeEvent": true,
+              "trackQuestion": true
+            },
+            "time": 500
+          },
+          {
+            "path": [
+              ".//input[starts-with(translate(@aria-label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'city') and not(contains(@style,'hidden'))]",
+              "//div[label[contains(translate(normalize-space(.), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'city')]]//input"
+            ],
+            "method": "click",
+            "options": {
+              "checkForValue": true,
+              "checkElementVisibility": true,
+              "waitForNetworkAfterInteraction": true,
+              "waitForNetworkBeforeInteraction": true
+            },
+            "time": 750
+          },
+          {
+            "path": [
+              "//ul[@role='grid'][li[contains(@class, 'listview-item')]]",
+              "//div[contains(@id, 'city') and @role='grid']"
+            ],
+            "method": "clickOption",
+            "options": {
+              "containerElement": "document",
+              "waitForNetworkBeforeInteraction": true,
+              "optionMapper": true
+            }
+          },
+          {
+            "path": [
+              "//div[label[contains(translate(normalize-space(.), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'city')]]//input"
+            ],
+            "method": "pressEnterKey"
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "city",
+          "home address"
+        ]
+      }
+    ],
+    [
+      "postalCode",
+      [
+        {
+          "actions": [
+            {
+              "path": [
+                "//input[(contains(translate(@aria-label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'zip code') or contains(translate(@aria-label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'postal code'))and not(contains(@style,'hidden'))]",
+                "//input[contains(@id, 'postalCode')]"
+              ],
+              "method": "click",
+              "options": {
+                "checkElementVisibility": true,
+                "checkForValue": true
+              }
+            },
+            {
+              "path": [
+                ".//input[starts-with(translate(@aria-label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'zip code')]/ancestor::div[2]/following-sibling::oj-input-text//input",
+                ".//input[starts-with(translate(@aria-label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'postal code')]/ancestor::div[2]/following-sibling::oj-input-text//input",
+                "//input[@name='postalCode']"
+              ],
+              "method": "setValue",
+              "options": {
+                "triggerKeyDownEvent": true,
+                "triggerKeyUpEvent": true,
+                "triggerInputEvent": true,
+                "triggerBlurEvent": false,
+                "triggerChangeEvent": true,
+                "triggerFocusEvent": true,
+                "triggerFocusInEvent": true,
+                "resetValue": true,
+                "waitForNetworkAfterInteraction": true
+              },
+              "time": 1000
+            },
+            {
+              "path": [
+                "//input[(contains(translate(@aria-label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'zip code') or contains(translate(@aria-label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'postal code'))and not(contains(@style,'hidden'))]",
+                "//input[contains(@id, 'postalCode')]"
+              ],
+              "method": "click",
+              "options": {
+                "checkElementVisibility": true,
+                "triggerKeyDownEvent": true,
+                "triggerKeyUpEvent": true,
+                "triggerInputEvent": true,
+                "triggerBlurEvent": false,
+                "triggerChangeEvent": true,
+                "waitForNetworkAfterInteraction": true
+              },
+              "time": 750
+            },
+            {
+              "path": [
+                "//ul[@role='grid'][li[contains(@class, 'listview-item')]]",
+                "//div[contains(@id, 'postalCode') and @role='grid']"
+              ],
+              "method": "clickOption",
+              "options": {
+                "containerElement": "document",
+                "waitForNetworkBeforeInteraction": true
+              }
+            },
+            {
+              "path": [
+                "//input[contains(@id, 'postalCode')]"
+              ],
+              "method": "pressEnterKey"
+            }
+          ]
+        },
+        {
+          "actions": [
+            {
+              "path": ".//input[starts-with(@aria-label, 'Postal') and not(contains(@id,'search'))]",
+              "method": "setValue"
+            }
+          ]
+        }
+      ],
+      {
+        "keywords": [
+          "postal code",
+          "zip code",
+          "zipcode",
+          "home address"
+        ]
+      }
+    ],
+    [
+      "reference",
+      {
+        "actions": [
+          {
+            "path": [
+              "//div[contains(., 'Reference')]//textarea[1]"
+            ],
+            "method": "setValueMultiple"
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "reference"
+        ]
+      }
+    ],
+    [
+      "fullName",
+      [
+        ".//input[contains(@id, 'fullName') and @name='fullName' and not(contains(@style, 'hidden'))]"
+      ],
+      {
+        "keywords": [
+          "full name"
+        ]
+      }
+    ],
+    [
+      "experience",
+      {
+        "addButtonPath": [
+          ".//div[contains(@aria-label, 'Experience  Please provide details about your work experience.')]/button",
+          "//button[not(contains(@class, 'save-btn')) and not(@disabled) and .//span[contains(text(), 'Experience') and not(contains(text(), 'Government'))]]",
+          "//button[contains(@id, 'profileItemsAddButton') and not(@disabled) and not(contains(@data-bind, 'validation'))]//span[normalize-space(text())='Add Experience']",
+          "//button[contains(@id, 'timeline-add-experience-button') and not(@disabled) and not(contains(@data-bind, 'validation'))]//span[normalize-space(text())='Add Experience']"
+        ],
+        "containerPath": [
+          ".//oj-dialog[contains(@aria-label,'Add Work History')]//div[contains(@class, 'dialog-body') and contains(@class, 'main') and not(contains(@class, 'wrapper'))]",
+          "//timeline-form-inline[.//timeline-form-builder[.//*[contains(text(), 'Employer') or contains(text(), 'Job')]]]",
+          "//div[contains(@class, 'profile-items')][.//*[contains(text(), 'Employer') or contains(text(), 'Job')]]"
+        ],
+        "confirmAddedPath": [
+          ".//button[contains(@data-qa, 'addTileItemDialogButton')]"
+        ],
+        "entryContainer": {
+          "title": [
+            "//div[contains(@aria-label, 'experience')]//button//div[contains(@class, 'summary-title')]",
+            "//beautiful-timeline-item[contains(@params, 'experience')]//span[contains(@class, 'item__title')]"
+          ],
+          "subtitle": [
+            "//div[contains(@aria-label, 'experience')]//button//div[contains(@class, 'summary-subtitle')]",
+            "//beautiful-timeline-item[contains(@params, 'experience')]//span[contains(@class, 'item__subtitle')]"
+          ]
+        },
+        "time": 1500,
+        "entities": [
+          [
+            "title",
+            [
+              ".//input[starts-with(@name, 'jobTitle')]"
+            ],
+            {
+              "keywords": [
+                "title"
+              ]
+            }
+          ],
+          [
+            "companyName",
+            [
+              ".//input[starts-with(@name, 'employerName')]"
+            ],
+            {
+              "keywords": [
+                "employer name",
+                "company name"
+              ]
+            }
+          ],
+          [
+            "description",
+            [
+              ".//textarea[starts-with(@name, 'responsibilities')]",
+              ".//textarea[@name='achievements']"
+            ],
+            {
+              "keywords": [
+                "description",
+                "responsibilities",
+                "function",
+                "achievements"
+              ]
+            }
+          ],
+          [
+            "reasonLeaving",
+            [
+              ".//textarea[starts-with(@name, 'leavingReason')]"
+            ],
+            {
+              "keywords": [
+                "reason for leaving",
+                "reason for departure"
+              ]
+            }
+          ],
+          [
+            "startDateMonthText",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//label[contains(., 'Start Date')]/../following-sibling::*[1]//input[contains(@class,'oj-searchselect-input oj-text-field-input')]",
+                    ".//div[contains(@class, 'datepicker-row') and .//span[normalize-space() = 'Start Date']]//input[contains(@id,'month-startDate')]",
+                    ".//input[contains(@id, 'month-startDate')]"
+                  ],
+                  "method": "click",
+                  "time": 500,
+                  "options": {
+                    "preventClickIfEmpty": true
+                  }
+                },
+                {
+                  "path": [
+                    ".//label[contains(., 'Start Date')]/../following-sibling::*[1]//input[contains(@class,'oj-searchselect-input oj-text-field-input')]"
+                  ],
+                  "method": "setValue",
+                  "options": {
+                    "triggerBlurEvent": false,
+                    "triggerChangeEvent": true
+                  }
+                },
+                {
+                  "path": [
+                    "//ul[@role='grid'][li]",
+                    ".//div[contains(@id,'month-startDate') and contains(@id,'listbox-container')]"
+                  ],
+                  "method": "clickOption",
+                  "options": {
+                    "containerElement": "document"
+                  },
+                  "values": {
+                    "January": [
+                      "Jan",
+                      "January",
+                      "01"
+                    ],
+                    "February": [
+                      "Feb",
+                      "February",
+                      "02"
+                    ],
+                    "March": [
+                      "Mar",
+                      "March",
+                      "03"
+                    ],
+                    "April": [
+                      "Apr",
+                      "April",
+                      "04"
+                    ],
+                    "May": [
+                      "May",
+                      "05"
+                    ],
+                    "June": [
+                      "Jun",
+                      "June",
+                      "06"
+                    ],
+                    "July": [
+                      "Jul",
+                      "July",
+                      "07"
+                    ],
+                    "August": [
+                      "Aug",
+                      "August",
+                      "08"
+                    ],
+                    "September": [
+                      "Sep",
+                      "September",
+                      "09"
+                    ],
+                    "October": [
+                      "Oct",
+                      "October",
+                      "10"
+                    ],
+                    "November": [
+                      "Nov",
+                      "November",
+                      "11"
+                    ],
+                    "December": [
+                      "Dec",
+                      "December",
+                      "12"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "start date",
+                "month",
+                "date from"
+              ]
+            }
+          ],
+          [
+            "startDateYear",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[@type='text' and contains(@aria-label, 'Start Date Year')]",
+                    ".//div[contains(@class, 'datepicker-row') and .//span[normalize-space() = 'Start Date']]//input[contains(@id,'year-startDate')]",
+                    ".//input[contains(@id, 'year-startDate')]"
+                  ],
+                  "method": "click",
+                  "options": {
+                    "preventClickIfEmpty": true,
+                    "waitForNetworkAfterInteraction": true
+                  },
+                  "time": 500
+                },
+                {
+                  "path": [
+                    ".//input[@type='text' and contains(@aria-label, 'Start Date Year')]",
+                    ".//div[contains(@class, 'datepicker-row') and .//span[normalize-space() = 'Start Date']]//input[contains(@id,'year-startDate')]"
+                  ],
+                  "method": "setValue",
+                  "options": {
+                    "triggerKeyDownEvent": true,
+                    "triggerKeyUpEvent": true,
+                    "triggerInputEvent": true,
+                    "triggerBlurEvent": false,
+                    "triggerChangeEvent": true,
+                    "triggerFocusEvent": true,
+                    "triggerFocusInEvent": true
+                  },
+                  "time": 750
+                },
+                {
+                  "path": [
+                    ".//div[contains(@id,'year-startDate') and @role='grid']"
+                  ],
+                  "method": "clickOption",
+                  "time": 500
+                },
+                {
+                  "path": [
+                    ".//input[@type='text' and contains(@aria-label, 'Start Date Year')]"
+                  ],
+                  "method": "click",
+                  "time": 500
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "start date",
+                "year",
+                "date from"
+              ]
+            }
+          ],
+          [
+            "endDateMonthText",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//label[contains(., 'End Date')]/../following-sibling::*[1]//input[contains(@class,'oj-searchselect-input oj-text-field-input')]",
+                    ".//input[contains(@id,'month-endDate')]"
+                  ],
+                  "method": "click",
+                  "options": {
+                    "waitForNetworkAfterInteraction": true,
+                    "preventClickIfEmpty": true
+                  },
+                  "time": 500
+                },
+                {
+                  "path": [
+                    ".//label[contains(., 'End Date')]/../following-sibling::*[1]//input[contains(@class,'oj-searchselect-input oj-text-field-input')]"
+                  ],
+                  "method": "setValue",
+                  "options": {
+                    "triggerBlurEvent": false,
+                    "triggerChangeEvent": true,
+                    "triggerInputEvent": true,
+                    "triggerFocusEvent": true,
+                    "triggerFocusInEvent": true
+                  }
+                },
+                {
+                  "path": [
+                    ".//div[contains(@id,'month-endDate') and contains(@id,'listbox-container')]"
+                  ],
+                  "method": "clickOption",
+                  "values": {
+                    "January": [
+                      "Jan",
+                      "January",
+                      "01"
+                    ],
+                    "February": [
+                      "Feb",
+                      "February",
+                      "02"
+                    ],
+                    "March": [
+                      "Mar",
+                      "March",
+                      "03"
+                    ],
+                    "April": [
+                      "Apr",
+                      "April",
+                      "04"
+                    ],
+                    "May": [
+                      "May",
+                      "05"
+                    ],
+                    "June": [
+                      "Jun",
+                      "June",
+                      "06"
+                    ],
+                    "July": [
+                      "Jul",
+                      "July",
+                      "07"
+                    ],
+                    "August": [
+                      "Aug",
+                      "August",
+                      "08"
+                    ],
+                    "September": [
+                      "Sep",
+                      "September",
+                      "09"
+                    ],
+                    "October": [
+                      "Oct",
+                      "October",
+                      "10"
+                    ],
+                    "November": [
+                      "Nov",
+                      "November",
+                      "11"
+                    ],
+                    "December": [
+                      "Dec",
+                      "December",
+                      "12"
+                    ]
+                  },
+                  "options": {
+                    "containerElement": "document"
+                  }
+                },
+                {
+                  "path": [
+                    "//ul[@role='grid' and .//text()[contains(., 'January') or contains(., 'February') or contains(., 'March') or contains(., 'April') or contains(., 'May') or contains(., 'June') or contains(., 'July') or contains(., 'August') or contains(., 'September') or contains(., 'October') or contains(., 'November') or contains(., 'December')]]"
+                  ],
+                  "method": "clickOption",
+                  "values": {
+                    "January": [
+                      "Jan",
+                      "January",
+                      "01"
+                    ],
+                    "February": [
+                      "Feb",
+                      "February",
+                      "02"
+                    ],
+                    "March": [
+                      "Mar",
+                      "March",
+                      "03"
+                    ],
+                    "April": [
+                      "Apr",
+                      "April",
+                      "04"
+                    ],
+                    "May": [
+                      "May",
+                      "05"
+                    ],
+                    "June": [
+                      "Jun",
+                      "June",
+                      "06"
+                    ],
+                    "July": [
+                      "Jul",
+                      "July",
+                      "07"
+                    ],
+                    "August": [
+                      "Aug",
+                      "August",
+                      "08"
+                    ],
+                    "September": [
+                      "Sep",
+                      "September",
+                      "09"
+                    ],
+                    "October": [
+                      "Oct",
+                      "October",
+                      "10"
+                    ],
+                    "November": [
+                      "Nov",
+                      "November",
+                      "11"
+                    ],
+                    "December": [
+                      "Dec",
+                      "December",
+                      "12"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "end date",
+                "month",
+                "date to"
+              ]
+            }
+          ],
+          [
+            "endDateYear",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[@type='text' and contains(@aria-label, 'End Date Year')]",
+                    ".//input[contains(@id,'year-endDate')]"
+                  ],
+                  "method": "click",
+                  "time": 500,
+                  "options": {
+                    "waitForNetworkAfterInteraction": true,
+                    "preventClickIfEmpty": true
+                  }
+                },
+                {
+                  "path": [
+                    ".//input[@type='text' and contains(@aria-label, 'End Date Year')]",
+                    ".//input[contains(@id,'year-endDate')]"
+                  ],
+                  "method": "setValue",
+                  "options": {
+                    "triggerKeyDownEvent": true,
+                    "triggerKeyUpEvent": true,
+                    "triggerInputEvent": true,
+                    "triggerBlurEvent": false,
+                    "triggerChangeEvent": true,
+                    "triggerFocusEvent": true,
+                    "triggerFocusInEvent": true
+                  },
+                  "time": 750
+                },
+                {
+                  "path": [
+                    ".//div[contains(@id,'year-endDate') and @role='grid']"
+                  ],
+                  "method": "clickOption",
+                  "time": 500
+                },
+                {
+                  "path": [
+                    ".//input[@type='text' and contains(@aria-label, 'End Date Year')]"
+                  ],
+                  "method": "click",
+                  "time": 500
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "end date",
+                "year",
+                "date to"
+              ]
+            }
+          ],
+          [
+            "country",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[contains(@aria-label, 'Employer Country') and not(contains(@style, 'visibility: hidden'))]",
+                    ".//input[contains(@id, 'countryCode')]"
+                  ],
+                  "method": "click",
+                  "options": {
+                    "waitForNetworkAfterInteraction": true
+                  }
+                },
+                {
+                  "path": [
+                    ".//div[contains(@class, 'input-row__control-container')]//input[@aria-label='Employer Country' and @type='text' and contains(@id, 'filter') and not(contains(@style, 'visibility: hidden'))]",
+                    ".//input[contains(@id, 'countryCode')]"
+                  ],
+                  "method": "setValueSearchElement",
+                  "defaultValue": "United States",
+                  "options": {
+                    "triggerBlurEvent": false,
+                    "triggerChangeEvent": true,
+                    "waitForNetworkAfterInteraction": true,
+                    "waitForNetworkBeforeInteraction": true
+                  }
+                },
+                {
+                  "path": [
+                    "//ul[@role='grid'][li]",
+                    ".//div[contains(@id, 'countryCode') and contains(@id,'listbox-container')]"
+                  ],
+                  "method": "clickOption",
+                  "options": {
+                    "waitForNetworkBeforeInteraction": true,
+                    "waitForNetworkAfterInteraction": true,
+                    "containerElement": "document"
+                  },
+                  "time": 700
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "country"
+              ]
+            }
+          ],
+          [
+            "state",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[contains(@aria-label, 'Employer State') and not(contains(@style, 'visibility: hidden'))]",
+                    ".//input[contains(@id, 'stateProvinceCode')]"
+                  ],
+                  "method": "click",
+                  "options": {
+                    "waitForNetworkBeforeInteraction": true,
+                    "waitForNetworkAfterInteraction": true
+                  },
+                  "time": 500
+                },
+                {
+                  "path": [
+                    ".//input[contains(@aria-label, 'Employer State') and contains(@id, 'filter')]",
+                    ".//input[contains(@id, 'stateProvinceCode')]"
+                  ],
+                  "method": "setValue",
+                  "options": {
+                    "checkElementVisibility": true,
+                    "waitForNetworkAfterInteraction": true,
+                    "triggerBlurEvent": false,
+                    "triggerChangeEvent": true,
+                    "waitForNetworkBeforeInteraction": true
+                  },
+                  "time": 1000
+                },
+                {
+                  "path": [
+                    "//ul[@role='grid'][li[contains(@class, 'listview-item') and @role='row']]",
+                    ".//div[contains(@id, 'stateProvinceCode') and contains(@id,'listbox-container')]"
+                  ],
+                  "method": "clickOption",
+                  "options": {
+                    "waitForNetworkBeforeInteraction": true
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "state",
+                "country"
+              ]
+            }
+          ],
+          [
+            "city",
+            {
+              "actions": [
+                {
+                  "path": [
+                    "//input[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'employercity')]"
+                  ],
+                  "method": "click"
+                },
+                {
+                  "path": [
+                    "//input[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'employercity')]"
+                  ],
+                  "method": "setValue",
+                  "options": {
+                    "triggerBlurEvent": false
+                  }
+                },
+                {
+                  "path": [
+                    "//input[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'employercity')]"
+                  ],
+                  "method": "click",
+                  "options": {
+                    "checkElementVisibility": true
+                  }
+                },
+                {
+                  "path": [
+                    "//ul[@role='grid'][li]"
+                  ],
+                  "method": "clickOption",
+                  "options": {
+                    "containerElement": "document"
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "city"
+              ]
+            }
+          ],
+          [
+            "isCurrent",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//span[contains(., 'Current') and not(contains(., 'Employment'))]/../span"
+                  ],
+                  "method": "clickCheckbox"
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "current"
+              ]
+            }
+          ],
+          [
+            "partTime",
+            {
+              "actions": [
+                {
+                  "path": [
+                    "//ul[@role='list' and contains(translate(@aria-label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'part time')]"
+                  ],
+                  "method": "clickOption",
+                  "defaultValue": "No"
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "part time"
+              ]
+            }
+          ],
+          [
+            "supervisor",
+            [
+              {
+                "actions": [
+                  {
+                    "path": [
+                      "//input[contains(@name, 'supervisor') and not (@style='visibility: hidden;')]"
+                    ],
+                    "method": "setValueMultiple"
+                  },
+                  {
+                    "path": [
+                      "//input[contains(@aria-label, 'Supervisor') and not (@style='visibility: hidden;')]"
+                    ],
+                    "method": "click"
+                  },
+                  {
+                    "path": [
+                      "//ul[@role='grid'][li]"
+                    ],
+                    "method": "clickOption",
+                    "values": {
+                      "Available upon request": [
+                        "Yes"
+                      ],
+                      "": [
+                        "No"
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "actions": [
+                  {
+                    "path": [
+                      "//input[contains(@aria-label, 'OK to Contact Supervisor') and not (@style='visibility: hidden;')]"
+                    ],
+                    "method": "click",
+                    "time": 500
+                  },
+                  {
+                    "path": [
+                      "//ul[@role='grid'][li]//span[contains(text(), 'No')]",
+                      "//ul[@aria-label='OK to Contact Supervisor']//button[contains(normalize-space(.), 'No')]"
+                    ],
+                    "method": "click"
+                  }
+                ]
+              }
+            ],
+            {
+              "keywords": [
+                "supervisor",
+                "manager"
+              ]
+            }
+          ],
+          [
+            "nextBtn",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//button[contains(@data-qa, 'addTileItemDialogButton')]",
+                    ".//button[contains(@data-qa, 'addTimelineItemDialogButton')]",
+                    ".//button[contains(@data-qa, 'profileItemInlineSaveButton')]",
+                    "//button[not(@disabled) and contains(@class, 'save-btn') and .//span[contains(text(), 'Add Experience') and not(contains(text(), 'Government'))]]"
+                  ],
+                  "method": "click",
+                  "options": {
+                    "waitForNetworkAfterInteraction": true
+                  },
+                  "time": 1000
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "add",
+                "done"
+              ]
+            }
+          ],
+          [
+            "checkErrors",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//p[contains(@class, 'validation') and @role='alert']"
+                  ],
+                  "method": "checkForErrorsInModal",
+                  "options": {
+                    "removeButton": [
+                      ".//button[contains(@data-bind, 'removeProfileItem')]",
+                      ".//button[contains(@class, 'cancel-btn')]",
+                      ".//button[contains(@data-bind, 'remove.bind')]"
+                    ],
+                    "waitForNetworkAfterInteraction": true
+                  },
+                  "time": 5000
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "cancel",
+                "remove"
+              ]
+            }
+          ]
+        ],
+        "options": {
+          "clickOutsideAtEnd": true,
+          "checkElementVisibility": true,
+          "containerInModal": true,
+          "afterAddButtonAsyncDelay": 1000,
+          "getRelevantEntities": true
+        }
+      },
+      {
+        "keywords": [
+          "experience",
+          "work and education history"
+        ]
+      }
+    ],
+    [
+      "certification",
+      {
+        "addButtonPath": [
+          ".//div[contains(@aria-label, 'Certificates')]/button"
+        ],
+        "options": {
+          "checkElementVisibility": true,
+          "containerInModal": true
+        },
+        "containerPath": [
+          ".//oj-dialog[contains(@aria-label,'Add License')]"
+        ],
+        "confirmAddedPath": [
+          ".//button[contains(@data-qa, 'addTileItemDialogButton')]"
+        ],
+        "entryContainer": {
+          "title": [
+            "//div[contains(@aria-label, 'certificates')]//button//div[contains(@class, 'summary-title')]"
+          ],
+          "subtitle": []
+        },
+        "time": 1500,
+        "entities": [
+          [
+            "name",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[contains(@aria-label,'Certificate') and contains(@id, 'filter')]",
+                    ".//input[contains(@name,'certificationName')]"
+                  ],
+                  "method": "click",
+                  "options": {
+                    "waitForNetworkAfterInteraction": true
+                  }
+                },
+                {
+                  "path": [
+                    ".//input[contains(@aria-label,'Certificate') and contains(@id, 'filter')]/ancestor::oj-input-text[1]//input",
+                    ".//input[contains(@aria-label,'Certificate')]",
+                    ".//input[contains(@name,'certificationName')]"
+                  ],
+                  "method": "setValue",
+                  "options": {
+                    "triggerBlurEvent": false,
+                    "waitForNetworkAfterInteraction": true,
+                    "waitForNetworkBeforeInteraction": true
+                  },
+                  "time": 500
+                },
+                {
+                  "path": [
+                    ".//input[contains(@aria-label,'Certificate') and contains(@id, 'filter')]",
+                    ".//input[contains(@name,'certificationName')]"
+                  ],
+                  "method": "click",
+                  "options": {
+                    "waitForNetworkAfterInteraction": true
+                  },
+                  "time": 1000
+                },
+                {
+                  "path": [
+                    "//ul[@role='grid'][li[contains(@class, 'listview-item')]]"
+                  ],
+                  "method": "clickOption",
+                  "options": {
+                    "containerElement": "document",
+                    "waitForNetworkBeforeInteraction": true,
+                    "removeButton": [
+                      ".//button[contains(@data-bind, 'removeProfileItem')]"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "certificate",
+                "certification"
+              ]
+            }
+          ],
+          [
+            "issueDateMonthText",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//oj-select-single[contains(translate(@aria-label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'issue date month')]//input[contains(@class,'oj-searchselect-input oj-text-field-input')]"
+                  ],
+                  "method": "click",
+                  "options": {
+                    "waitForNetworkAfterInteraction": true
+                  }
+                },
+                {
+                  "path": [
+                    "//ul[@role='grid' and .//text()[contains(., 'January') or contains(., 'February') or contains(., 'March') or contains(., 'April') or contains(., 'May') or contains(., 'June') or contains(., 'July') or contains(., 'August') or contains(., 'September') or contains(., 'October') or contains(., 'November') or contains(., 'December')]]"
+                  ],
+                  "method": "clickOption",
+                  "values": {
+                    "January": [
+                      "Jan",
+                      "January",
+                      "01"
+                    ],
+                    "February": [
+                      "Feb",
+                      "February",
+                      "02"
+                    ],
+                    "March": [
+                      "Mar",
+                      "March",
+                      "03"
+                    ],
+                    "April": [
+                      "Apr",
+                      "April",
+                      "04"
+                    ],
+                    "May": [
+                      "May",
+                      "05"
+                    ],
+                    "June": [
+                      "Jun",
+                      "June",
+                      "06"
+                    ],
+                    "July": [
+                      "Jul",
+                      "July",
+                      "07"
+                    ],
+                    "August": [
+                      "Aug",
+                      "August",
+                      "08"
+                    ],
+                    "September": [
+                      "Sep",
+                      "September",
+                      "09"
+                    ],
+                    "October": [
+                      "Oct",
+                      "October",
+                      "10"
+                    ],
+                    "November": [
+                      "Nov",
+                      "November",
+                      "11"
+                    ],
+                    "December": [
+                      "Dec",
+                      "December",
+                      "12"
+                    ]
+                  },
+                  "options": {
+                    "containerElement": "document",
+                    "ariaKey": "ariaOwns",
+                    "waitForNetworkBeforeInteraction": true
+                  },
+                  "attributes": {
+                    "ariaOwns": "aria-owns",
+                    "ariaControls": "aria-controls"
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "issue date"
+              ]
+            }
+          ],
+          [
+            "issueDateDay",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//oj-select-single[contains(translate(@aria-label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'issue date day')]//input[contains(@class,'oj-searchselect-input oj-text-field-input')]"
+                  ],
+                  "method": "click",
+                  "options": {
+                    "waitForNetworkAfterInteraction": true
+                  }
+                },
+                {
+                  "path": [
+                    ".//div[@id='__ariaOwns__']"
+                  ],
+                  "ariaPath": [
+                    ".//oj-select-single[contains(translate(@aria-label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'issue date day')]//input[contains(@class,'oj-searchselect-input oj-text-field-input')]"
+                  ],
+                  "method": "clickOption",
+                  "options": {
+                    "containerElement": "document",
+                    "ariaKey": "ariaOwns",
+                    "waitForNetworkBeforeInteraction": true
+                  },
+                  "attributes": {
+                    "ariaOwns": "aria-owns",
+                    "ariaControls": "aria-controls"
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "issue date"
+              ]
+            }
+          ],
+          [
+            "issueDateYear",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[contains(translate(@aria-label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'issue date year')]"
+                  ],
+                  "method": "setValue",
+                  "options": {
+                    "triggerKeyDownEvent": true,
+                    "triggerKeyUpEvent": true,
+                    "triggerInputEvent": true,
+                    "triggerBlurEvent": true,
+                    "triggerChangeEvent": true,
+                    "triggerFocusEvent": true,
+                    "triggerFocusInEvent": true
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "issue date"
+              ]
+            }
+          ],
+          [
+            "nextBtn",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//button[contains(@data-qa, 'addTileItemDialogButton')]"
+                  ],
+                  "method": "click",
+                  "time": 1000
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "add",
+                "done"
+              ]
+            }
+          ],
+          [
+            "checkErrors",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//p[contains(@class, 'validation') and @role='alert']"
+                  ],
+                  "method": "checkForErrorsInModal",
+                  "options": {
+                    "removeButton": [
+                      ".//button[contains(@data-bind, 'removeProfileItem')]"
+                    ],
+                    "waitForNetworkAfterInteraction": true
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "cancel",
+                "remove"
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "keywords": [
+          "certification",
+          "license",
+          "licenses and certificates",
+          "certificate"
+        ]
+      }
+    ],
+    [
+      "resume",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//input[@type='file' and contains(@title, 'Upload Resume')]",
+              ".//label[text()='Upload Resume']/preceding-sibling::input",
+              ".//label[span[text()='Upload Resume']]/preceding-sibling::input",
+              ".//label[span[text()='UPLOAD CV / RESUME']]/preceding-sibling::input",
+              "//label[span[contains(text(), 'Resume')]]/preceding-sibling::input[@type='file' and contains(@id, 'attachment')]"
+            ],
+            "method": "uploadResume",
+            "options": {
+              "waitForNetworkBeforeInteraction": true
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "resume",
+          "documents"
+        ]
+      }
+    ],
+    [
+      "education",
+      {
+        "addButtonPath": [
+          ".//div[contains(@aria-label, 'Education')]/button",
+          "//button[.//span[contains(text(), 'Education')]]"
+        ],
+        "options": {
+          "checkElementVisibility": true,
+          "clickOutsideAtEnd": true,
+          "containerInModal": true,
+          "waitForNetworkAfterInteraction": true,
+          "waitForNetworkBeforeInteraction": true,
+          "getRelevantEntities": true
+        },
+        "time": 1500,
+        "containerPath": [
+          ".//oj-dialog[contains(@aria-label,'Add Education')]//div[contains(@class, 'dialog-body') and contains(@class, 'main') and not(contains(@class, 'wrapper'))]",
+          "//timeline-form-inline[.//timeline-form-builder[.//*[contains(text(), 'Degree') or contains(text(), 'School') or contains(text(), 'Education Level')]]]",
+          "//div[contains(@class, 'profile-items')][.//*[contains(text(), 'Degree') or contains(text(), 'School') or contains(text(), 'Area of Study') or contains(text(), 'Education Level')]]"
+        ],
+        "confirmAddedPath": [
+          ".//button[contains(@data-qa, 'addTileItemDialogButton')]"
+        ],
+        "entryContainer": {
+          "title": [
+            "//div[contains(@aria-label, 'education')]//button//div[contains(@class, 'summary-title')]",
+            "//beautiful-timeline-item[contains(@params, 'education')]//span[contains(@class, 'item__title')]"
+          ],
+          "subtitle": [
+            "//div[contains(@aria-label, 'education')]//button//div[contains(@class, 'summary-subtitle')]",
+            "//beautiful-timeline-item[contains(@params, 'education')]//span[contains(@class, 'item__subtitle')]"
+          ]
+        },
+        "entities": [
+          [
+            "name",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[contains(@aria-label, 'School') and contains(@id, 'filter') or contains(@aria-label, 'University') or contains(@aria-label, 'Educational Institution') and contains(@id, 'filter')] |//textarea[contains(@id, 'educationalEstablishment')]",
+                    ".//input[contains(@aria-label, 'School') and contains(@id, 'filter')]",
+                    ".//input[contains(@aria-label, 'School') and contains(@placeholder, 'Start typing to see suggestions')]",
+                    ".//input[contains(@aria-label, 'School') and @role='combobox' and @placeholder=' ']",
+                    ".//input[contains(@name, 'educationalEstablishment')]"
+                  ],
+                  "method": "click",
+                  "options": {
+                    "preventClickIfEmpty": true,
+                    "waitForNetworkAfterInteraction": true
+                  },
+                  "time": 1250
+                },
+                {
+                  "path": [
+                    ".//input[contains(@aria-label, 'School') and contains(@id, 'filter') or contains(@aria-label, 'University') or contains(@aria-label, 'Educational Institution') and contains(@id, 'filter')] |//textarea[contains(@id, 'educationalEstablishment')]",
+                    ".//input[contains(@aria-label, 'School') and contains(@placeholder, 'Start typing to see suggestions')]",
+                    ".//input[contains(@aria-label, 'School') and @role='combobox' and @placeholder=' ']",
+                    ".//input[contains(@name, 'educationalEstablishment')]"
+                  ],
+                  "method": "setValue",
+                  "options": {
+                    "triggerBlurEvent": false,
+                    "checkAcronym": true,
+                    "separatorCharacter": ", ",
+                    "waitForNetworkAfterInteraction": true,
+                    "waitForNetworkBeforeInteraction": true,
+                    "trackQuestion": true,
+                    "resetValue": true
+                  },
+                  "time": 1000
+                },
+                {
+                  "path": [
+                    ".//input[contains(@aria-label, 'School') and contains(@placeholder, 'Start typing to see suggestions')]"
+                  ],
+                  "method": "pressEnterKey",
+                  "options": {
+                    "waitForNetworkAfterInteraction": true,
+                    "waitForNetworkBeforeInteraction": true
+                  },
+                  "time": 250
+                },
+                {
+                  "path": [
+                    "//ul[@role='grid'][li]",
+                    "//ul[@role='listbox' and not(contains(@class, 'loading')) and li]",
+                    "//div[contains(@id, 'educationalEstablishment') and contains(@id,'listbox-container')]"
+                  ],
+                  "method": "clickOption",
+                  "options": {
+                    "containerElement": "document",
+                    "checkAcronym": true,
+                    "separatorCharacter": ", ",
+                    "dropdownPersistent": true,
+                    "waitForNetworkBeforeInteraction": true,
+                    "autocomplete": true,
+                    "fallbackOptionsArray": [
+                      "Other",
+                      "Other US Institution",
+                      "Other/Autre/Otros/Andere/Altri/Ander/Outro/Inny"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "school",
+                "university",
+                "educational institution",
+                "institution"
+              ]
+            }
+          ],
+          [
+            "degree",
+            [
+              {
+                "actions": [
+                  {
+                    "path": [
+                      "//input[@name='degreeName']"
+                    ],
+                    "method": "setValue"
+                  }
+                ]
+              },
+              {
+                "actions": [
+                  {
+                    "path": [
+                      "//div[contains(@class, 'app-dialog__content')]//input[((@aria-label = 'Education Level' and contains(@class, 'searchselect') and //input[@aria-label = 'Degree' and contains(@class, 'searchselect')]) or (@aria-label = 'Degree' and contains(@class, 'searchselect') and not(//input[@aria-label = 'Education Level' and contains(@class, 'searchselect')])))]",
+                      "//div[not(.//input[@aria-label='Education Level'])]//input[@aria-label='Degree']",
+                      "//div[not(.//input[@id='major'])]//input[@aria-label='Education Level']",
+                      "//input[@aria-label='Degree Type' and contains(@id, 'filter')]",
+                      "//input[not(@type='radio') and @id=(//label[contains(normalize-space(.), 'Degree')]/@for)]",
+                      "//div[@class='input-row input-row--has-picker' and .//label[normalize-space(.)='Degree'] and .//ul[@role='list' and @aria-label='Degree']]",
+                      "//div[@class='input-row input-row--has-picker' and .//label[normalize-space(.)='Education Level'] and .//ul[@role='list' and @aria-label='Education Level']]",
+                      "//div[contains(@class, 'input-row') and contains(@class, 'input-row--has-picker') and .//label[normalize-space(.)='Education Level']]//input"
+                    ],
+                    "method": "click",
+                    "options": {
+                      "preventClickIfEmpty": true,
+                      "waitForNetworkBeforeInteraction": true,
+                      "waitForNetworkAfterInteraction": true,
+                      "trackQuestion": true
+                    },
+                    "time": 250
+                  },
+                  {
+                    "path": [
+                      "//ul[@role='grid'][li[contains(@class, 'listview-item')]]",
+                      "//div[contains(@id, 'contentItemId') and @role='grid']",
+                      "//ul[@role='list' and translate(@aria-label,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')='degree']",
+                      "//div[@role='grid' and contains(translate(@aria-label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'degree')]"
+                    ],
+                    "method": "clickOption",
+                    "options": {
+                      "waitForNetworkBeforeInteraction": true,
+                      "fallbackOptionsArray": [
+                        "None",
+                        "Other",
+                        "Other Program"
+                      ],
+                      "preserveSpecialChars": true
+                    },
+                    "values": {
+                      "bachelor's": [
+                        "Bachelor's Degree",
+                        "Bachelors",
+                        "Bachelor's Degree (16 years)"
+                      ],
+                      "master's": [
+                        "Master's Degree",
+                        "Master of Science",
+                        "Masters"
+                      ],
+                      "associate's": [
+                        "Associate's Degree"
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            {
+              "keywords": [
+                "degree",
+                "education level"
+              ]
+            }
+          ],
+          [
+            "degreeDisplay",
+            [
+              {
+                "actions": [
+                  {
+                    "path": [
+                      "//input[@name='educationLevel']"
+                    ],
+                    "method": "click",
+                    "options": {
+                      "waitForNetworkBeforeInteraction": true,
+                      "waitForNetworkAfterInteraction": true,
+                      "trackQuestion": true
+                    }
+                  },
+                  {
+                    "path": [
+                      "//div[@role='grid' and contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'educationlevel')]",
+                      "//ul[@role='list' and translate(@aria-label,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')='education level']"
+                    ],
+                    "method": "clickOption",
+                    "options": {
+                      "waitForNetworkBeforeInteraction": true,
+                      "fallbackOptionsArray": [
+                        "None",
+                        "Other"
+                      ],
+                      "forceOptionSearch": true
+                    },
+                    "values": {
+                      "bachelor's": [
+                        "Bachelor's Degree",
+                        "Bachelors",
+                        "Bachelor's Degree (16 years)"
+                      ],
+                      "master's": [
+                        "Master's Degree",
+                        "Master of Science",
+                        "Masters"
+                      ],
+                      "associate's": [
+                        "Associate's Degree"
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            {
+              "keywords": [
+                "education level"
+              ]
+            }
+          ],
+          [
+            "major",
+            {
+              "actions": [
+                {
+                  "path": [
+                    "//div[contains(@class, 'app-dialog__content')]//input[(contains(@aria-label, 'Education Level') and not(//input[starts-with(@name, 'major')]) or starts-with(@name, 'major')) or (contains(@aria-label, 'Degree') and contains(@id, 'filter') and not(//input[starts-with(@name, 'major')]) and not(//input[contains(@aria-label, 'Major')]))]",
+                    "//input[@aria-label='Major' and contains(@id, 'filter')]",
+                    "//input[@name='major']"
+                  ],
+                  "method": "click",
+                  "options": {
+                    "waitForNetworkAfterInteraction": true,
+                    "checkForValue": true
+                  },
+                  "time": 1250
+                },
+                {
+                  "path": [
+                    "//div[contains(@class, 'app-dialog__content')]//input[(contains(@aria-label, 'Education Level') and not(//input[starts-with(@name, 'major')]) or starts-with(@name, 'major')) or (contains(@aria-label, 'Degree') and contains(@id, 'filter') and not(//input[starts-with(@name, 'major')]) and not(//input[contains(@aria-label, 'Major')]))]",
+                    "//input[@aria-label='Major' and contains(@id, 'filter')]",
+                    "//input[@name='major']"
+                  ],
+                  "method": "setValue",
+                  "options": {
+                    "triggerBlurEvent": false,
+                    "resetValue": true,
+                    "waitForNetworkBeforeInteraction": true,
+                    "waitForNetworkAfterInteraction": true,
+                    "trackQuestion": true,
+                    "checkForValue": true
+                  },
+                  "time": 1250
+                },
+                {
+                  "path": [
+                    "//div[contains(@id, 'major')]//div[@role='grid']",
+                    "//ul[@role='grid'][li]"
+                  ],
+                  "method": "clickOption",
+                  "options": {
+                    "waitForNetworkBeforeInteraction": true,
+                    "autocomplete": true,
+                    "optionMapper": true
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "major",
+                "field of study",
+                "education level"
+              ]
+            }
+          ],
+          [
+            "startDateMonthText",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//label[contains(., 'Start Date')]/../following-sibling::*[1]//input[contains(@class,'oj-searchselect-input oj-text-field-input')]",
+                    "//div[contains(@class, 'datepicker-row') and .//span[normalize-space() = 'Start Date']]//input[contains(@id,'month-startDate')]"
+                  ],
+                  "method": "click",
+                  "options": {
+                    "preventClickIfEmpty": true,
+                    "waitForNetworkAfterInteraction": true,
+                    "waitForNetworkBeforeInteraction": true
+                  },
+                  "time": 500
+                },
+                {
+                  "path": [
+                    "//ul[@role='grid' and .//text()[contains(., 'January')]]",
+                    ".//div[contains(@id,'month-startDate') and contains(@id,'listbox-container')]"
+                  ],
+                  "method": "clickOption",
+                  "values": {
+                    "January": [
+                      "Jan",
+                      "January",
+                      "01"
+                    ],
+                    "February": [
+                      "Feb",
+                      "February",
+                      "02"
+                    ],
+                    "March": [
+                      "Mar",
+                      "March",
+                      "03"
+                    ],
+                    "April": [
+                      "Apr",
+                      "April",
+                      "04"
+                    ],
+                    "May": [
+                      "May",
+                      "05"
+                    ],
+                    "June": [
+                      "Jun",
+                      "June",
+                      "06"
+                    ],
+                    "July": [
+                      "Jul",
+                      "July",
+                      "07"
+                    ],
+                    "August": [
+                      "Aug",
+                      "August",
+                      "08"
+                    ],
+                    "September": [
+                      "Sep",
+                      "September",
+                      "09"
+                    ],
+                    "October": [
+                      "Oct",
+                      "October",
+                      "10"
+                    ],
+                    "November": [
+                      "Nov",
+                      "November",
+                      "11"
+                    ],
+                    "December": [
+                      "Dec",
+                      "December",
+                      "12"
+                    ]
+                  },
+                  "options": {
+                    "containerElement": "document"
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "start date",
+                "month"
+              ]
+            }
+          ],
+          [
+            "startDateYear",
+            {
+              "actions": [
+                {
+                  "path": [
+                    "//input[@aria-label='Start Date Year']",
+                    "//div[contains(@class, 'datepicker-row') and .//span[normalize-space() = 'Start Date']]//input[contains(@id,'year-startDate')]"
+                  ],
+                  "method": "click",
+                  "options": {
+                    "preventClickIfEmpty": true,
+                    "waitForNetworkAfterInteraction": true
+                  },
+                  "time": 500
+                },
+                {
+                  "path": [
+                    "//input[@aria-label='Start Date Year']",
+                    "//div[contains(@class, 'datepicker-row') and .//span[normalize-space() = 'Start Date']]//input[contains(@id,'year-startDate')]"
+                  ],
+                  "method": "setValue",
+                  "options": {
+                    "triggerKeyDownEvent": true,
+                    "triggerKeyUpEvent": true,
+                    "triggerInputEvent": true,
+                    "triggerBlurEvent": false,
+                    "triggerChangeEvent": true,
+                    "triggerFocusEvent": true,
+                    "triggerFocusInEvent": true
+                  }
+                },
+                {
+                  "path": [
+                    ".//div[contains(@id,'year-startDate')]//div[@role='grid']"
+                  ],
+                  "method": "clickOption",
+                  "time": 500
+                },
+                {
+                  "path": [
+                    "//input[@aria-label='Start Date Year']",
+                    "//div[contains(@class, 'datepicker-row') and .//span[normalize-space() = 'Start Date']]//input[contains(@id,'year-startDate')]"
+                  ],
+                  "method": "click",
+                  "options": {
+                    "preventClickIfEmpty": true,
+                    "waitForNetworkAfterInteraction": true
+                  },
+                  "time": 500
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "start date",
+                "year"
+              ]
+            }
+          ],
+          [
+            "endDateMonthText",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//label[contains(., 'End Date')]/../following-sibling::*[1]//input[contains(@class,'oj-searchselect-input oj-text-field-input')]",
+                    "//input[contains(@id,'month-endDate')]"
+                  ],
+                  "method": "click",
+                  "options": {
+                    "waitForNetworkAfterInteraction": true,
+                    "waitForNetworkBeforeInteraction": true,
+                    "preventClickIfEmpty": true
+                  },
+                  "time": 500
+                },
+                {
+                  "path": [
+                    "//ul[@role='grid' and .//li[contains(@class, 'listview-item')] and .//text()[contains(., 'January')]]",
+                    ".//div[contains(@id,'month-endDate') and contains(@id,'listbox-container')]"
+                  ],
+                  "method": "clickOption",
+                  "values": {
+                    "January": [
+                      "Jan",
+                      "January",
+                      "01"
+                    ],
+                    "February": [
+                      "Feb",
+                      "February",
+                      "02"
+                    ],
+                    "March": [
+                      "Mar",
+                      "March",
+                      "03"
+                    ],
+                    "April": [
+                      "Apr",
+                      "April",
+                      "04"
+                    ],
+                    "May": [
+                      "May",
+                      "05"
+                    ],
+                    "June": [
+                      "Jun",
+                      "June",
+                      "06"
+                    ],
+                    "July": [
+                      "Jul",
+                      "July",
+                      "07"
+                    ],
+                    "August": [
+                      "Aug",
+                      "August",
+                      "08"
+                    ],
+                    "September": [
+                      "Sep",
+                      "September",
+                      "09"
+                    ],
+                    "October": [
+                      "Oct",
+                      "October",
+                      "10"
+                    ],
+                    "November": [
+                      "Nov",
+                      "November",
+                      "11"
+                    ],
+                    "December": [
+                      "Dec",
+                      "December",
+                      "12"
+                    ]
+                  },
+                  "options": {
+                    "containerElement": "document",
+                    "waitForNetworkBeforeInteraction": true
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "end date",
+                "month",
+                "date acquired"
+              ]
+            }
+          ],
+          [
+            "endDateYear",
+            {
+              "actions": [
+                {
+                  "path": [
+                    "//input[@aria-label='End Date Year']",
+                    "//input[contains(@id,'year-endDate')]"
+                  ],
+                  "method": "click",
+                  "options": {
+                    "preventClickIfEmpty": true
+                  },
+                  "time": 500
+                },
+                {
+                  "path": [
+                    "//input[@aria-label='End Date Year']",
+                    ".//input[contains(@id,'year-endDate')]"
+                  ],
+                  "method": "setValue",
+                  "options": {
+                    "triggerKeyDownEvent": true,
+                    "triggerKeyUpEvent": true,
+                    "triggerInputEvent": true,
+                    "triggerBlurEvent": false,
+                    "triggerChangeEvent": true,
+                    "triggerFocusEvent": true,
+                    "triggerFocusInEvent": true
+                  }
+                },
+                {
+                  "path": [
+                    ".//div[contains(@id,'year-endDate') and @role='grid']"
+                  ],
+                  "method": "clickOption",
+                  "time": 500
+                },
+                {
+                  "path": [
+                    "//input[@aria-label='End Date Year']"
+                  ],
+                  "method": "click",
+                  "options": {
+                    "preventClickIfEmpty": true
+                  },
+                  "time": 500
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "end date",
+                "year",
+                "date acquired"
+              ]
+            }
+          ],
+          [
+            "isGraduated",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//span[contains(., 'Graduated')]/../span"
+                  ],
+                  "method": "clickCheckbox"
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "graduated",
+                "graduation"
+              ]
+            }
+          ],
+          [
+            "country",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[contains(@aria-label, 'Country') and contains(@class,'searchselect')]",
+                    "//input[@name='countryCode']"
+                  ],
+                  "method": "click",
+                  "options": {
+                    "preventClickIfEmpty": true,
+                    "waitForNetworkAfterInteraction": true
+                  }
+                },
+                {
+                  "path": [
+                    ".//input[contains(@aria-label, 'Country') and contains(@class,'searchselect')]/ancestor::div[2]/following-sibling::oj-input-text//input",
+                    "//input[@name='countryCode']"
+                  ],
+                  "method": "setValue",
+                  "options": {
+                    "triggerBlurEvent": false,
+                    "waitForNetworkAfterInteraction": true,
+                    "waitForNetworkBeforeInteraction": true
+                  }
+                },
+                {
+                  "path": [
+                    "//ul[@role='grid' and .//text()[contains(., 'United States')]]",
+                    "//div[contains(@id, 'countryCode')]//div[@role='grid']"
+                  ],
+                  "method": "clickOption",
+                  "options": {
+                    "waitForNetworkBeforeInteraction": true,
+                    "containerElement": "document"
+                  },
+                  "time": 750
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "location",
+                "country"
+              ]
+            }
+          ],
+          [
+            "state",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[contains(@aria-label, 'State') and contains(@class,'searchselect')]",
+                    "//input[@name='stateProvinceCode']"
+                  ],
+                  "method": "click",
+                  "options": {
+                    "waitForNetworkBeforeInteraction": true,
+                    "preventClickIfEmpty": true
+                  }
+                },
+                {
+                  "path": [
+                    ".//input[contains(@aria-label, 'State') and contains(@id,'filter')]",
+                    "//input[@name='stateProvinceCode']"
+                  ],
+                  "method": "setValue",
+                  "options": {
+                    "triggerBlurEvent": false
+                  }
+                },
+                {
+                  "path": [
+                    "//ul[@role='grid'][li[contains(@class, 'listview-item') and @role='row']]",
+                    ".//div[contains(@id, 'stateProvinceCode') and contains(@id,'listbox-container')]"
+                  ],
+                  "method": "clickOption",
+                  "options": {
+                    "waitForNetworkBeforeInteraction": true,
+                    "containerElement": "document"
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "state",
+                "country"
+              ]
+            }
+          ],
+          [
+            "isCurrent",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[contains(@aria-label, 'Status') and contains(@class,'searchselect')]"
+                  ],
+                  "method": "click"
+                },
+                {
+                  "path": [
+                    ".//div[@id='__ariaOwns__']"
+                  ],
+                  "ariaPath": [
+                    ".//input[contains(@aria-label, 'Status') and contains(@class,'searchselect')]"
+                  ],
+                  "method": "clickOption",
+                  "values": {
+                    "true": "In Progress",
+                    "false": "Graduated/Completed"
+                  },
+                  "options": {
+                    "containerElement": "document",
+                    "ariaKey": "ariaOwns"
+                  },
+                  "attributes": {
+                    "ariaOwns": "aria-owns",
+                    "ariaControls": "aria-controls"
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "status",
+                "graduated"
+              ]
+            }
+          ],
+          [
+            "city",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[starts-with(@name, 'city')]"
+                  ],
+                  "method": "setValue",
+                  "fallbackValue": "NA"
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "city",
+                "country"
+              ]
+            }
+          ],
+          [
+            "gpa",
+            [
+              ".//input[starts-with(@name, 'gpa')]"
+            ],
+            {
+              "keywords": [
+                "gpa"
+              ]
+            }
+          ],
+          [
+            "degreeDisplay",
+            {
+              "actions": [
+                {
+                  "path": [
+                    "//input[contains(@aria-label, 'Highest Education Level') and contains(@id, 'filter')]"
+                  ],
+                  "method": "click",
+                  "options": {
+                    "waitForNetworkBeforeInteraction": true,
+                    "waitForNetworkAfterInteraction": true,
+                    "trackQuestion": true
+                  },
+                  "time": 1000
+                },
+                {
+                  "path": [
+                    "//input[contains(@aria-label, 'Highest Education Level') and contains(@id, 'filter')]"
+                  ],
+                  "method": "setValue",
+                  "options": {
+                    "waitForNetworkBeforeInteraction": true,
+                    "waitForNetworkAfterInteraction": true
+                  },
+                  "time": 1500
+                },
+                {
+                  "path": [
+                    "//ul[@role='grid'][li]"
+                  ],
+                  "method": "clickOption",
+                  "values": {
+                    "bachelor's": [
+                      "Bachelor",
+                      "Bachelor's Degree",
+                      "Bachelor's Level Degree",
+                      "BS"
+                    ],
+                    "master's": [
+                      "Master",
+                      "Master's Degree",
+                      "Master's Level Degree",
+                      "MS"
+                    ],
+                    "associate": [
+                      "2 - Year College Degree",
+                      "Associate",
+                      "Some Graduate School"
+                    ],
+                    "highschool": [
+                      "High School",
+                      "Highschool",
+                      "Highschool Diploma",
+                      "HS Graduate or Equivalent"
+                    ],
+                    "other": [
+                      "Technical, Other"
+                    ]
+                  },
+                  "options": {
+                    "waitForNetworkBeforeInteraction": true
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "highest education level"
+              ]
+            }
+          ],
+          [
+            "nextBtn",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//button[contains(@data-qa, 'addTileItemDialogButton') or contains(@data-qa, 'addTimelineItemDialogButton')]",
+                    "//button[contains(@class, 'save-btn') and .//span[normalize-space(text())='Add Education']]"
+                  ],
+                  "method": "click",
+                  "options": {
+                    "waitForNetworkAfterInteraction": true
+                  },
+                  "time": 1000
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "add",
+                "done"
+              ]
+            }
+          ],
+          [
+            "checkErrors",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//p[contains(@class, 'validation') and @role='alert']"
+                  ],
+                  "method": "checkForErrorsInModal",
+                  "options": {
+                    "removeButton": [
+                      ".//button[contains(@data-bind, 'removeProfileItem')]",
+                      ".//button[contains(@class, 'cancel-btn')]",
+                      ".//button[contains(@data-bind, 'remove.bind')]"
+                    ],
+                    "waitForNetworkAfterInteraction": true
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "cancel",
+                "remove"
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "keywords": [
+          "education",
+          "work and education history"
+        ]
+      }
+    ],
+    [
+      "skill",
+      {
+        "addButtonPath": [
+          ".//div[contains(@aria-label, 'Skill')]/button[contains(text(), 'Skill')]",
+          "//button//span[contains(text(), 'Skill')]/.."
+        ],
+        "options": {
+          "checkElementVisibility": true,
+          "clickOutsideAtEnd": true,
+          "containerInModal": true,
+          "waitForNetworkAfterInteraction": true,
+          "waitForNetworkBeforeInteraction": true
+        },
+        "containerPath": [
+          ".//oj-dialog[contains(@aria-label,'Add Skill')]",
+          "//div[contains(@class, 'skill')][.//*[contains(text(), 'Skill')]]"
+        ],
+        "confirmAddedPath": [
+          ".//button[contains(@data-qa, 'addTileItemDialogButton')]"
+        ],
+        "entryContainer": {
+          "title": [
+            "//div[contains(@aria-label, 'skill')]//button//div[contains(@class, 'summary-title')]"
+          ],
+          "subtitle": [
+            "//div[contains(@aria-label, 'skill')]//button//div[contains(@class, 'summary-subtitle')]"
+          ]
+        },
+        "entities": [
+          [
+            "name",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[contains(@name, 'skills')]"
+                  ],
+                  "method": "setValue",
+                  "options": {
+                    "resetValue": true
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "nextBtn",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//button[contains(@data-qa, 'addTileItemDialogButton') or contains(@data-qa, 'addTimelineItemDialogButton')]",
+                    "//button[contains(@class, 'save-btn') and .//span[normalize-space(text())='Add Skill']]"
+                  ],
+                  "method": "click",
+                  "options": {
+                    "waitForNetworkAfterInteraction": true
+                  },
+                  "time": 1000
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "keywords": [
+          "skill",
+          "abilities"
+        ]
+      }
+    ],
+    [
+      "languages",
+      {
+        "addButtonPath": [
+          ".//div[contains(@aria-label, 'Languages')]/button",
+          ".//button[span[contains(text(), 'Add Language')]]"
+        ],
+        "containerPath": [
+          ".//oj-dialog[contains(@aria-label,'Add Language')]",
+          "//div[contains(@class, 'profile-item-container') and .//button[contains(@aria-label, 'Language')]]"
+        ],
+        "confirmAddedPath": [
+          ".//button[contains(@data-qa, 'addTileItemDialogButton')]"
+        ],
+        "entryContainer": {
+          "title": [
+            "//div[contains(@aria-label, 'languages')]//button//div[contains(@class, 'summary-title')]"
+          ],
+          "subtitle": [
+            "//div[contains(@aria-label, 'languages')]//button//div[contains(@class, 'summary-subtitle')]"
+          ]
+        },
+        "options": {
+          "clickOutsideAtEnd": true,
+          "checkElementVisibility": true,
+          "containerInModal": true,
+          "getRelevantEntities": true
+        },
+        "time": 1500,
+        "entities": [
+          [
+            "language",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[contains(@aria-label, 'Language') and contains(@id, 'filter')]",
+                    "//div[contains(@class, 'input-field-container')][.//button[contains(@aria-label, 'Language') or contains(@title, 'Language')]]//input"
+                  ],
+                  "method": "click",
+                  "options": {
+                    "waitForNetworkAfterInteraction": true
+                  },
+                  "time": 500
+                },
+                {
+                  "path": [
+                    ".//input[contains(@aria-label, 'Language') and contains(@id, 'filter')]",
+                    "//div[contains(@class, 'input-field-container')][.//button[contains(@aria-label, 'Language') or contains(@title, 'Language')]]//input"
+                  ],
+                  "method": "setValue",
+                  "options": {
+                    "triggerBlurEvent": false,
+                    "waitForNetworkAfterInteraction": true,
+                    "waitForNetworkBeforeInteraction": true
+                  },
+                  "time": 1250
+                },
+                {
+                  "path": [
+                    "//ul[@role='grid'][li]",
+                    "//div[contains(@class, 'input-field-container')][.//button[contains(@aria-label, 'Language') or contains(@title, 'Language')]]//div[contains(@class, 'options')]"
+                  ],
+                  "method": "clickOption",
+                  "options": {
+                    "containerElement": "document",
+                    "waitForNetworkBeforeInteraction": true,
+                    "caseSentiveOption": true
+                  }
+                },
+                {
+                  "path": [
+                    ".//input[contains(@aria-label, 'Language') and contains(@id, 'filter')]"
+                  ],
+                  "method": "pressEnterKey",
+                  "options": {
+                    "triggerBlurEvent": false,
+                    "waitForNetworkAfterInteraction": true,
+                    "waitForNetworkBeforeInteraction": true
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "language"
+              ]
+            }
+          ],
+          [
+            "speaking",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[contains(@aria-label, 'Speaking') and contains(@id, 'filter')]"
+                  ],
+                  "method": "click",
+                  "options": {
+                    "waitForNetworkAfterInteraction": true,
+                    "trackQuestion": true
+                  },
+                  "time": 500
+                },
+                {
+                  "path": [
+                    "//ul[@role='grid'][li[contains(@class, 'focused-element')]]",
+                    "//ul[contains(translate(@aria-label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'speaking')]"
+                  ],
+                  "method": "clickOption",
+                  "values": {
+                    "Native/Fluent": [
+                      "Native/Fluent",
+                      "High",
+                      "Native",
+                      "Fluent"
+                    ],
+                    "Advanced": [
+                      "Advanced"
+                    ],
+                    "Intermediate": [
+                      "Moderate",
+                      "Medium",
+                      "Intermediate"
+                    ],
+                    "Elementary": [
+                      "Elementary",
+                      "Begginer",
+                      "Low"
+                    ]
+                  },
+                  "options": {
+                    "containerElement": "document",
+                    "caseSentiveOption": true,
+                    "waitForNetworkBeforeInteraction": true
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "speaking"
+              ]
+            }
+          ],
+          [
+            "reading",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[contains(@aria-label, 'Reading') and contains(@id, 'filter')]"
+                  ],
+                  "method": "click",
+                  "options": {
+                    "waitForNetworkAfterInteraction": true,
+                    "trackQuestion": true
+                  },
+                  "time": 500
+                },
+                {
+                  "path": [
+                    "//ul[@role='grid'][li[contains(@class, 'listview-item')]]",
+                    "//ul[contains(translate(@aria-label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'reading')]"
+                  ],
+                  "method": "clickOption",
+                  "values": {
+                    "Native/Fluent": [
+                      "Native/Fluent",
+                      "High",
+                      "Native",
+                      "Fluent"
+                    ],
+                    "Advanced": [
+                      "Advanced"
+                    ],
+                    "Intermediate": [
+                      "Moderate",
+                      "Medium",
+                      "Intermediate"
+                    ],
+                    "Elementary": [
+                      "Elementary",
+                      "Begginer",
+                      "Low"
+                    ]
+                  },
+                  "options": {
+                    "containerElement": "document",
+                    "caseSentiveOption": true,
+                    "waitForNetworkBeforeInteraction": true
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "reading"
+              ]
+            }
+          ],
+          [
+            "writting",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[contains(@aria-label, 'Writing') and contains(@id, 'filter')]"
+                  ],
+                  "method": "click",
+                  "options": {
+                    "waitForNetworkAfterInteraction": true,
+                    "trackQuestion": true
+                  },
+                  "time": 500
+                },
+                {
+                  "path": [
+                    "//ul[@role='grid'][li[contains(@class, 'item-layout')]]",
+                    "//ul[contains(translate(@aria-label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'writing')]"
+                  ],
+                  "method": "clickOption",
+                  "values": {
+                    "Native/Fluent": [
+                      "Native/Fluent",
+                      "High",
+                      "Native",
+                      "Fluent"
+                    ],
+                    "Advanced": [
+                      "Advanced"
+                    ],
+                    "Intermediate": [
+                      "Moderate",
+                      "Medium",
+                      "Intermediate"
+                    ],
+                    "Elementary": [
+                      "Elementary",
+                      "Begginer",
+                      "Low"
+                    ]
+                  },
+                  "options": {
+                    "containerElement": "document",
+                    "caseSentiveOption": true,
+                    "waitForNetworkBeforeInteraction": true
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "reading",
+                "writting"
+              ]
+            }
+          ],
+          [
+            "nextBtn",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//button[contains(@data-qa, 'addTileItemDialogButton') or contains(@data-qa, 'addTimelineItemDialogButton')]",
+                    "//button[contains(@class, 'save-btn') and .//span[normalize-space(text())='Add Language']]"
+                  ],
+                  "method": "click",
+                  "options": {
+                    "waitForNetworkAfterInteraction": true
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "add"
+              ]
+            }
+          ],
+          [
+            "checkErrors",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//p[contains(@class, 'validation') and @role='alert']"
+                  ],
+                  "method": "checkForErrorsInModal",
+                  "options": {
+                    "removeButton": [
+                      ".//button[contains(@data-bind, 'removeProfileItem')]"
+                    ],
+                    "waitForNetworkAfterInteraction": true
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "cancel"
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "keywords": [
+          "languages",
+          "language"
+        ]
+      }
+    ]
+  ]
+}

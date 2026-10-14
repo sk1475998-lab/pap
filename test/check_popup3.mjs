@@ -1,0 +1,17 @@
+import { chromium } from "playwright";
+import http from "node:http";
+import fs from "node:fs";
+import path from "node:path";
+const ROOT = path.resolve("packages/extension/.output/chrome-mv3");
+const srv = http.createServer((req,res)=>{const p=path.join(ROOT, decodeURIComponent(req.url.split("?")[0]).replace(/^\//,"")||"popup.html"); fs.readFile(p,(e,d)=>{if(e){res.writeHead(404);return res.end()} res.writeHead(200,{"content-type":p.endsWith(".js")||p.endsWith(".mjs")?"text/javascript":p.endsWith(".css")?"text/css":p.endsWith(".html")?"text/html":"application/octet-stream"}); res.end(d)})});
+await new Promise(r=>srv.listen(0,"127.0.0.1",r));
+const port=srv.address().port;
+const browser=await chromium.launch({args:["--no-sandbox"],headless:true});
+const ctx=await browser.newContext();
+const page=await ctx.newPage();
+await page.addInitScript(`window.chrome={runtime:{sendMessage:async()=>{throw new Error("x")},onMessage:{addListener(){},removeListener(){}},getURL:p=>p},tabs:{query:async()=>[],sendMessage:async()=>({platform:null,fields:[],job:{title:"",company:""}})},storage:{local:{get:async()=>({profileReady:false}),set:async()=>{}},session:{get:async()=>({}),set:async()=>{},setAccessLevel:async()=>{}},onChanged:{addListener(){}}},action:{},sidePanel:{open:async()=>{}},offscreen:{},alarms:{create(){},onAlarm:{addListener(){}}},contextMenus:{create(){},onClicked:{addListener(){}}},commands:{onCommand:{addListener(){}}},permissions:{request:async()=>true,contains:async()=>false},scripting:{executeScript:async()=>{}}};`);
+await page.goto(`http://127.0.0.1:${port}/popup.html`);
+await page.waitForTimeout(1500);
+const allButtons = await page.$$eval("button", bs => bs.map(b => ({text: b.textContent.trim().slice(0,50), visible: b.offsetParent!==null})));
+console.log("All visible buttons:", allButtons.filter(b=>b.visible));
+await browser.close(); srv.close();

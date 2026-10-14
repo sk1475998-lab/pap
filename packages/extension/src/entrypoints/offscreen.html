@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!--
+  SuperJobAgent — Offscreen Document (MV3 Service Worker Keepalive)
+
+  GAP 4.2 FIX: Chrome MV3 service workers terminate after 30s of inactivity
+  or 5 minutes of continuous operation. This offscreen document keeps a live
+  DOM context open during long-running autopilot sessions (multi-step forms,
+  OTP verification, multi-page ATS flows).
+
+  How it works:
+  - background.ts calls chrome.offscreen.createDocument() when autopilot starts.
+  - This document maintains an open DOM and a periodic requestAnimationFrame
+    heartbeat that prevents Chrome from classifying the service worker as idle.
+  - background.ts calls chrome.offscreen.closeDocument() when the session ends.
+
+  References:
+  - https://developer.chrome.com/docs/extensions/reference/api/offscreen
+  - Reason: DOM_PARSER + WORKERS (for PDF resume parsing in worker threads)
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SuperJobAgent Offscreen</title>
+</head>
+<body>
+  <script type="module" src="../lib/offscreen-worker.ts"></script>
+</body>
+</html>

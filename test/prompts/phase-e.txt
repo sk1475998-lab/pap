@@ -1,0 +1,39 @@
+Execute Phase E: UX, Performance & Web Store Compliance.
+
+TASKS:
+1. Measure and report startup speed, autofill speed, CPU peak, memory leaks.
+2. Audit Manifest MV3 Chrome Web Store compliance.
+3. Evaluate UX scores across installation, profile setup, sidebar, errors, progress, accessibility, contrast.
+4. Report improvements and category prioritization.
+
+Produce a JSON output matching the Phase E handoff schema exactly.
+Example schema output format:
+===HANDOFF_JSON_START===
+{
+  "phase": "E",
+  "performance": {
+    "startup_ms": 100,
+    "autofill_ms": 1500,
+    "cpu_peak_pct": 20,
+    "memory_mb_after_30min": 45,
+    "leaks_found": []
+  },
+  "mv3_compliance": {
+    "passed": true,
+    "failures": []
+  },
+  "ux_scores": {
+    "installation": { "score": 9, "notes": "..." }
+  },
+  "store_policy_flags": [],
+  "improvements": [
+    {
+      "recommendation": "...",
+      "category": "...",
+      "impact": "...",
+      "effort": "...",
+      "priority_rank": 1
+    }
+  ]
+}
+===HANDOFF_JSON_END===

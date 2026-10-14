@@ -1,0 +1,5 @@
+    1975  AutoApplyMax/content-simple.js
+    1975  AutoApplyMax/chrome-store-release/content-simple.js
+     565  AutoApplyMax/popup.js
+     459  AutoApplyMax/popup-improvements.js
+      30  AutoApplyMax/background.js

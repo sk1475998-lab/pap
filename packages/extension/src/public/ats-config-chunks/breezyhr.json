@@ -1,0 +1,604 @@
+{
+  "atsName": "breezyhr",
+  "urls": [
+    "*://*.breezy.hr/p/*/apply/*"
+  ],
+  "detectPageQuestions": true,
+  "highPriority": [
+    "resume"
+  ],
+  "submitButtonPaths": [
+    "//li[not(contains(@class, 'ng-hide'))]//button[. = 'Submit Application']"
+  ],
+  "nextStepButtonPaths": [
+    "//li[not(contains(@class, 'ng-hide'))]//button[. = 'Continue']"
+  ],
+  "backStepButtonPaths": [
+    "//li[not(contains(@class, 'ng-hide'))]//button[. = 'Back']"
+  ],
+  "textContentFallbacks": [],
+  "monitorSubmitFlow": true,
+  "validationCheckFormValidity": false,
+  "waitForSubmitOutcome": true,
+  "checkForAlreadyAppliedAfterSubmit": true,
+  "backStepDiscardButtonPaths": [],
+  "validationErrorXPaths": [
+    "//div[contains(@class, 'error-container') and not(contains(@class, 'ng-hide'))]"
+  ],
+  "captchaXpath": [],
+  "networkOptions": {
+    "blacklistedUrlParts": []
+  },
+  "pageFailureKeywords": [],
+  "errorBannerXPaths": [],
+  "confirmSubmittedForm": {
+    "confirmMessageXPath": [
+      "//div[@class='confirmation-container']"
+    ],
+    "urls": [
+      "*://*.breezy.hr/p/*/apply/submitted"
+    ],
+    "confirmMessageSelector": [
+      "[class='confirmation-container']"
+    ]
+  },
+  "questionValidationErrorSelectors": [],
+  "targetNodeXPath": [
+    ".//div[contains(@class, 'content-container')]",
+    "//div[@class='confirmation-container']",
+    "//div[contains(@class, 'body-wrapper')]"
+  ],
+  "expiredJob": [
+    {
+      "container": [],
+      "keywords": []
+    }
+  ],
+  "forceNewJobSearch": false,
+  "canJobBeAppliedXPaths": {
+    "applyButton": []
+  },
+  "formatElements": "",
+  "customQuestions": {
+    "patterns": {
+      "questionId": "",
+      "questionParent": "",
+      "radioGroupMatchQuerySelector": "ul ul:has(> li:not([ng-repeat*='.work_history']):not([ng-repeat*='.education']) input[type='radio'])",
+      "fieldsetMatchQuerySelector": "ul ul:has(> li:not([ng-repeat*='.work_history']):not([ng-repeat*='.education']) input[type='checkbox'])",
+      "selectInputXPath": [
+        "//div[contains(@class, 'dropdown-container')]"
+      ]
+    },
+    "selectors": {
+      "question": "input[type='text'], textarea:not([ng-model*='.summary']), textarea[name='cSummary'], ul ul:has(> li:not([ng-repeat*='.work_history']):not([ng-repeat*='.education']) input:is([type='radio'],[type='checkbox'])), .dropdown-container",
+      "subTitle": "h2",
+      "label": "label, span",
+      "legend": "legend",
+      "ariaLabelledBy": "",
+      "roleOption": "li",
+      "radioInput": "input[type='radio']",
+      "checkbox": "input[type='checkbox']",
+      "optionsSelector": "li",
+      "listOption": "option",
+      "questionParent": "",
+      "mapOption": "",
+      "selectPopup": ""
+    },
+    "xpaths": {
+      "currentListItem": [],
+      "listInputBackBtnText": [],
+      "selectPopupXPath": [],
+      "listBoxPopupXPath": [],
+      "selectedItemListXPath": [],
+      "requiredFieldXPath": [
+        ".//span[contains(@class, 'required')]"
+      ]
+    },
+    "ignoreQuestions": []
+  },
+  "jobXPaths": {
+    "entities": [
+      [
+        "titleDisplay",
+        [
+          "//title"
+        ]
+      ],
+      [
+        "originalCompanyName",
+        [
+          "//ul[@class='meta']//li[@class='department']"
+        ]
+      ],
+      [
+        "jobTypes",
+        [
+          "//ul[@class='meta']//li[@class='type']"
+        ]
+      ],
+      [
+        "url",
+        [
+          "//meta[@property='og:url']"
+        ]
+      ],
+      [
+        "desc",
+        [
+          "//div[@class='container-wrapper']//div[@class='description']"
+        ]
+      ],
+      [
+        "locationDisplay",
+        [
+          "//ul[@class='meta']//li[@class='location']"
+        ]
+      ]
+    ]
+  },
+  "signIn": {
+    "urls": [],
+    "formPath": [],
+    "submitButton": [],
+    "toSignInButton": [],
+    "createAccount": [],
+    "signInWithEmail": [],
+    "forgotPassword": [],
+    "email": [],
+    "password": [],
+    "errorMessage": [],
+    "endpoint": ""
+  },
+  "signUp": {
+    "errorMessage": [],
+    "submitButton": [],
+    "formStepPath": [],
+    "email": [],
+    "password": [],
+    "verifyPassword": [],
+    "endpoint": "",
+    "saveStrategy": "",
+    "agreementPath": []
+  },
+  "preApply": {
+    "urls": [
+      "*://*.breezy.hr/p/*"
+    ],
+    "entities": [
+      [
+        "applyButton",
+        {
+          "actions": [
+            {
+              "path": [
+                ".//li//a[CONTAINS_TEXT('apply to position', true) or CONTAINS_TEXT('apply now', true)]"
+              ],
+              "method": "click"
+            }
+          ]
+        },
+        {
+          "keywords": [
+            "apply"
+          ]
+        }
+      ]
+    ],
+    "continueFilling": true
+  },
+  "entities": [
+    [
+      "fullName",
+      [
+        ".//input[@name='cName']"
+      ],
+      {
+        "keywords": [
+          "full name"
+        ]
+      }
+    ],
+    [
+      "email",
+      [
+        ".//input[@name='cEmail']"
+      ],
+      {
+        "keywords": [
+          "email"
+        ]
+      }
+    ],
+    [
+      "phoneFormatted",
+      [
+        ".//input[@name='cPhoneNumber']"
+      ],
+      {
+        "keywords": [
+          "phone"
+        ]
+      }
+    ],
+    [
+      "fullAddress",
+      [
+        ".//input[@id='fullAddress']"
+      ],
+      {
+        "keywords": [
+          "address"
+        ]
+      }
+    ],
+    [
+      "summary",
+      [
+        ".//textarea[@name='cSummary']"
+      ],
+      {
+        "keywords": [
+          "summary"
+        ]
+      }
+    ],
+    [
+      "resume",
+      {
+        "actions": [
+          {
+            "method": "uploadResume",
+            "path": [
+              ".//input[@name='cResume']"
+            ],
+            "options": {
+              "waitForNetworkAfterInteraction": true
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "resume"
+        ]
+      }
+    ],
+    [
+      "experience",
+      {
+        "addButtonPath": [
+          ".//a[CONTAINS_TEXT('add position', true)]"
+        ],
+        "containerPath": [
+          "(//div[@class='section-header'][contains(translate(normalize-space(.//h3), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'work history')]/following-sibling::ul[1]//li)[__indexPlusOne__]"
+        ],
+        "entities": [
+          [
+            "title",
+            [
+              ".//input[@ng-model='candidatePosition.title']"
+            ],
+            {
+              "keywords": [
+                "title"
+              ]
+            }
+          ],
+          [
+            "companyName",
+            [
+              ".//input[@ng-model='candidatePosition.company_name']"
+            ],
+            {
+              "keywords": [
+                "company"
+              ]
+            }
+          ],
+          [
+            "description",
+            [
+              ".//textarea[@ng-model='candidatePosition.summary']"
+            ],
+            {
+              "keywords": [
+                "description",
+                "summary"
+              ]
+            }
+          ],
+          [
+            "startDateDashes_YYYYMMDD",
+            {
+              "actions": [
+                {
+                  "method": "setValue",
+                  "path": [
+                    ".//input[@ng-model='candidatePosition.date_start']"
+                  ]
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "start date"
+              ]
+            }
+          ],
+          [
+            "endDateDashes_YYYYMMDD",
+            {
+              "actions": [
+                {
+                  "method": "setValue",
+                  "path": [
+                    ".//input[@ng-model='candidatePosition.date_end']"
+                  ]
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "end date"
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "keywords": [
+          "experience",
+          "work history"
+        ]
+      }
+    ],
+    [
+      "education",
+      {
+        "addButtonPath": [
+          ".//a[CONTAINS_TEXT('add education', true)]"
+        ],
+        "containerPath": [
+          "(//div[@class='section-header'][contains(translate(normalize-space(.//h3), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'education')]/following-sibling::ul[1]//li)[__indexPlusOne__]"
+        ],
+        "entities": [
+          [
+            "name",
+            [
+              ".//input[@ng-model='candidateSchool.school_name']"
+            ],
+            {
+              "keywords": [
+                "school"
+              ]
+            }
+          ],
+          [
+            "major",
+            [
+              ".//input[@ng-model='candidateSchool.field_of_study']"
+            ],
+            {
+              "keywords": [
+                "field of study"
+              ]
+            }
+          ],
+          [
+            "startDateDashes_YYYYMMDD",
+            {
+              "actions": [
+                {
+                  "method": "setValue",
+                  "path": [
+                    ".//input[@ng-model='candidateSchool.date_start']"
+                  ]
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "start date"
+              ]
+            }
+          ],
+          [
+            "endDateDashes_YYYYMMDD",
+            {
+              "actions": [
+                {
+                  "method": "setValue",
+                  "path": [
+                    ".//input[@ng-model='candidateSchool.date_end']"
+                  ]
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "end date"
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "keywords": [
+          "education"
+        ]
+      }
+    ],
+    [
+      "race",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//li[CONTAINS_TEXT('ethnicity', true)]//ul"
+            ],
+            "method": "clickOption",
+            "values": {
+              "Black or African American": [
+                "Black",
+                "African-American"
+              ],
+              "East Asian": [
+                "Asian"
+              ],
+              "Hispanic or Latino": [
+                "Hispanic",
+                "Latino"
+              ],
+              "Southeast Asian": [
+                "Asian"
+              ],
+              "South Asian": [
+                "Asian"
+              ],
+              "Native Hawaiian or Other Pacific Islander": [
+                "Native Hawaiian",
+                "Pacific islander"
+              ],
+              "American Indian or Alaska Native": [
+                "American Indian",
+                "Alaskan Native"
+              ],
+              "White": [
+                "White"
+              ],
+              "Two or More Races": [
+                "Two or more races"
+              ],
+              "Some Other Race": [
+                "I don't wish "
+              ],
+              "Decline to Answer": [
+                "I don't wish "
+              ],
+              "": [
+                "I don't wish "
+              ]
+            },
+            "options": {
+              "closestCommon": "li",
+              "elementToClick": "input[type='radio']"
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "race",
+          "ethnicity"
+        ]
+      }
+    ],
+    [
+      "gender",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//li[CONTAINS_TEXT('gender', true)]//ul"
+            ],
+            "method": "clickOption",
+            "values": {
+              "Male": [
+                "Male"
+              ],
+              "Female": [
+                "Female"
+              ],
+              "Other": [
+                "I don't wish to"
+              ],
+              "Decline to identify": [
+                "I don't wish to"
+              ],
+              "": [
+                "I don't wish to"
+              ]
+            },
+            "options": {
+              "closestCommon": "li",
+              "elementToClick": "input[type='radio']"
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "gender"
+        ]
+      }
+    ],
+    [
+      "veteran",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//ul[.//input[@name='eeoc.veteran_status'] and CONTAINS_TEXT('veteran', true)]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "true": [
+                "I IDENTIFY AS ONE"
+              ],
+              "false": [
+                "I AM NOT",
+                "Not a veteran"
+              ],
+              "": [
+                "NOT TO SELF-IDENTIFY"
+              ]
+            },
+            "options": {
+              "closestCommon": "li",
+              "elementToClick": "input[type='radio']"
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "veteran"
+        ]
+      }
+    ],
+    [
+      "disability",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//ul[.//input[@name='eeoc.disability_status'] and CONTAINS_TEXT('disability', true)]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "true": [
+                "Yes, I have a "
+              ],
+              "false": [
+                "No, I do not have"
+              ],
+              "": [
+                "do not want to answer"
+              ]
+            },
+            "options": {
+              "closestCommon": "li",
+              "elementToClick": "input[type='radio']"
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "disability"
+        ]
+      }
+    ]
+  ],
+  "alwaysSyncWindowId": true
+}

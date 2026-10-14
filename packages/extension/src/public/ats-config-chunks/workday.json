@@ -1,0 +1,2034 @@
+{
+  "atsName": "workday",
+  "urls": [
+    "*://*.myworkdayjobs.com/*/apply*",
+    "*://*.myworkdaysite.com/*/apply*",
+    "*://*.myworkdayjobs.com/*/login*",
+    "*://*.myworkdaysite.com/*/login*",
+    "*://*.myworkdayjobs.com/*/completed*",
+    "*://*.myworkdaysite.com/*/completed*",
+    "*://*.myworkdayjobs.com/*/userHome*",
+    "*://*.myworkdaysite.com/*/userHome*",
+    "*://community.workday.com/maintenance-page*"
+  ],
+  "globalOptions": {
+    "waitForAllRequestsBeforeFillingStep": true
+  },
+  "detectPageQuestions": true,
+  "networkOptions": {
+    "blacklistedUrlParts": [
+      "linkedin",
+      "analytics",
+      "insights",
+      "collect",
+      "termsdata"
+    ]
+  },
+  "submitButtonPaths": [
+    ".//button[@data-automation-id='bottom-navigation-next-button' and contains(., 'Submit')]",
+    ".//button[@data-automation-id='pageFooterNextButton' and contains(., 'Submit')]"
+  ],
+  "nextStepButtonPaths": [
+    ".//button[@data-automation-id='bottom-navigation-next-button' and not(contains(., 'Submit'))]",
+    ".//button[@data-automation-id='pageFooterNextButton' and not(contains(., 'Submit'))]"
+  ],
+  "backStepButtonPaths": [
+    ".//button[@data-automation-id='bottom-navigation-back-button']"
+  ],
+  "backStepDiscardButtonPaths": [
+    ".//button[@data-automation-id='discardButton']"
+  ],
+  "autoFillOptions": {
+    "patterns": {
+      "date": [
+        "dateSection"
+      ],
+      "fillAtEnd": [
+        "dateSection"
+      ]
+    },
+    "dateOrder": [
+      "year",
+      "month",
+      "day"
+    ]
+  },
+  "validationErrorXPaths": [
+    ".//p[@data-automation-id='inputError']"
+  ],
+  "pageFailureKeywords": [
+    "something went wrong"
+  ],
+  "errorBannerXPaths": [
+    "//button[@data-automation-id='errorBanner']",
+    "//div[@data-automation-id='errorHeading']",
+    "//div[@data-automation-id='errorMessage']"
+  ],
+  "verificationRequired": {
+    "errorXPath": [
+      "//div[@data-automation-id='errorMessage' and CONTAINS_TEXT('verify', true) and CONTAINS_TEXT('account', true)]",
+      "//p[@data-automation-id='alertMessage' and CONTAINS_TEXT('verify', true) and CONTAINS_TEXT('email', true)]"
+    ]
+  },
+  "questionValidationErrorSelectors": [
+    "[aria-describedby*='error']",
+    "[aria-invalid*='true']"
+  ],
+  "targetNodeXPath": [
+    "//div[@id='mainContent' and not(./div/div[@data-automation-id='errorContainer'])]",
+    "//div[@data-automation-id='applyFlowPage' and not(./main/div[@data-automation-id='invalid-content'])]",
+    "//div[@data-automation-id='ApplyFlowPage' and not(./main/div[@data-automation-id='invalid-content'])]",
+    "//div[@data-automation-id='jobPostingPage']"
+  ],
+  "expiredJob": [
+    {
+      "container": [
+        "//div[@id='mainContent']/div/div[@data-automation-id='errorContainer']"
+      ],
+      "keywords": []
+    }
+  ],
+  "canJobBeAppliedXPaths": {
+    "applyButton": [
+      ".//a[@data-automation-id='continueButton']",
+      ".//a[@data-automation-id='adventureButton']"
+    ]
+  },
+  "formatElements": "div[data-automation-id='selectedItem']",
+  "customQuestions": {
+    "patterns": {
+      "questionId": "input-, primaryQuestionnaire-",
+      "questionParent": "[data-automation-id^=formField-]"
+    },
+    "selectors": {
+      "title": "h2",
+      "subTitle": "h3",
+      "label": "label[for^='__questionId__']",
+      "legend": "legend[for^='__questionId__']",
+      "ariaLabelledBy": "[aria-labelledby*=__labelId__]",
+      "roleOption": "[role='option'] [data-automation-id='promptOption'], li[role='option'] div",
+      "radioInput": "input[type='radio']",
+      "monthInput": "input[aria-valuetext='MM']",
+      "dateInput": "input[aria-valuetext='DD']",
+      "yearInput": "input[aria-valuetext='YYYY']",
+      "checkbox": "input[type='checkbox']",
+      "questionParent": "div[data-automation-id*='formField']",
+      "mapOption": "[role='option'] [data-automation-id='promptOption'], li[role='option'] div"
+    },
+    "xpaths": {
+      "currentListItem": [
+        "//div[@data-automation-id='menuItem'][@aria-posinset='__itemIndex__']"
+      ],
+      "listInputBackBtnText": [
+        "//div[@data-automation-id='multiSelectHeader']//text()"
+      ],
+      "selectPopupXPath": [
+        ".//div[@data-automation-widget='wd-popup'][@data-automation-activepopup='true']//div[@role='presentation']"
+      ],
+      "listBoxPopupXPath": [
+        ".//div[@data-automation-widget='wd-popup'][@data-automation-activepopup='true']//ul[@role='listbox']",
+        ".//div[@visibility='opened']//ul[@role='listbox']"
+      ],
+      "selectedItemListXPath": [
+        ".//ul[@data-automation-id='selectedItemList']//li[@data-automation-id='menuItem']"
+      ],
+      "requiredFieldXPath": [
+        ".//abbr[@class='requiredAsterisk']",
+        ".//span[CONTAINS_TEXT('*', true)]"
+      ]
+    },
+    "ignoreQuestions": [
+      "//button[@data-automation-id='select-files']",
+      "//div[contains(@data-automation-id, '-display')]",
+      "//div[contains(@id, 'helpText')]",
+      "//div[contains(@data-automation-id, 'dateInputWrapper')]",
+      "//div[contains(@aria-labelledby, 'hiddenDateValueId')]",
+      "//input[@data-automation-id='beecatcher']",
+      ".//button[@data-automation-id='degree']",
+      ".//div[contains(@data-automation-id, 'degree')]//button",
+      "//div[@data-automation-id='formField-certification-issue-date']//input",
+      "//div[@data-automation-id='formField-certification-expiration-date']//input",
+      "//div[contains(@data-automation-id, 'issuedDate')]//input",
+      "//div[contains(@data-automation-id, 'expirationDate')]//input",
+      "//fieldset[contains(@data-automation-id, 'CheckboxGroup')]//input[@type='checkbox']",
+      "//input[contains(@id, 'countryPhoneCode')]",
+      "//button[contains(@id, 'disabilityForm') and contains(@aria-label, 'Language')]"
+    ],
+    "handlePseudoCheckboxes": true
+  },
+  "jobXPaths": {
+    "entities": [
+      [
+        "titleDisplay",
+        [
+          ".//h2[@data-automation-id='jobPostingHeader']",
+          ".//div[@data-automation-id='jobPostingHeader']",
+          ".//h3[@data-automation-id='jobTitleHeading']",
+          ".//h1[@class='job-title']",
+          "//meta[@property='og:title']/@content"
+        ]
+      ],
+      [
+        "originalCompanyName",
+        [
+          "//img[@data-automation-id='logo']/@src",
+          ".//img[@data-automation-id='banner']/@src"
+        ]
+      ],
+      [
+        "jobTypes",
+        [
+          ".//section[@data-automation-id='jobDetails']//div[@data-automation-id='time']//dd",
+          ".//div[@data-automation-id='time']//dd"
+        ]
+      ],
+      [
+        "postingDate",
+        [
+          ".//section[@data-automation-id='jobDetails']//div[@data-automation-id='postedOn']//dd",
+          ".//div[@data-automation-id='postedOn']//dd"
+        ]
+      ],
+      [
+        "url",
+        [
+          ".//meta[@property='og:url']/@content"
+        ]
+      ],
+      [
+        "desc",
+        [
+          ".//section[@data-automation-id='jobDetails']//div[@data-automation-id='jobPostingDescription']",
+          ".//div[@data-automation-id='jobPostingDescription']",
+          ".//meta[@property='og:description']/@content"
+        ]
+      ],
+      [
+        "locationDisplay",
+        [
+          "//section[@data-automation-id='jobDetails']//div[@data-automation-id='locations']//dd",
+          "//div[@data-automation-id='locations']//dd"
+        ]
+      ]
+    ]
+  },
+  "contextData": {
+    "classifier": {
+      "applyBtnPath": [
+        "//a[contains(@href, 'myworkdayjobs.com') and (contains(@href, '/job/') or contains(@href, '/apply')) and CONTAINS_TEXT('apply', true)]",
+        "//a[contains(@href, 'myworkdaysite.com') and (contains(@href, '/job/') or contains(@href, '/apply')) and CONTAINS_TEXT('apply', true)]"
+      ]
+    },
+    "options": {}
+  },
+  "preApply": {
+    "urls": [
+      "*://*.myworkdayjobs.com/*/job/*",
+      "*://*.myworkdaysite.com/*/job/*"
+    ],
+    "entities": [
+      [
+        "applyBtn",
+        {
+          "actions": [
+            {
+              "key": "canJobBeAppliedXPaths.applyButton",
+              "method": "click",
+              "time": 500
+            },
+            {
+              "path": [
+                ".//a[@data-automation-id='applyManually']"
+              ],
+              "method": "click"
+            }
+          ]
+        }
+      ]
+    ],
+    "reloadPageAfterDelay": 100
+  },
+  "signIn": {
+    "urls": [
+      "*://*.myworkdayjobs.com/*/login*",
+      "*://*.myworkdaysite.com/*/login*"
+    ],
+    "formPath": [
+      "//div[@data-automation-id='signInContent']"
+    ],
+    "submitButton": [
+      "//div[@data-automation-id='click_filter' and @aria-label='Sign In']",
+      "//div[@data-automation-id='click_filter' and following-sibling::button[@data-automation-id='signInSubmitButton']][1]"
+    ],
+    "toSignInButton": [
+      "//button[@data-automation-id='signInLink']"
+    ],
+    "createAccount": [
+      "//button[@data-automation-id='createAccountLink']",
+      "//button[@data-automation-id='createAccountSubmitButton']"
+    ],
+    "signInWithEmail": [
+      "//button[@data-automation-id='SignInWithEmailButton']"
+    ],
+    "forgotPassword": [
+      "//button[@data-automation-id='forgotPasswordLink']"
+    ],
+    "email": [
+      "//div[@data-automation-id='formField-email']//input"
+    ],
+    "password": [
+      "//div[@data-automation-id='formField-password']//input",
+      "//input[@type='password' and @data-automation-id='password']"
+    ],
+    "errorMessage": [
+      "//div[@data-automation-id='errorMessage']"
+    ],
+    "wrongCredentialsError": [
+      ".//p[CONTAINS_TEXT('wrong', true) and CONTAINS_TEXT('email', true)]"
+    ],
+    "endpoint": "/login"
+  },
+  "signUp": {
+    "errorMessage": [
+      "//div[@data-automation-id='errorMessage']",
+      "//p[@data-automation-id='inputError']"
+    ],
+    "submitButton": [
+      "//div[@data-automation-id='click_filter' and @aria-label='Create Account']",
+      "//div[@data-automation-id='click_filter' and following-sibling::button[@data-automation-id='createAccountSubmitButton']][1]"
+    ],
+    "formStepPath": [
+      "//div[@data-automation-id='signInContent']"
+    ],
+    "email": [
+      "//div[@data-automation-id='formField-email']//input"
+    ],
+    "password": [
+      "//div[@data-automation-id='formField-password']//input"
+    ],
+    "verifyPassword": [
+      "//div[@data-automation-id='formField-verifyPassword']//input"
+    ],
+    "endpoint": "/register",
+    "saveStrategy": "onRedirect",
+    "agreementPath": [
+      "//input[@data-automation-id='createAccountCheckbox']"
+    ]
+  },
+  "sections": {
+    "path": [
+      ".//h2"
+    ],
+    "section": [
+      {
+        "title": [
+          "Review"
+        ],
+        "entities": []
+      },
+      {
+        "title": [
+          "Start Your Application"
+        ],
+        "entities": [
+          "applyBtn"
+        ]
+      },
+      {
+        "title": [
+          "My Information"
+        ],
+        "entities": [
+          "answerSource",
+          "email",
+          "firstName",
+          "lastName",
+          "addressLine1",
+          "phoneType",
+          "phoneCode",
+          "stateName",
+          "city",
+          "postalCode",
+          "phoneStripped",
+          "countryName",
+          "county"
+        ]
+      },
+      {
+        "title": [
+          "My Experience",
+          "Education",
+          "Certifications",
+          "Skills"
+        ],
+        "entities": [
+          "experience",
+          "companyName",
+          "title",
+          "stateName",
+          "description",
+          "startDate",
+          "endDate",
+          "startDateMonthText",
+          "startDateYear",
+          "startDateMonth_MM",
+          "cityState",
+          "isCurrent",
+          "education",
+          "name",
+          "degree",
+          "major",
+          "gpa",
+          "startDateYear",
+          "endDateYear",
+          "certification",
+          "name",
+          "issueDateSlashes_MMDDYYYY",
+          "skill",
+          "name",
+          "language",
+          "resume"
+        ]
+      },
+      {
+        "title": [
+          "Application Questions",
+          "Voluntary Disclosures",
+          "Self Identify"
+        ],
+        "entities": [
+          "over18",
+          "workAuth",
+          "fullName",
+          "applyDate",
+          "disability",
+          "sponsorship",
+          "lgbt",
+          "armedForces",
+          "currentDate",
+          "currentDateDashes",
+          "workStartDateAvailabilityString",
+          "agreement"
+        ]
+      }
+    ]
+  },
+  "entities": [
+    [
+      "applyBtn",
+      [
+        {
+          "actions": [
+            {
+              "path": [
+                ".//a[@data-automation-id='applyManually']"
+              ],
+              "method": "click"
+            }
+          ]
+        }
+      ],
+      {
+        "keywords": [
+          "Apply"
+        ]
+      }
+    ],
+    [
+      "answerSource",
+      [
+        {
+          "actions": [
+            {
+              "path": [
+                ".//div[@data-automation-id='formField-sourcePrompt']//div[@data-automation-id='multiselectInputContainer']//input",
+                ".//div[@data-automation-id='formField-sourceDropdown']//button[@data-automation-id='sourceDropdown']",
+                ".//div[@data-automation-id='formField-source']//*[@id='source--source']"
+              ],
+              "method": "click",
+              "options": {
+                "waitForNetworkBeforeInteraction": true,
+                "waitForNetworkAfterInteraction": true
+              }
+            },
+            {
+              "path": [
+                "//div[@data-automation-widget='wd-popup']//ul",
+                "(//div[@data-automation-id='activeListContainer']//div)[1]",
+                "//ul[@id=//div[@data-automation-id='formField-source']//*[@id='source--source']/@aria-controls]",
+                "//div[@data-associated-widget=//div[@data-automation-id='formField-source']//*[@id='source--source']/@data-uxi-multiselect-id]"
+              ],
+              "method": "clickOptionWithMultiAnswers",
+              "values": {
+                "source": [
+                  "Google",
+                  "Other",
+                  "job board",
+                  "job site",
+                  "website",
+                  "social network"
+                ]
+              },
+              "backButtonPath": [
+                ".//span[@data-automation-id='backButton']"
+              ],
+              "listItemPath": [
+                ".//div[@data-automation-id='promptLeafNode']",
+                ".//li[@role='option']"
+              ],
+              "options": {
+                "waitForNetworkBeforeInteraction": true,
+                "deepSearch": true,
+                "lowPriority": [
+                  "Indeed",
+                  "ZipRecruiter",
+                  "LinkedIn",
+                  "Glassdoor",
+                  "Simplyhired",
+                  "Dice",
+                  "CareerBuilder",
+                  "Monster"
+                ],
+                "prohibited": [
+                  "referral",
+                  "referred",
+                  "connection",
+                  "at the company",
+                  "for the organization",
+                  "employee",
+                  "select",
+                  "current worker",
+                  "used to work at"
+                ],
+                "selectFirstExcludingProhibited": true
+              }
+            },
+            {
+              "path": [
+                "//div[contains(@data-automation-id, 'referredBy')]//input"
+              ],
+              "method": "setValue",
+              "defaultValue": "Job Board",
+              "options": {
+                "waitForNetworkBeforeInteraction": true
+              }
+            }
+          ]
+        }
+      ],
+      {
+        "keywords": [
+          "Hear About"
+        ]
+      }
+    ],
+    [
+      "countryName",
+      [
+        {
+          "actions": [
+            {
+              "path": [
+                ".//button[@data-automation-id='countryDropdown']",
+                ".//div[@data-automation-id='formField-country']//button[@id='country--country']"
+              ],
+              "method": "click"
+            },
+            {
+              "path": [
+                "//div[@data-automation-activepopup='true']//ul[@role='listbox']//li[@role='option' and starts-with(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'united states of america')]",
+                "//ul[@id=//div[@data-automation-id='formField-country']//button[@id='country--country']/@aria-controls]//li[@role='option' and starts-with(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'united states of america')]"
+              ],
+              "method": "click",
+              "options": {
+                "waitForNetworkAfterInteraction": false,
+                "wait": 0
+              }
+            }
+          ]
+        },
+        {
+          "actions": [
+            {
+              "path": [
+                ".//input[@data-automation-id='addressSection_regionSubdivision1']"
+              ],
+              "method": "setValue",
+              "defaultValue": "United States of America",
+              "options": {
+                "wait": 0,
+                "waitForNetworkAfterInteraction": true
+              }
+            }
+          ]
+        }
+      ],
+      {
+        "keywords": [
+          "Country"
+        ]
+      }
+    ],
+    [
+      "county",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//div[@data-automation-id='formField-regionSubdivision1']//input"
+            ],
+            "method": "getCounty"
+          },
+          {
+            "path": [
+              ".//div[@data-automation-id='formField-regionSubdivision1']//input"
+            ],
+            "method": "setValue",
+            "options": {
+              "waitForNetworkBeforeInteraction": false,
+              "wait": 0
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "county"
+        ]
+      }
+    ],
+    [
+      "email",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//div[@id='textInput.email']//input[@type='text']",
+              ".//div[@data-automation-id='formField-emailAddress']//input[@type='text']",
+              ".//input[@data-automation-id='email']"
+            ],
+            "method": "setValue",
+            "options": {
+              "wait": 0
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "Email"
+        ]
+      }
+    ],
+    [
+      "firstName",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//div[contains(@data-automation-id, 'firstName')]//input[@type='text']"
+            ],
+            "method": "setValue",
+            "options": {
+              "wait": 0
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "First Name",
+          "Given Name"
+        ]
+      }
+    ],
+    [
+      "lastName",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//div[contains(@data-automation-id, 'lastName')]//input[@type='text']"
+            ],
+            "method": "setValue",
+            "options": {
+              "wait": 0
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "Last Name",
+          "Family Name"
+        ]
+      }
+    ],
+    [
+      "addressLine1",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//div[contains(@data-automation-id, 'addressLine1')]//input[@type='text']"
+            ],
+            "method": "setValue",
+            "options": {
+              "wait": 0
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "Address Line"
+        ]
+      }
+    ],
+    [
+      "city",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//div[contains(@data-automation-id, 'city')]//input[@type='text']"
+            ]
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "City"
+        ]
+      }
+    ],
+    [
+      "phoneStripped",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//div[@data-automation-id='formField-phone-number']//input[@type='text']",
+              ".//input[@data-automation-id='phone-number']",
+              ".//div[contains(@data-automation-id, 'phoneNumber')]//input[@type='text']"
+            ],
+            "method": "setValue",
+            "options": {
+              "wait": 0
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "Phone Number"
+        ]
+      }
+    ],
+    [
+      "phoneCode",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//div[@data-automation-id='formField-country-phone-code']//input"
+            ],
+            "method": "setValue",
+            "options": {
+              "wait": 0
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "Phone Code",
+          "Country Phone Code"
+        ]
+      }
+    ],
+    [
+      "stateName",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//button[@data-automation-id='addressSection_countryRegion']",
+              ".//div[contains(@data-automation-id, 'countryRegion')]//button[contains(@id, 'countryRegion')]"
+            ],
+            "method": "click"
+          },
+          {
+            "path": [
+              "//div[@data-automation-activepopup='true']",
+              "//ul[@id=//div[contains(@data-automation-id, 'countryRegion')]//button[contains(@id, 'countryRegion')]/@aria-controls]"
+            ],
+            "method": "clickOption",
+            "options": {
+              "wait": 0
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "State"
+        ]
+      }
+    ],
+    [
+      "postalCode",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//div[contains(@data-automation-id, 'postalCode')]//input[@type='text']"
+            ],
+            "method": "setValue",
+            "options": {
+              "wait": 0
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "Postal Code"
+        ]
+      }
+    ],
+    [
+      "phoneType",
+      {
+        "actions": [
+          {
+            "path": [
+              "//button[@data-automation-id='phone-device-type']",
+              "//div[@data-automation-id='formField-phoneType']//button[@id='phoneNumber--phoneType']"
+            ],
+            "method": "click"
+          },
+          {
+            "path": [
+              "//div[@data-automation-activepopup='true']",
+              "//ul[@id=//div[@data-automation-id='formField-phoneType']//button[@id='phoneNumber--phoneType']/@aria-controls]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "mobile": [
+                "Personal Mobile",
+                "Personal Phone",
+                "Personal Primary",
+                "Cell",
+                "Personal",
+                "Mobile"
+              ]
+            },
+            "options": {
+              "wait": 0,
+              "waitForNetworkBeforeInteraction": true
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "Phone Device",
+          "Device Type"
+        ]
+      }
+    ],
+    [
+      "experience",
+      {
+        "addButtonPath": [
+          ".//button[starts-with(@aria-label, 'Add') and contains(@aria-label, 'Experience')]",
+          ".//button[starts-with(@aria-label, 'Add Another Work History')]",
+          ".//button[starts-with(@aria-label, 'Add Work History')]",
+          ".//button[starts-with(@aria-label, 'Add Work Experience')]",
+          "//div[@data-automation-id='workExperienceSection']//button[contains(@aria-label, 'Add Another')]",
+          "//div[@data-automation-id='workExperienceSection']//button[@data-automation-id='Add']",
+          "//div[contains(@aria-labelledby, 'History-section')]//button[@data-automation-id='add-button']",
+          "//div[contains(@aria-labelledby, 'Experience-section')]//button[@data-automation-id='add-button']"
+        ],
+        "options": {
+          "afterAddButtonAsyncDelay": 30000
+        },
+        "confirmAddedPath": [
+          ".//div[@data-automation-id='workExperience-__indexPlusOne__']",
+          ".//div[contains(@aria-labelledby, 'Experience-__indexPlusOne__-panel')]",
+          ".//div[contains(@aria-labelledby, 'History-__indexPlusOne__-panel')]"
+        ],
+        "containerPath": [
+          ".//div[@data-automation-id='workExperience-__indexPlusOne__']",
+          ".//div[contains(@aria-labelledby, 'Experience-__indexPlusOne__-panel')]",
+          ".//div[contains(@aria-labelledby, 'History-__indexPlusOne__-panel')]"
+        ],
+        "entities": [
+          [
+            "title",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[@data-automation-id='jobTitle']",
+                    ".//div[contains(@data-automation-id, 'jobTitle')]//input[@type='text']"
+                  ],
+                  "method": "setValue",
+                  "options": {
+                    "wait": 0
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "Job Title"
+              ]
+            }
+          ],
+          [
+            "companyName",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[@data-automation-id='company']",
+                    ".//div[contains(@data-automation-id, 'companyName')]//input[@type='text']"
+                  ],
+                  "method": "setValue",
+                  "options": {
+                    "wait": 0
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "Company"
+              ]
+            }
+          ],
+          [
+            "cityState",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[@data-automation-id='location']",
+                    ".//div[contains(@data-automation-id, 'location')]//input[@type='text']"
+                  ],
+                  "method": "setValue",
+                  "options": {
+                    "wait": 0
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "Location"
+              ]
+            }
+          ],
+          [
+            "isCurrent",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[@data-automation-id='currentlyWorkHere']",
+                    ".//div[contains(@data-automation-id, 'currentlyWorkHere')]//input[@type='checkbox']"
+                  ],
+                  "method": "clickCheckbox",
+                  "options": {
+                    "wait": 0
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "Currently work"
+              ]
+            }
+          ],
+          [
+            "startDate",
+            {
+              "actions": [
+                {
+                  "method": "setDateInput",
+                  "format": "MM/yyyy",
+                  "month": {
+                    "path": [
+                      ".//div[@data-automation-id='formField-startDate']//input[@aria-label='Month' or @data-automation-id='dateSectionMonth-input']"
+                    ],
+                    "format": "MM",
+                    "options": {
+                      "triggerBlurEvent": false,
+                      "triggerBlurInInactiveTab": true,
+                      "wait": 0
+                    }
+                  },
+                  "year": {
+                    "path": [
+                      ".//div[@data-automation-id='formField-startDate']//input[@aria-label='Year' or @data-automation-id='dateSectionYear-input']"
+                    ],
+                    "format": "yyyy",
+                    "options": {
+                      "waitForNetworkBeforeInteraction": false,
+                      "waitForNetworkAfterInteraction": false,
+                      "triggerBlurEvent": false,
+                      "triggerBlurInInactiveTab": true,
+                      "wait": 0
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "From"
+              ]
+            }
+          ],
+          [
+            "endDate",
+            {
+              "actions": [
+                {
+                  "method": "setDateInput",
+                  "format": "MM/yyyy",
+                  "month": {
+                    "path": [
+                      ".//div[@data-automation-id='formField-endDate']//input[@aria-label='Month']"
+                    ],
+                    "format": "MM",
+                    "options": {
+                      "triggerBlurEvent": false,
+                      "triggerBlurInInactiveTab": true,
+                      "wait": 0
+                    }
+                  },
+                  "year": {
+                    "path": [
+                      ".//div[@data-automation-id='formField-endDate']//input[@aria-label='Year']"
+                    ],
+                    "format": "yyyy",
+                    "options": {
+                      "waitForNetworkBeforeInteraction": false,
+                      "waitForNetworkAfterInteraction": false,
+                      "triggerBlurEvent": false,
+                      "triggerBlurInInactiveTab": true,
+                      "wait": 0
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "To"
+              ]
+            }
+          ],
+          [
+            "description",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//textarea[@data-automation-id='description']",
+                    ".//div[contains(@data-automation-id, 'roleDescription')]//textarea"
+                  ],
+                  "method": "setValue",
+                  "options": {
+                    "wait": 0
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "Description"
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "keywords": [
+          "Experience"
+        ]
+      }
+    ],
+    [
+      "education",
+      {
+        "addButtonPath": [
+          ".//button[@aria-label='Add Education']",
+          "//div[@data-automation-id='educationSection']//button[contains(@aria-label, 'Add Another')]",
+          "//div[@data-automation-id='educationSection']//button[@data-automation-id='Add']",
+          "//div[@aria-labelledby='Education-section']//button[@data-automation-id='add-button']",
+          "//div[starts-with(translate(@aria-labelledby, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'highest-level-of-education-')]//button[@data-automation-id='add-button']",
+          "//div[@aria-labelledby='Schooling-section']//button[@data-automation-id='add-button']"
+        ],
+        "options": {
+          "afterAddButtonAsyncDelay": 30000,
+          "getRelevantEntities": true
+        },
+        "confirmAddedPath": [
+          ".//div[@data-automation-id='education-__indexPlusOne__']",
+          ".//div[@aria-labelledby='Education-__indexPlusOne__-panel']",
+          ".//div[@aria-labelledby='Schooling-__indexPlusOne__-panel']"
+        ],
+        "containerPath": [
+          ".//div[@data-automation-id='education-__indexPlusOne__']",
+          ".//div[@aria-labelledby='Education-__indexPlusOne__-panel']",
+          ".//div[starts-with(translate(@aria-labelledby, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'highest-level-of-education-') and contains(@aria-labelledby, '-__indexPlusOne__-panel')]",
+          ".//div[@aria-labelledby='Schooling-__indexPlusOne__-panel']"
+        ],
+        "entities": [
+          [
+            "name",
+            [
+              {
+                "actions": [
+                  {
+                    "path": [
+                      ".//div[contains(@data-automation-id, 'schoolName')]//input[@type='text' and not(@placeholder)]",
+                      ".//div[@data-automation-id='formField-school']//input[@data-automation-id='school' and not(@placeholder)]"
+                    ],
+                    "method": "setValue",
+                    "options": {
+                      "wait": 0
+                    }
+                  }
+                ]
+              },
+              {
+                "actions": [
+                  {
+                    "path": [
+                      ".//div[@data-automation-id='formField-schoolItem']//input[@placeholder='Search']"
+                    ],
+                    "method": "click"
+                  },
+                  {
+                    "path": [
+                      ".//div[@data-automation-id='formField-schoolItem']//input[@placeholder='Search']",
+                      ".//input[contains(@id, 'schoolName') and @type='text']"
+                    ],
+                    "method": "setValue",
+                    "options": {
+                      "triggerBlurEvent": false,
+                      "resetValue": true
+                    }
+                  },
+                  {
+                    "path": [
+                      ".//div[@data-automation-id='formField-schoolItem']//input[@placeholder='Search']"
+                    ],
+                    "method": "pressEnterKey",
+                    "options": {
+                      "waitForNetworkBeforeInteraction": true,
+                      "waitForNetworkAfterInteraction": true
+                    }
+                  },
+                  {
+                    "path": [
+                      "//div[@data-automation-widget='wd-popup']"
+                    ],
+                    "method": "clickOptionAsync",
+                    "options": {
+                      "noMatchesFallbackText": "Not Found",
+                      "waitForNetworkBeforeInteraction": true,
+                      "waitForNetworkAfterInteraction": true,
+                      "similarMatch": true
+                    }
+                  }
+                ]
+              },
+              {
+                "actions": [
+                  {
+                    "path": [
+                      ".//div[@data-automation-id='formField-school']//input[@placeholder='Search']"
+                    ],
+                    "method": "click"
+                  },
+                  {
+                    "path": [
+                      ".//div[@data-automation-id='formField-school']//input[@type='text']",
+                      ".//div[@data-automation-id='formField-school']//input[@data-automation-id='searchBox']",
+                      ".//div[@data-automation-id='formField-school']//input[contains(@id, 'school')]"
+                    ],
+                    "method": "setValue",
+                    "options": {
+                      "waitForNetworkBeforeInteraction": true,
+                      "waitForNetworkAfterInteraction": true,
+                      "trackQuestion": true,
+                      "checkAcronym": true,
+                      "resetValue": true
+                    }
+                  },
+                  {
+                    "path": [
+                      ".//div[@data-automation-id='formField-school']//input[@data-automation-id='searchBox']",
+                      ".//div[@data-automation-id='formField-school']//input[contains(@id, 'school')]"
+                    ],
+                    "method": "pressEnterKey",
+                    "options": {
+                      "waitForNetworkBeforeInteraction": true,
+                      "waitForNetworkAfterInteraction": true
+                    }
+                  },
+                  {
+                    "path": [
+                      "//div[@data-associated-widget=//div[contains(@data-automation-id, 'formField-school')]//div[@data-automation-id='multiSelectContainer'][1]/@id]"
+                    ],
+                    "method": "clickOption",
+                    "options": {
+                      "wait": 0,
+                      "waitForNetworkAfterInteraction": true,
+                      "waitForNetworkBeforeInteraction": true,
+                      "checkAcronym": true,
+                      "autocomplete": true,
+                      "optionSelected": [
+                        "//div[@aria-labelledby='Education-__indexPlusOne__-panel']//div[@data-automation-id='selectedItem']//p[@data-automation-id='promptOption']"
+                      ],
+                      "removeOption": [
+                        "//div[@aria-labelledby='Education-__indexPlusOne__-panel']//div[@data-automation-id='DELETE_charm']"
+                      ],
+                      "fallbackOptionsArray": [
+                        "Other",
+                        "Not Listed",
+                        "School Not Found",
+                        "None Listed",
+                        "Unspecified",
+                        "Not Applicable",
+                        "Other - School Not Found"
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            {
+              "keywords": [
+                "School",
+                "University",
+                "School or University"
+              ]
+            }
+          ],
+          [
+            "degree",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//button[@data-automation-id='degree']",
+                    ".//div[contains(@data-automation-id, 'degree')]//button"
+                  ],
+                  "method": "click",
+                  "options": {
+                    "trackQuestion": true
+                  }
+                },
+                {
+                  "path": [
+                    "//div[@data-automation-widget='wd-popup']//ul",
+                    "//ul[@id=//div[contains(@data-automation-id, 'degree')]//button/@aria-controls]"
+                  ],
+                  "method": "clickOption",
+                  "values": {
+                    "bachelor's": [
+                      "Bachelor's Degree",
+                      "Bachelors"
+                    ],
+                    "master's": [
+                      "Master's Degree",
+                      "Master of Science",
+                      "Masters"
+                    ],
+                    "associate's": [
+                      "Associate's Degree"
+                    ]
+                  },
+                  "options": {
+                    "forceOptionSearch": true,
+                    "wait": 0,
+                    "preserveSpecialChars": true,
+                    "unmarkFilledStatusIfSomeFails": true
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "Degree"
+              ]
+            }
+          ],
+          [
+            "major",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//div[@data-automation-id='formField-field-of-study']//input[@placeholder='Search']",
+                    ".//div[contains(@data-automation-id, 'fieldOfStudy')]//input[@placeholder='Search']"
+                  ],
+                  "method": "click"
+                },
+                {
+                  "path": [
+                    ".//div[@data-automation-id='formField-field-of-study']//input[@placeholder='Search']",
+                    ".//div[contains(@data-automation-id, 'fieldOfStudy')]//input[@placeholder='Search']"
+                  ],
+                  "method": "setValue",
+                  "fallbackValue": "Other",
+                  "options": {
+                    "triggerBlurEvent": false,
+                    "resetValue": true,
+                    "trackQuestion": true
+                  }
+                },
+                {
+                  "path": [
+                    ".//div[@data-automation-id='formField-field-of-study']//input[@placeholder='Search']",
+                    ".//div[contains(@data-automation-id, 'fieldOfStudy')]//input[@placeholder='Search']"
+                  ],
+                  "method": "pressEnterKey",
+                  "options": {
+                    "waitForNetworkAfterInteraction": true,
+                    "waitForNetworkBeforeInteraction": true,
+                    "addedItemXpath": [
+                      ".//div[@data-automation-id='formField-field-of-study']//div[@data-automation-id='selectedItem'][last()]",
+                      ".//div[contains(@data-automation-id, 'fieldOfStudy')]//div[@data-automation-id='selectedItem'][last()]"
+                    ]
+                  }
+                },
+                {
+                  "path": [
+                    "//div[@data-automation-widget='wd-popup']",
+                    "//div[@data-associated-widget=(//div[contains(@data-automation-id, 'fieldOfStudy')]//div[@data-automation-id='multiSelectContainer'])[__indexPlusOne__]/@id]//div[@data-automation-id='activeListContainer']"
+                  ],
+                  "method": "clickOption",
+                  "options": {
+                    "waitForNetworkAfterInteraction": true,
+                    "waitForNetworkBeforeInteraction": true,
+                    "autocomplete": true,
+                    "optionSelected": [
+                      "//div[@aria-labelledby='Education-__indexPlusOne__-panel']//div[contains(@data-automation-id, 'fieldOfStudy')]//div[@data-automation-id='selectedItem']//p[@data-automation-id='promptOption']"
+                    ],
+                    "removeOption": [
+                      "//div[@aria-labelledby='Education-__indexPlusOne__-panel']//div[contains(@data-automation-id, 'fieldOfStudy')]//div[@data-automation-id='DELETE_charm']"
+                    ],
+                    "fallbackOptionsArray": [
+                      "Other",
+                      "Other Program",
+                      "Unspecified"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "Major",
+                "Field of Study"
+              ]
+            }
+          ],
+          [
+            "startDateYear",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//div[@data-automation-id='formField-startDate']//input[@aria-label='Year' or @data-automation-id='dateSectionYear-input']",
+                    ".//div[contains(@data-automation-id, 'firstYearAttended')]//input"
+                  ],
+                  "method": "setValue",
+                  "options": {
+                    "wait": 0
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "From"
+              ]
+            }
+          ],
+          [
+            "endDateYear",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//div[@data-automation-id='formField-endDate']//input[@aria-label='Year' or @data-automation-id='dateSectionYear-input']",
+                    ".//div[contains(@data-automation-id, 'lastYearAttended')]//input"
+                  ],
+                  "method": "setValue",
+                  "options": {
+                    "wait": 0
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "To",
+                "Expected"
+              ]
+            }
+          ],
+          [
+            "gpa",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//div[@data-automation-id='formField-gpa']//input[@data-automation-id='gpa']",
+                    ".//div[contains(@data-automation-id,'gradeAverage')]//input"
+                  ],
+                  "method": "setValue",
+                  "options": {
+                    "wait": 0
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "GPA",
+                "overall result"
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "keywords": [
+          "Education",
+          "School",
+          "Schooling"
+        ]
+      }
+    ],
+    [
+      "certification",
+      {
+        "addButtonPath": [
+          ".//button[@aria-label='Add Certifications']",
+          ".//div[@data-automation-id='certifications-section']//button[contains(@aria-label, 'Add')]",
+          "//div[contains(@aria-labelledby, 'Certifications-section')]//button[@data-automation-id='add-button']"
+        ],
+        "options": {
+          "afterAddButtonAsyncDelay": 30000
+        },
+        "confirmAddedPath": [
+          ".//div[@data-automation-id='certification-__indexPlusOne__']",
+          ".//div[@data-automation-id='panel-__indexPlusOne__']",
+          ".//div[contains(@aria-labelledby, 'Certifications-__indexPlusOne__-panel')]"
+        ],
+        "containerPath": [
+          ".//div[@data-automation-id='certifications-__indexPlusOne__']",
+          ".//div[@data-automation-id='certifications-section']//div[@data-automation-id='panel-__indexPlusOne__']",
+          ".//div[contains(@aria-labelledby, 'Certifications-__indexPlusOne__-panel')]"
+        ],
+        "entities": [
+          [
+            "name",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[@placeholder='Search']",
+                    ".//div[contains(@data-automation-id, 'certification')]//input[@placeholder='Search']"
+                  ],
+                  "method": "click"
+                },
+                {
+                  "path": [
+                    ".//input[@placeholder='Search']",
+                    ".//div[contains(@data-automation-id, 'certification')]//input[@placeholder='Search']"
+                  ],
+                  "method": "setValue",
+                  "options": {
+                    "triggerBlurEvent": false,
+                    "trackQuestion": true,
+                    "resetValue": true
+                  }
+                },
+                {
+                  "path": [
+                    ".//div[contains(@data-automation-id, 'certification')]//input[@placeholder='Search']"
+                  ],
+                  "method": "pressEnterKey",
+                  "options": {
+                    "waitForNetworkBeforeInteraction": true,
+                    "waitForNetworkAfterInteraction": true
+                  }
+                },
+                {
+                  "path": [
+                    "//div[@data-associated-widget=(//div[contains(@data-automation-id, 'certification')]//div[@data-automation-id='multiSelectContainer'])[__indexPlusOne__]/@id]//div[contains(@class, 'Virtualized')]"
+                  ],
+                  "method": "clickOption",
+                  "options": {
+                    "waitForNetworkBeforeInteraction": true,
+                    "waitForNetworkAfterInteraction": true,
+                    "skipNextFieldsIfNoMatch": true,
+                    "autocomplete": true,
+                    "optionSelected": [
+                      "//div[@data-automation-id='panel-__indexPlusOne__']//div[@data-automation-id='formField-certification']//p[@data-automation-id='promptOption']"
+                    ],
+                    "removeButton": [
+                      ".//button[@aria-label='Delete Certifications / Professional Licenses __indexPlusOne__']",
+                      ".//button[@aria-label='Delete Certifications __indexPlusOne__']",
+                      ".//button[contains(text(), 'Delete')]"
+                    ],
+                    "ignoreMultipleLevelsDropdown": true
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "issueDateSlashes_MMDDYYYY",
+            {
+              "actions": [
+                {
+                  "method": "setDateInput",
+                  "format": "MM/dd/yyyy",
+                  "month": {
+                    "path": [
+                      ".//div[@data-automation-id='formField-certification-issue-date']//input[@aria-label='Month']",
+                      ".//div[contains(@data-automation-id, 'issuedDate')]//input[@aria-label='Month']"
+                    ],
+                    "format": "MM",
+                    "options": {
+                      "triggerBlurEvent": false,
+                      "triggerBlurInInactiveTab": true,
+                      "wait": 0
+                    }
+                  },
+                  "day": {
+                    "path": [
+                      ".//div[@data-automation-id='formField-certification-issue-date']//input[@aria-label='Day']",
+                      ".//div[contains(@data-automation-id, 'issuedDate')]//input[@aria-label='Day']"
+                    ],
+                    "format": "dd",
+                    "options": {
+                      "triggerBlurEvent": false,
+                      "triggerBlurInInactiveTab": true,
+                      "wait": 0
+                    }
+                  },
+                  "year": {
+                    "path": [
+                      ".//div[@data-automation-id='formField-certification-issue-date']//input[@aria-label='Year']",
+                      ".//div[contains(@data-automation-id, 'issuedDate')]//input[@aria-label='Year']"
+                    ],
+                    "format": "yyyy",
+                    "options": {
+                      "wait": 0,
+                      "waitForNetworkAfterInteraction": false,
+                      "triggerBlurEvent": false,
+                      "triggerBlurInInactiveTab": true
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "keywords": [
+          "Certification"
+        ]
+      }
+    ],
+    [
+      "skill",
+      {
+        "containerPath": [
+          ".//div[@data-automation-id='skillsSection']",
+          ".//div[contains(@aria-labelledby, 'Skills-section')]"
+        ],
+        "entities": [
+          [
+            "name",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[@placeholder='Search']"
+                  ],
+                  "method": "click",
+                  "options": {
+                    "waitForNetworkBeforeInteraction": true,
+                    "waitForNetworkAfterInteraction": true
+                  }
+                },
+                {
+                  "path": [
+                    ".//input[@placeholder='Search']"
+                  ],
+                  "method": "setValue",
+                  "options": {
+                    "triggerBlurEvent": false,
+                    "ignoreExistingValue": true,
+                    "resetValue": true
+                  }
+                },
+                {
+                  "path": [
+                    ".//input[@placeholder='Search']"
+                  ],
+                  "method": "pressEnterKey",
+                  "options": {
+                    "waitForNetworkBeforeInteraction": true,
+                    "waitForNetworkAfterInteraction": true
+                  }
+                },
+                {
+                  "path": [
+                    "//div[@data-automation-widget='wd-popup']//div[@role='presentation']",
+                    "//div[@data-associated-widget=//div[contains(@aria-labelledby, 'Skills-section')]//div[@data-automation-id='multiSelectContainer']/@id]//div[@data-automation-id='activeListContainer']"
+                  ],
+                  "method": "clickOptionAsync",
+                  "options": {
+                    "waitForNetworkBeforeInteraction": true,
+                    "stopVariantsGeneration": true,
+                    "checkboxSelector": [
+                      "input[type='checkbox'][data-automation-id='checkboxPanel']"
+                    ],
+                    "optionParentSelector": [
+                      "div[data-automation-id='menuItem']"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "skills"
+              ]
+            }
+          ]
+        ],
+        "options": {
+          "clickOutsideAtEnd": true
+        }
+      },
+      {
+        "keywords": [
+          "skills"
+        ]
+      }
+    ],
+    [
+      "workAuth",
+      {
+        "actions": [
+          {
+            "path": [
+              "//button[contains(@aria-label, 'authorized to work') or contains(@aria-label, 'permitted to work') or contains(@aria-label, 'eligible to work') or contains(@aria-label, 'lawfully work') or contains(@aria-label, 'legally')]",
+              "//div[contains(@data-automation-id, 'formField') and .//*[contains(text(), 'authorized to work') or contains(text(), 'permitted to work') or contains(text(), 'eligible to work') or contains(text(), 'lawfully work') or contains(text(), 'legally')]]//button"
+            ],
+            "method": "click",
+            "options": {
+              "unmarkFilledStatusIfSomeFails": true
+            }
+          },
+          {
+            "path": [
+              "//div[@data-automation-activepopup='true']",
+              "//ul[@id=//div[contains(@data-automation-id, 'formField') and .//*[contains(text(), 'authorized to work') or contains(text(), 'permitted to work') or contains(text(), 'eligible to work') or contains(text(), 'lawfully work') or contains(text(), 'legally')]]//button/@aria-controls]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "true": "Yes",
+              "false": "No"
+            },
+            "options": {
+              "waitForNetworkAfterInteraction": false
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "permitted to work",
+          "authorized to work"
+        ]
+      }
+    ],
+    [
+      "sponsorship",
+      {
+        "actions": [
+          {
+            "path": [
+              "//button[contains(@aria-label, 'sponsorship')]"
+            ],
+            "method": "click",
+            "options": {
+              "unmarkFilledStatusIfSomeFails": true
+            }
+          },
+          {
+            "path": [
+              "//div[@data-automation-activepopup='true']"
+            ],
+            "method": "clickOption",
+            "values": {
+              "true": "Yes",
+              "false": "No"
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "sponsorship"
+        ]
+      }
+    ],
+    [
+      "lgbt",
+      {
+        "actions": [
+          {
+            "path": [
+              "//button[contains(@aria-label, 'sexual orientation')]"
+            ],
+            "method": "click",
+            "options": {
+              "unmarkFilledStatusIfSomeFails": true
+            }
+          },
+          {
+            "path": [
+              "//div[@data-automation-activepopup='true']"
+            ],
+            "method": "clickOption",
+            "values": {
+              "true": "Prefer Not",
+              "false": "Hetero"
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "sexual orientation"
+        ]
+      }
+    ],
+    [
+      "armedForces",
+      {
+        "actions": [
+          {
+            "path": [
+              "//button[contains(@aria-label, 'have you served')]",
+              "//button[contains(@aria-label, 'are you serving')]"
+            ],
+            "method": "click",
+            "options": {
+              "unmarkFilledStatusIfSomeFails": true
+            }
+          },
+          {
+            "path": [
+              "//div[@data-automation-activepopup='true']"
+            ],
+            "method": "clickOption",
+            "values": {
+              "true": "yes",
+              "false": "no"
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "have you served",
+          "are you serving"
+        ]
+      }
+    ],
+    [
+      "currentDate",
+      [
+        "//div[@data-automation-id='formField-todaysDate']//input[@data-automation-id='dateSectionMonth-input']",
+        "//div[@data-automation-id='formField-todaysDate']//input[@data-automation-id='dateSectionDay-input']",
+        "//div[@data-automation-id='formField-todaysDate']//input[@data-automation-id='dateSectionYear-input']"
+      ],
+      {
+        "keywords": [
+          "date"
+        ]
+      }
+    ],
+    [
+      "currentDateDashes",
+      {
+        "actions": [
+          {
+            "method": "setDateInput",
+            "format": "yyyy-MM-dd",
+            "month": {
+              "path": [
+                "//div[contains(@data-automation-id, 'dateSignedOn')]//input[@aria-label='Month']",
+                "//div[contains(@data-automation-id, 'formField-') and contains(., 'today') and contains(., 'date')]//input[@data-automation-id='dateSectionMonth-input']"
+              ],
+              "format": "MM",
+              "options": {
+                "wait": 250,
+                "reactDateFlow": true,
+                "ignoreExistingValue": true
+              }
+            },
+            "day": {
+              "path": [
+                "//div[contains(@data-automation-id, 'dateSignedOn')]//input[@aria-label='Day']",
+                "//div[contains(@data-automation-id, 'formField-') and contains(., 'today') and contains(., 'date')]//input[@data-automation-id='dateSectionDay-input']"
+              ],
+              "format": "dd",
+              "options": {
+                "wait": 250,
+                "reactDateFlow": true,
+                "ignoreExistingValue": true
+              }
+            },
+            "year": {
+              "path": [
+                "//div[contains(@data-automation-id, 'dateSignedOn')]//input[@aria-label='Year']",
+                "//div[contains(@data-automation-id, 'formField-') and contains(., 'today') and contains(., 'date')]//input[@data-automation-id='dateSectionYear-input']"
+              ],
+              "format": "yyyy",
+              "options": {
+                "wait": 250,
+                "reactDateFlow": true,
+                "ignoreExistingValue": true
+              }
+            },
+            "options": {
+              "waitForNetworkAfterInteraction": true,
+              "dateOrder": [
+                "year",
+                "month",
+                "day"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "Date"
+        ]
+      }
+    ],
+    [
+      "workStartDateAvailabilityString",
+      {
+        "actions": [
+          {
+            "method": "setDateInput",
+            "format": "MM/dd/yyyy",
+            "month": {
+              "path": [
+                "//div[*/*[(contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'start') or contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'begin') or contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'work') or contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'available')) and contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'date')]][1]//input[@data-automation-id='dateSectionMonth-input']",
+                "//div[contains(@data-automation-id, 'formField') and .//*[(contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'start') or contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'begin') or contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'work') or contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'available')) and (contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'date') or contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'start'))]][1]//input[@data-automation-id='dateSectionMonth-input']",
+                "//div[contains(@data-automation-id, 'formField') and (contains(., 'start') or contains(., 'begin') or contains(., 'available') or contains(., 'availability') or contains(., 'when') or contains(., 'join') or contains(., 'intend') or contains(., 'able'))]//input[@data-automation-id='dateSectionMonth-input']"
+              ],
+              "format": "MM",
+              "options": {
+                "wait": 250,
+                "reactDateFlow": true,
+                "ignoreExistingValue": true
+              }
+            },
+            "day": {
+              "path": [
+                "//div[*/*[(contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'start') or contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'begin') or contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'work') or contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'available')) and contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'date')]][1]//input[@data-automation-id='dateSectionDay-input']",
+                "//div[contains(@data-automation-id, 'formField') and .//*[(contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'start') or contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'begin') or contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'work') or contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'available')) and (contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'date') or contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'start'))]][1]//input[@data-automation-id='dateSectionDay-input']",
+                "//div[contains(@data-automation-id, 'formField') and (contains(., 'start') or contains(., 'begin') or contains(., 'available') or contains(., 'availability') or contains(., 'when') or contains(., 'join') or contains(., 'intend') or contains(., 'able'))]//input[@data-automation-id='dateSectionDay-input']"
+              ],
+              "format": "dd",
+              "options": {
+                "wait": 250,
+                "reactDateFlow": true,
+                "ignoreExistingValue": true
+              }
+            },
+            "year": {
+              "path": [
+                "//div[*/*[(contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'start') or contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'begin') or contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'work') or contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'available')) and contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'date')]][1]//input[@data-automation-id='dateSectionYear-input']",
+                "//div[contains(@data-automation-id, 'formField') and .//*[(contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'start') or contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'begin') or contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'work') or contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'available')) and (contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'date') or contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'start'))]][1]//input[@data-automation-id='dateSectionYear-input']",
+                "//div[contains(@data-automation-id, 'formField') and (contains(., 'start') or contains(., 'begin') or contains(., 'available') or contains(., 'availability') or contains(., 'when') or contains(., 'join') or contains(., 'intend') or contains(., 'able'))]//input[@data-automation-id='dateSectionYear-input']"
+              ],
+              "format": "yyyy",
+              "options": {
+                "wait": 250,
+                "reactDateFlow": true,
+                "ignoreExistingValue": true
+              }
+            },
+            "options": {
+              "dateOrder": [
+                "year",
+                "month",
+                "day"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "todays date",
+          "start date",
+          "availability",
+          "available",
+          "start",
+          "begin",
+          "able",
+          "intend",
+          "join",
+          "when"
+        ]
+      }
+    ],
+    [
+      "resume",
+      [
+        "//div[@data-automation-id='resumeUpload']//input[@data-automation-id='file-upload-input-ref']",
+        "//div[@data-fkit-id='resumeAttachments--attachments']//input[@data-automation-id='file-upload-input-ref']",
+        "//div[contains(@aria-labelledby, 'Resume')]//input[@data-automation-id='file-upload-input-ref']",
+        "//div[contains(translate(@aria-labelledby, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'attachments') and //b[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'resume')]]//input[@data-automation-id='file-upload-input-ref']"
+      ],
+      {
+        "keywords": [
+          "resume",
+          "application documents"
+        ]
+      }
+    ],
+    [
+      "agreement",
+      {
+        "actions": [
+          {
+            "path": [
+              "//input[@data-automation-id='agreementCheckbox']",
+              "//input[contains(@id, 'acceptTermsAndAgreements') and @aria-checked='false']"
+            ],
+            "method": "click"
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "Agree",
+          "Agreement",
+          "Terms and Conditions"
+        ]
+      }
+    ],
+    [
+      "jobTypes",
+      [
+        ".//fieldset[contains(@aria-label, 'type of employment')]",
+        ".//button[contains(@aria-label, 'type of employment')]"
+      ],
+      {
+        "keywords": [
+          "Type of employment"
+        ]
+      }
+    ],
+    [
+      "language",
+      {
+        "actions": [
+          {
+            "path": [
+              "//button[contains(@data-automation-id, 'language')]"
+            ],
+            "method": "click",
+            "options": {
+              "unmarkFilledStatusIfSomeFails": true
+            }
+          },
+          {
+            "path": [
+              "//div[@data-automation-widget='wd-popup']//ul"
+            ],
+            "method": "clickOption",
+            "values": {
+              "English": [
+                "English"
+              ],
+              "Spanish": [
+                "Spanish"
+              ],
+              "": [
+                "English"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "Language",
+          "Languages"
+        ]
+      }
+    ],
+    [
+      "fullName",
+      {
+        "actions": [
+          {
+            "path": [
+              "//input[@id='selfIdentifiedDisabilityData--name']"
+            ],
+            "method": "setValue",
+            "options": {
+              "waitForNetworkAfterInteraction": true
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "name"
+        ]
+      }
+    ]
+  ],
+  "screenshot": {
+    "hide": [
+      "div[data-automation-id='pageFooter']"
+    ]
+  },
+  "alwaysSyncWindowId": true,
+  "verification": {
+    "enabled": true,
+    "interval": 15000,
+    "maxDuration": 120000
+  }
+}

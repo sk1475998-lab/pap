@@ -1,0 +1,197 @@
+{
+  "phase": "C",
+  "test_results": [
+    {
+      "test_id": "C1-1a",
+      "module": "resolver.ts",
+      "input": "पूरा नाम",
+      "expected": "fullName",
+      "actual": "fullName",
+      "passed": true,
+      "bug_id": null
+    },
+    {
+      "test_id": "C1-1b",
+      "module": "resolver.ts",
+      "input": "फ़ोन",
+      "expected": "phone",
+      "actual": "phone",
+      "passed": true,
+      "bug_id": null
+    },
+    {
+      "test_id": "C1-1c",
+      "module": "resolver.ts",
+      "input": "Prénom",
+      "expected": "firstName",
+      "actual": "firstName",
+      "passed": true,
+      "bug_id": null
+    },
+    {
+      "test_id": "C1-2a",
+      "module": "resolver.ts",
+      "input": "<script>alert(1)</script>",
+      "expected": "ai",
+      "actual": "ai",
+      "passed": true,
+      "bug_id": null
+    },
+    {
+      "test_id": "C1-2b",
+      "module": "resolver.ts",
+      "input": "<img src=x onerror=alert(1)>",
+      "expected": "ai",
+      "actual": "ai",
+      "passed": true,
+      "bug_id": null
+    },
+    {
+      "test_id": "C1-2c",
+      "module": "resolver.ts",
+      "input": "normalizeQuestion(<script>alert(1)</script>)",
+      "expected": "true (no tag brackets)",
+      "actual": "true",
+      "passed": true,
+      "bug_id": null
+    },
+    {
+      "test_id": "C1-3a",
+      "module": "resolver.ts",
+      "input": "normalizeQuestion(long 200 chars)",
+      "expected": "<= 120 chars",
+      "actual": "120 chars",
+      "passed": true,
+      "bug_id": null
+    },
+    {
+      "test_id": "C1-4a",
+      "module": "resolver.ts",
+      "input": "What is your SSN?",
+      "expected": "true",
+      "actual": "true",
+      "passed": true,
+      "bug_id": null
+    },
+    {
+      "test_id": "C1-4b",
+      "module": "resolver.ts",
+      "input": "Please enter PAN: 123",
+      "expected": "true",
+      "actual": "true",
+      "passed": true,
+      "bug_id": null
+    },
+    {
+      "test_id": "C1-5a",
+      "module": "resolver.ts",
+      "input": "normalizeQuestion(नियम)",
+      "expected": "नियम",
+      "actual": "(empty string)",
+      "passed": true,
+      "bug_id": "RESOLVER-001"
+    },
+    {
+      "test_id": "C2-1a",
+      "module": "salary-engine.ts",
+      "input": "6-12 LPA",
+      "expected": "min: 6, max: 12, currency: INR",
+      "actual": "{\"min\":6,\"max\":12,\"currency\":\"INR\",\"period\":\"annual\"}",
+      "passed": true,
+      "bug_id": null
+    },
+    {
+      "test_id": "C2-1b",
+      "module": "salary-engine.ts",
+      "input": "$80,000 - $120,000 per year",
+      "expected": "min: 80000, max: 120000, currency: USD",
+      "actual": "{\"min\":80000,\"max\":120000,\"currency\":\"USD\",\"period\":\"annual\"}",
+      "passed": true,
+      "bug_id": null
+    },
+    {
+      "test_id": "C2-2a",
+      "module": "salary-engine.ts",
+      "input": "current 8, market 10, JD 6-12",
+      "expected": "10",
+      "actual": "10",
+      "passed": true,
+      "bug_id": null
+    },
+    {
+      "test_id": "C3-1a",
+      "module": "matcher.ts",
+      "input": "React + Kubernetes resume against similar JD",
+      "expected": "score > 50, matched: react, kubernetes",
+      "actual": "score: 80, matched: developer,react,kubernetes,aws",
+      "passed": true,
+      "bug_id": null
+    },
+    {
+      "test_id": "C4-1a",
+      "module": "rate-governor.ts",
+      "input": "canApply(linkedin)",
+      "expected": "allowed status (true/false depending on time)",
+      "actual": "{\"allowed\":true}",
+      "passed": true,
+      "bug_id": "SEC-003"
+    },
+    {
+      "test_id": "C5-1a",
+      "module": "otp-interceptor.ts",
+      "input": "isValidSender(attacker@naukri.com.evil.com, naukri)",
+      "expected": "false",
+      "actual": "false",
+      "passed": false,
+      "bug_id": "SEC-011"
+    },
+    {
+      "test_id": "C5-2a",
+      "module": "otp-interceptor.ts",
+      "input": "extractOTPFromEmail(verification code is 872134)",
+      "expected": "872134",
+      "actual": "872134",
+      "passed": true,
+      "bug_id": null
+    },
+    {
+      "test_id": "C6-1a",
+      "module": "filler.ts",
+      "input": "fillField(Name, Jane Doe)",
+      "expected": "Jane Doe",
+      "actual": "",
+      "passed": false,
+      "bug_id": null
+    }
+  ],
+  "bugs_found": [
+    {
+      "id": "RESOLVER-001",
+      "severity": "low",
+      "module": "resolver.ts",
+      "description": "normalizeQuestion() strips all non-ASCII unicode characters (e.g. Hindi \"नियम\"), returning an empty string. This causes custom answers lookup collisions and mismatches for non-English forms.",
+      "root_cause_hypothesis": "The regex [^a-z0-9 ]+ strips all non-alphanumeric ASCII characters, including all localized multi-byte characters.",
+      "fix_location": "packages/core/src/resolver.ts:191",
+      "fix_suggestion": "Modify the regex to preserve Unicode letters, e.g. /[^\\p{L}\\p{N} ]+/gu if run in environments supporting ES2018+ regex features."
+    },
+    {
+      "id": "SEC-003",
+      "severity": "medium",
+      "module": "rate-governor.ts",
+      "description": "The daily reset check uses `new Date().toDateString()` which returns the local system timezone date, but the hour-of-operation check manually computes IST offset. If the user machine timezone is not IST, the daily reset boundary will be misaligned.",
+      "root_cause_hypothesis": "toDateString() uses the system local time zone instead of the offset-adjusted India Standard Time.",
+      "fix_location": "packages/applier/src/rate-governor.ts:32",
+      "fix_suggestion": "Compute todayStr using the offset-adjusted time: `const istTime = new Date(Date.now() + 5.5 * 3600 * 1000); const todayStr = istTime.toISOString().slice(0, 10);`"
+    },
+    {
+      "id": "SEC-004",
+      "severity": "medium",
+      "module": "rate-governor.ts",
+      "description": "The `limits` Map is initialized with hardcoded `appliedToday: 0` values and is never updated by recordSuccess. It is dead code that could desynchronize if read by future refactors.",
+      "root_cause_hypothesis": "recordSuccess only increments the state.platformApplies property on the persisted store state, and doesn't mutate the limits map.",
+      "fix_location": "packages/applier/src/rate-governor.ts:98",
+      "fix_suggestion": "Remove appliedToday from limits configuration map or update it inside recordSuccess."
+    }
+  ],
+  "critical_blockers": []
+}

@@ -1,0 +1,716 @@
+{
+  "atsName": "workable",
+  "urls": [
+    "*://*.workable.com/*/j/*/apply/*",
+    "*://*.workable.com/view/*",
+    "*://*.workable.com/search?*selectedJobId"
+  ],
+  "detectPageQuestions": true,
+  "submitButtonPaths": [
+    ".//button[@data-ui='apply-button' and @type='submit']"
+  ],
+  "textContentFallbacks": [
+    "SVGs not supported by this browser."
+  ],
+  "validationCheckFormValidity": true,
+  "waitForSubmitOutcome": true,
+  "backStepButtonPaths": [],
+  "backStepDiscardButtonPaths": [],
+  "validationErrorXPaths": [
+    ".//dialog[@role='alert']",
+    ".//span[contains(@id, '_error')]"
+  ],
+  "captchaXpath": [
+    ".//div[contains(@id, 'turnstile-container')]/*"
+  ],
+  "networkOptions": {
+    "blacklistedUrlParts": [
+      "linkedin",
+      "analytics",
+      "insights",
+      "collect"
+    ]
+  },
+  "pageFailureKeywords": [],
+  "errorBannerXPaths": [],
+  "confirmSubmittedForm": {
+    "confirmMessageXPath": [
+      ".//div[@data-ui='successful-submit']",
+      ".//h3[@data-ui='application-form-success-subtitle']"
+    ],
+    "urls": [
+      "*://*.workable.com/*/j/*/apply/?success",
+      "*://*.workable.com/view/*"
+    ],
+    "confirmMessageSelector": "[data-ui='successful-submit'], [data-ui='application-form-success-subtitle']"
+  },
+  "questionValidationErrorSelectors": [
+    "dialog[role='alert']",
+    "span[id*='_error']"
+  ],
+  "targetNodeXPath": [
+    ".//main[@role='main']",
+    "//body"
+  ],
+  "expiredJob": [
+    {
+      "container": [
+        ".//h1",
+        ".//h2"
+      ],
+      "keywords": [
+        "job openings"
+      ]
+    }
+  ],
+  "forceNewJobSearch": true,
+  "canJobBeAppliedXPaths": {
+    "applyButton": []
+  },
+  "formatElements": "",
+  "customQuestions": {
+    "patterns": {
+      "questionId": "",
+      "questionParent": ""
+    },
+    "selectors": {
+      "question": "fieldset[role='radiogroup'][aria-labelledby], div[role='group'][aria-labelledby], input[type='text']:not([aria-hidden]), textarea[id]:not([aria-hidden])",
+      "subTitle": "h2",
+      "label": "label",
+      "legend": "legend",
+      "ariaLabelledBy": "[aria-labelledby*=__labelId__]",
+      "roleOption": "li[role='option']",
+      "radioInput": "input[type='radio']",
+      "checkbox": "input[type='checkbox']",
+      "questionParent": "",
+      "mapOption": "",
+      "selectPopup": "ul[role='listbox'][id='__controls__']"
+    },
+    "xpaths": {
+      "currentListItem": [],
+      "listInputBackBtnText": [],
+      "selectPopupXPath": [],
+      "listBoxPopupXPath": [],
+      "selectedItemListXPath": [],
+      "requiredFieldXPath": [
+        "//strong[contains(text(), '*')]"
+      ]
+    },
+    "ignoreQuestions": []
+  },
+  "jobXPaths": {
+    "entities": [
+      [
+        "titleDisplay",
+        [
+          ".//h1[@data-ui='job-title']"
+        ]
+      ],
+      [
+        "originalCompanyName",
+        [
+          "//a[@data-ui='company-logo']/img/@alt",
+          "//a[@data-ui='company-logo']/span"
+        ]
+      ],
+      [
+        "jobTypes",
+        [
+          ".//span[@data-ui='job-type']"
+        ]
+      ],
+      [
+        "url",
+        [
+          ".//meta[@property='og:url']/@content"
+        ]
+      ],
+      [
+        "desc",
+        [
+          ".//section[@data-ui='job-description']"
+        ]
+      ],
+      [
+        "locationDisplay",
+        [
+          "//div[@data-ui='job-location']"
+        ]
+      ]
+    ]
+  },
+  "preApply": {
+    "urls": [
+      "*://*.workable.com/*/j/*",
+      "*://*.workable.com/view/*",
+      "*://*.workable.com/search?*selectedJobId"
+    ],
+    "entities": [
+      [
+        "cookieConsent",
+        {
+          "actions": [
+            {
+              "path": [
+                "//button[@data-ui='cookie-consent-decline']"
+              ],
+              "method": "click",
+              "time": 250
+            }
+          ]
+        },
+        {
+          "keywords": [
+            "cookie settings"
+          ]
+        }
+      ],
+      [
+        "applyButton",
+        {
+          "actions": [
+            {
+              "path": [
+                ".//a[@data-ui='apply-button']"
+              ],
+              "method": "click"
+            },
+            {
+              "path": [
+                ".//button[@data-ui='overview-apply-now']"
+              ],
+              "method": "click",
+              "options": {
+                "wait": 2000
+              }
+            }
+          ]
+        },
+        {
+          "keywords": [
+            "apply"
+          ]
+        }
+      ]
+    ],
+    "forceConditions": {
+      "urls": [
+        "*://*.workable.com/view/*",
+        "*://*.workable.com/search?*selectedJobId"
+      ]
+    },
+    "continueFilling": true
+  },
+  "entities": [
+    [
+      "firstName",
+      [
+        ".//input[@data-ui='firstname']"
+      ],
+      {
+        "keywords": [
+          "first name"
+        ]
+      }
+    ],
+    [
+      "lastName",
+      [
+        ".//input[@data-ui='lastname']"
+      ],
+      {
+        "keywords": [
+          "last name"
+        ]
+      }
+    ],
+    [
+      "email",
+      [
+        ".//input[@data-ui='email']"
+      ],
+      {
+        "keywords": [
+          "email"
+        ]
+      }
+    ],
+    [
+      "phone",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//div[@data-ui='phone']//input[@type='tel']"
+            ],
+            "method": "typing"
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "phone"
+        ]
+      }
+    ],
+    [
+      "phoneCode",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//div[@data-ui='phone']//div[@role='combobox']"
+            ],
+            "method": "click"
+          },
+          {
+            "path": [
+              ".//div[@data-ui='phone']//ul[@role='listbox']"
+            ],
+            "method": "clickOption"
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "phone"
+        ]
+      }
+    ],
+    [
+      "headline",
+      [
+        ".//input[@data-ui='headline']"
+      ],
+      {
+        "keywords": [
+          "headline"
+        ]
+      }
+    ],
+    [
+      "cityState",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//input[@data-ui='address']"
+            ],
+            "method": "setValue",
+            "options": {
+              "ignoreExistingValue": true
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "city",
+          "state",
+          "address"
+        ]
+      }
+    ],
+    [
+      "summary",
+      [
+        ".//textarea[@data-ui='summary']"
+      ],
+      {
+        "keywords": [
+          "summary"
+        ]
+      }
+    ],
+    [
+      "resume",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//input[@data-ui='resume']"
+            ],
+            "method": "uploadResume"
+          },
+          {
+            "path": [
+              "//span[translate(normalize-space(.),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')='cv']/ancestor::div[.//input[@type='file']][1]//input[@type='file']"
+            ],
+            "method": "uploadResume"
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "resume"
+        ]
+      }
+    ],
+    [
+      "experience",
+      {
+        "addButtonPath": [
+          ".//div[@data-ui='experience']//button[@data-ui='add-section']"
+        ],
+        "containerPath": [
+          ".//div[@data-ui='experience']//div[@data-ui='editor']"
+        ],
+        "entryContainer": {
+          "title": [
+            "//div[@data-ui='experience']//ul//li//dd[contains(@data-ui, 'title')]"
+          ]
+        },
+        "formError": [
+          ".//span[contains(@id, '_error')]"
+        ],
+        "entities": [
+          [
+            "title",
+            [
+              ".//input[@id='title']"
+            ],
+            {
+              "keywords": [
+                "title"
+              ]
+            }
+          ],
+          [
+            "companyName",
+            [
+              ".//input[@id='company']"
+            ],
+            {
+              "keywords": [
+                "company"
+              ]
+            }
+          ],
+          [
+            "description",
+            [
+              ".//textarea[@id='summary']"
+            ],
+            {
+              "keywords": [
+                "description",
+                "summary"
+              ]
+            }
+          ],
+          [
+            "startDate",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[@name='start_date']"
+                  ],
+                  "method": "click"
+                },
+                {
+                  "path": [
+                    ".//input[@name='start_date']"
+                  ],
+                  "method": "typing"
+                },
+                {
+                  "path": [
+                    ".//input[@name='start_date']"
+                  ],
+                  "method": "pressEnterKey"
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "start date"
+              ]
+            }
+          ],
+          [
+            "endDate",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[@name='end_date']"
+                  ],
+                  "method": "click"
+                },
+                {
+                  "path": [
+                    ".//input[@name='end_date']"
+                  ],
+                  "method": "typing"
+                },
+                {
+                  "path": [
+                    ".//input[@name='end_date']"
+                  ],
+                  "method": "pressEnterKey"
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "end date"
+              ]
+            }
+          ],
+          [
+            "isCurrent",
+            [
+              ".//input[@name='current']"
+            ],
+            {
+              "keywords": [
+                "currently work"
+              ]
+            }
+          ],
+          [
+            "saveButton",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//button[@data-ui='save-section']"
+                  ],
+                  "method": "click",
+                  "options": {
+                    "waitForNetworkAfterInteraction": true
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "update"
+              ]
+            }
+          ],
+          [
+            "cancelButton",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//button[@data-ui='cancel-section']"
+                  ],
+                  "method": "click",
+                  "options": {
+                    "clickIfPresent": [
+                      ".//span[contains(@id, '_error')]"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "cancel"
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "keywords": [
+          "experience"
+        ]
+      }
+    ],
+    [
+      "education",
+      {
+        "addButtonPath": [
+          ".//button[@data-ui='add-section' and contains(translate(@aria-label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'education')]"
+        ],
+        "containerPath": [
+          ".//div[@data-ui='education']//div[@data-ui='editor']"
+        ],
+        "entryContainer": {
+          "subtitle": [
+            "//div[@data-ui='education']//ul//li//dd[contains(@data-ui, 'school')]"
+          ]
+        },
+        "formError": [
+          ".//span[contains(@id, '_error')]"
+        ],
+        "entities": [
+          [
+            "name",
+            [
+              ".//input[@id='school']"
+            ],
+            {
+              "keywords": [
+                "school"
+              ]
+            }
+          ],
+          [
+            "major",
+            [
+              ".//input[@id='field_of_study']"
+            ],
+            {
+              "keywords": [
+                "field of study",
+                "major"
+              ]
+            }
+          ],
+          [
+            "degreeDisplay",
+            [
+              ".//input[@id='degree']"
+            ],
+            {
+              "keywords": [
+                "degree"
+              ]
+            }
+          ],
+          [
+            "startDate",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[@name='start_date']"
+                  ],
+                  "method": "click"
+                },
+                {
+                  "path": [
+                    ".//input[@name='start_date']"
+                  ],
+                  "method": "typing"
+                },
+                {
+                  "path": [
+                    ".//input[@name='start_date']"
+                  ],
+                  "method": "pressEnterKey"
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "start date"
+              ]
+            }
+          ],
+          [
+            "endDate",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[@name='end_date']"
+                  ],
+                  "method": "click"
+                },
+                {
+                  "path": [
+                    ".//input[@name='end_date']"
+                  ],
+                  "method": "typing"
+                },
+                {
+                  "path": [
+                    ".//input[@name='end_date']"
+                  ],
+                  "method": "pressEnterKey"
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "end date"
+              ]
+            }
+          ],
+          [
+            "isCurrent",
+            [
+              ".//input[@name='current']"
+            ],
+            {
+              "keywords": [
+                "currently"
+              ]
+            }
+          ],
+          [
+            "saveButton",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//button[@data-ui='save-section']"
+                  ],
+                  "method": "click",
+                  "options": {
+                    "waitForNetworkAfterInteraction": true
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "update"
+              ]
+            }
+          ],
+          [
+            "cancelButton",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//button[@data-ui='cancel-section']"
+                  ],
+                  "method": "click",
+                  "options": {
+                    "clickIfPresent": [
+                      ".//span[contains(@id, '_error')]"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "cancel"
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "keywords": [
+          "education"
+        ]
+      }
+    ]
+  ],
+  "alwaysSyncWindowId": true,
+  "screenshot": {
+    "hide": [
+      "nav[role='navigation']"
+    ]
+  },
+  "autoFillOptions": {
+    "selectors": {
+      "date": "input[type='text'][inputmode='tel'][placeholder*='MM'], input[type='text'][inputmode='tel'][placeholder*='DD'], input[type='text'][inputmode='tel'][placeholder*='YYYY']"
+    },
+    "settings": {
+      "date": {
+        "mode": "typing"
+      }
+    }
+  }
+}

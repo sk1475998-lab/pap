@@ -1,0 +1,838 @@
+{
+  "atsName": "lever",
+  "urls": [
+    "*://jobs.lever.co/*/*/apply"
+  ],
+  "urlsExclude": [],
+  "submitButtonPaths": [
+    ".//button[@id='btn-submit' or @data-qa='btn-submit']"
+  ],
+  "nextStepButtonPaths": [],
+  "nextStepDynamicLoad": false,
+  "validationErrorXPaths": [
+    "//p[@class='error-message']"
+  ],
+  "validationCheckFormValidity": true,
+  "errorBannerXPaths": [],
+  "questionValidationErrorSelectors": [
+    "p.error-message"
+  ],
+  "targetNodeXPath": [
+    ".//form[@id='application-form']",
+    ".//div[contains(@class, 'content-wrapper')]"
+  ],
+  "targetFrameNodeXPath": [],
+  "confirmSubmittedForm": {
+    "confirmMessageXPath": [
+      ".//div[contains(@class, 'confirmation') and contains(@class, 'message')]//h3[contains(@data-qa, 'msg-submit-success')]"
+    ],
+    "urls": [
+      "*://jobs.lever.co/*/*/thanks"
+    ]
+  },
+  "networkOptions": {
+    "blacklistedUrlParts": [
+      "linkedin",
+      "analytics",
+      "insights",
+      "track",
+      "blob",
+      "parseResume",
+      "hcaptcha.com",
+      "lever.co/js"
+    ]
+  },
+  "customQuestions": {
+    "patterns": {
+      "questionId": "",
+      "innerSelectors": [
+        ".//li[contains(@class, 'application-question custom-question')]",
+        ".//select[@data-qa='opportunity-location-select' or @data-qa='candidate-location-select']"
+      ],
+      "selectInputTagName": "select",
+      "selectInputAttrName": "",
+      "selectInputAttrValue": "",
+      "maxLabelLevel": "",
+      "radioGroupAttrName": "data-qa",
+      "radioGroupAttrValue": "multiple-choice",
+      "listboxTagName": "",
+      "questionParent": "[class*='application-question']",
+      "fieldsetMatchQuerySelector": "[class*='application-field']:has(li)"
+    },
+    "selectors": {
+      "title": "h2",
+      "label": "div.application-label",
+      "legend": "legend",
+      "ariaLabelledBy": "label",
+      "listOption": "li:not([class*='application'])",
+      "roleOption": "[role='option']",
+      "radioInput": "input[type='radio']",
+      "monthInput": "input[aria-valuetext='MM']",
+      "dateInput": "input[aria-valuetext='DD']",
+      "yearInput": "input[aria-valuetext='YYYY']",
+      "checkbox": "input[type='checkbox']",
+      "question": "[class*='application-field'], textarea:not([aria-hidden])",
+      "subTitle": "h4",
+      "mapOption": "div[class*='dropdown'], select > option"
+    },
+    "xpaths": {
+      "currentListItem": [],
+      "listInputBackBtnText": [],
+      "selectPopupXPath": [],
+      "listBoxPopupXPath": [],
+      "selectedItemListXPath": [],
+      "targetNodeXPath": [],
+      "requiredFieldXPath": [
+        ".//span[@class='required' and contains(text(), *)]"
+      ]
+    },
+    "ignoreQuestions": [],
+    "maxSelectOptionsCount": 3000
+  },
+  "jobXPaths": {
+    "entities": []
+  },
+  "canJobBeAppliedXPaths": {
+    "applyButton": [
+      ".//a[contains(@class,'template-btn-submit') and not(ancestor::div[contains(@class,'confirmation') and contains(@class,'message')])]",
+      ".//a[@data-qa='show-page-apply']"
+    ]
+  },
+  "contextData": {
+    "classifier": {
+      "applyBtnPath": [
+        "//a[contains(@href, 'jobs.lever.co') and CONTAINS_TEXT('apply', true)]"
+      ]
+    },
+    "options": {}
+  },
+  "preApply": {
+    "urls": [
+      "*://jobs.lever.co/*/*"
+    ],
+    "urlsExclude": [],
+    "entities": [
+      [
+        "applyBtn",
+        {
+          "actions": [
+            {
+              "key": "canJobBeAppliedXPaths.applyButton",
+              "method": "click"
+            }
+          ]
+        }
+      ]
+    ]
+  },
+  "entities": [
+    [
+      "applyBtn",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//a[contains(@class, 'template-btn-submit') and not(ancestor::div[contains(@class,'confirmation') and contains(@class,'message')])]",
+              ".//a[@data-qa='show-page-apply']"
+            ],
+            "method": "click"
+          }
+        ]
+      }
+    ],
+    [
+      "firstName",
+      []
+    ],
+    [
+      "lastName",
+      []
+    ],
+    [
+      "preferredFirstName",
+      []
+    ],
+    [
+      "legalFirstName",
+      []
+    ],
+    [
+      "legalLastName",
+      []
+    ],
+    [
+      "fullName",
+      [
+        ".//input[@data-qa='name-input']"
+      ]
+    ],
+    [
+      "email",
+      [
+        ".//input[@data-qa='email-input' or @name='email']"
+      ]
+    ],
+    [
+      "phone",
+      [
+        ".//input[@data-qa='phone-input' or @name='phone']"
+      ]
+    ],
+    [
+      "addressLine1",
+      []
+    ],
+    [
+      "recentExperience.companyName",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//input[@data-qa='org-input' or @name='org']"
+            ],
+            "method": "setValue"
+          }
+        ]
+      }
+    ],
+    [
+      "recentExperience.title",
+      []
+    ],
+    [
+      "answerSource",
+      [
+        {
+          "actions": [
+            {
+              "path": [
+                ".//input[contains(@name, 'did you find out about') and not(contains(@name, 'urls'))]"
+              ],
+              "method": "setValue",
+              "defaultValue": "Job Board"
+            }
+          ]
+        },
+        {
+          "actions": [
+            {
+              "path": [
+                ".//input[contains(@name, 'did you find out about') and contains(@name, 'urls')]"
+              ],
+              "method": "setValue",
+              "defaultValue": "https://www.linkedin.com/"
+            }
+          ]
+        }
+      ]
+    ],
+    [
+      "state",
+      []
+    ],
+    [
+      "stateName",
+      []
+    ],
+    [
+      "postalCode",
+      []
+    ],
+    [
+      "city",
+      {}
+    ],
+    [
+      "cityState",
+      [
+        {
+          "actions": [
+            {
+              "path": [
+                ".//input[@data-qa='location-input' or @id='location-input']"
+              ],
+              "method": "setValue",
+              "options": {
+                "triggerKeyDownEvent": true,
+                "triggerBlurEvent": false,
+                "waitForNetworkAfterInteraction": true,
+                "shouldWaitForFirstRequest": true,
+                "trackQuestion": true
+              }
+            },
+            {
+              "path": [
+                ".//div[contains(@class, 'dropdown-results')]"
+              ],
+              "method": "clickOption",
+              "options": {
+                "waitForNetworkBeforeInteraction": true,
+                "optionMapper": true,
+                "disableNestedMatchCheck": true
+              }
+            }
+          ]
+        }
+      ]
+    ],
+    [
+      "cityStateName",
+      []
+    ],
+    [
+      "resume",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//input[@data-qa='input-resume' or contains(@class, 'invisible-resume-upload')]",
+              "//li[contains(@class,'application-question')][.//div[contains(@class,'text') and contains(normalize-space(.),'Resume Upload')]]//input[@data-qa='application-file-upload' or contains(@class,'invisible-resume-upload')]"
+            ],
+            "method": "uploadMultipleResumes"
+          }
+        ]
+      }
+    ],
+    [
+      "country",
+      [
+        {
+          "actions": [
+            {
+              "path": [
+                ".//select[@data-qa='candidate-location-select']"
+              ],
+              "method": "clickOption"
+            }
+          ]
+        }
+      ]
+    ],
+    [
+      "education",
+      {
+        "addButtonPath": [],
+        "confirmAddedPath": [],
+        "containerPath": [],
+        "entities": [
+          [
+            "name",
+            []
+          ],
+          [
+            "degree",
+            []
+          ],
+          [
+            "major",
+            []
+          ],
+          [
+            "startDateMonth_MM",
+            []
+          ],
+          [
+            "endDateMonth_MM",
+            []
+          ],
+          [
+            "startDateMonthText",
+            []
+          ],
+          [
+            "endDateMonthText",
+            []
+          ],
+          [
+            "startDateYear",
+            []
+          ],
+          [
+            "endDateYear",
+            []
+          ]
+        ]
+      }
+    ],
+    [
+      "experience",
+      {
+        "addButtonPath": [],
+        "confirmAddedPath": [],
+        "containerPath": [],
+        "entities": [
+          [
+            "title",
+            []
+          ],
+          [
+            "companyName",
+            []
+          ],
+          [
+            "cityState",
+            []
+          ],
+          [
+            "isCurrent",
+            []
+          ],
+          [
+            "startDate",
+            []
+          ],
+          [
+            "endDate",
+            []
+          ],
+          [
+            "description",
+            []
+          ]
+        ]
+      }
+    ],
+    [
+      "over18",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//div[(CONTAINS_TEXT('over') and CONTAINS_TEXT('18')) or CONTAINS_TEXT('18 years')]/parent::*//div[@class='application-label']"
+            ],
+            "method": "clickOption",
+            "values": {
+              "true": [
+                "Yes"
+              ],
+              "false": [
+                "No"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "weekdaysAvailability",
+      {}
+    ],
+    [
+      "weekendsAvailability",
+      {}
+    ],
+    [
+      "openSchedule",
+      {}
+    ],
+    [
+      "flexibleSchedule",
+      {}
+    ],
+    [
+      "dayShift",
+      {}
+    ],
+    [
+      "nightShift",
+      {}
+    ],
+    [
+      "swingShift",
+      {}
+    ],
+    [
+      "overnightShift",
+      {}
+    ],
+    [
+      "anyShift",
+      {}
+    ],
+    [
+      "workAuth",
+      {}
+    ],
+    [
+      "sponsorship",
+      {}
+    ],
+    [
+      "lift50PoundsWeightAbility",
+      {}
+    ],
+    [
+      "agreement",
+      []
+    ],
+    [
+      "hispanicLatino",
+      {}
+    ],
+    [
+      "gender",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//select[@name='eeo[gender]']",
+              ".//li[contains(@class, 'application-question')]//div[contains(@class, 'application-label') and .//div[contains(@class, 'text') and contains(text(), 'gender')]]/following-sibling::div[contains(@class, 'application-field')]//ul[@data-qa='multiple-choice']"
+            ],
+            "method": "clickOption",
+            "values": {
+              "Male": [
+                "Male",
+                "Man"
+              ],
+              "Female": [
+                "Female",
+                "Woman"
+              ],
+              "I do not want to answer": [
+                "Decline",
+                "I don't wish",
+                "Prefer not"
+              ],
+              "": [
+                "Decline",
+                "I don't wish",
+                "Prefer not"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "genderPronouns",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//ul[@data-qa='candidatePronounsCheckboxes' or @id='candidatePronounsCheckboxes']//div[@class='column-wrapper']"
+            ],
+            "method": "clickOptionWithMultiAnswers",
+            "values": {
+              "He/him/his": [
+                "he"
+              ],
+              "She/her/hers": [
+                "she"
+              ],
+              "They/them/theirs": [
+                "they"
+              ],
+              "Ze/hir/hirs": [
+                "ze"
+              ],
+              "Xe/xem/xyrs": [
+                "xe"
+              ],
+              "Ey/em/eirs": [
+                "ey"
+              ],
+              "Ve/ver/vis": [
+                "ve"
+              ],
+              "Per/per/pers": [
+                "per"
+              ],
+              "Ne/nem/nirs": [
+                "ne"
+              ],
+              "Other": [
+                "other"
+              ],
+              "I do not want to answer": [
+                "Decline",
+                "I don't wish",
+                "Prefer not"
+              ],
+              "": [
+                "Decline",
+                "I don't wish",
+                "Prefer not"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "veteran",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//select[@name='eeo[veteran]']",
+              ".//li[contains(@class, 'application-question')]//div[contains(@class, 'application-label') and .//div[contains(@class, 'text') and contains(text(), 'Veteran Status')]]/following-sibling::div[contains(@class, 'application-field')]//ul[@data-qa='multiple-choice']"
+            ],
+            "method": "clickOption",
+            "values": {
+              "true": [
+                "I am a ",
+                "I identify ",
+                "Yes"
+              ],
+              "false": [
+                "I am not a ",
+                "I don't ",
+                "No",
+                "Prefer not"
+              ],
+              "": [
+                "Decline",
+                "I am not a ",
+                "I don't ",
+                "No",
+                "Prefer not"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "disability",
+      {
+        "actions": [
+          {
+            "path": [
+              "//select[@id='disabilitySelectElement' or @name='eeo[disability]']",
+              ".//li[contains(@class, 'application-question')]//div[contains(@class, 'application-label') and .//div[contains(@class, 'text') and contains(text(), 'Disability')]]/following-sibling::div[contains(@class, 'application-field')]//ul[@data-qa='multiple-choice']"
+            ],
+            "method": "clickOption",
+            "values": {
+              "true": [
+                "Yes ",
+                "Yes,",
+                "Yes",
+                "I have"
+              ],
+              "false": [
+                "No ",
+                "No,",
+                "No",
+                "I do not have",
+                "Prefer not"
+              ],
+              "": [
+                "Decline",
+                "No ",
+                "No",
+                "I don't wish",
+                "Prefer not"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "disabilitySignature",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//input[@name='eeo[disabilitySignature]']"
+            ],
+            "method": "setValue",
+            "userDataParam": "__fullName__"
+          }
+        ]
+      }
+    ],
+    [
+      "sexualOrientation",
+      {}
+    ],
+    [
+      "countryName",
+      []
+    ],
+    [
+      "phoneStripped",
+      []
+    ],
+    [
+      "phoneCode",
+      []
+    ],
+    [
+      "deviceType",
+      {}
+    ],
+    [
+      "certification",
+      {
+        "addButtonPath": [],
+        "confirmAddedPath": [],
+        "containerPath": [],
+        "entities": [
+          [
+            "name",
+            []
+          ],
+          [
+            "issueDateSlashes_MMDDYYYY",
+            []
+          ]
+        ]
+      }
+    ],
+    [
+      "skill",
+      {
+        "containerPath": [],
+        "entities": [
+          [
+            "name",
+            []
+          ]
+        ],
+        "options": {
+          "clickOutsideAtEnd": false
+        }
+      }
+    ],
+    [
+      "lgbt",
+      {}
+    ],
+    [
+      "armedForces",
+      {}
+    ],
+    [
+      "currentDate",
+      [
+        ".//input[@name='eeo[disabilitySignatureDate]']"
+      ]
+    ],
+    [
+      "currentDateDashes",
+      {}
+    ],
+    [
+      "language",
+      {}
+    ],
+    [
+      "workStartDateAvailabilityString",
+      {}
+    ],
+    [
+      "privacyAgreement",
+      {
+        "actions": [
+          {
+            "path": [
+              "//input[@name='consent[store]' and @type='checkbox']"
+            ],
+            "method": "click"
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "privacy agreement",
+          "consent to"
+        ]
+      }
+    ],
+    [
+      "middleName",
+      {}
+    ],
+    [
+      "street",
+      []
+    ],
+    [
+      "cityLocated",
+      []
+    ],
+    [
+      "phoneType",
+      {}
+    ],
+    [
+      "phoneFormatted",
+      []
+    ],
+    [
+      "homePhoneFormatted",
+      []
+    ],
+    [
+      "referral",
+      {}
+    ],
+    [
+      "applyDate",
+      {}
+    ],
+    [
+      "minYearlySalaryDesired",
+      []
+    ],
+    [
+      "addressType",
+      {}
+    ],
+    [
+      "birthDay",
+      {}
+    ],
+    [
+      "birthMonth",
+      {}
+    ],
+    [
+      "county",
+      {}
+    ],
+    [
+      "addressLine2",
+      []
+    ],
+    [
+      "highestEducation.name",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//select[contains(@id, 'university-picker')]",
+              "//li[contains(@class,'application-question') and contains(translate(.//div[@class='text'],'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'university') and contains(translate(.//div[@class='text'],'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'currently')]//select"
+            ],
+            "method": "clickOption",
+            "options": {
+              "optionMapper": true
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "university"
+        ]
+      }
+    ],
+    [
+      "highestEducation.degreeDisplay",
+      []
+    ],
+    [
+      "workStartDateAvailability",
+      []
+    ]
+  ],
+  "validationErrorPersistent": true,
+  "attachedContainer": [],
+  "screenshot": {
+    "hide": [
+      "div[aria-label='cookieconsent']",
+      "div[class*='main-header']"
+    ]
+  }
+}

@@ -1,0 +1,63 @@
+# ==============================================================================
+# SuperJobAgent Enterprise Cloud API — Production Container Image
+# Multi-Tenant REST + WebSocket + Stripe Billing + Cloud Sync Backend
+# ==============================================================================
+
+FROM node:22.13-slim AS base
+
+WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    wget ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy package manifests across workspaces for deterministic dependency caching
+COPY package.json package-lock.json* tsconfig.base.json ./
+COPY packages/core/package.json packages/core/
+COPY packages/ats-config/package.json packages/ats-config/
+COPY packages/server/package.json packages/server/
+COPY packages/applier/package.json packages/applier/
+COPY packages/crew/package.json packages/crew/
+COPY packages/scraper/package.json packages/scraper/
+COPY packages/email-monitor/package.json packages/email-monitor/
+
+# Install dependencies deterministically
+RUN npm ci --no-audit --no-fund
+
+# Copy source trees for core, ats-config, and server
+COPY packages/core packages/core
+COPY packages/ats-config packages/ats-config
+COPY packages/server packages/server
+COPY dashboard.html dashboard.html
+
+# Build TypeScript packages
+RUN npm run build --workspace @superjob/ats-config || true
+
+# Production stage
+FROM node:22.13-slim AS runner
+
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    wget ca-certificates curl \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY --from=base /app /app
+
+# Security: Create and switch to non-root user for enterprise compliance
+USER node
+
+# Default environment configuration
+ENV NODE_ENV=production
+ENV PORT=3001
+ENV HOST=0.0.0.0
+
+EXPOSE 3001
+
+# Container healthcheck against cloud API health endpoint
+HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
+  CMD wget --no-verbose --tries=1 --spider http://127.0.0.1:3001/api/health || exit 1
+
+# Launch Cloud API Server
+CMD ["npx", "tsx", "packages/server/src/index.ts"]

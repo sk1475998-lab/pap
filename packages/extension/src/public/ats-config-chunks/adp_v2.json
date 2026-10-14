@@ -1,0 +1,920 @@
+{
+  "atsName": "adp_v2",
+  "urls": [
+    "*://workforcenow.adp.com/*/recruitment/postLogin.html*"
+  ],
+  "urlsExclude": [],
+  "submitButtonPaths": [
+    ".//button[contains(@class, 'wizard-submit-button')]"
+  ],
+  "nextStepButtonPaths": [
+    ".//sdf-button[@id='recruitment_login_recaptcha']",
+    ".//button[contains(@class, 'wizard-next-button')]"
+  ],
+  "verificationButtonXpaths": [
+    "//button[contains(@class, 'vdl-button')]"
+  ],
+  "validationErrorPersistent": false,
+  "questionsInSubmitPage": true,
+  "alwaysSyncWindowId": true,
+  "detectPageQuestions": true,
+  "forceNewJobSearch": true,
+  "stopWaitingUserInteractionsInPreApply": true,
+  "validationErrorXPaths": [
+    ".//h4[@id='addressErrorMessage']",
+    ".//h4[contains(@class, 'error')]",
+    "//div[contains(@class, 'experience-vdl-error-label')]",
+    "//wfn-text[@role='alert' and contains(translate(normalize-space(.), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'invalid')]"
+  ],
+  "errorBannerXPaths": [],
+  "targetNodeXPath": [
+    ".//div[contains(@class, 'job-Application-wizard-container')]",
+    ".//div[@name='jobDescriptionView']"
+  ],
+  "formLoadingXPaths": [
+    ".//div[@id='recPageLoadWaitingIndicator' and not(contains(@style, 'display: none;'))]",
+    ".//sdf-busy-indicator"
+  ],
+  "verificationRequired": {
+    "errorXPath": [
+      ".//sdf-focus-pane[@heading='Enter the Verification Code']"
+    ]
+  },
+  "expiredJob": [
+    {
+      "container": [
+        ".//h1",
+        ".//h2"
+      ],
+      "keywords": [
+        "current openings",
+        "current job openings",
+        "no current openings.",
+        "open positions"
+      ]
+    }
+  ],
+  "verification": {
+    "enabled": true,
+    "interval": 15000,
+    "maxDuration": 120000,
+    "codeConfig": [
+      {
+        "type": "single",
+        "inputs": [
+          "//input[@id='oneTimePassWord']"
+        ],
+        "confirmButton": [
+          "//button[@id='recruitment_login_verifyOTP']"
+        ]
+      }
+    ]
+  },
+  "questionValidationErrorSelectors": [
+    "input[class*='vdl-validation-error']",
+    "div[class*='vdl-validation-error'] > input",
+    "textarea[class*='question-error']",
+    "div[class*='question-error vdl-dropdown-list']"
+  ],
+  "targetFrameNodeXPath": [],
+  "customQuestions": {
+    "patterns": {
+      "radioGroupAttrName": "class",
+      "radioGroupAttrValue": "prop_group radio-question",
+      "listboxTagName": "div",
+      "selectInputAttrName": "role",
+      "selectInputAttrValue": "combobox",
+      "selectInputTagNames": [
+        "input",
+        "div"
+      ]
+    },
+    "selectors": {
+      "title": "h3",
+      "roleOption": "[role='option'], [role='radio']",
+      "checkbox": "input[type='checkbox']",
+      "label": "label[class*='qLabel'], span[class*='qLabel'], label[for^='checkbox_'], label[id^='race_'], label[class='required']"
+    },
+    "xpaths": {
+      "targetNodeXPath": [
+        ".//div[contains(@class, 'job-Application-wizard-container')]",
+        ".//div[@name='jobDescriptionView']"
+      ],
+      "listBoxPopupXPath": [
+        ".//ul[@role='listbox']"
+      ],
+      "selectPopupXPath": [
+        ".//div[@role='combobox']"
+      ],
+      "requiredFieldXPath": [
+        ".//span[contains(@class, 'required')]"
+      ],
+      "requiredTextContent": [
+        "required",
+        "if yes"
+      ]
+    },
+    "ignoreQuestions": [
+      ".//label[contains(., 'County')]/parent::div/following-sibling::input"
+    ]
+  },
+  "jobXPaths": {
+    "entities": [
+      [
+        "titleDisplay",
+        [
+          ".//h2[contains(@class, 'job-description-title')]"
+        ]
+      ],
+      [
+        "originalCompanyName",
+        []
+      ],
+      [
+        "jobTypes",
+        []
+      ],
+      [
+        "postingDate",
+        [
+          ".//span[contains(@class, 'job-description-post-date')]"
+        ]
+      ],
+      [
+        "location",
+        [
+          ".//div[contains(@class, 'job-description-location')]"
+        ]
+      ],
+      [
+        "url",
+        []
+      ],
+      [
+        "desc",
+        [
+          ".//div[contains(@class, 'job-description-data')]"
+        ]
+      ],
+      [
+        "locationDisplay",
+        [
+          ".//div[contains(@class, 'job-description-location')]"
+        ]
+      ]
+    ]
+  },
+  "canJobBeAppliedXPaths": {
+    "applyButton": [
+      ".//button[contains(@class, 'job-description-apply') and contains(@class, 'vdl-button--primary')]"
+    ]
+  },
+  "contextData": {
+    "classifier": {
+      "applyBtnPath": [
+        "//a[contains(@href, 'workforcenow.adp.com') and CONTAINS_TEXT('apply', true)]"
+      ]
+    },
+    "options": {}
+  },
+  "preApply": {
+    "urls": [
+      "*://workforcenow.adp.com/*/recruitment/recruitment.html*"
+    ],
+    "entities": [
+      [
+        "applyBtn",
+        {
+          "actions": [
+            {
+              "key": "canJobBeAppliedXPaths.applyButton",
+              "method": "click",
+              "time": 500
+            }
+          ]
+        }
+      ],
+      [
+        "consent",
+        {
+          "actions": [
+            {
+              "path": [
+                ".//sdf-focus-pane[@heading='Privacy Policy']//sdf-button[@aria-label='Consent & Continue']"
+              ],
+              "method": "click",
+              "time": 500
+            }
+          ]
+        }
+      ],
+      [
+        "firstName",
+        [
+          ".//input[@id='guestFirstName']"
+        ]
+      ],
+      [
+        "lastName",
+        [
+          ".//input[@id='guestLastName']"
+        ]
+      ],
+      [
+        "email",
+        [
+          ".//input[@id='guestEmail']"
+        ]
+      ],
+      [
+        "phoneStrippedCountryCode",
+        {
+          "actions": [
+            {
+              "path": [
+                ".//input[@id='login_view_phone']"
+              ],
+              "method": "setValue",
+              "options": {
+                "triggerBlurEvent": true,
+                "triggerInputEvent": true,
+                "triggerChangeEvent": true,
+                "ignoreExistingValue": true,
+                "triggerKeyDownEvent": true,
+                "appendToExistingValue": true
+              }
+            }
+          ]
+        }
+      ],
+      [
+        "validationError",
+        {
+          "actions": [
+            {
+              "path": [
+                ".//*[contains(@class, 'experience-vdl-error-label') and contains(., 'required')]"
+              ],
+              "method": "checkValidationError"
+            }
+          ]
+        }
+      ],
+      [
+        "continueButton",
+        {
+          "actions": [
+            {
+              "path": [
+                ".//sdf-button[@aria-label='Continue']"
+              ],
+              "method": "click",
+              "time": 500
+            }
+          ]
+        }
+      ],
+      [
+        "chooseVerificationMethod",
+        {
+          "actions": [
+            {
+              "path": [
+                ".//sdf-focus-pane[@heading='Get your verification code']//wfn-radio-button[@value='EMAIL']"
+              ],
+              "method": "clickInShadowRoot",
+              "options": {
+                "shadowRootSelector": "sdf-radio-button"
+              },
+              "time": 1000
+            }
+          ]
+        }
+      ],
+      [
+        "sendButton",
+        {
+          "actions": [
+            {
+              "path": [
+                ".//sdf-focus-pane[@heading='Get your verification code']//sdf-button[@aria-label='Send']"
+              ],
+              "method": "click",
+              "time": 500
+            }
+          ]
+        }
+      ]
+    ]
+  },
+  "entities": [
+    [
+      "applyBtn",
+      {
+        "actions": [
+          {
+            "key": "canJobBeAppliedXPaths.applyButton",
+            "method": "click",
+            "time": 500
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "apply"
+        ]
+      }
+    ],
+    [
+      "privacyAgreement",
+      {
+        "actions": [
+          {
+            "path": [
+              "//div[@id='self_att_agree_chk']/input"
+            ],
+            "method": "click"
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "agreement"
+        ]
+      }
+    ],
+    [
+      "firstName",
+      [
+        "//input[@id='personalInfomationFirstName']"
+      ],
+      {
+        "keywords": [
+          "first name"
+        ]
+      }
+    ],
+    [
+      "lastName",
+      [
+        "//input[@id='personalInfomationLastName']"
+      ],
+      {
+        "keywords": [
+          "last name"
+        ]
+      }
+    ],
+    [
+      "fullName",
+      [
+        "//input[@id='electronicSignature']"
+      ],
+      {
+        "keywords": [
+          "full name",
+          "sign electronically"
+        ]
+      }
+    ],
+    [
+      "email",
+      [
+        ".//input[@id='personalInfomationEmail']"
+      ],
+      {
+        "keywords": [
+          "email"
+        ]
+      }
+    ],
+    [
+      "phoneStripped",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//input[@id='personalInfomationMobileNumberError']"
+            ],
+            "method": "setValue",
+            "options": {
+              "triggerBlurEvent": true,
+              "triggerInputEvent": true,
+              "triggerChangeEvent": true,
+              "ignoreExistingValue": true,
+              "triggerKeyDownEvent": true,
+              "appendToExistingValue": true
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "mobile number"
+        ]
+      }
+    ],
+    [
+      "homePhoneStripped",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//input[translate(@labeltext, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz') = 'home phone number']"
+            ],
+            "method": "setValue",
+            "options": {
+              "triggerBlurEvent": true,
+              "triggerInputEvent": true,
+              "triggerChangeEvent": true,
+              "ignoreExistingValue": true,
+              "triggerKeyDownEvent": true,
+              "appendToExistingValue": true
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "home phone number"
+        ]
+      }
+    ],
+    [
+      "country",
+      {
+        "resetFields": [
+          "city",
+          "stateName",
+          "postalCode"
+        ],
+        "actions": [
+          {
+            "path": [
+              ".//label[contains(., 'Country')]/parent::div/following-sibling::*[1]//input"
+            ],
+            "method": "click"
+          },
+          {
+            "path": [
+              ".//div[@id='__ariaOwns__']"
+            ],
+            "ariaPath": [
+              ".//label[contains(., 'Country')]/parent::div/following-sibling::*[1]//input"
+            ],
+            "method": "clickOption",
+            "options": {
+              "containerElement": "document"
+            },
+            "attributes": {
+              "ariaOwns": "aria-controls"
+            },
+            "values": {
+              "": [
+                "united states"
+              ],
+              "united states": [
+                "united states"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "country"
+        ]
+      }
+    ],
+    [
+      "addressLine1",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//input[contains(@id, 'PersonalAddress') and @aria-required='true' and @autocomplete]"
+            ],
+            "method": "setValue"
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "address line 1",
+          "country",
+          "phone number"
+        ]
+      }
+    ],
+    [
+      "workAuth",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//label[contains(text(), 'Are you legally authorized to work in the United States?')]/ancestor::div[contains(@class, 'question-label-container')]/following-sibling::div//div[@class='vdl-dropdown-list__input']"
+            ],
+            "method": "click"
+          },
+          {
+            "path": [
+              ".//ul[@id='__ariaOwns__']"
+            ],
+            "ariaPath": [
+              ".//div[contains(@labelText, 'authorized')]"
+            ],
+            "method": "clickOption",
+            "options": {
+              "containerElement": "document"
+            },
+            "attributes": {
+              "ariaOwns": "aria-controls"
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "authorized to work"
+        ]
+      }
+    ],
+    [
+      "city",
+      [
+        ".//label[contains(., 'City')]/parent::div/following-sibling::input"
+      ],
+      {
+        "keywords": [
+          "country"
+        ]
+      }
+    ],
+    [
+      "stateName",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//div[contains(@labelText, 'State')]"
+            ],
+            "method": "click"
+          },
+          {
+            "path": [
+              ".//ul[@id='__ariaOwns__']"
+            ],
+            "ariaPath": [
+              ".//div[contains(@labelText, 'State')]"
+            ],
+            "method": "clickOption",
+            "options": {
+              "containerElement": "document"
+            },
+            "attributes": {
+              "ariaOwns": "aria-controls"
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "country"
+        ]
+      }
+    ],
+    [
+      "postalCode",
+      [
+        ".//label[contains(., 'Postal Code') or contains(., 'Zip Code')]/parent::div/following-sibling::input"
+      ],
+      {
+        "keywords": [
+          "country",
+          "postal code",
+          "zip code"
+        ]
+      }
+    ],
+    [
+      "resume",
+      [
+        ".//div[contains(@class, 'upload-resume-content')]//input[@type='file']"
+      ],
+      {
+        "keywords": [
+          "resume"
+        ]
+      }
+    ],
+    [
+      "gender",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//input[@id='vsidGender']"
+            ],
+            "method": "click"
+          },
+          {
+            "path": [
+              ".//div[@id='__ariaOwns__']"
+            ],
+            "ariaPath": [
+              ".//input[@id='vsidGender']"
+            ],
+            "method": "clickOption",
+            "options": {
+              "containerElement": "document"
+            },
+            "attributes": {
+              "ariaOwns": "aria-controls"
+            },
+            "values": {
+              "male": [
+                "Male",
+                "Man"
+              ],
+              "female": [
+                "Female",
+                "Woman"
+              ],
+              "other": [
+                "Other",
+                "Prefer not to say"
+              ],
+              "decline to identify": [
+                "Decline to identify",
+                "Decline",
+                "I don't wish",
+                "Prefer not to say",
+                "Opt Out"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "gender"
+        ]
+      }
+    ],
+    [
+      "hispanicLatino",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//input[@id='vsidEthinicity']"
+            ],
+            "method": "click"
+          },
+          {
+            "path": [
+              ".//div[@id='__ariaOwns__']"
+            ],
+            "ariaPath": [
+              ".//input[@id='vsidEthinicity']"
+            ],
+            "method": "clickOption",
+            "options": {
+              "containerElement": "document"
+            },
+            "attributes": {
+              "ariaOwns": "aria-controls"
+            },
+            "values": {
+              "true": [
+                "Hispanic or Latino"
+              ],
+              "false": [
+                "Not Hispanic or Latino"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "ethnicity"
+        ]
+      }
+    ],
+    [
+      "disability",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//div[@id='disabilityStatusCheck']//input[@type='checkbox']",
+              ".//input[@name='disabilityStatusCheck']"
+            ],
+            "method": "click",
+            "time": 500
+          },
+          {
+            "path": [
+              ".//div[contains(@class, 'vsid-status-question-block')]"
+            ],
+            "method": "clickOptionInShadowRoot",
+            "options": {
+              "listItemOutsideShadowRoot": "wfn-radio-button",
+              "listItemInsideShadowRoot": "sdf-radio-button"
+            },
+            "values": {
+              "true": [
+                "Yes, I Have a Disability, or Have a History/Record of Having a Disability"
+              ],
+              "false": [
+                "No, I Don’t Have a Disability, or a History/Record of Having a Disability"
+              ],
+              "": [
+                "I Don’t Wish to Answer"
+              ]
+            },
+            "time": 500
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "disability"
+        ]
+      }
+    ],
+    [
+      "answerSource",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//input[@aria-label='Please indicate how you heard about this position.']"
+            ],
+            "method": "click"
+          },
+          {
+            "path": [
+              ".//div[@id='__ariaOwns__']"
+            ],
+            "ariaPath": [
+              ".//input[@aria-label='Please indicate how you heard about this position.']"
+            ],
+            "method": "clickOption",
+            "defaultValue": "Other",
+            "attributes": {
+              "ariaOwns": "aria-controls"
+            },
+            "values": {
+              "source": [
+                "Other",
+                "Internet",
+                "Google"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "heard about"
+        ]
+      }
+    ],
+    [
+      "currencyType",
+      [
+        {
+          "actions": [
+            {
+              "path": [
+                ".//sdf-select-simple[contains(@placeholder, 'Select currency type')]"
+              ],
+              "method": "clickInShadowRoot",
+              "options": {
+                "shadowRootSelector": "div[aria-haspopup='listbox']"
+              }
+            },
+            {
+              "path": [
+                ".//sdf-select-simple[contains(@placeholder, 'Select currency type')]"
+              ],
+              "method": "clickOptionInShadowRoot",
+              "defaultValue": "USD",
+              "options": {
+                "shadowRootSelector": "sdf-floating-pane",
+                "listItemSelector": "sdf-select-item"
+              },
+              "values": {
+                "USD": [
+                  "USD",
+                  "US Dollar",
+                  "United States Dollar (USD)"
+                ],
+                "CAD": [
+                  "CAD",
+                  "Canadian Dollar",
+                  "Canadian Dollar (CAD)"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "actions": [
+            {
+              "path": [
+                ".//input[@type='text' and contains(@id, 'currency_type')]"
+              ],
+              "method": "click"
+            },
+            {
+              "path": [
+                ".//input[@type='text' and contains(@id, 'currency_type')]"
+              ],
+              "method": "setValue",
+              "defaultValue": "USD",
+              "options": {
+                "triggerBlurEvent": false,
+                "triggerInputEvent": true,
+                "triggerChangeEvent": true,
+                "ignoreExistingValue": true,
+                "triggerKeyDownEvent": true,
+                "appendToExistingValue": true
+              },
+              "time": 500
+            },
+            {
+              "path": [
+                ".//div[contains(@class, 'MDFSelect') and @role='listbox']"
+              ],
+              "method": "clickOption",
+              "defaultValue": "USD",
+              "values": {
+                "USD": [
+                  "USD",
+                  "US Dollar",
+                  "United States Dollar (USD)"
+                ],
+                "CAD": [
+                  "CAD",
+                  "Canadian Dollar",
+                  "Canadian Dollar (CAD)"
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      {
+        "keywords": [
+          "salary",
+          "currency"
+        ]
+      }
+    ],
+    [
+      "minYearlySalaryDesired",
+      [
+        ".//input[@id='desiredSalaryId']"
+      ],
+      {
+        "keywords": [
+          "salary"
+        ]
+      }
+    ],
+    [
+      "veteran",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//h4[contains(., 'Protected Veteran Status')]//following-sibling::*[3]"
+            ],
+            "method": "clickOption",
+            "options": {
+              "isOptionShadowRoot": true,
+              "optionSelector": "sdf-radio-button"
+            },
+            "values": {
+              "true": [
+                "I identify myself as one or more of the classifications of protected veteran."
+              ],
+              "false": [
+                "I am not a protected veteran.",
+                "I decline to self-identify."
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "veteran"
+        ]
+      }
+    ]
+  ]
+}

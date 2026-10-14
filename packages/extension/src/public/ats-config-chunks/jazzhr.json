@@ -1,0 +1,919 @@
+{
+  "atsName": "jazzhr",
+  "urls": [
+    "*://*.applytojob.com/apply/*"
+  ],
+  "urlsExclude": [],
+  "questionsInSubmitPage": true,
+  "submitButtonPaths": [
+    ".//a[contains(@id, 'submit-resume')]",
+    ".//input[contains(@id, 'submit-resume')]"
+  ],
+  "nextStepButtonPaths": [],
+  "nextStepDynamicLoad": false,
+  "formLoadingXPaths": [
+    ".//div[@id='resumator-submit' and CONTAINS_TEXT('submitting')]"
+  ],
+  "formLoadingAfterSubmitClick": true,
+  "validationCheckFormValidity": false,
+  "validateUsingQuestionErrorSelectors": true,
+  "validationErrorXPaths": [],
+  "validationErrorPersistent": false,
+  "errorBannerXPaths": [],
+  "questionValidationErrorSelectors": [
+    ".form-group.has-error",
+    ".dv_error"
+  ],
+  "targetNodeXPath": [
+    ".//div[@class='job-form-fields']",
+    ".//div[@id='resumator-job-application']",
+    ".//form[@id='form_submit_new_resume']"
+  ],
+  "targetFrameNodeXPath": [],
+  "canJobBeAppliedXPaths": {
+    "applyButton": [],
+    "submitButton": "",
+    "email": [],
+    "next": []
+  },
+  "customQuestions": {
+    "patterns": {
+      "questionId": "",
+      "innerSelectors": [],
+      "selectInputTagName": "",
+      "selectInputAttrName": "",
+      "selectInputAttrValue": "",
+      "radioGroupMatchQuerySelector": "",
+      "fieldsetMatchQuerySelector": "",
+      "maxLabelLevel": "",
+      "radioGroupAttrName": "",
+      "radioGroupAttrValue": "",
+      "listboxTagName": ""
+    },
+    "selectors": {
+      "question": "div.form-group:not(.none):not(#resumator-submit), div.resumator-field-wrapper:not(#resumator-message-required):not(#resumator-submit):not(#resumator-recaptcha)",
+      "title": "h1",
+      "subTitle": "h3",
+      "label": "label:not(.checkbox), div.resumator-label",
+      "legend": "legend",
+      "roleOption": "[role='option']",
+      "radioInput": "input[type='radio']",
+      "monthInput": "input[aria-valuetext='MM'], input[type='month']",
+      "dateInput": "input[aria-valuetext='DD']",
+      "yearInput": "input[aria-valuetext='YYYY']",
+      "checkbox": "input[type='checkbox']",
+      "optionsSelector": "label.checkbox"
+    },
+    "xpaths": {
+      "currentListItem": [],
+      "listInputBackBtnText": [],
+      "selectPopupXPath": [],
+      "listBoxPopupXPath": [],
+      "selectedItemListXPath": [],
+      "requiredFieldXPath": [
+        ".//div[contains(@class, 'form-group')][not(contains(@class, 'none'))][not(@id='resumator-submit')][label[.//i[contains(@class, 'asterisk')]]]",
+        ".//div[contains(@class, 'resumator-field-wrapper')][div[contains(@class, 'resumator-label')][text()[contains(., '*')]]]"
+      ],
+      "targetNodeXPath": []
+    },
+    "ignoreQuestions": [],
+    "ignoreContainerQuestions": [
+      "//div[@id='sms-consent']",
+      "//div[@id='resumator-eeo-new-veteran']",
+      "//div[@id='resumator-new-disability-message']",
+      "//div[contains(@class, 'form-group')][.//div[contains(@class, 'help-block')]]"
+    ]
+  },
+  "jobXPaths": {
+    "entities": [
+      [
+        "titleDisplay",
+        [
+          "//div[contains(@class, 'job-header')]//h1"
+        ]
+      ],
+      [
+        "originalCompanyName",
+        []
+      ],
+      [
+        "jobTypes",
+        []
+      ],
+      [
+        "postingDate",
+        []
+      ],
+      [
+        "url",
+        []
+      ],
+      [
+        "desc",
+        []
+      ],
+      [
+        "locationDisplay",
+        [
+          "//div[contains(@class, 'job-attributes')]//div[@title='Location']"
+        ]
+      ],
+      [
+        "location",
+        []
+      ]
+    ]
+  },
+  "preApply": {
+    "urls": [],
+    "entities": [
+      [
+        "consent",
+        {}
+      ],
+      [
+        "phoneStrippedCountryCode",
+        {}
+      ],
+      [
+        "continueButton",
+        {}
+      ],
+      [
+        "chooseVerificationMethod",
+        {}
+      ],
+      [
+        "sendButton",
+        {}
+      ]
+    ],
+    "urlsExclude": []
+  },
+  "entities": [
+    [
+      "answerSource",
+      []
+    ],
+    [
+      "applyBtn",
+      {}
+    ],
+    [
+      "firstName",
+      [
+        ".//input[contains(@id, 'firstname-value') or contains(@name, 'firstname-value')]"
+      ]
+    ],
+    [
+      "lastName",
+      [
+        ".//input[contains(@id, 'lastname-value') or contains(@name, 'lastname-value')]"
+      ]
+    ],
+    [
+      "preferredFirstName",
+      []
+    ],
+    [
+      "legalFirstName",
+      []
+    ],
+    [
+      "legalLastName",
+      []
+    ],
+    [
+      "fullName",
+      []
+    ],
+    [
+      "email",
+      [
+        ".//input[contains(@id, 'email-value') or contains(@name, 'email-value')]"
+      ]
+    ],
+    [
+      "phone",
+      [
+        ".//input[contains(@id, 'phone-value') or contains(@name, 'phone-value')]"
+      ]
+    ],
+    [
+      "addressLine1",
+      [
+        ".//input[contains(@id, 'address-value') or contains(@name, 'address-value')]"
+      ]
+    ],
+    [
+      "recentExperience.companyName",
+      []
+    ],
+    [
+      "recentExperience.title",
+      []
+    ],
+    [
+      "city",
+      [
+        ".//input[contains(@id, 'city-value') or contains(@name, 'city-value')]"
+      ]
+    ],
+    [
+      "state",
+      [
+        ".//input[contains(@id, 'state-value') or contains(@name, 'state-value')]"
+      ]
+    ],
+    [
+      "stateName",
+      []
+    ],
+    [
+      "postalCode",
+      [
+        ".//input[contains(@id, 'postal-value') or contains(@name, 'postal-value')]"
+      ]
+    ],
+    [
+      "cityStateName",
+      []
+    ],
+    [
+      "country",
+      []
+    ],
+    [
+      "resume",
+      [
+        {
+          "actions": [
+            {
+              "path": [
+                ".//a[contains(@class, 'resumator-resume-action') and contains(@id, 'choose-upload')]"
+              ],
+              "method": "click"
+            },
+            {
+              "path": [
+                ".//div[@id='resumator-resume']//input[contains(@id, 'resume-value') or contains(@name, 'resume-value')]"
+              ],
+              "method": "uploadResume"
+            }
+          ]
+        },
+        {
+          "actions": [
+            {
+              "path": [
+                ".//div[@id='resumator-resume'] //input[contains(@id, 'resumator-questionnaire-file')]"
+              ],
+              "method": "uploadResume"
+            }
+          ]
+        }
+      ]
+    ],
+    [
+      "over18",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//select[contains(@id, 'over18-value') or contains(@name, 'over18-value')]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "true": [
+                "Yes"
+              ],
+              "false": [
+                "No"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "minYearlySalaryDesired",
+      [
+        ".//input[contains(@id, 'salary-value') or contains(@name, 'salary-value')]"
+      ]
+    ],
+    [
+      "workStartDateAvailabilityString",
+      {
+        "actions": [
+          {
+            "method": "setDateInput",
+            "format": "MM/dd/yyyy",
+            "fullDate": {
+              "path": [
+                ".//input[contains(@id, 'start-value') or contains(@id, 'start-value')]"
+              ],
+              "format": "yyyy-MM-dd"
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "experience",
+      {
+        "addButtonPath": [
+          ""
+        ],
+        "confirmAddedPath": [
+          ""
+        ],
+        "containerPath": [
+          ""
+        ],
+        "entities": [
+          [
+            "companyName",
+            []
+          ],
+          [
+            "city",
+            []
+          ],
+          [
+            "state",
+            []
+          ],
+          [
+            "title",
+            []
+          ],
+          [
+            "cityState",
+            []
+          ],
+          [
+            "isCurrent",
+            []
+          ],
+          [
+            "startDate",
+            []
+          ],
+          [
+            "endDate",
+            []
+          ],
+          [
+            "description",
+            []
+          ]
+        ]
+      }
+    ],
+    [
+      "weekdaysAvailability",
+      {}
+    ],
+    [
+      "weekendsAvailability",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//select[contains(@id, 'weekends-value') or contains(@name, 'weekends-value')]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "true": [
+                "Yes"
+              ],
+              "false": [
+                "No"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "openSchedule",
+      {}
+    ],
+    [
+      "flexibleSchedule",
+      {}
+    ],
+    [
+      "dayShift",
+      {}
+    ],
+    [
+      "nightShift",
+      {}
+    ],
+    [
+      "swingShift",
+      {}
+    ],
+    [
+      "overnightShift",
+      {}
+    ],
+    [
+      "anyShift",
+      {}
+    ],
+    [
+      "highestEducationLevel",
+      []
+    ],
+    [
+      "education",
+      {
+        "addButtonPath": [],
+        "confirmAddedPath": [],
+        "containerPath": [],
+        "entities": [
+          [
+            "name",
+            []
+          ],
+          [
+            "degree",
+            []
+          ],
+          [
+            "major",
+            []
+          ],
+          [
+            "startDateMonth_MM",
+            []
+          ],
+          [
+            "endDateMonth_MM",
+            []
+          ],
+          [
+            "startDateMonthText",
+            []
+          ],
+          [
+            "endDateMonthText",
+            []
+          ],
+          [
+            "startDateYear",
+            []
+          ],
+          [
+            "endDateYear",
+            []
+          ],
+          [
+            "city",
+            []
+          ],
+          [
+            "state",
+            []
+          ]
+        ]
+      }
+    ],
+    [
+      "workAuth",
+      []
+    ],
+    [
+      "agreement",
+      {}
+    ],
+    [
+      "sponsorship",
+      {}
+    ],
+    [
+      "lift50PoundsWeightAbility",
+      {}
+    ],
+    [
+      "gender",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//select[contains(@id, 'gender-value') or contains(@id, 'gender-value')]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "Male": [
+                "Male",
+                "Man"
+              ],
+              "Female": [
+                "Female",
+                "Woman"
+              ],
+              "I do not want to answer": [
+                "Decline",
+                "I don't wish",
+                "Prefer not"
+              ],
+              "": [
+                "Decline",
+                "I don't wish",
+                "Prefer not"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "hispanicLatino",
+      {}
+    ],
+    [
+      "genderPronouns",
+      {}
+    ],
+    [
+      "transgender",
+      {}
+    ],
+    [
+      "race",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//select[contains(@id, 'race-value') or contains(@id, 'race-value')]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "Black or African American": [
+                "Black",
+                "African"
+              ],
+              "East Asian": [
+                "East Asian",
+                "Asian"
+              ],
+              "Hispanic or Latino": "Hispanic",
+              "Southeast Asian": [
+                "Southeast Asian",
+                "Asian"
+              ],
+              "South Asian": [
+                "South Asian",
+                "Asian"
+              ],
+              "Native Hawaiian or Other Pacific Islander": [
+                "Native Hawaiian",
+                "Pacific Islander"
+              ],
+              "American Indian or Alaska Native": [
+                "American Indian",
+                "Alaskan Native"
+              ],
+              "White": "White",
+              "Two or More Races": "Two or More",
+              "Some Other Race": [
+                "Other",
+                "Decline"
+              ],
+              "Decline to Answer": [
+                "Decline",
+                "Prefer not"
+              ],
+              "": [
+                "Decline"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "veteran",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//div[contains(@id, 'veteran-field')]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "true": [
+                "I am a ",
+                "I identify ",
+                "Yes"
+              ],
+              "false": [
+                "I am not a ",
+                "I don't ",
+                "No",
+                "Prefer not"
+              ],
+              "": [
+                "Decline",
+                "I am not a ",
+                "I don't ",
+                "No",
+                "Prefer not"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "disability",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//div[@id='disability-input-area']"
+            ],
+            "method": "clickOption",
+            "values": {
+              "true": [
+                "Yes",
+                "I have"
+              ],
+              "false": [
+                "No",
+                "I do not have",
+                "Prefer not"
+              ],
+              "": [
+                "Decline",
+                "I don't wish",
+                "Prefer not",
+                "No"
+              ]
+            }
+          },
+          {
+            "path": [
+              ".//input[contains(@id, 'disability_signature-value') or contains(@name, 'disability_signature-value')]"
+            ],
+            "method": "setValue",
+            "userDataParam": "__fullName__"
+          }
+        ]
+      }
+    ],
+    [
+      "sexualOrientation",
+      {}
+    ],
+    [
+      "github",
+      []
+    ],
+    [
+      "twitter",
+      []
+    ],
+    [
+      "behance",
+      []
+    ],
+    [
+      "countryName",
+      []
+    ],
+    [
+      "phoneStripped",
+      []
+    ],
+    [
+      "phoneCode",
+      []
+    ],
+    [
+      "deviceType",
+      {}
+    ],
+    [
+      "certification",
+      {
+        "addButtonPath": [],
+        "confirmAddedPath": [],
+        "containerPath": [],
+        "entities": [
+          [
+            "name",
+            []
+          ],
+          [
+            "issueDateSlashes_MMDDYYYY",
+            []
+          ]
+        ]
+      }
+    ],
+    [
+      "skill",
+      {
+        "containerPath": [],
+        "entities": [
+          [
+            "name",
+            []
+          ]
+        ],
+        "options": {
+          "clickOutsideAtEnd": false
+        }
+      }
+    ],
+    [
+      "lgbt",
+      {}
+    ],
+    [
+      "armedForces",
+      {}
+    ],
+    [
+      "currentDate.dateString",
+      {
+        "actions": [
+          {
+            "method": "setDateInput",
+            "format": "MM/dd/yyyy",
+            "fullDate": {
+              "path": [
+                ".//input[contains(@id, 'disability_date-value') or contains(@name, 'disability_date-value')]"
+              ],
+              "format": "yyyy-MM-dd"
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "currentDateDashes",
+      {}
+    ],
+    [
+      "language",
+      {}
+    ],
+    [
+      "privacyAgreement",
+      {}
+    ],
+    [
+      "middleName",
+      {}
+    ],
+    [
+      "street",
+      []
+    ],
+    [
+      "cityLocated",
+      []
+    ],
+    [
+      "phoneType",
+      {}
+    ],
+    [
+      "phoneFormatted",
+      []
+    ],
+    [
+      "homePhoneFormatted",
+      []
+    ],
+    [
+      "referral",
+      {}
+    ],
+    [
+      "applyDate",
+      {}
+    ],
+    [
+      "birthMonth",
+      {}
+    ],
+    [
+      "birthDay",
+      {}
+    ],
+    [
+      "birthYear",
+      {}
+    ],
+    [
+      "addressType",
+      {}
+    ],
+    [
+      "startMonthAvailabilityString",
+      {}
+    ],
+    [
+      "startDayAvailabilityString",
+      {}
+    ],
+    [
+      "startYearAvailabilityString",
+      []
+    ],
+    [
+      "county",
+      {}
+    ],
+    [
+      "nameInitials",
+      []
+    ],
+    [
+      "addressLine2",
+      []
+    ],
+    [
+      "highestEducation.name",
+      []
+    ],
+    [
+      "highestEducation.degreeDisplay",
+      []
+    ],
+    [
+      "workStartDateAvailability",
+      []
+    ],
+    [
+      "currencyType",
+      {}
+    ],
+    [
+      "willingToWorkHolidays",
+      {}
+    ],
+    [
+      "employmentInvoluntarilyTerminated",
+      {}
+    ],
+    [
+      "startMonthNameAvailabilityString",
+      {}
+    ],
+    [
+      "cityState",
+      {}
+    ]
+  ],
+  "globalOptions": {
+    "waitForAllRequestsBeforeFillingStep": false
+  },
+  "signIn": {
+    "urls": [],
+    "formPath": [],
+    "submitButton": [],
+    "toSignInButton": [],
+    "createAccount": [],
+    "forgotPassword": [],
+    "email": [],
+    "password": [],
+    "errorMessage": [],
+    "endpoint": "",
+    "verifyPassword": [],
+    "isInlineForm": false,
+    "isEmailRequired": false,
+    "errorPersistAfterReload": false
+  },
+  "signUp": {
+    "errorMessage": [],
+    "submitButton": [],
+    "formStepPath": [],
+    "email": [],
+    "password": [],
+    "verifyPassword": [],
+    "endpoint": "",
+    "saveStrategy": "",
+    "urls": [],
+    "verifyEmail": [],
+    "userName": []
+  },
+  "nextStepButtonFallbackToParentFrame": false,
+  "confirmSubmittedForm": {
+    "confirmMessageXPath": [],
+    "urls": []
+  },
+  "attachedContainer": [],
+  "alwaysSyncWindowId": false,
+  "screenshot": {
+    "hide": [
+      "div[id='tracking-consent-banner']"
+    ]
+  }
+}

@@ -1,0 +1,2284 @@
+{
+  "atsName": "taleo",
+  "urls": [
+    "*://*.taleo.net/*/application*",
+    "*://*.taleo.net/*/jobdetail.ftl*",
+    "*://*.taleo.net/*/flow.jsf*",
+    "*://*.taleo.net/*/jobapply*",
+    "*://*.taleo.net/*/ats/careers/*",
+    "*://*.taleo.net/*/htmlResourceViewer.jss*",
+    "*://*.taleo.net/careersection/careersection*",
+    "*://*.taleo.net/*/login*",
+    "*://*.taleo.net/*/register*",
+    "*://*.taleo.net/careersection/*/*/changeQuestionsAnswers*"
+  ],
+  "urlsExclude": [],
+  "submitButtonPaths": [
+    ".//input[@type='button' and contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'submitcmd')]"
+  ],
+  "networkOptions": {
+    "blacklistedUrlParts": [
+      "linkedin",
+      "analytics",
+      "insights",
+      "track"
+    ]
+  },
+  "nextStepButtonPaths": [
+    ".//button[@id='et-ef-content-ftf-saveContinueCmdBottom' and contains(., 'Continue')]",
+    ".//input[contains(@id, 'saveContinueCmd')]",
+    ".//button[contains(@id, 'saveContinueCmd')]",
+    ".//input[contains(@id, 'saveContinueCmdBottom')]",
+    ".//input[contains(@value, 'Apply Online')]",
+    ".//input[contains(@value, 'Quick Apply')]",
+    ".//input[contains(@id, 'UP_APPLY_ON_REQ')]",
+    ".//input[contains(@value, 'Save and Continue')]",
+    ".//input[@title='continue']",
+    ".//input[@title='Continue']"
+  ],
+  "nextStepButtonFallbackToParentFrame": true,
+  "validationErrorPersistent": true,
+  "validationErrorXPaths": [
+    "//span[contains(@class, 'error-label') and contains(@role, 'presentation')]",
+    "//span[contains(translate(@class,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'notification') and not(contains(@style, 'display: none'))]//span[contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'action cannot be completed')]"
+  ],
+  "stepsNavigation": {
+    "containerPath": [
+      "//table[@class='datatrain-table']"
+    ],
+    "stepSelector": [
+      "li:has(div[class*='datatrain-no-focus'])"
+    ],
+    "stepClickableSelector": [
+      "[class*='datatrain-no-focus'] a"
+    ],
+    "activeStepSelector": [
+      "li:has(div[class*='datatrain-focus'])"
+    ]
+  },
+  "errorBannerXPaths": [],
+  "targetNodeXPath": [
+    "//div[@id='taleo_holder']",
+    ".//table[@class='tablelist' and not(.//iframe[@id='document-html-viewer'])]",
+    "//body[contains(@id, 'home')]",
+    ".//form[@id='dialogTemplate-dialogForm']",
+    "//span[@id='et-ef-masterbody' and not(.//iframe[@id='document-html-viewer'])]"
+  ],
+  "targetFrameNodeXPath": [
+    "//div[@class='html-document-wrapper']",
+    "//iframe[@id='document-html-viewer']"
+  ],
+  "questionValidationErrorSelectors": [
+    "img[src*='inputWarning']"
+  ],
+  "canJobBeAppliedXPaths": {
+    "applyButton": [
+      ".//input[contains(@value, 'Apply Online')]",
+      ".//input[contains(@value, 'Quick Apply')]",
+      ".//input[contains(@value, 'Apply') and @type != 'hidden' and not(translate(@value, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz') = 'apply as guest')]",
+      "//input[contains(@title, 'Apply') and not(translate(@value, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz') = 'apply as guest')]",
+      "//input[contains(@title, 'Submit')]"
+    ]
+  },
+  "confirmSubmittedForm": {
+    "confirmMessageXPath": [
+      ".//span[contains(@class, 'mainsection')]//span[contains(@id, 'thankYouBlock')]"
+    ]
+  },
+  "signIn": {
+    "urls": [
+      "*://*.taleo.net/*/login*",
+      "*://*.taleo.net/*/statementBeforeAuthentification*"
+    ],
+    "isEmailRequired": false,
+    "submitButton": [
+      "//input[contains(@id, 'dialogTemplate-dialogForm-login-defaultCmd') and contains(translate(@value, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'login')]",
+      "//input[contains(@id, 'dialogTemplate-dialogForm-login-defaultCmd') and contains(translate(@value, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'sign in')]"
+    ],
+    "createAccount": [
+      "//input[contains(@id, 'dialogTemplate-dialogForm-login-register') and not(translate(@value, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz') = 'apply as guest')]"
+    ],
+    "forgotPassword": [
+      "//a[contains(@id, 'dialogTemplate-dialogForm-login-forgotPasswordLinkBottom')]"
+    ],
+    "email": [
+      "//input[contains(@id, 'dialogTemplate-dialogForm-login-name1')]"
+    ],
+    "password": [
+      "//input[contains(@id, 'dialogTemplate-dialogForm-login-password')]"
+    ],
+    "errorMessage": [
+      "//div[contains(@id, 'errorIAM')]"
+    ],
+    "wrongCredentialsError": [
+      "//div[contains(@id, 'errorIAM') and CONTAINS_TEXT('user', true) and CONTAINS_TEXT('cannot', true)]"
+    ],
+    "endpoint": "/login"
+  },
+  "signUp": {
+    "urls": [
+      "*://*.taleo.net/*/register*"
+    ],
+    "errorMessage": [
+      "//div[contains(@id, 'errorIAM')]"
+    ],
+    "submitButton": [
+      "//input[contains(@id, 'dialogTemplate-dialogForm-defaultCmd') and @value='Register']",
+      "//input[contains(@id, 'dialogTemplate-dialogForm-defaultCmd') and @value='Next Step']",
+      "//input[contains(@id, 'dialogTemplate-dialogForm-defaultCmd') and @value='Create my account']",
+      "//input[contains(@id, 'dialogTemplate-dialogForm-defaultCmd') and @value='Create Account']"
+    ],
+    "email": [
+      "//input[contains(@id, 'dialogTemplate-dialogForm-email')]"
+    ],
+    "verifyEmail": [
+      "//input[contains(@id, 'dialogTemplate-dialogForm-emailConfirm')]"
+    ],
+    "password": [
+      "//input[contains(@id, 'dialogTemplate-dialogForm-password')]"
+    ],
+    "verifyPassword": [
+      "//input[contains(@id, 'dialogTemplate-dialogForm-passwordConfirm')]"
+    ],
+    "userName": [
+      "//input[contains(@id, 'dialogTemplate-dialogForm-userName')]",
+      "//input[contains(@id, 'dialogTemplate-dialogForm-login-name1')]"
+    ],
+    "endpoint": "/register",
+    "saveStrategy": "onNextStep"
+  },
+  "customQuestions": {
+    "patterns": {
+      "questionId": "-qr"
+    },
+    "selectors": {
+      "title": "span.title",
+      "question": "fieldset[class], select[class], input[id][type='text'], textarea[class], table[id='dayPanel'], select[id*='AvailabilityDate'], select[class='input-select']",
+      "label": "label[for*='__questionId__']",
+      "legend": "legend",
+      "ariaLabelledBy": "label[for^=__labelFor__]",
+      "roleOption": "[role='option'], option",
+      "radioInput": "input[type='radio']",
+      "monthInput": "input[aria-valuetext='MM']",
+      "dateInput": "input[aria-valuetext='DD']",
+      "yearInput": "input[aria-valuetext='YYYY']",
+      "checkbox": "input[type='checkbox']"
+    },
+    "xpaths": {
+      "currentListItem": [],
+      "listInputBackBtnText": [],
+      "selectPopupXPath": [],
+      "listBoxPopupXPath": [],
+      "selectedItemListXPath": [],
+      "requiredFieldXPath": [
+        ".//img[@class='mandatory-img']",
+        "//span[@style='visibility: visible;']//textarea[contains(@id, 'questionExplanationText')]"
+      ],
+      "requiredTextContent": [
+        "required",
+        "mandatory",
+        "if yes",
+        "please enter N/A"
+      ]
+    },
+    "ignoreQuestions": [
+      "//input[contains(@name, 'skipResumeUpload')]",
+      "//input[contains(@name, 'resumeSkipRadio')]",
+      "//fieldset[contains(@onclick, 'forceSubmit') and .//input[contains(@name, 'skipResumeUpload')]]",
+      "//fieldset[contains(@onclick, 'forceSubmit') and .//input[contains(@name, 'resumeSkipRadio')]]",
+      "//fieldset[contains(@onclick, 'forceSubmit') and .//input[contains(@name, 'resumeUploadRadio')]]",
+      "//fieldset[contains(@onclick, 'forceSubmit') and .//input[contains(@name, 'pasteResumeRadio')]]",
+      "//fieldset[.//fieldset[contains(@onclick, 'forceSubmit') and .//input[contains(@name, 'skipResumeUpload')]]]",
+      "//fieldset[.//fieldset[contains(@onclick, 'forceSubmit') and .//input[contains(@name, 'resumeSkipRadio')]]]",
+      "//fieldset[.//fieldset[contains(@onclick, 'forceSubmit') and .//input[contains(@name, 'resumeUploadRadio')]]]",
+      "//fieldset[.//fieldset[contains(@onclick, 'forceSubmit') and .//input[contains(@name, 'pasteResumeRadio')]]]",
+      "//select[contains(@id, 'education_StudyLevel')]",
+      "//input[contains(@id, 'graduationDateProjected')]",
+      "//textarea[contains(@id,'pastedResume')]",
+      "//fieldset[contains(@class, 'input') and contains(@class, 'date') and contains(@class, 'time') and contains(., 'Graduation') and contains(., 'Anticipated') and contains(., 'Date')]",
+      "//fieldset[.//input[contains(@name, 'resumeUploadRadio')]]",
+      "//input[contains(@id, 'careerSectionReferenceForm')]",
+      "//select[contains(@id, 'careerSectionReferenceForm')]",
+      "//select[contains(@id, 'recruitmentSourceType')]",
+      "//fieldset[.//input[contains(@id, 'ResumeParsingBlock-UploadResumeBlock-resumePasteRadio')][contains(@onclick, 'forceSubmit()')]]",
+      "//fieldset[contains(@class, 'fs-508-inline')][.//input[contains(@id, 'experience_JobFunction')]]",
+      "//fieldset[contains(@id, 'we-wei')][.//input[contains(@id, 'Employer')]]",
+      ".//input[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '_supervisor')]",
+      ".//input[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '_supervisortitle')]",
+      ".//input[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '_supervisorphone')]",
+      ".//input[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '_supervisoremail')]",
+      ".//input[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'experience_supervisorphone')]",
+      ".//input[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '_reference_')]",
+      ".//input[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '_reference_title')]",
+      ".//input[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '_reference_firstname')]",
+      ".//input[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '_reference_lastname')]",
+      "//input[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'reference_company')]",
+      ".//input[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '_reference_relationship')]",
+      ".//input[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '_reference_phone')]",
+      ".//input[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '_reference_email')]",
+      "//select[contains(@name, 'OneMenu_language') and @onchange='forceSubmit()']",
+      "//fieldset[@class='no-border']"
+    ],
+    "ignoreContainerQuestions": [
+      ".//span[@class='textindentpanel'][select[contains(@id, 'diversityBlock') and contains(translate(@title, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'gender')]]",
+      ".//span[@class='textindentpanel'][select[contains(@id, 'diversityBlock') and contains(translate(@title, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'veteran')]]",
+      ".//span[@class='textindentpanel'][select[contains(@id, 'diversityBlock') and contains(translate(@title, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'race')]]"
+    ]
+  },
+  "jobXPaths": {
+    "entities": [
+      [
+        "titleDisplay",
+        [
+          ".//span[@class='metalink2']/a"
+        ]
+      ],
+      [
+        "originalCompanyName",
+        []
+      ],
+      [
+        "jobTypes",
+        []
+      ],
+      [
+        "postingDate",
+        []
+      ],
+      [
+        "url",
+        []
+      ],
+      [
+        "desc",
+        []
+      ],
+      [
+        "locationDisplay",
+        []
+      ]
+    ]
+  },
+  "attachedContainer": [
+    "//table[@summary='This section displays basic information regarding the files attached to the candidate record.']",
+    "//table[@summary='You can attach a maximum of 25 files to use in your job submission(s).']",
+    "//table[contains(@class, 'attachment-list') and not(contains(@class, 'empty-list'))]"
+  ],
+  "contextData": {
+    "classifier": {
+      "applyBtnPath": [
+        "//a[contains(@href, 'taleo.net/careersection') and (CONTAINS_TEXT('apply', true) or contains(@class, 'apply'))]"
+      ]
+    },
+    "options": {}
+  },
+  "preApply": {
+    "urls": [
+      "*://*.taleo.net/*/careersection/application.jss*"
+    ],
+    "entities": [
+      [
+        "consent",
+        {
+          "actions": [
+            {
+              "path": [
+                "//input[contains(@id, 'dialogTemplate-dialogForm-StatementBeforeAuthentificationContent-ContinueButton')]"
+              ],
+              "method": "click",
+              "time": 500
+            }
+          ]
+        }
+      ]
+    ]
+  },
+  "sections": {
+    "path": [
+      "//span[contains(@class, 'titlepage')]",
+      "//h1[@class='heading']"
+    ],
+    "section": [
+      {
+        "title": [
+          "Resume",
+          "Attachment",
+          "Document",
+          "Attach A File",
+          "Getting Started"
+        ],
+        "entities": [
+          "resume"
+        ]
+      },
+      {
+        "title": [
+          "Personal Information",
+          "Tell Us About Yourself"
+        ],
+        "entities": [
+          "answerSource",
+          "email",
+          "firstName",
+          "lastName",
+          "preferredFirstName",
+          "middleName",
+          "street",
+          "cityLocated",
+          "addressLine1",
+          "birthDate",
+          "phoneType",
+          "phoneFormatted",
+          "homePhoneFormatted",
+          "homePhoneStripped",
+          "phoneStripped",
+          "workPhoneStripped",
+          "phoneCode",
+          "country",
+          "county",
+          "stateName",
+          "state",
+          "city",
+          "postalCode",
+          "preferredPhone",
+          "education",
+          "experience",
+          "companyName",
+          "title",
+          "city",
+          "stateName",
+          "description",
+          "startDateMonthText",
+          "startDateYear",
+          "endDateMonthText",
+          "endDateYear",
+          "isCurrent",
+          "country",
+          "stateName",
+          "city",
+          "certification",
+          "name",
+          "issueDateMonthText",
+          "issueDateYear",
+          "reference",
+          "reasonLeaving",
+          "supervisor"
+        ]
+      },
+      {
+        "title": [
+          "Quick Apply"
+        ],
+        "entities": [
+          "firstName",
+          "lastName",
+          "phoneFormatted",
+          "email"
+        ]
+      },
+      {
+        "title": [
+          "General",
+          "Pre-Employment",
+          "Pre-Screening"
+        ],
+        "entities": [
+          "over18"
+        ]
+      },
+      {
+        "title": [
+          "Education",
+          "Work",
+          "Experience",
+          "Certifications",
+          "Employment History"
+        ],
+        "entities": [
+          "education",
+          "name",
+          "degree",
+          "major",
+          "country",
+          "stateName",
+          "city",
+          "isGraduated",
+          "studentName",
+          "startDateMonthText",
+          "startDateDashes_YYYYMMDD",
+          "endDateDashes_YYYYMMDD",
+          "startDateYear",
+          "endDateMonthText",
+          "endDateYear",
+          "gpa",
+          "antecipatedGraduationDate",
+          "experience",
+          "companyName",
+          "title",
+          "city",
+          "stateName",
+          "description",
+          "startDateMonthText",
+          "startDateYear",
+          "endDateMonthText",
+          "endDateYear",
+          "isCurrent",
+          "country",
+          "stateName",
+          "city",
+          "certification",
+          "name",
+          "issueDateMonthText",
+          "issueDateYear",
+          "reference",
+          "reasonLeaving",
+          "supervisor"
+        ]
+      },
+      {
+        "title": [
+          "Diversity",
+          "Diversity Continued",
+          "Self Identification",
+          "Voluntary Self",
+          "Self ID",
+          "Disability Survey"
+        ],
+        "entities": [
+          "disability",
+          "fullName",
+          "applyDate",
+          "gender",
+          "veteran",
+          "race"
+        ]
+      },
+      {
+        "title": [
+          "eSignature",
+          "Signature",
+          "Acknowledge"
+        ],
+        "entities": [
+          "fullName",
+          "email"
+        ]
+      },
+      {
+        "title": [
+          "Reference"
+        ],
+        "entities": [
+          "reference"
+        ]
+      },
+      {
+        "title": [
+          "Questionnaire"
+        ],
+        "entities": [
+          "answerSource",
+          "diversity",
+          "applyDate"
+        ]
+      },
+      {
+        "title": [
+          "Questions",
+          "Employment Eligibility"
+        ],
+        "entities": [
+          "sponsorship"
+        ]
+      },
+      {
+        "title": [
+          "Disclosure",
+          "Agreement"
+        ],
+        "entities": [
+          "privacyAgreement"
+        ]
+      },
+      {
+        "title": [
+          "Specific",
+          "Submit",
+          "Profile Questions",
+          "Job Opportunity",
+          "Employment Application",
+          "Additional Information",
+          "Prescreening",
+          "Profile"
+        ],
+        "entities": [
+          ""
+        ]
+      }
+    ]
+  },
+  "entities": [
+    [
+      "applyBtn",
+      {
+        "actions": [
+          {
+            "key": "canJobBeAppliedXPaths.applyButton",
+            "method": "click"
+          }
+        ]
+      }
+    ],
+    [
+      "privacyAgreement",
+      {
+        "actions": [
+          {
+            "path": [
+              "//input[contains(@value, 'I Accept')]",
+              "//input[contains(@name, 'StatementBeforeAuthentification') and contains(@onclick, 'ContinueButton')]",
+              "//input[contains(@value, 'I have read')]",
+              "//input[@value='OK']"
+            ],
+            "method": "click"
+          },
+          {
+            "path": [
+              "//label[CONTAINS_TEXT('i want') and contains(@for, 'Upload') and contains(@for, 'Resume')]//input[@type='radio' and not(@checked)]",
+              "//input[contains(@name, 'ResumeParsing') and not(@checked) and not(contains(@name, 'skipResumeUpload')) and @type != 'file' and not(contains(@name, 'UploadResumeBlock'))]"
+            ],
+            "method": "click"
+          }
+        ]
+      }
+    ],
+    [
+      "email",
+      [
+        ".//input[contains(@id, 'candidate_personal_info_EmailAddress')]",
+        ".//input[contains(@id, 'esignature_UniqueSignature')]"
+      ]
+    ],
+    [
+      "firstName",
+      [
+        ".//input[contains(@id, 'candidate_personal_info_FirstName')]"
+      ]
+    ],
+    [
+      "lastName",
+      [
+        "//input[contains(@id, 'candidate_personal_info_LastName')]"
+      ]
+    ],
+    [
+      "preferredFirstName",
+      [
+        ".//input[contains(@id, 'PreferredName')]"
+      ]
+    ],
+    [
+      "street",
+      [
+        "//input[contains(@id, 'candidate_personal_info_Address')]"
+      ]
+    ],
+    [
+      "cityLocated",
+      [
+        "//input[contains(@id, 'candidate_personal_info_City')]"
+      ]
+    ],
+    [
+      "addressLine1",
+      [
+        "//input[contains(@id, 'candidate_personal_info_Address')]"
+      ]
+    ],
+    [
+      "birthDate",
+      {
+        "actions": [
+          {
+            "method": "setDateInput",
+            "format": "MM/dd/yyyy",
+            "fullDate": {
+              "path": [
+                "//input[contains(@id, 'candidate_personal_info_Birthday.inputrelevant')]"
+              ],
+              "format": "yyyy-MM-dd"
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "phoneType",
+      {
+        "actions": [
+          {
+            "path": [
+              "//select[contains(@id, 'PreferredPhone')]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "mobile": [
+                "Cellular Phone"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "phoneFormatted",
+      [
+        {
+          "actions": [
+            {
+              "path": [
+                ".//input[contains(@id, 'candidate_personal_info_MobilePhone')][not(../following-sibling::span[contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'enter without dashes')])]"
+              ],
+              "method": "setValue"
+            }
+          ]
+        },
+        {
+          "actions": [
+            {
+              "path": [
+                ".//input[contains(@id, 'CandidatePersonalInfo_Text_Message_Phone_number')]"
+              ],
+              "method": "setValue"
+            }
+          ]
+        }
+      ]
+    ],
+    [
+      "phoneStripped",
+      {
+        "actions": [
+          {
+            "path": [
+              "//input[contains(@id,'candidate_personal_info_MobilePhone')][../following-sibling::span[contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'enter without dashes')]]"
+            ],
+            "method": "setValue",
+            "options": {
+              "resetValue": true
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "homePhoneFormatted",
+      [
+        "//input[contains(@id,'candidate_personal_info_HomePhone')][not(../following-sibling::span[contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'enter without dashes')])]"
+      ]
+    ],
+    [
+      "homePhoneStripped",
+      {
+        "actions": [
+          {
+            "path": [
+              "//input[contains(@id,'candidate_personal_info_HomePhone')][../following-sibling::span[contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'enter without dashes')]]"
+            ],
+            "method": "setValue",
+            "options": {
+              "resetValue": true
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "workPhoneFormatted",
+      [
+        "//input[contains(@id, 'candidate_personal_info_WorkPhone')]"
+      ]
+    ],
+    [
+      "phoneCode",
+      [
+        {
+          "actions": [
+            {
+              "path": [
+                ".//div[@data-automation-id='formField-country-phone-code']//input"
+              ],
+              "method": "setValue"
+            }
+          ]
+        },
+        {
+          "actions": [
+            {
+              "path": [
+                ".//input[contains(@id, 'candidate_personal_info_UDFCandidatePersonalInfo_WC_Country_Phone') and @type='text']"
+              ],
+              "method": "setValue",
+              "defaultValue": "United States"
+            }
+          ]
+        }
+      ]
+    ],
+    [
+      "county",
+      {
+        "actions": [
+          {
+            "path": [
+              "//input[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'candidatepersonalinfo_county')]"
+            ],
+            "method": "getCounty"
+          },
+          {
+            "path": [
+              "//input[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'candidatepersonalinfo_county')]"
+            ],
+            "method": "setValue",
+            "options": {
+              "waitForNetworkBeforeInteraction": true
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "country",
+      {
+        "actions": [
+          {
+            "path": [
+              "//select[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'residencelocation-0')]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "United States": [
+                "United States"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "stateName",
+      {
+        "actions": [
+          {
+            "path": [
+              "//select[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'residencelocation-1')]"
+            ],
+            "method": "clickOption",
+            "time": 1000
+          }
+        ]
+      }
+    ],
+    [
+      "state",
+      [
+        {
+          "actions": [
+            {
+              "path": [
+                ".//select[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'state')]"
+              ],
+              "method": "clickOption",
+              "options": {
+                "fallbackToOptionIndex": 1
+              }
+            }
+          ]
+        },
+        {
+          "actions": [
+            {
+              "path": [
+                ".//input[contains(@id,  'CAND_STATE')]"
+              ],
+              "method": "setValue"
+            }
+          ]
+        }
+      ]
+    ],
+    [
+      "city",
+      {
+        "actions": [
+          {
+            "path": [
+              "//select[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'residencelocation-2')]"
+            ],
+            "method": "clickOption",
+            "time": 1000,
+            "options": {
+              "fallbackToOptionIndex": 1
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "postalCode",
+      [
+        "//input[contains(@id, 'candidate_personal_info_ZipCode')]"
+      ]
+    ],
+    [
+      "education",
+      {
+        "addButtonPath": [
+          "//a[contains(@id, 'AddEducation')]"
+        ],
+        "confirmAddedPath": [
+          ""
+        ],
+        "containerPath": [
+          "//div[contains(@id, 'csef-efi-__indexString__-frm')]"
+        ],
+        "entities": [
+          [
+            "name",
+            [
+              {
+                "actions": [
+                  {
+                    "path": [
+                      ".//input[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'institution')]"
+                    ],
+                    "method": "setValue",
+                    "options": {
+                      "resetValue": true
+                    }
+                  }
+                ]
+              },
+              {
+                "actions": [
+                  {
+                    "path": [
+                      ".//input[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'education_institution') and (@type='text')]"
+                    ],
+                    "method": "click"
+                  },
+                  {
+                    "path": [
+                      ".//input[contains(translate(@name, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'education_institution') and (@type='text')]"
+                    ],
+                    "method": "setValue",
+                    "options": {
+                      "resetValue": true,
+                      "triggerKeyDownEvent": true,
+                      "separatorCharacter": ", ",
+                      "fixSearchTrigger": 1,
+                      "waitForNetworkAfterInteraction": true
+                    },
+                    "time": 1000
+                  },
+                  {
+                    "path": [
+                      ".//div[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'education_institution-list')][__indexPlusOne__]"
+                    ],
+                    "method": "clickOptionAsync",
+                    "options": {
+                      "separatorCharacter": ", ",
+                      "similarMatch": true,
+                      "stopVariantsGeneration": true,
+                      "containerElement": "document",
+                      "waitForNetworkBeforeInteraction": true
+                    }
+                  }
+                ]
+              }
+            ]
+          ],
+          [
+            "degree",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//select[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'studylevel')]",
+                    ".//select[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'education') and contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'level')]"
+                  ],
+                  "method": "clickOption",
+                  "values": {
+                    "bachelor's": [
+                      "Bachelor's Degree",
+                      "Bachelors"
+                    ],
+                    "master's": [
+                      "Master's Degree",
+                      "Master of Science",
+                      "Masters"
+                    ],
+                    "associate's": [
+                      "Associate's Degree"
+                    ]
+                  },
+                  "options": {
+                    "preserveSpecialChars": true
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "major",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'program')]"
+                  ],
+                  "method": "setValue",
+                  "options": {
+                    "resetValue": true,
+                    "fixSearchTrigger": 1,
+                    "triggerKeyDownEvent": true,
+                    "waitForNetworkAfterInteraction": true
+                  },
+                  "time": 1000
+                },
+                {
+                  "path": [
+                    ".//div[contains(@id, 'education_Program-list')][__indexPlusOne__][contains(@style, 'visibility: visible')]"
+                  ],
+                  "method": "clickOptionAsync",
+                  "options": {
+                    "similarMatch": true,
+                    "stopVariantsGeneration": true,
+                    "containerElement": "document"
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "country",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//select[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'location-0')]"
+                  ],
+                  "method": "clickOption",
+                  "time": 1000
+                }
+              ]
+            }
+          ],
+          [
+            "stateName",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//select[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'location-1')]"
+                  ],
+                  "method": "clickOption",
+                  "time": 1000
+                }
+              ]
+            }
+          ],
+          [
+            "city",
+            [
+              {
+                "actions": [
+                  {
+                    "path": [
+                      ".//select[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'location-2')]"
+                    ],
+                    "method": "clickOption",
+                    "options": {
+                      "fallbackToOptionIndex": 1
+                    }
+                  }
+                ]
+              },
+              {
+                "actions": [
+                  {
+                    "path": [
+                      ".//input[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'city')]"
+                    ],
+                    "method": "setValue"
+                  }
+                ]
+              }
+            ]
+          ],
+          [
+            "isGraduated",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//select[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'graduate')]",
+                    ".//select[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'degree') and contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'completion') ]",
+                    ".//select[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'efi-__index__') and contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'edustatus') ]"
+                  ],
+                  "method": "clickOption",
+                  "values": {
+                    "true": [
+                      "yes",
+                      "completed",
+                      "graduated",
+                      "completed/graduated"
+                    ],
+                    "false": [
+                      "currently pursuing",
+                      "no",
+                      "not completed"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "studentName",
+            [
+              ".//input[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'nameattending')]"
+            ]
+          ],
+          [
+            "startDateMonthText",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//select[contains(@id, 'education_startDate.month')]"
+                  ],
+                  "method": "clickOption",
+                  "values": {
+                    "January": [
+                      "Jan",
+                      "January",
+                      "01"
+                    ],
+                    "February": [
+                      "Feb",
+                      "February",
+                      "02"
+                    ],
+                    "March": [
+                      "Mar",
+                      "March",
+                      "03"
+                    ],
+                    "April": [
+                      "Apr",
+                      "April",
+                      "04"
+                    ],
+                    "May": [
+                      "May",
+                      "05"
+                    ],
+                    "June": [
+                      "Jun",
+                      "June",
+                      "06"
+                    ],
+                    "July": [
+                      "Jul",
+                      "July",
+                      "07"
+                    ],
+                    "August": [
+                      "Aug",
+                      "August",
+                      "08"
+                    ],
+                    "September": [
+                      "Sep",
+                      "September",
+                      "09"
+                    ],
+                    "October": [
+                      "Oct",
+                      "October",
+                      "10"
+                    ],
+                    "November": [
+                      "Nov",
+                      "November",
+                      "11"
+                    ],
+                    "December": [
+                      "Dec",
+                      "December",
+                      "12"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "startDateYear",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//select[contains(@id, 'education_startDate.year')]"
+                  ],
+                  "method": "clickOption"
+                }
+              ]
+            }
+          ],
+          [
+            "endDateMonthText",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//select[contains(@id, 'education_graduationDate.month')]"
+                  ],
+                  "method": "clickOption",
+                  "values": {
+                    "January": [
+                      "Jan",
+                      "January",
+                      "01"
+                    ],
+                    "February": [
+                      "Feb",
+                      "February",
+                      "02"
+                    ],
+                    "March": [
+                      "Mar",
+                      "March",
+                      "03"
+                    ],
+                    "April": [
+                      "Apr",
+                      "April",
+                      "04"
+                    ],
+                    "May": [
+                      "May",
+                      "05"
+                    ],
+                    "June": [
+                      "Jun",
+                      "June",
+                      "06"
+                    ],
+                    "July": [
+                      "Jul",
+                      "July",
+                      "07"
+                    ],
+                    "August": [
+                      "Aug",
+                      "August",
+                      "08"
+                    ],
+                    "September": [
+                      "Sep",
+                      "September",
+                      "09"
+                    ],
+                    "October": [
+                      "Oct",
+                      "October",
+                      "10"
+                    ],
+                    "November": [
+                      "Nov",
+                      "November",
+                      "11"
+                    ],
+                    "December": [
+                      "Dec",
+                      "December",
+                      "12"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "endDateYear",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//select[contains(@id, 'education_graduationDate.year')]"
+                  ],
+                  "method": "clickOption"
+                }
+              ]
+            }
+          ],
+          [
+            "gpa",
+            [
+              ".//input[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'gpa')]"
+            ]
+          ],
+          [
+            "antecipatedGraduationDate",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[contains(@id, 'graduationDateProjected') and @type='checkbox']"
+                  ],
+                  "method": "clickCheckbox"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    [
+      "experience",
+      {
+        "addButtonPath": [
+          "//a[contains(@id, 'AddWorkExperience')]"
+        ],
+        "confirmAddedPath": [
+          ""
+        ],
+        "containerPath": [
+          "//div[contains(@id, 'we-wei-__indexString__-frm')]",
+          "//table[contains(@id, 'we-wei-__indexString__-frm')]"
+        ],
+        "entities": [
+          [
+            "companyName",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'employer') and @type='text']"
+                  ],
+                  "method": "setValue"
+                }
+              ]
+            }
+          ],
+          [
+            "title",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[contains(@id, 'JobFunction') or contains(@id, 'WORK_POSN_TITLE')]",
+                    ".//input[contains(@id, '_JobTitle')]",
+                    ".//input[contains(@id, 'Experience_ES2')]"
+                  ],
+                  "method": "setValue"
+                }
+              ]
+            }
+          ],
+          [
+            "city",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'experience_city')]",
+                    ".//input[contains(@id, 'Experience_EmployerCity')]",
+                    ".//input[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'experience_bll_city')]",
+                    ".//input[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'city') and @type='text']"
+                  ],
+                  "method": "setValue"
+                }
+              ]
+            }
+          ],
+          [
+            "stateName",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[contains(@id, 'experience_UDFExperience_EmployerState')]"
+                  ],
+                  "method": "setValue"
+                },
+                {
+                  "path": [
+                    ".//select[contains(@id, 'STATE')]"
+                  ],
+                  "method": "clickOption",
+                  "time": 1000
+                }
+              ]
+            }
+          ],
+          [
+            "description",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//textArea[contains(@id, 'experience_Responsibility')]",
+                    ".//input[contains(@id, 'Job_Duties')]",
+                    ".//textArea[contains(@id, 'Experience_BLL_Duties')]",
+                    ".//input[contains(@id, 'Experience_DescriptionofDuties')]"
+                  ],
+                  "method": "setValue"
+                }
+              ]
+            }
+          ],
+          [
+            "state",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[contains(@id, 'Experience_EmployerState')]",
+                    ".//input[contains(@id, 'Experience_State')]"
+                  ],
+                  "method": "setValue"
+                }
+              ]
+            }
+          ],
+          [
+            "startDateDashes_YYYYMMDD",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[contains(@id, 'experience_BeginDate.inputrelevant')]"
+                  ],
+                  "method": "setValue"
+                }
+              ]
+            }
+          ],
+          [
+            "endDateDashes_YYYYMMDD",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[contains(@id, 'experience_EndDate.inputrelevant')]"
+                  ],
+                  "method": "setValue"
+                }
+              ]
+            }
+          ],
+          [
+            "startDateMonthText",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//select[contains(@id, 'experience_BeginDate.month')]"
+                  ],
+                  "method": "clickOption",
+                  "values": {
+                    "January": [
+                      "Jan",
+                      "January",
+                      "01"
+                    ],
+                    "February": [
+                      "Feb",
+                      "February",
+                      "02"
+                    ],
+                    "March": [
+                      "Mar",
+                      "March",
+                      "03"
+                    ],
+                    "April": [
+                      "Apr",
+                      "April",
+                      "04"
+                    ],
+                    "May": [
+                      "May",
+                      "05"
+                    ],
+                    "June": [
+                      "Jun",
+                      "June",
+                      "06"
+                    ],
+                    "July": [
+                      "Jul",
+                      "July",
+                      "07"
+                    ],
+                    "August": [
+                      "Aug",
+                      "August",
+                      "08"
+                    ],
+                    "September": [
+                      "Sep",
+                      "September",
+                      "09"
+                    ],
+                    "October": [
+                      "Oct",
+                      "October",
+                      "10"
+                    ],
+                    "November": [
+                      "Nov",
+                      "November",
+                      "11"
+                    ],
+                    "December": [
+                      "Dec",
+                      "December",
+                      "12"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "startDateYear",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//select[contains(@id, 'experience_BeginDate.year')]"
+                  ],
+                  "method": "clickOption"
+                }
+              ]
+            }
+          ],
+          [
+            "endDateMonthText",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//select[contains(@id, 'experience_EndDate.month')]"
+                  ],
+                  "method": "clickOption",
+                  "values": {
+                    "January": [
+                      "Jan",
+                      "January",
+                      "01"
+                    ],
+                    "February": [
+                      "Feb",
+                      "February",
+                      "02"
+                    ],
+                    "March": [
+                      "Mar",
+                      "March",
+                      "03"
+                    ],
+                    "April": [
+                      "Apr",
+                      "April",
+                      "04"
+                    ],
+                    "May": [
+                      "May",
+                      "05"
+                    ],
+                    "June": [
+                      "Jun",
+                      "June",
+                      "06"
+                    ],
+                    "July": [
+                      "Jul",
+                      "July",
+                      "07"
+                    ],
+                    "August": [
+                      "Aug",
+                      "August",
+                      "08"
+                    ],
+                    "September": [
+                      "Sep",
+                      "September",
+                      "09"
+                    ],
+                    "October": [
+                      "Oct",
+                      "October",
+                      "10"
+                    ],
+                    "November": [
+                      "Nov",
+                      "November",
+                      "11"
+                    ],
+                    "December": [
+                      "Dec",
+                      "December",
+                      "12"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "endDateYear",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//select[contains(@id, 'experience_EndDate.year')]"
+                  ],
+                  "method": "clickOption"
+                }
+              ]
+            }
+          ],
+          [
+            "isCurrent",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[contains(@id, 'experience_CurrentEmployer') and @type='checkbox']"
+                  ],
+                  "method": "clickCheckbox"
+                }
+              ]
+            }
+          ],
+          [
+            "country",
+            [
+              {
+                "actions": [
+                  {
+                    "path": [
+                      ".//select[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'experience_country')]"
+                    ],
+                    "method": "clickOption"
+                  }
+                ]
+              },
+              {
+                "actions": [
+                  {
+                    "path": [
+                      ".//input[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'experience_country')]",
+                      ".//input[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'experience_bll_country')]"
+                    ],
+                    "method": "setValue"
+                  }
+                ]
+              }
+            ]
+          ],
+          [
+            "stateName",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'experience_bll_state')]"
+                  ],
+                  "method": "setValue"
+                },
+                {
+                  "path": [
+                    ".//select[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'experience_state')]"
+                  ],
+                  "method": "clickOption",
+                  "time": 1000
+                }
+              ]
+            }
+          ],
+          [
+            "supervisor",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '_supervisor')][@id=//label[contains(translate(@title, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'mandatory')]/@for]"
+                  ],
+                  "method": "setValueMultiple"
+                }
+              ]
+            }
+          ],
+          [
+            "reasonLeaving",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'reason_leaving') and @size='25' and @id=//label[contains(translate(@title, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'mandatory')]/@for]"
+                  ],
+                  "method": "setValue"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    [
+      "reference",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//input[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '_reference_') and not(contains(@id, 'phoneNumber')) and @id=//label[contains(translate(@title, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'mandatory')]/@for]"
+            ],
+            "method": "setValueMultiple"
+          }
+        ]
+      }
+    ],
+    [
+      "certification",
+      {
+        "addButtonPath": [
+          "//a[contains(@id, 'CertificationForm-cmdAdd')]"
+        ],
+        "confirmAddedPath": [
+          ""
+        ],
+        "containerPath": [
+          "//table[contains(@id, 'certificationFragmentIter-__indexString__-j_id')]",
+          "//span[contains(@id, 'certificationFragmentIter-__indexString__-j_id')]"
+        ],
+        "entities": [
+          [
+            "name",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'certification_certification')]"
+                  ],
+                  "method": "setValue"
+                }
+              ]
+            }
+          ],
+          [
+            "issueDateMonthText",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//select[contains(@id, 'certification_dateReceived.month')]"
+                  ],
+                  "method": "clickOption",
+                  "values": {
+                    "January": [
+                      "Jan",
+                      "January",
+                      "01"
+                    ],
+                    "February": [
+                      "Feb",
+                      "February",
+                      "02"
+                    ],
+                    "March": [
+                      "Mar",
+                      "March",
+                      "03"
+                    ],
+                    "April": [
+                      "Apr",
+                      "April",
+                      "04"
+                    ],
+                    "May": [
+                      "May",
+                      "05"
+                    ],
+                    "June": [
+                      "Jun",
+                      "June",
+                      "06"
+                    ],
+                    "July": [
+                      "Jul",
+                      "July",
+                      "07"
+                    ],
+                    "August": [
+                      "Aug",
+                      "August",
+                      "08"
+                    ],
+                    "September": [
+                      "Sep",
+                      "September",
+                      "09"
+                    ],
+                    "October": [
+                      "Oct",
+                      "October",
+                      "10"
+                    ],
+                    "November": [
+                      "Nov",
+                      "November",
+                      "11"
+                    ],
+                    "December": [
+                      "Dec",
+                      "December",
+                      "12"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "issueDateYear",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//select[contains(@id, 'certification_dateReceived.year')]"
+                  ],
+                  "method": "clickOption"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    [
+      "resume",
+      {
+        "actions": [
+          {
+            "path": [
+              "//input[contains(@id, 'resumeUploadRadio') and @type='radio' and not(@checked)]"
+            ],
+            "method": "click"
+          },
+          {
+            "path": [
+              "//input[contains(@id, 'resumeUploadRadio') and @type='file']",
+              "//input[contains(@id, 'AttachedFilesBlock-uploadedFile') and @type='file']",
+              "//input[contains(@id, 'ResumeUploadInputFile') and @type='file']"
+            ],
+            "method": "uploadResume"
+          },
+          {
+            "path": [
+              "//input[contains(@id, 'attachFileCommand')]"
+            ],
+            "method": "clickConfirmAttachment",
+            "time": 1000
+          },
+          {
+            "path": [
+              "//input[@type='checkbox' and not(@checked) and contains(@title, 'Select the file')]"
+            ],
+            "method": "click"
+          },
+          {
+            "path": [
+              "//input[contains(@id, 'resumeselectionid')]"
+            ],
+            "method": "clickCheckbox",
+            "options": {
+              "check": true
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "referral",
+      {
+        "actions": [
+          {
+            "path": [
+              "//input[contains(@id, 'referralSource')]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "true": [
+                "Yes"
+              ],
+              "false": [
+                "No"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "over18",
+      {
+        "actions": [
+          {
+            "path": [
+              "//fieldset[contains(., '18 years') and not(.//select[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'studylevel')])]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "true": [
+                "Yes"
+              ],
+              "false": [
+                "No"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "sponsorship",
+      {
+        "actions": [
+          {
+            "path": [
+              "//fieldset[contains(., 'sponsorship')]//select"
+            ],
+            "method": "clickOption",
+            "values": {
+              "true": [
+                "Yes"
+              ],
+              "false": [
+                "No"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "answerSource",
+      [
+        {
+          "actions": [
+            {
+              "path": [
+                "//input[contains(@id, 'recruitmentSourceType')]"
+              ],
+              "method": "clickOption",
+              "defaultValue": "Internet",
+              "options": {
+                "waitForNetworkAfterInteraction": true
+              }
+            }
+          ]
+        },
+        {
+          "actions": [
+            {
+              "path": [
+                "//input[@id='recruitmentSourceDP']",
+                "//select[@id='recruitmentSourceDP']",
+                "//select[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'sourcetype')]",
+                "//input[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'sourcetype')]"
+              ],
+              "method": "clickOptionWithMultiAnswers",
+              "values": {
+                "source": [
+                  "Internet",
+                  "Other",
+                  "Google",
+                  "Job board"
+                ]
+              },
+              "options": {
+                "lowPriority": [
+                  "Indeed",
+                  "ZipRecruiter",
+                  "LinkedIn",
+                  "Glassdoor",
+                  "Simplyhired",
+                  "Dice",
+                  "CareerBuilder",
+                  "Monster"
+                ],
+                "prohibited": [
+                  "referral",
+                  "referred",
+                  "connection",
+                  "at the company",
+                  "for the organization",
+                  "employee",
+                  "select",
+                  "current worker"
+                ],
+                "ignoreFirst": true,
+                "waitForNetworkBeforeInteraction": true,
+                "waitForNetworkAfterInteraction": true,
+                "selectFirstExcludingProhibited": true,
+                "fallbackToOptionIndex": 1
+              },
+              "time": 600
+            },
+            {
+              "path": [
+                "//select[@id='recruitmentSourceDP']"
+              ],
+              "method": "clickOption",
+              "values": {
+                "source": [
+                  "Internet",
+                  "Other",
+                  "Google",
+                  "Google Search"
+                ]
+              },
+              "options": {
+                "lowPriority": [
+                  "Indeed",
+                  "ZipRecruiter",
+                  "LinkedIn",
+                  "Glassdoor",
+                  "Simplyhired",
+                  "Dice",
+                  "CareerBuilder",
+                  "Monster"
+                ],
+                "prohibited": [
+                  "referral",
+                  "referred",
+                  "connection",
+                  "at the company",
+                  "for the organization",
+                  "employee",
+                  "select",
+                  "current worker"
+                ],
+                "ignoreFirst": true,
+                "waitForNetworkBeforeInteraction": true,
+                "selectFirstExcludingProhibited": true,
+                "fallbackToOptionIndex": 1
+              }
+            },
+            {
+              "path": [
+                "//textarea[contains(@id, 'recruitmentSourceDetail')]",
+                "//input[contains(@id, 'recruitmentSourceDetail')]"
+              ],
+              "method": "setValue",
+              "defaultValue": "Job Board"
+            }
+          ]
+        }
+      ]
+    ],
+    [
+      "disability",
+      {
+        "actions": [
+          {
+            "path": [
+              "//div[@class='text-style'][div/input[@type='checkbox' and (@aria-label='Yes, I have a disability, or have had one in the past' or @aria-label='No, I do not have a disability and have not had one in the past' or @aria-label='I do not want to answer')]]",
+              "//div[@class='fields'][input[@type='checkbox' and (@aria-label='Yes, I Have A Disability, Or Have A History/Record Of Having A Disability' or contains(translate(@aria-label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'no, i don') or contains(translate(@aria-label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'wish to answer'))]]",
+              "//select[contains(@id, 'UDFCandidatePersonalInfo_Disability')]"
+            ],
+            "method": "clickOption",
+            "options": {
+              "optionMatchAttribute": [
+                "aria-label"
+              ],
+              "forceSearchForFrameContainer": true
+            },
+            "values": {
+              "true": [
+                "Yes ",
+                "Yes,",
+                "Yes",
+                "Yes, I have",
+                "I have"
+              ],
+              "false": [
+                "No ",
+                "No,",
+                "No",
+                "I do not have",
+                "Prefer not",
+                "No, I Don't"
+              ],
+              "": [
+                "Decline",
+                "No ",
+                "No",
+                "I don't wish",
+                "Prefer not"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "gender",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//select[contains(@id, 'diversityBlock') and contains(translate(@title, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'gender')]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "Male": [
+                "Male",
+                "Man"
+              ],
+              "Female": [
+                "Female",
+                "Woman"
+              ],
+              "I do not want to answer": [
+                "Decline",
+                "I don't wish",
+                "Prefer not"
+              ],
+              "": [
+                "Decline",
+                "I don't wish",
+                "Prefer not"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "veteran",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//select[contains(@id, 'diversityBlock') and contains(translate(@title, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'veteran')]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "true": [
+                "I am a ",
+                "I identify ",
+                "Yes"
+              ],
+              "false": [
+                "I am not a ",
+                "I don't ",
+                "No",
+                "Prefer not"
+              ],
+              "": [
+                "Decline",
+                "I am not a ",
+                "I don't ",
+                "No",
+                "Prefer not"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "race",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//select[contains(@id, 'diversityBlock') and contains(translate(@title, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'race')]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "Black or African American": [
+                "Black",
+                "African"
+              ],
+              "East Asian": [
+                "East Asian",
+                "Asian"
+              ],
+              "Hispanic or Latino": "Hispanic",
+              "Southeast Asian": [
+                "Southeast Asian",
+                "Asian"
+              ],
+              "South Asian": [
+                "South Asian",
+                "Asian"
+              ],
+              "Native Hawaiian or Other Pacific Islander": [
+                "Native Hawaiian",
+                "Pacific Islander"
+              ],
+              "American Indian or Alaska Native": [
+                "American Indian",
+                "Alaskan Native"
+              ],
+              "White": "White",
+              "Two or More Races": "Two or More",
+              "Some Other Race": [
+                "Other",
+                "Decline"
+              ],
+              "Decline to Answer": [
+                "Decline",
+                "Prefer not"
+              ],
+              "": [
+                "Decline"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "fullName",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//input[contains(translate(@aria-label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'name') and @type='text']",
+              "//input[contains(@id, 'esignature_FullName') and @type='text']"
+            ],
+            "method": "setValue",
+            "options": {
+              "forceSearchForFrameContainer": true
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "applyDate",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//input[contains(translate(@aria-label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'date') and @type='text']",
+              "//a[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'disability_date.display')]",
+              ".//a[contains(@class,  'input-date-time-text')]"
+            ],
+            "method": "click",
+            "options": {
+              "forceSearchForFrameContainer": true
+            }
+          },
+          {
+            "path": [
+              ".//input[contains(translate(@aria-label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'date') and @type='text']",
+              ".//input[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'disability_date')]"
+            ],
+            "method": "setValue",
+            "options": {
+              "forceSearchForFrameContainer": true
+            }
+          },
+          {
+            "path": [
+              "//td[contains(@class, 'ui-datepicker-today')]",
+              "//div[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'disability_date-maindiv')]//td[contains(@class, 'day selected')]",
+              "//table[contains(@id, 'Date-table')]//td[contains(@class, 'today')]"
+            ],
+            "method": "click",
+            "options": {
+              "forceSearchForFrameContainer": true
+            }
+          },
+          {
+            "path": ".//input[contains(translate(@aria-label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'date') and @type='text']",
+            "method": "click",
+            "options": {
+              "forceSearchForFrameContainer": true,
+              "clickOutsideAtEnd": true
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "minYearlySalaryDesired",
+      [
+        ".//input[contains(@id, 'PersonalInfo_Salary') and @type='text']"
+      ]
+    ],
+    [
+      "birthMonth",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//select[contains(@name, 'Birthday.month')]"
+            ],
+            "method": "clickOption"
+          }
+        ]
+      }
+    ],
+    [
+      "birthDay",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//select[contains(@name, 'Birthday.day')]"
+            ],
+            "method": "clickOption"
+          }
+        ]
+      }
+    ],
+    [
+      "birthYear",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//select[contains(@name, 'Birthday.year')]"
+            ],
+            "method": "clickOption"
+          }
+        ]
+      }
+    ],
+    [
+      "workStartDateAvailabilityString",
+      {
+        "actions": [
+          {
+            "path": [
+              "//fieldset[contains(.//label, 'When would you be available to begin')]//textarea"
+            ],
+            "method": "setValue"
+          }
+        ]
+      }
+    ]
+  ]
+}

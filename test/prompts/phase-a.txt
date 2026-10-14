@@ -1,0 +1,44 @@
+Execute Phase A: Codebase Ingestion & Feature Map.
+
+TASKS:
+1. Conduct a codebase walkthrough scanning source files across:
+   - packages/core
+   - packages/extension
+   - packages/applier
+   - packages/scraper
+   - packages/crew
+   - packages/email-monitor
+2. Perform dependency mapping tracking imports and imported_by relationships.
+3. Build a workflow registry documenting entry_point, exit_conditions, external_deps, and risk_surface for major workflows (extension autofill, headless applier, OTP interceptor, email monitor, and rate governor).
+4. Index brittle selectors, classes, and tag references in detector.ts and elsewhere.
+5. Create an API surface registry listing external APIs, key storage types ('env', 'hardcoded', 'user'), and files.
+6. Verify there are no circular dependencies.
+7. Document any critical blockers.
+
+Produce a JSON output matching the Phase A handoff schema exactly.
+Example schema output format:
+===HANDOFF_JSON_START===
+{
+  "phase": "A",
+  "dependency_map": {
+    "@superjob/core": { "imports": [...], "imported_by": [...] }
+  },
+  "workflows": [
+    {
+      "name": "...",
+      "entry_point": "...",
+      "exit_conditions": [...],
+      "external_deps": [...],
+      "risk_surface": [...]
+    }
+  ],
+  "brittle_selectors": [
+    { "selector": "...", "file": "...", "reason": "..." }
+  ],
+  "api_surface": [
+    { "api": "...", "key_storage": "...", "file": "..." }
+  ],
+  "circular_deps": [],
+  "critical_blockers": []
+}
+===HANDOFF_JSON_END===

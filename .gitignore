@@ -1,0 +1,65 @@
+# Dependencies & Builds
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+.output/
+**/.output/
+.wxt/
+**/.wxt/
+
+*.pdf
+*resume*
+*Resume*
+*.zip
+*.tar
+*.tar.gz
+*.traineddata
+
+# Handoff folders & Third-party reference repositories
+*handoff*
+*Handoff*
+*HANDOFF*
+references/
+**/references/
+portfolio/
+**/portfolio/
+research_repos/
+**/research_repos/
+scratch/
+**/scratch/
+
+# Runtime profiles, uploads & test outputs
+.playwright-profile/
+**/.playwright-profile/
+.playwright-profiles/
+**/.playwright-profiles/
+.super-job-agent/
+**/.super-job-agent/
+.uploads/
+**/.uploads/
+crrrrrrx/
+test-screenshots/
+test-results/
+test-results*/
+
+# Logs, Reports & Temporary analysis dumps
+*.log
+*log.txt
+*.txt
+!BUILD_INFO.txt
+analyze_files.mjs
+analyze_primary.mjs
+primary_project_structure.json
+package_inventory_summary.json
+render_pdf.mjs
+test_pdf.mjs
+test_pdf.pdf
+test_render.pdf
+
+# Environment & OS files
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db

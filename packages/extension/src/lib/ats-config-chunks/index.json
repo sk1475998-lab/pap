@@ -1,0 +1,624 @@
+{
+  "adp": {
+    "atsName": "adp",
+    "urls": [
+      "*://recruiting.adp.com/srccar/public/*?appUI*",
+      "*://recruiting.adp.com/srccar/public/*&appUI=*",
+      "*://recruiting.adp.com/srccar/public/nghome.guid*",
+      "*://recruiting.adp.com/srccar/public/RTI.home*"
+    ],
+    "urlsExclude": [],
+    "preApplyUrls": [
+      "*://*.adp.com/*/*/public/RTI.home*"
+    ],
+    "deepScan": false,
+    "targetNodeXPath": [
+      ".//div[@id='theViewNode']"
+    ],
+    "submitButtonPaths": [
+      ".//button[@id='submitBtn']"
+    ],
+    "nextStepButtonPaths": [
+      ".//div[@data-dojo-attach-point='thePagerSingleGo']",
+      ".//button[@id='recruitment_jobDescription_apply']"
+    ],
+    "validationErrorXPaths": [
+      ".//div[contains(@class, 'dijitError')]",
+      ".//input[contains(@class, 'dijitError')]",
+      ".//table[contains(@class, 'dijitError')]"
+    ],
+    "errorBannerXPaths": [
+      ".//div[@role='dialog']//div[text()='Errors Found']"
+    ]
+  },
+  "adp_v2": {
+    "atsName": "adp_v2",
+    "urls": [
+      "*://workforcenow.adp.com/*/recruitment/postLogin.html*"
+    ],
+    "urlsExclude": [],
+    "preApplyUrls": [
+      "*://workforcenow.adp.com/*/recruitment/recruitment.html*"
+    ],
+    "deepScan": false,
+    "targetNodeXPath": [
+      ".//div[contains(@class, 'job-Application-wizard-container')]",
+      ".//div[@name='jobDescriptionView']"
+    ],
+    "submitButtonPaths": [
+      ".//button[contains(@class, 'wizard-submit-button')]"
+    ],
+    "nextStepButtonPaths": [
+      ".//sdf-button[@id='recruitment_login_recaptcha']",
+      ".//button[contains(@class, 'wizard-next-button')]"
+    ],
+    "validationErrorXPaths": [
+      ".//h4[@id='addressErrorMessage']",
+      ".//h4[contains(@class, 'error')]",
+      "//div[contains(@class, 'experience-vdl-error-label')]",
+      "//wfn-text[@role='alert' and contains(translate(normalize-space(.), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'invalid')]"
+    ],
+    "errorBannerXPaths": [],
+    "formLoadingXPaths": [
+      ".//div[@id='recPageLoadWaitingIndicator' and not(contains(@style, 'display: none;'))]",
+      ".//sdf-busy-indicator"
+    ]
+  },
+  "ashbyhq": {
+    "atsName": "ashbyhq",
+    "urls": [
+      "*://*.ashbyhq.com/*/*/application",
+      "*://jobs.ashbyhq.com/*/*/application"
+    ],
+    "urlsExclude": [],
+    "preApplyUrls": [
+      "*://*.ashbyhq.com/*/*"
+    ],
+    "deepScan": false,
+    "targetNodeXPath": [
+      ".//div[contains(@class,'ashby-job-posting-right-pane')]"
+    ],
+    "submitButtonPaths": [
+      "//button[.//span[text()='Submit Application']] "
+    ],
+    "nextStepButtonPaths": [],
+    "backStepButtonPaths": [],
+    "validationErrorXPaths": [
+      "//div[@role='alert']"
+    ],
+    "errorBannerXPaths": [
+      "//div[@role='alert']"
+    ],
+    "formLoadingXPaths": [],
+    "formLoadingAfterNextStepClick": false
+  },
+  "bamboohr": {
+    "atsName": "bamboohr",
+    "urls": [
+      "*://*.bamboohr.com/careers/*"
+    ],
+    "preApplyUrls": [
+      "*://*.bamboohr.com/careers/*"
+    ],
+    "deepScan": false,
+    "targetNodeXPath": [
+      "//main[@id='micro-container2']"
+    ],
+    "submitButtonPaths": [
+      ".//button[contains(., 'Submit Application')]"
+    ],
+    "backStepButtonPaths": [],
+    "validationErrorXPaths": [
+      "//div[contains(@id, 'status-message') and @role='region']",
+      "//p[text()='Please fill in this field.']",
+      "//p[text()='Please make a selection.']",
+      "//p[text()='Please upload a file']",
+      "//p[contains(@data-fabric-component,'BodyText') and (contains(.,'robot') or contains(.,'not a robot') or contains(.,'confirm'))]"
+    ],
+    "errorBannerXPaths": [
+      "//div[contains(@id, 'status-message') and @role='region']",
+      "//p[text()='Please fill in this field.']",
+      "//p[text()='Please make a selection.']",
+      "//p[text()='Please upload a file']",
+      "//p[contains(@data-fabric-component,'BodyText') and (contains(.,'robot') or contains(.,'not a robot') or contains(.,'confirm'))]"
+    ]
+  },
+  "breezyhr": {
+    "atsName": "breezyhr",
+    "urls": [
+      "*://*.breezy.hr/p/*/apply/*"
+    ],
+    "preApplyUrls": [
+      "*://*.breezy.hr/p/*"
+    ],
+    "deepScan": false,
+    "targetNodeXPath": [
+      ".//div[contains(@class, 'content-container')]",
+      "//div[@class='confirmation-container']",
+      "//div[contains(@class, 'body-wrapper')]"
+    ],
+    "submitButtonPaths": [
+      "//li[not(contains(@class, 'ng-hide'))]//button[. = 'Submit Application']"
+    ],
+    "nextStepButtonPaths": [
+      "//li[not(contains(@class, 'ng-hide'))]//button[. = 'Continue']"
+    ],
+    "backStepButtonPaths": [
+      "//li[not(contains(@class, 'ng-hide'))]//button[. = 'Back']"
+    ],
+    "validationErrorXPaths": [
+      "//div[contains(@class, 'error-container') and not(contains(@class, 'ng-hide'))]"
+    ],
+    "errorBannerXPaths": []
+  },
+  "careerplug": {
+    "atsName": "careerplug",
+    "urls": [
+      "*://*.careerplug.com/jobs/*",
+      "*://*.careerplug.com/jobs/*/apps/*",
+      "*://*.careerplug.com/apps/*/forms/*",
+      "*://*.careerplug.com/jobs/*/apps/new",
+      "*://*.careerplug.com/jobs/apps/*/forms"
+    ],
+    "urlsExclude": [],
+    "preApplyUrls": [],
+    "deepScan": false,
+    "targetNodeXPath": [
+      ".//div[@id='apply-now-form']//form",
+      ".//form[@id='new_completed_form']",
+      ".//div[@class='thank-you-message']",
+      ".//div[@class='content' and contains(translate(normalize-space(.), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'thank you')]"
+    ],
+    "submitButtonPaths": [
+      ".//input[@type='submit']",
+      ".//input[@type='button' and translate(@value, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz') = 'submit']"
+    ],
+    "nextStepButtonPaths": [],
+    "validationErrorXPaths": [],
+    "errorBannerXPaths": [],
+    "formLoadingXPaths": []
+  },
+  "greenhouse": {
+    "atsName": "greenhouse",
+    "urls": [
+      "*://boards.eu.greenhouse.io/*",
+      "*://job-boards.eu.greenhouse.io/*",
+      "*://job-boards.greenhouse.io/*",
+      "*://boards.greenhouse.io/*",
+      "*://*/?gh_jid",
+      "*://*?gh_jid",
+      "*://*/&gh_jid",
+      "*://*&gh_jid",
+      "*://*?gh_search*"
+    ],
+    "urlsExclude": [
+      "*://boards.greenhouse.io/*/confirmation"
+    ],
+    "preApplyUrls": [],
+    "deepScan": false,
+    "targetNodeXPath": [
+      ".//form[starts-with(@action, 'https://boards.greenhouse.io/')]",
+      ".//form[starts-with(@action, 'https://boards.eu.greenhouse.io/')]",
+      ".//form[descendant::input[@type='hidden' and @name='action' and (@value='greenhouse/applications/submit' or @value='gh_application_submission')]]",
+      ".//form[@id='application-form']",
+      ".//div[@id='js-job-description-entry-point']",
+      ".//div[contains(@class, 'gh-single-job')]",
+      ".//div[contains(@class, 'job-page-ready-to-apply')]",
+      ".//div[contains(@class, '--greenhouse')]",
+      ".//form[@id='online-job-app']",
+      ".//form[@id='apply-form']"
+    ],
+    "submitButtonPaths": [
+      ".//input[@type='submit' and @data-trackingid='job-application-submit']",
+      ".//button[@type='submit' and contains(@class, 'submit-step')]",
+      ".//input[@type='button' and contains(@id, 'submit')]",
+      ".//div[contains(@class, 'application--submit')]//button[@type='submit']",
+      ".//button[@type='submit' and contains(@id, 'submit') and CONTAINS_TEXT('apply', true)]",
+      ".//form[contains(@action, '/api/greenhouse_jobs')]//input[@type='submit']",
+      ".//button[@type='button' and .//span[text()='Submit Application']]"
+    ],
+    "nextStepButtonPaths": [],
+    "validationErrorXPaths": [
+      "//div[@class='field-error-msg']",
+      "//p[contains(@class, 'helper-text--error')]"
+    ],
+    "errorBannerXPaths": []
+  },
+  "hireology": {
+    "atsName": "hireology",
+    "urls": [
+      "*://careers.hireology.com/*/*/description"
+    ],
+    "urlsExclude": [],
+    "preApplyUrls": [],
+    "deepScan": false,
+    "targetNodeXPath": [
+      ".//div[@id='application']"
+    ],
+    "submitButtonPaths": [
+      ".//button[@data-qa-id='submit']"
+    ],
+    "nextStepButtonPaths": [],
+    "validationErrorXPaths": [],
+    "errorBannerXPaths": [],
+    "formLoadingXPaths": [
+      ".//section[@class='careers-apply-form__loader']"
+    ]
+  },
+  "icims": {
+    "atsName": "icims",
+    "urls": [
+      "*://*.icims.com/jobs/*/*/candidate*",
+      "*://*.icims.eu/jobs/*/*/candidate*",
+      "*://*.icims.com/jobs/*/*/eeo*",
+      "*://*.icims.eu/jobs/*/*/eeo*",
+      "*://*.icims.com/jobs/*/*/form*",
+      "*://*.icims.eu/jobs/*/*/form*",
+      "*://*.icims.com/jobs/*/*/questions*",
+      "*://*.icims.eu/jobs/*/*/questions*",
+      "*://*.icims.com/jobs/*/*/assessment*",
+      "*://*.icims.eu/jobs/*/*/assessment*",
+      "*://*.icims.com/jobs/gdpr*",
+      "*://*.icims.eu/jobs/gdpr*",
+      "*://*.icims.com/forms*",
+      "*://*.icims.eu/forms*",
+      "*://*.icims.com/*/login/password*",
+      "*://*.icims.eu/*/login/password*",
+      "*://*.icims.com/*/login?*",
+      "*://*.icims.eu/*/login?*",
+      "*://*.icims.com/*/mfa-detect-browser-capabilities*",
+      "*://*.icims.eu/*/mfa-detect-browser-capabilities*"
+    ],
+    "urlsExclude": [],
+    "preApplyUrls": [
+      "*://*.icims.com/jobs/*/*/login*",
+      "*://*.icims.eu/jobs/*/*/login*",
+      "*://*.icims.com/jobs/*/*/job",
+      "*://*.icims.com/jobs/*/job?",
+      "*://*.icims.eu/jobs/*/*/job",
+      "*://*.icims.com/*/login/identifier*",
+      "*://*.icims.eu/*/login/identifier*",
+      "*://*.icims.com/*/mfa-webauthn-platform-enrollment",
+      "*://*.icims.eu/*/mfa-webauthn-platform-enrollment"
+    ],
+    "deepScan": true,
+    "targetNodeXPath": [
+      ".//form[@id='profileForm']",
+      ".//form[@id='enterEmailForm']",
+      ".//form[@name='icims_form']",
+      ".//main[contains(@class, 'widget') and contains(@class, 'login')]",
+      ".//div[contains(@class, 'iCIMS_MainWrapper') and contains(@class, 'iCIMS_AssessmentPage')]",
+      ".//div[contains(@class, 'iCIMS_MainWrapper') and contains(@class, 'iCIMS_FormsPage')]",
+      ".//form[contains(@class, 'iCIMS_FormMainStyle')]",
+      ".//main[contains(@class, 'widget')]//div[contains(@class, 'ulp-')]"
+    ],
+    "submitButtonPaths": [],
+    "nextStepButtonPaths": [
+      ".//input[@type='submit' and contains(@class, 'SubmitButton') and not(@id='enterEmailSubmitButton')]",
+      ".//input[@type='submit' and contains(@value, 'Submit') and not(@id='enterEmailSubmitButton') and not(contains(@name, 'Resume')) and not(contains(@value, 'Resume')) and not(contains(@value, 'Print'))]",
+      ".//input[@type='submit' and contains(@class, 'PrimaryButton')]",
+      ".//input[@type='submit' and contains(@name, 'icims_submit')]",
+      ".//*[contains(@class, 'assessmentLink')]//button[@id='submit']",
+      ".//form//button[@type='submit' and @value='refuse-add-device']"
+    ],
+    "validationErrorXPaths": [
+      ".//span[@id='error-element-password']",
+      ".//div[contains(@class, 'iCIMS_ErrorMessage') and normalize-space(text()) != '' and not(contains(@style, 'display:none')) and not(contains(@style, 'visibility:hidden')) and not(contains(@class, 'NoDisplay'))]",
+      ".//div[@id='icims-form-error-container']",
+      ".//div[@id='iCIMS_ErrorMessage_login_i']"
+    ],
+    "errorBannerXPaths": [
+      ".//div[@id='beanErrorys']//div[@role='alert']",
+      ".//div[@role='alert' and contains(@class, 'iCIMS_ErrorMessage') and normalize-space(text()) != '' and not(contains(@style, 'display:none')) and not(contains(@style, 'visibility:hidden')) and not(contains(@class, 'NoDisplay'))]"
+    ],
+    "formLoadingXPaths": [
+      ".//input[@type='submit' and contains(@class, 'loading') and @disabled]"
+    ],
+    "formLoadingAfterNextStepClick": true
+  },
+  "jazzhr": {
+    "atsName": "jazzhr",
+    "urls": [
+      "*://*.applytojob.com/apply/*"
+    ],
+    "urlsExclude": [],
+    "preApplyUrls": [],
+    "deepScan": false,
+    "targetNodeXPath": [
+      ".//div[@class='job-form-fields']",
+      ".//div[@id='resumator-job-application']",
+      ".//form[@id='form_submit_new_resume']"
+    ],
+    "submitButtonPaths": [
+      ".//a[contains(@id, 'submit-resume')]",
+      ".//input[contains(@id, 'submit-resume')]"
+    ],
+    "nextStepButtonPaths": [],
+    "validationErrorXPaths": [],
+    "errorBannerXPaths": [],
+    "formLoadingXPaths": [
+      ".//div[@id='resumator-submit' and CONTAINS_TEXT('submitting')]"
+    ]
+  },
+  "jobvite": {
+    "atsName": "jobvite",
+    "urls": [
+      "*://jobs.jobvite.com/*/apply*"
+    ],
+    "urlsExclude": [
+      "*://jobs.jobvite.com/*/applyConfirmation*",
+      "*://jobs.jobvite.com/*/duplicateApplication*"
+    ],
+    "preApplyUrls": [
+      "*://jobs.jobvite.com/*/job/*"
+    ],
+    "deepScan": false,
+    "targetNodeXPath": [
+      ".//div[contains(@class, 'jv-form') and contains(@class, 'jv-apply-form')]",
+      ".//form[contains(@class, 'jv-form') and contains(@name, 'consentForm')]",
+      ".//article[contains(@class, 'jv-page-body')]"
+    ],
+    "submitButtonPaths": [
+      ".//button[@type='submit' and not(contains(@class, 'ng-hide')) and @aria-label='Send Application']",
+      ".//button[@type='submit' and not(contains(@class, 'ng-hide')) and contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'send') and contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'application')]"
+    ],
+    "nextStepButtonPaths": [
+      ".//button[contains(@class, 'jv-button-primary') and contains(@aria-label, 'Next')]",
+      ".//button[@type='button' and contains(@class, 'jv-button-primary') and @ng-click='nextStep()']",
+      ".//button[@type='submit' and contains(@class, 'jv-button-primary') and not(contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'send')) and not(contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'application'))]",
+      ".//button[@type='submit' and @ng-disabled='submitting' and contains(@class, 'jv-button-primary') and not(contains(@class, 'ng-hide')) and contains(@aria-label, 'Next')]"
+    ],
+    "validationErrorXPaths": [
+      ".//div[@ng-show='!resumeName' and not(contains(@class, 'ng-hide'))]//div[@ng-if='errors.resume && !applyWithErrors.resumeUpload']//span[@aria-alert='true' and contains(@class, 'jv-form-error')]",
+      ".//span[@aria-alert='true' and contains(@class, 'jv-form-error')]",
+      "//p[@ng-if='applyWithErrors.resumeUpload']"
+    ],
+    "errorBannerXPaths": []
+  },
+  "lever": {
+    "atsName": "lever",
+    "urls": [
+      "*://jobs.lever.co/*/*/apply"
+    ],
+    "urlsExclude": [],
+    "preApplyUrls": [
+      "*://jobs.lever.co/*/*"
+    ],
+    "deepScan": false,
+    "targetNodeXPath": [
+      ".//form[@id='application-form']",
+      ".//div[contains(@class, 'content-wrapper')]"
+    ],
+    "submitButtonPaths": [
+      ".//button[@id='btn-submit' or @data-qa='btn-submit']"
+    ],
+    "nextStepButtonPaths": [],
+    "validationErrorXPaths": [
+      "//p[@class='error-message']"
+    ],
+    "errorBannerXPaths": []
+  },
+  "meta": {
+    "atsName": "meta",
+    "urls": [
+      "*://*.metacareers.com/resume/*"
+    ],
+    "preApplyUrls": [
+      "*://metacareers.dejobs.org/*/job/*",
+      "*://*.metacareers.com/jobs/*"
+    ],
+    "deepScan": false,
+    "targetNodeXPath": [
+      ".//main[@id='main']",
+      "(.//div[@id='careersContentContainer']//div[.//ul and .//div]/div)[last()]"
+    ],
+    "submitButtonPaths": [
+      "//button[@id='appSubmitButton']"
+    ],
+    "nextStepButtonPaths": [
+      "//a[div[normalize-space(text())='Next']]"
+    ],
+    "backStepButtonPaths": [
+      "//a[div[normalize-space(text())='Back']]"
+    ],
+    "validationErrorXPaths": [],
+    "errorBannerXPaths": []
+  },
+  "oraclecloud": {
+    "atsName": "oraclecloud",
+    "urls": [
+      "*://*.com/hcmUI/CandidateExperience/en/sites/CX*/job/*/apply",
+      "*://*.com/hcmUI/CandidateExperience/en/sites/CX*/apply",
+      "*://*.fa.*.oraclecloud.com/hcmUI/CandidateExperience/es/sites/*/job/*/apply",
+      "*://*.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/*/job/*/apply",
+      "*://*.fa.*.oraclecloud.com/hcmUI/CandidateExperience/*/sites/CX*/job/*/easy-apply/*",
+      "*://*.fa.*.oraclecloud.com/hcmUI/CandidateExperience/*/sites/*/jobs/preview/*/apply/*"
+    ],
+    "urlsExclude": [],
+    "preApplyUrls": [
+      "*://*.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/*/job/*",
+      "*://*.fa.*.oraclecloud.com/hcmUI/CandidateExperience/en/sites/*/job/*",
+      "*://*.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/*/sites/*/job/*"
+    ],
+    "deepScan": true,
+    "targetNodeXPath": [
+      ".//form[@class='apply-flow__content']",
+      ".//div[contains(@class,'job-details-page-container')]",
+      ".//section[contains(@class, 'apply-flow__content')]",
+      ".//span[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'view error')]"
+    ],
+    "submitButtonPaths": [
+      ".//button[contains(@class, 'button apply-flow-pagination__button') and not(@data-qa='applyFlowPaginationNextButton') and not(@title='Back') and .//span[contains(@class, 'button__label') and normalize-space(text()) = 'Submit']]"
+    ],
+    "nextStepButtonPaths": [
+      ".//button[contains(@class, 'button apply-flow-pagination__button') and @data-qa='applyFlowPaginationNextButton']",
+      "//button[contains(@class, 'apply-flow-pagination__button') and not(contains(translate(@aria-label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'back')) and not(contains(translate(@aria-label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'cancel'))]",
+      ".//button[contains(@class, 'apply-flow-dialog__button') and @type='submit' and .//span[contains(@class, 'button__label') and normalize-space(text()) = 'Verify']]",
+      ".//button[contains(@id, 'applyFlowLegalDisclaimer')]",
+      "//a[contains(@class, 'quick-apply-flow__manually--link')]"
+    ],
+    "validationErrorXPaths": [
+      ".//div[contains(@class, 'dijitError')]",
+      ".//input[contains(@class, 'dijitError')]",
+      ".//table[contains(@class, 'dijitError')]",
+      ".//div[contains(@class, 'docUploadLocalError')]",
+      ".//p[@role='alert' and contains(@data-bind, 'getError')]",
+      ".//p[@role='alert' and contains(@class, 'input-row__validation')]"
+    ],
+    "errorBannerXPaths": [
+      "//button[contains(@class, 'apply-flow-fixer__button')][.//span[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'view error')]]"
+    ],
+    "loadingSpinnerXPath": [
+      "//div[@class='app-loading-spinner']"
+    ],
+    "formLoadingXPaths": [
+      "//indeterminate-progress-bar/div[contains(@class, 'indeterminate-progress-bar')]",
+      "//div[contains(@class, 'checklist__progress') and count(.//oj-progress-bar) > 1]"
+    ],
+    "formLoadingAfterNextStepClick": true
+  },
+  "paylocity": {
+    "atsName": "paylocity",
+    "urls": [
+      "*://recruiting.paylocity.com/Recruiting/Jobs/Apply/*",
+      "*://recruiting.paylocity.com/Recruiting/Jobs/Success/*"
+    ],
+    "urlsExclude": [],
+    "preApplyUrls": [
+      "*://recruiting.paylocity.com/Recruiting/Jobs/Details/*"
+    ],
+    "deepScan": false,
+    "targetNodeXPath": [
+      ".//div[@id='applicant-tracking']"
+    ],
+    "submitButtonPaths": [
+      ".//button[@data-automation-id='btnSubmit']"
+    ],
+    "nextStepButtonPaths": [
+      ".//button[@data-automation-id='btnNext']"
+    ],
+    "validationErrorXPaths": [
+      "//div[contains(@class, 'form-group') and contains(@class, 'form-error')]//div[contains(@class, 'type-footnote') and contains(@class, 'show')]"
+    ],
+    "errorBannerXPaths": [],
+    "formLoadingXPaths": []
+  },
+  "taleo": {
+    "atsName": "taleo",
+    "urls": [
+      "*://*.taleo.net/*/application*",
+      "*://*.taleo.net/*/jobdetail.ftl*",
+      "*://*.taleo.net/*/flow.jsf*",
+      "*://*.taleo.net/*/jobapply*",
+      "*://*.taleo.net/*/ats/careers/*",
+      "*://*.taleo.net/*/htmlResourceViewer.jss*",
+      "*://*.taleo.net/careersection/careersection*",
+      "*://*.taleo.net/*/login*",
+      "*://*.taleo.net/*/register*",
+      "*://*.taleo.net/careersection/*/*/changeQuestionsAnswers*"
+    ],
+    "urlsExclude": [],
+    "preApplyUrls": [
+      "*://*.taleo.net/*/careersection/application.jss*"
+    ],
+    "deepScan": true,
+    "targetNodeXPath": [
+      "//div[@id='taleo_holder']",
+      ".//table[@class='tablelist' and not(.//iframe[@id='document-html-viewer'])]",
+      "//body[contains(@id, 'home')]",
+      ".//form[@id='dialogTemplate-dialogForm']",
+      "//span[@id='et-ef-masterbody' and not(.//iframe[@id='document-html-viewer'])]"
+    ],
+    "submitButtonPaths": [
+      ".//input[@type='button' and contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'submitcmd')]"
+    ],
+    "nextStepButtonPaths": [
+      ".//button[@id='et-ef-content-ftf-saveContinueCmdBottom' and contains(., 'Continue')]",
+      ".//input[contains(@id, 'saveContinueCmd')]",
+      ".//button[contains(@id, 'saveContinueCmd')]",
+      ".//input[contains(@id, 'saveContinueCmdBottom')]",
+      ".//input[contains(@value, 'Apply Online')]",
+      ".//input[contains(@value, 'Quick Apply')]",
+      ".//input[contains(@id, 'UP_APPLY_ON_REQ')]",
+      ".//input[contains(@value, 'Save and Continue')]",
+      ".//input[@title='continue']",
+      ".//input[@title='Continue']"
+    ],
+    "validationErrorXPaths": [
+      "//span[contains(@class, 'error-label') and contains(@role, 'presentation')]",
+      "//span[contains(translate(@class,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'notification') and not(contains(@style, 'display: none'))]//span[contains(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'action cannot be completed')]"
+    ],
+    "errorBannerXPaths": []
+  },
+  "workable": {
+    "atsName": "workable",
+    "urls": [
+      "*://*.workable.com/*/j/*/apply/*",
+      "*://*.workable.com/view/*",
+      "*://*.workable.com/search?*selectedJobId"
+    ],
+    "preApplyUrls": [
+      "*://*.workable.com/*/j/*",
+      "*://*.workable.com/view/*",
+      "*://*.workable.com/search?*selectedJobId"
+    ],
+    "deepScan": false,
+    "targetNodeXPath": [
+      ".//main[@role='main']",
+      "//body"
+    ],
+    "submitButtonPaths": [
+      ".//button[@data-ui='apply-button' and @type='submit']"
+    ],
+    "backStepButtonPaths": [],
+    "validationErrorXPaths": [
+      ".//dialog[@role='alert']",
+      ".//span[contains(@id, '_error')]"
+    ],
+    "errorBannerXPaths": []
+  },
+  "workday": {
+    "atsName": "workday",
+    "urls": [
+      "*://*.myworkdayjobs.com/*/apply*",
+      "*://*.myworkdaysite.com/*/apply*",
+      "*://*.myworkdayjobs.com/*/login*",
+      "*://*.myworkdaysite.com/*/login*",
+      "*://*.myworkdayjobs.com/*/completed*",
+      "*://*.myworkdaysite.com/*/completed*",
+      "*://*.myworkdayjobs.com/*/userHome*",
+      "*://*.myworkdaysite.com/*/userHome*",
+      "*://community.workday.com/maintenance-page*"
+    ],
+    "preApplyUrls": [
+      "*://*.myworkdayjobs.com/*/job/*",
+      "*://*.myworkdaysite.com/*/job/*"
+    ],
+    "deepScan": true,
+    "targetNodeXPath": [
+      "//div[@id='mainContent' and not(./div/div[@data-automation-id='errorContainer'])]",
+      "//div[@data-automation-id='applyFlowPage' and not(./main/div[@data-automation-id='invalid-content'])]",
+      "//div[@data-automation-id='ApplyFlowPage' and not(./main/div[@data-automation-id='invalid-content'])]",
+      "//div[@data-automation-id='jobPostingPage']"
+    ],
+    "submitButtonPaths": [
+      ".//button[@data-automation-id='bottom-navigation-next-button' and contains(., 'Submit')]",
+      ".//button[@data-automation-id='pageFooterNextButton' and contains(., 'Submit')]"
+    ],
+    "nextStepButtonPaths": [
+      ".//button[@data-automation-id='bottom-navigation-next-button' and not(contains(., 'Submit'))]",
+      ".//button[@data-automation-id='pageFooterNextButton' and not(contains(., 'Submit'))]"
+    ],
+    "backStepButtonPaths": [
+      ".//button[@data-automation-id='bottom-navigation-back-button']"
+    ],
+    "validationErrorXPaths": [
+      ".//p[@data-automation-id='inputError']"
+    ],
+    "errorBannerXPaths": [
+      "//button[@data-automation-id='errorBanner']",
+      "//div[@data-automation-id='errorHeading']",
+      "//div[@data-automation-id='errorMessage']"
+    ]
+  }
+}

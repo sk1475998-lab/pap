@@ -1,0 +1,2870 @@
+{
+  "atsName": "icims",
+  "urls": [
+    "*://*.icims.com/jobs/*/*/candidate*",
+    "*://*.icims.eu/jobs/*/*/candidate*",
+    "*://*.icims.com/jobs/*/*/eeo*",
+    "*://*.icims.eu/jobs/*/*/eeo*",
+    "*://*.icims.com/jobs/*/*/form*",
+    "*://*.icims.eu/jobs/*/*/form*",
+    "*://*.icims.com/jobs/*/*/questions*",
+    "*://*.icims.eu/jobs/*/*/questions*",
+    "*://*.icims.com/jobs/*/*/assessment*",
+    "*://*.icims.eu/jobs/*/*/assessment*",
+    "*://*.icims.com/jobs/gdpr*",
+    "*://*.icims.eu/jobs/gdpr*",
+    "*://*.icims.com/forms*",
+    "*://*.icims.eu/forms*",
+    "*://*.icims.com/*/login/password*",
+    "*://*.icims.eu/*/login/password*",
+    "*://*.icims.com/*/login?*",
+    "*://*.icims.eu/*/login?*",
+    "*://*.icims.com/*/mfa-detect-browser-capabilities*",
+    "*://*.icims.eu/*/mfa-detect-browser-capabilities*"
+  ],
+  "urlsExclude": [],
+  "submitButtonPaths": [],
+  "questionsInSubmitPage": true,
+  "globalOptions": {
+    "waitForAllRequestsBeforeFillingStep": true,
+    "waitForInteractionNetworkRequests": true
+  },
+  "networkOptions": {
+    "blacklistedUrlParts": [
+      "form=employment_application"
+    ],
+    "allowedUrlParts": [
+      "in_iframe"
+    ],
+    "preApplyCheck": true
+  },
+  "nextStepButtonPaths": [
+    ".//input[@type='submit' and contains(@class, 'SubmitButton') and not(@id='enterEmailSubmitButton')]",
+    ".//input[@type='submit' and contains(@value, 'Submit') and not(@id='enterEmailSubmitButton') and not(contains(@name, 'Resume')) and not(contains(@value, 'Resume')) and not(contains(@value, 'Print'))]",
+    ".//input[@type='submit' and contains(@class, 'PrimaryButton')]",
+    ".//input[@type='submit' and contains(@name, 'icims_submit')]",
+    ".//*[contains(@class, 'assessmentLink')]//button[@id='submit']",
+    ".//form//button[@type='submit' and @value='refuse-add-device']"
+  ],
+  "disableBeforeUnloadEvent": true,
+  "validationErrorPersistent": true,
+  "ignoreInitAnswersNeeded": true,
+  "validationErrorXPaths": [
+    ".//span[@id='error-element-password']",
+    ".//div[contains(@class, 'iCIMS_ErrorMessage') and normalize-space(text()) != '' and not(contains(@style, 'display:none')) and not(contains(@style, 'visibility:hidden')) and not(contains(@class, 'NoDisplay'))]",
+    ".//div[@id='icims-form-error-container']",
+    ".//div[@id='iCIMS_ErrorMessage_login_i']"
+  ],
+  "errorBannerXPaths": [
+    ".//div[@id='beanErrorys']//div[@role='alert']",
+    ".//div[@role='alert' and contains(@class, 'iCIMS_ErrorMessage') and normalize-space(text()) != '' and not(contains(@style, 'display:none')) and not(contains(@style, 'visibility:hidden')) and not(contains(@class, 'NoDisplay'))]"
+  ],
+  "targetNodeXPath": [
+    ".//form[@id='profileForm']",
+    ".//form[@id='enterEmailForm']",
+    ".//form[@name='icims_form']",
+    ".//main[contains(@class, 'widget') and contains(@class, 'login')]",
+    ".//div[contains(@class, 'iCIMS_MainWrapper') and contains(@class, 'iCIMS_AssessmentPage')]",
+    ".//div[contains(@class, 'iCIMS_MainWrapper') and contains(@class, 'iCIMS_FormsPage')]",
+    ".//form[contains(@class, 'iCIMS_FormMainStyle')]",
+    ".//main[contains(@class, 'widget')]//div[contains(@class, 'ulp-')]"
+  ],
+  "questionValidationErrorSelectors": [
+    "[aria-describedby*='error']"
+  ],
+  "formLoadingXPaths": [
+    ".//input[@type='submit' and contains(@class, 'loading') and @disabled]"
+  ],
+  "formLoadingAfterNextStepClick": true,
+  "canJobBeAppliedXPaths": {
+    "refuseAddDevice": [
+      ".//form//button[@type='submit' and CONTAINS_TEXT('Not on this device')]",
+      ".//form//button[@type='submit' and @value='refuse-add-device']"
+    ],
+    "applyButton": [
+      ".//form[@id='enterEmailForm']//input[@id='enterEmailSubmitButton']",
+      ".//a[contains(@class, 'iCIMS_Action_Button') and contains(@class, 'iCIMS_ApplyOnlineButton')]",
+      ".//div//button[@type='submit' and normalize-space(.) != '']"
+    ],
+    "email": [
+      ".//form[@id='enterEmailForm']//input[@id='email']",
+      ".//div//input[@id='username']",
+      ".//form//input[@id='email']"
+    ],
+    "next": [
+      ".//form//button[@type='submit' and CONTAINS_TEXT('Not on this device')]",
+      ".//form//button[@type='submit' and @value='refuse-add-device']",
+      ".//form[@id='enterEmailForm']//input[@id='enterEmailSubmitButton']",
+      ".//div//button[@type='submit' and normalize-space(.) != '']"
+    ]
+  },
+  "confirmSubmittedForm": {
+    "confirmMessageXPath": [
+      ".//div[contains(@class, 'iCIMS_MainWrapper')]//div[contains(@class, 'iCIMS_SuccessMessage')]"
+    ],
+    "urls": [
+      "*://*.icims.com/jobs/*?*mode=submit_apply*",
+      "*://*.icims.eu/jobs/*?*mode=submit_apply*"
+    ]
+  },
+  "targetFrameNodeXPath": [
+    ".//form[@id='profileForm']",
+    ".//form[@id='enterEmailForm']",
+    ".//form[@name='icims_form']",
+    ".//div[(contains(@class, 'iCIMS_JobContainer') or contains(@class, 'iCIMS_MainWrapper') or contains(@class, 'ulp-awaiting-action-outer')) and not(.//iframe[@id='icims_formFrame'])]",
+    ".//div[contains(@class, 'iCIMS_MainWrapper') and contains(@class, 'iCIMS_AssessmentPage')]",
+    ".//div[contains(@class, 'iCIMS_MainWrapper') and contains(@class, 'iCIMS_FormsPage') and not(./descendant::iframe[@id='icims_formFrame'])]",
+    ".//div[contains(@class, 'iCIMS_MainWrapper') and contains(@class, 'iCIMS_LoginPage')]",
+    ".//div[contains(@class, 'iCIMS_MainWrapper') and contains(@class, 'CandidateRequestPage')]"
+  ],
+  "expiredJob": [
+    {
+      "container": [
+        ".//h1"
+      ],
+      "keywords": [
+        "error"
+      ]
+    }
+  ],
+  "customQuestions": {
+    "patterns": {
+      "questionId": "",
+      "innerSelectors": [],
+      "selectInputXPath": [
+        "//a[contains(@class, 'dropdown-select')]"
+      ],
+      "selectInputTagName": "select",
+      "selectInputAttrName": "icimsdropdown-enabled",
+      "selectInputAttrValue": "1",
+      "radioGroupMatchQuerySelector": "[data-sja-question-group='radio']",
+      "fieldsetMatchQuerySelector": "[data-sja-question-group='checkbox']"
+    },
+    "selectors": {
+      "question": "",
+      "questionXPath": [
+        "//input[not(@type='password') and not(@type='button') and not(@type='submit') and not(@type='reset') and not(@type='image') and not(@type='file') and not(@type='checkbox') and not(@type='radio') and not(@type='range') and not(@type='color') and not(@type='hidden') and not(contains(@class, 'dropdown-search')) and not(contains(@style, 'display: none'))]",
+        "//textarea[contains(@class, 'iCIMS') or contains(@id, 'ProfileFields')]",
+        "//select[not(contains(@style, 'display: none'))]",
+        "//a[contains(@class, 'dropdown-select')]",
+        "//span[contains(@class, 'RadioGroup')]//input[@type='radio']",
+        "//div[contains(@class, 'SignUpContainer')]//div[@class='checkbox']//input[@type='checkbox']",
+        "//span[contains(@class, 'customFieldContainer')]//input[@type='checkbox']"
+      ],
+      "title": "h1",
+      "label": "label[for^='__questionId__']",
+      "legend": "legend[for^='__questionId__']",
+      "ariaLabelledBy": "label[for^='__labelFor__']",
+      "roleOption": "[role='option'], option",
+      "radioInput": "input[type='radio']",
+      "monthInput": "input[aria-valuetext='MM']",
+      "dateInput": "input[aria-valuetext='DD']",
+      "yearInput": "input[aria-valuetext='YYYY']",
+      "checkbox": "input[type='checkbox']",
+      "mapOption": "[role='option']"
+    },
+    "xpaths": {
+      "currentListItem": [],
+      "listInputBackBtnText": [],
+      "selectPopupXPath": [
+        "//div[contains(@class, 'dropdown-container') and not(contains(@class, 'dropdown-invisible'))]"
+      ],
+      "listBoxPopupXPath": [
+        "//div[contains(@class, 'dropdown-container') and not(contains(@class, 'invisible'))]//ul[contains(@class, 'dropdown-results')]",
+        ".//tr[td//input[@type='checkbox']]"
+      ],
+      "selectedItemListXPath": [
+        "//div[contains(@class, 'select2-drop-active') and @id='select2-drop']//input[contains(@class, 'select2-input')]"
+      ],
+      "requiredFieldXPath": [
+        "following-sibling::*[@class='Field_Required']",
+        ".//span[CONTAINS_TEXT('*', true) or contains(@class, 'Field_Required') or contains(@class, 'Field_RequiredStar')]",
+        "//input[@i_required='true']",
+        "self::label[@data-sja-required]"
+      ]
+    },
+    "ignoreQuestions": [
+      "//select[contains(@id, 'CandProfileFields.Degree')]",
+      "//input[@type='radio' and contains(@id, 'ProvideLicense')]",
+      "//input[@type='radio' and contains(@id, 'ProvideEducation')]",
+      "//input[@type='text' and contains(@id, 'OtherSchool')]",
+      "//input[@type='text' and contains(@id, 'Login')]",
+      "//input[@type='password']",
+      "//input[@type='password' and contains(@id, 'Password_Confirm')]",
+      "//a[contains(@id, 'AddressState') and contains(@class, 'dropdown-select')]",
+      "//a[contains(@id, 'AddressCountry') and contains(@class, 'dropdown-select')]"
+    ],
+    "ignoreContainerQuestions": [
+      ".//div[contains(@data-group-loop-name, 'Work_Exp') or contains(@id, 'Work_Exp')]",
+      ".//div[contains(@data-group-loop-name, 'Education_GL')]",
+      ".//div[contains(@data-group-loop-name, 'Licenses_GL')]",
+      ".//span[contains(@class,'iCIMS_LabelText') and contains(normalize-space(.),'Education') and not(contains(normalize-space(.),'Additional'))]//ancestor::div[contains(@class,'iCIMS_CollectionContainer') and not(contains(@class,'NoDisplay')) and parent::div[preceding-sibling::h2[contains(normalize-space(.),'Additional Education')]]]",
+      ".//div[contains(@class, 'iCIMS_Forms_QDate') or contains(@class, 'iCIMS_Forms_QName')]",
+      ".//div[contains(@class, 'iCIMS_CollectionContainer')][.//legend[contains(., 'License') or contains(., 'Certification')]]"
+    ],
+    "postSubmitValidationErrors": [
+      "over the maximum length"
+    ]
+  },
+  "jobXPaths": {
+    "entities": [
+      [
+        "titleDisplay",
+        [
+          ".//div[@id='app_body']//h1[@class='app-title']",
+          ".//div[@class='section-body']/h1",
+          ".//div[contains(@class, 'iCIMS_JobsTable')]//div[contains(@class, 'title')]//h1[contains(@class, 'iCIMS_Header')]"
+        ]
+      ],
+      [
+        "originalCompanyName",
+        [
+          "substring(normalize-space(.//div[@id='app_body']//span[@class='company-name']/text()), 4)",
+          "substring-after(.//meta[(@property='og:site_name' or @name='application-name') and starts-with(@content, 'Careers at ')]/@content, 'Careers at ')",
+          ".//meta[@property='og:site_name' or @name='application-name']/@content",
+          ".//img/@alt"
+        ]
+      ],
+      [
+        "jobTypes",
+        []
+      ],
+      [
+        "postingDate",
+        []
+      ],
+      [
+        "url",
+        []
+      ],
+      [
+        "desc",
+        [
+          ".//div[@id='app_body']//div[@id='content']",
+          ".//*[@id='main']//div[@class='page-positions__content']",
+          ".//ion-content/main/ng-component/section/article/markdown[descendant::div[@class='content-intro']]"
+        ]
+      ],
+      [
+        "locationDisplay",
+        [
+          ".//div[@id='app_body']//div[@class='location']",
+          "//div[contains(@class,'iCIMS_JobsTable')]//span[translate(normalize-space(.),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')='job locations']/following-sibling::span[1]"
+        ]
+      ]
+    ]
+  },
+  "preApply": {
+    "urls": [
+      "*://*.icims.com/jobs/*/*/login*",
+      "*://*.icims.eu/jobs/*/*/login*",
+      "*://*.icims.com/jobs/*/*/job",
+      "*://*.icims.com/jobs/*/job?",
+      "*://*.icims.eu/jobs/*/*/job",
+      "*://*.icims.com/*/login/identifier*",
+      "*://*.icims.eu/*/login/identifier*",
+      "*://*.icims.com/*/mfa-webauthn-platform-enrollment",
+      "*://*.icims.eu/*/mfa-webauthn-platform-enrollment"
+    ],
+    "urlsExclude": [],
+    "entities": [
+      [
+        "refuseAddDevice",
+        {
+          "actions": [
+            {
+              "key": "canJobBeAppliedXPaths.refuseAddDevice",
+              "method": "click",
+              "options": {
+                "preventOtherEntitiesFromFilling": true
+              }
+            }
+          ]
+        }
+      ],
+      [
+        "email",
+        [
+          {
+            "actions": [
+              {
+                "key": "canJobBeAppliedXPaths.email",
+                "method": "setValue"
+              },
+              {
+                "key": "canJobBeAppliedXPaths.next",
+                "method": "click"
+              },
+              {
+                "path": [
+                  ".//a[contains(@title, 'Apply')]",
+                  ".//a[contains(@title, 'Submit') and contains(@title, 'profile') and contains(@title, 'online')]"
+                ],
+                "method": "click"
+              }
+            ]
+          }
+        ]
+      ],
+      [
+        "privacyAgreement",
+        {
+          "actions": [
+            {
+              "path": [
+                "//input[@type='checkbox' and @id='accept_gdpr']",
+                "//input[@type='checkbox' and @id='accept_privacy']"
+              ],
+              "method": "clickMultiple",
+              "options": {
+                "checkElementVisibility": true
+              }
+            }
+          ]
+        }
+      ],
+      [
+        "applyBtn",
+        {
+          "actions": [
+            {
+              "key": "canJobBeAppliedXPaths.applyButton",
+              "method": "click"
+            }
+          ]
+        }
+      ]
+    ],
+    "restartAfterDelay": 2000,
+    "continueFilling": true
+  },
+  "signIn": {
+    "urls": [
+      "*://*.icims.com/*/login/password*",
+      "*://*.icims.eu/*/login/password*"
+    ],
+    "submitButton": [
+      "//div[@role='alert']//a[CONTAINS_TEXT('login')]",
+      "//button[CONTAINS_TEXT('log in')]",
+      "//button[contains(@class, 'login') and not(@data-accounttype) and not(ancestor::div[contains(@class, 'iCIMS_SocialSelection')])]"
+    ],
+    "createAccount": [],
+    "forgotPassword": [],
+    "email": [
+      "//input[@id='PersonProfileFields.Login']",
+      "//main[contains(@class, 'widget') and contains(@class, 'login')]//input[@name='username']"
+    ],
+    "password": [
+      "//input[@id='PersonProfileFields.Password']",
+      "//main[contains(@class, 'widget') and contains(@class, 'login')]//input[@name='password']"
+    ],
+    "verifyPassword": [
+      "//input[@id='PersonProfileFields.Password_Confirm']"
+    ],
+    "errorMessage": [
+      "//span[@id='error-element-password']",
+      "//div[@id='prompt-alert']"
+    ],
+    "endpoint": "/login",
+    "isInlineForm": true,
+    "isEmailRequired": false,
+    "errorPersistAfterReload": true,
+    "recaptchaXpath": [
+      "//iframe[@title='reCAPTCHA']",
+      "//iframe[@data-hcaptcha-widget-id]"
+    ],
+    "wrongCredentialsError": [
+      ".//div[contains(@class, 'iCIMS_ErrorMessage') and normalize-space(text()) != '' and not(contains(@style, 'display:none')) and not(contains(@style, 'visibility:hidden')) and not(contains(@class, 'NoDisplay')) and CONTAINS_TEXT('email', true) and CONTAINS_TEXT('already', true)]"
+    ]
+  },
+  "signUp": {
+    "errorMessage": [
+      "//span[@id='error-element-password']",
+      "//div[@id='prompt-alert']"
+    ],
+    "submitButton": [
+      "//main[contains(@class, 'widget') and contains(@class, 'login')]//button[@type='submit']",
+      "//input[@type='submit' and @value ='Submit Profile']"
+    ],
+    "email": [
+      "//input[@id='PersonProfileFields.Login']",
+      "//main[contains(@class, 'widget') and contains(@class, 'login')]//input[@name='username']"
+    ],
+    "verifyEmail": [
+      "//div[contains(@class, 'iCIMS_ProfileFormTable')]//input[@type='email' and @id = //label[CONTAINS_TEXT('confirm email')]/@for]"
+    ],
+    "password": [
+      "//input[@id='PersonProfileFields.Password']",
+      "//main[contains(@class, 'widget') and contains(@class, 'login')]//input[@name='password']"
+    ],
+    "verifyPassword": [
+      "//input[@id='PersonProfileFields.Password_Confirm']",
+      "//main[contains(@class, 'widget') and contains(@class, 'login')]//input[@name='password']"
+    ],
+    "endpoint": "/register",
+    "saveStrategy": "onNextStep",
+    "recaptchaXpath": [
+      "//iframe[@title='reCAPTCHA']"
+    ]
+  },
+  "contextData": {
+    "classifier": {
+      "applyBtnPath": [
+        "//a[contains(@href, 'icims.com') and CONTAINS_TEXT('apply', true)]",
+        "//a[contains(@href, 'icims.eu') and CONTAINS_TEXT('apply', true)]"
+      ]
+    },
+    "options": {}
+  },
+  "entities": [
+    [
+      "resume",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//div[@id='PortalProfileFields.Resume_Content' and not(descendant::div[@id='PortalProfileFields.Resume_DeleteButtonSpan' and not(contains(@class, 'iCIMS_NoDisplay'))])]//input[@type='file' and contains(translate(@name, 'RESUME', 'resume'), 'resume')]"
+            ],
+            "method": "uploadResume",
+            "options": {
+              "resumeIsParsingXPath": [
+                ".//div[contains(@id, 'Resume_Loading') and not(contains(@class, 'NoDisplay'))]"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "firstName",
+      [
+        ".//input[@autocomplete='given-name']",
+        ".//input[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'icims_f_firstname')]"
+      ]
+    ],
+    [
+      "lastName",
+      [
+        ".//input[@autocomplete='family-name']",
+        ".//input[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'icims_f_lastname')]"
+      ]
+    ],
+    [
+      "preferredFirstName",
+      [
+        "//input[@id='PersonProfileFields.FormerLastName']",
+        "//input[@type='text' and @id = //label[CONTAINS_TEXT('preferred', true) and CONTAINS_TEXT('first', true) and CONTAINS_TEXT('name', true)]/@for]"
+      ]
+    ],
+    [
+      "email",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//input[@autocomplete='email']"
+            ],
+            "method": "setValue",
+            "options": {
+              "resetValue": true
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "phoneType",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//select[contains(@id, 'PersonProfileFields.PhoneType')]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "mobile": [
+                "Mobile"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "phone",
+      [
+        ".//input[@autocomplete='tel-national']"
+      ]
+    ],
+    [
+      "phoneCode",
+      {
+        "actions": [
+          {
+            "path": [
+              "//input[@id='countryCode']/following-sibling::ul[contains(@class,'dropdown-results')]"
+            ],
+            "method": "click"
+          },
+          {
+            "path": [
+              "//input[contains(@name, 'countryCodeSearch')]"
+            ],
+            "method": "setValue",
+            "defaultValue": "(+1) United States"
+          },
+          {
+            "path": [
+              "//input[@id='countryCode']/following-sibling::ul[contains(@class,'dropdown-results')]"
+            ],
+            "method": "clickOption",
+            "options": {
+              "defaultValue": "(+1) United States"
+            }
+          },
+          {
+            "path": [
+              "//li[contains(@class,'dropdown-result') and @value='US' and .//strong[contains(normalize-space(.),'(+1) United States')]]"
+            ],
+            "method": "click"
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "phone"
+        ]
+      }
+    ],
+    [
+      "phoneStripped",
+      {
+        "actions": [
+          {
+            "path": [
+              "//input[@id='icims_0_PhoneNumber']"
+            ],
+            "method": "setValue",
+            "options": {
+              "resetValue": true
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "addressType",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//select[contains(@id, 'PersonProfileFields.AddressType')]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "home": [
+                "Home"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "addressLine1",
+      [
+        ".//input[contains(@id, 'PersonProfileFields.AddressStreet1')]"
+      ]
+    ],
+    [
+      "city",
+      [
+        ".//input[contains(@id, 'PersonProfileFields.AddressCity')]"
+      ]
+    ],
+    [
+      "answerSource",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//select[contains(@data-label, 'How did you hear')]"
+            ],
+            "method": "clickOptionWithMultiAnswers",
+            "values": {
+              "source": [
+                "Other",
+                "Google"
+              ]
+            },
+            "options": {
+              "lowPriority": [
+                "Indeed",
+                "ZipRecruiter",
+                "LinkedIn",
+                "Glassdoor",
+                "Simplyhired",
+                "Dice",
+                "CareerBuilder",
+                "Monster"
+              ],
+              "prohibited": [
+                "referral",
+                "referred",
+                "connection",
+                "at the company",
+                "for the organization",
+                "employee",
+                "select",
+                "current worker"
+              ],
+              "ignoreFirst": true,
+              "selectFirstExcludingProhibited": true
+            }
+          },
+          {
+            "path": [
+              ".//select[contains(@aria-label, 'Please specify')]"
+            ],
+            "method": "clickOptionWithMultiAnswers",
+            "values": {
+              "source": [
+                "Other",
+                "Google",
+                "Not Applicable"
+              ]
+            },
+            "options": {
+              "lowPriority": [
+                "Indeed",
+                "ZipRecruiter",
+                "LinkedIn",
+                "Glassdoor",
+                "Simplyhired",
+                "Dice",
+                "CareerBuilder",
+                "Monster"
+              ],
+              "prohibited": [
+                "referral",
+                "referred",
+                "connection",
+                "at the company",
+                "for the organization",
+                "employee",
+                "select",
+                "current worker"
+              ],
+              "ignoreFirst": true,
+              "selectFirstExcludingProhibited": true
+            }
+          },
+          {
+            "path": [
+              ".//input[contains(@id, 'rcf3049_Text')]"
+            ],
+            "method": "setValue",
+            "defaultValue": "Job Board",
+            "options": {
+              "triggerBlurEvent": false
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "postalCode",
+      [
+        ".//input[contains(@id, 'PersonProfileFields.AddressZip')]"
+      ]
+    ],
+    [
+      "country",
+      [
+        {
+          "actions": [
+            {
+              "path": [
+                ".//select[contains(@id, 'PersonProfileFields.AddressCountry')]",
+                ".//a[contains(@id, 'PersonProfileFields.AddressCountry')]"
+              ],
+              "method": "click"
+            },
+            {
+              "path": [
+                ".//input[contains(@aria-controls, 'PersonProfileFields.AddressCountry_dropdown-results')]",
+                ".//div[contains(@aria-owns, 'PersonProfileFields.AddressCountry_dropdown-results')]//input"
+              ],
+              "method": "setValue",
+              "options": {
+                "triggerBlurEvent": false,
+                "triggerKeyUpEvent": true,
+                "triggerKeyDownEvent": true,
+                "waitForNetworkAfterInteraction": true
+              },
+              "time": 500
+            },
+            {
+              "path": [
+                "//ul[contains(@id, 'PersonProfileFields.AddressCountry_dropdown-results')]"
+              ],
+              "options": {
+                "waitForNetworkBeforeInteraction": true,
+                "optionMatchAttribute": [
+                  "aria-label",
+                  "title"
+                ]
+              },
+              "method": "clickOptionAsync"
+            }
+          ]
+        },
+        {
+          "path": [
+            ".//select[@name='CandProfileFields.Origin']"
+          ],
+          "method": "clickOption"
+        }
+      ]
+    ],
+    [
+      "stateName",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//a[contains(@id, 'PersonProfileFields.AddressState')]"
+            ],
+            "method": "click"
+          },
+          {
+            "path": [
+              ".//a[contains(@id, 'PersonProfileFields.AddressState_icimsDropdown') and not(contains(@aria-label, 'No states available'))]/parent::*//input[contains(@aria-controls, 'PersonProfileFields.AddressState_dropdown-results')]"
+            ],
+            "method": "setValue",
+            "options": {
+              "triggerBlurEvent": false,
+              "triggerKeyUpEvent": true,
+              "triggerKeyDownEvent": true,
+              "waitForNetworkAfterInteraction": true
+            },
+            "time": 500
+          },
+          {
+            "path": [
+              ".//ul[contains(@id, 'PersonProfileFields.AddressState_dropdown-results')]"
+            ],
+            "method": "clickOptionAsync",
+            "options": {
+              "similarMatch": true,
+              "waitForNetworkBeforeInteraction": true,
+              "optionMatchAttribute": [
+                "aria-label",
+                "title"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "county",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//input[@type='text' and contains(@id, 'AddressCounty')]"
+            ],
+            "method": "getCounty"
+          },
+          {
+            "path": [
+              ".//input[@type='text' and contains(@id, 'AddressCounty')]"
+            ],
+            "method": "setValue",
+            "options": {
+              "waitForNetworkBeforeInteraction": true
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "race",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//select[@id='CandProfileFields.Race']"
+            ],
+            "method": "clickOption",
+            "values": {
+              "Black or African American": [
+                "Black or African American",
+                "Black",
+                "African"
+              ],
+              "East Asian": [
+                "Asian (Not Hispanic or Latino)",
+                "Asian"
+              ],
+              "Hispanic or Latino": [
+                "Hispanic or Latino",
+                "Hispanic",
+                "Latin"
+              ],
+              "Southeast Asian": [
+                "Asian (Not Hispanic or Latino)",
+                "Asian"
+              ],
+              "South Asian": [
+                "Asian (Not Hispanic or Latino)",
+                "Asian"
+              ],
+              "Native Hawaiian or Other Pacific Islander": [
+                "Native Hawaiian or Other Pacific Islander",
+                "Native Hawaiian",
+                "Pacific Islander"
+              ],
+              "American Indian or Alaska Native": [
+                "American Indian",
+                "Alaskan Native",
+                "Native",
+                "Alaska"
+              ],
+              "White": [
+                "White (Not Hispanic or Latino)",
+                "White"
+              ],
+              "Two or More Races": [
+                "Two or More",
+                "Multiple"
+              ],
+              "Some Other Race": [
+                "Other",
+                "Opt Out",
+                "Decline"
+              ],
+              "Decline to Answer": [
+                "Opt Out",
+                "Decline",
+                "Prefer not"
+              ],
+              "": [
+                "Opt Out",
+                "Decline"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "gender",
+      [
+        {
+          "actions": [
+            {
+              "path": [
+                ".//select[@id='CandProfileFields.Gender']"
+              ],
+              "method": "clickOption",
+              "values": {
+                "Male": [
+                  "Male",
+                  "Man"
+                ],
+                "Female": [
+                  "Female",
+                  "Woman"
+                ],
+                "I do not want to answer": [
+                  "Decline",
+                  "I don't wish",
+                  "I do not wish",
+                  "Prefer not",
+                  "Opt Out"
+                ],
+                "": [
+                  "Decline",
+                  "I don't wish",
+                  "I do not wish",
+                  "Prefer not",
+                  "Opt Out"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "actions": [
+            {
+              "path": [
+                "//input[@type='radio' and contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '__gender__')]"
+              ],
+              "method": "click"
+            }
+          ]
+        }
+      ]
+    ],
+    [
+      "agreement",
+      [
+        {
+          "actions": [
+            {
+              "path": [
+                "//input[@type='checkbox' and contains(@aria-label, 'Use this address anyway')]",
+                "//input[@type='checkbox' and contains(@id, 'addresses')]"
+              ],
+              "method": "clickMultiple",
+              "options": {
+                "processOnErrorPersistent": true
+              }
+            }
+          ]
+        },
+        {
+          "actions": [
+            {
+              "path": [
+                "//input[@type='checkbox' and contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'icims_f') and contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '_signature')]",
+                "//input[@type='checkbox' and @id='accept_gdpr']"
+              ],
+              "method": "clickMultiple",
+              "options": {
+                "checkElementVisibility": true
+              }
+            }
+          ]
+        },
+        {
+          "actions": [
+            {
+              "path": [
+                "//input[@type='checkbox' and contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'icims_f_signature1')]"
+              ],
+              "method": "clickMultiple",
+              "options": {
+                "checkElementVisibility": true
+              }
+            }
+          ]
+        },
+        {
+          "actions": [
+            {
+              "path": [
+                "//form[contains(@class, 'iCIMS_FormMainStyle')]//input[@type='checkbox' and contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'icims_f_signature')]"
+              ],
+              "method": "clickMultiple",
+              "options": {
+                "checkElementVisibility": false
+              }
+            }
+          ]
+        }
+      ]
+    ],
+    [
+      "nameInitials",
+      [
+        {
+          "actions": [
+            {
+              "path": [
+                "//input[@type='text' and contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'icims_f_initials')]"
+              ],
+              "method": "setValueMultiple",
+              "options": {
+                "checkElementVisibility": true
+              }
+            }
+          ]
+        }
+      ]
+    ],
+    [
+      "disability",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//select[@name='CandProfileFields.Disability']"
+            ],
+            "method": "clickOption",
+            "values": {
+              "true": [
+                "Yes ",
+                "Yes,",
+                "Yes",
+                "I have"
+              ],
+              "false": [
+                "No ",
+                "No,",
+                "No",
+                "I do not have",
+                "Prefer not"
+              ],
+              "": [
+                "Decline",
+                "No ",
+                "No",
+                "I don't wish",
+                "Prefer not"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "veteran",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//select[@name='CandProfileFields.Veteran']"
+            ],
+            "method": "clickOption",
+            "values": {
+              "true": [
+                "Yes ",
+                "Yes,",
+                "Yes",
+                "I have"
+              ],
+              "false": [
+                "No ",
+                "No,",
+                "No",
+                "I do not have",
+                "Prefer not"
+              ],
+              "": [
+                "Decline",
+                "No ",
+                "No",
+                "I don't wish",
+                "Prefer not"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "workAuth",
+      [
+        {
+          "actions": [
+            {
+              "path": [
+                ".//label[CONTAINS_TEXT('authoriz')]//ancestor::div[contains(@class, 'iCIMS_TableRow')]//select",
+                ".//*[CONTAINS_TEXT('authoriz')]/descendant-or-self::*[position() < 8]/select",
+                ".//span[CONTAINS_TEXT('authoriz')]/parent::p"
+              ],
+              "method": "clickOption",
+              "values": {
+                "true": [
+                  "Yes"
+                ],
+                "false": [
+                  "No"
+                ],
+                "": [
+                  "Yes"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    ],
+    [
+      "sponsorship",
+      [
+        {
+          "actions": [
+            {
+              "path": [
+                ".//label[CONTAINS_TEXT('sponsorship')]//ancestor::div[contains(@class, 'iCIMS_TableRow')]//select",
+                ".//*[CONTAINS_TEXT('sponsorship')]/descendant-or-self::*[position() < 8]/select",
+                ".//span[CONTAINS_TEXT('sponsorship')]/parent::p"
+              ],
+              "method": "clickOption",
+              "values": {
+                "true": [
+                  "Yes"
+                ],
+                "false": [
+                  "No"
+                ],
+                "": [
+                  "Yes"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    ],
+    [
+      "over18",
+      [
+        {
+          "actions": [
+            {
+              "path": [
+                ".//label[CONTAINS_TEXT('18 years') or CONTAINS_TEXT('over 18')]//ancestor::div[contains(@class, 'iCIMS_TableRow')]//select",
+                ".//*[CONTAINS_TEXT('18 years') or CONTAINS_TEXT('over 18')]/descendant-or-self::*[position() < 8]/select",
+                ".//span[CONTAINS_TEXT('18 years') or CONTAINS_TEXT('over 18')]/parent::p"
+              ],
+              "method": "clickOption",
+              "values": {
+                "true": [
+                  "Yes"
+                ],
+                "false": [
+                  "No"
+                ],
+                "": [
+                  "Yes"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    ],
+    [
+      "minYearlySalaryDesired",
+      [
+        ".//input[contains(@id, 'CandProfileFields.Salary') and @type='text']"
+      ]
+    ],
+    [
+      "state",
+      [
+        {
+          "actions": [
+            {
+              "path": [
+                ".//a[contains(@aria-label, 'state') and contains(@aria-label, 'live')]"
+              ],
+              "method": "click"
+            },
+            {
+              "path": [
+                ".//a[contains(@aria-label, 'state') and contains(@aria-label, 'live')]/following-sibling::div[contains(@class, 'dropdown-container')]//input[@type='text']"
+              ],
+              "method": "setValue",
+              "options": {
+                "triggerBlurEvent": false,
+                "triggerKeyUpEvent": true,
+                "triggerKeyDownEvent": true,
+                "waitForNetworkAfterInteraction": true
+              },
+              "time": 500
+            },
+            {
+              "path": [
+                ".//a[contains(@aria-label, 'state') and contains(@aria-label, 'live')]/following-sibling::div[contains(@class, 'dropdown-container')]//ul[contains(@class, 'dropdown-results')]"
+              ],
+              "method": "clickOptionAsync",
+              "options": {
+                "waitForNetworkBeforeInteraction": true,
+                "optionMatchAttribute": [
+                  "aria-label",
+                  "title"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "path": [
+            ".//select[@name='CandProfileFields.Origin']"
+          ],
+          "method": "clickOption"
+        }
+      ]
+    ],
+    [
+      "certification",
+      {
+        "initialAddButtonPath": [
+          ".//input[@type='radio' and contains(@id, 'ProvideLicense_yes') and not(@checked)]"
+        ],
+        "addButtonPath": [
+          ".//input[@type='submit' and contains(@data-group-loop, 'Licenses') and not(contains(@style, 'display:none')) and contains(@value, 'Show More')]",
+          ".//div[contains(@class, 'iCIMS_CollectionButtonsRow') and not(contains(@class, 'iCIMS_NoDisplay'))]//a[contains(text(), 'Add More (Licenses and Certifications (Current and Eligible))')]",
+          ".//input[@type='submit' and contains(@data-group-loop, 'Certifications') and not(contains(@style, 'display:none')) and contains(@value, 'Show More')]"
+        ],
+        "containerPath": [
+          ".//div[contains(@data-group-loop-name, 'Licenses')][__indexPlusOne__]",
+          ".//div[contains(@class, 'iCIMS_CollectionContainer') and .//span[contains(text(), 'Licenses and Certifications (Current and Eligible) (__indexPlusOne__)')]]",
+          ".//div[contains(@data-group-loop-name, 'Certifications')][__indexPlusOne__]"
+        ],
+        "entities": [
+          [
+            "name",
+            [
+              ".//input[@type='text' and contains(@id, 'LicenseType')]"
+            ]
+          ],
+          [
+            "issueDateMonthText",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//select[contains(@id, 'IssueDate') and contains(@id, '_Month')]"
+                  ],
+                  "method": "clickOption",
+                  "values": {
+                    "January": [
+                      "Jan",
+                      "January",
+                      "01",
+                      "1"
+                    ],
+                    "February": [
+                      "Feb",
+                      "February",
+                      "02"
+                    ],
+                    "March": [
+                      "Mar",
+                      "March",
+                      "03"
+                    ],
+                    "April": [
+                      "Apr",
+                      "April",
+                      "04"
+                    ],
+                    "May": [
+                      "May",
+                      "05"
+                    ],
+                    "June": [
+                      "Jun",
+                      "June",
+                      "06"
+                    ],
+                    "July": [
+                      "Jul",
+                      "July",
+                      "07"
+                    ],
+                    "August": [
+                      "Aug",
+                      "August",
+                      "08"
+                    ],
+                    "September": [
+                      "Sep",
+                      "September",
+                      "09"
+                    ],
+                    "October": [
+                      "Oct",
+                      "October",
+                      "10"
+                    ],
+                    "November": [
+                      "Nov",
+                      "November",
+                      "11"
+                    ],
+                    "December": [
+                      "Dec",
+                      "December",
+                      "12"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "issueDateDay",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//select[contains(@id, 'IssueDate') and contains(@id, '_Date')]"
+                  ],
+                  "method": "clickOption",
+                  "values": {
+                    "": [
+                      "1",
+                      "01"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "issueDateYear",
+            [
+              ".//input[contains(@id, 'IssueDate') and contains(@id, '_Year')]"
+            ]
+          ]
+        ]
+      }
+    ],
+    [
+      "experience",
+      {
+        "addButtonPath": [
+          "(.//span[contains(@class, 'iCIMS_LabelText') and contains(., 'Experience')]//div[contains(@class, 'iCIMS_CollectionButtonsRow') and not(contains(@class, 'NoDisplay'))])[last()]//a[@role='button' and starts-with(., 'Add More')]",
+          ".//a[CONTAINS_TEXT('add') and CONTAINS_TEXT('experience')]",
+          ".//input[@type='submit' and contains(@value, 'Add More') and contains(@name, 'icims_gsi_Work_Experience')]",
+          ".//input[@type='submit' and contains(@data-group-loop, 'Work_Exp') and not(contains(@style, 'display:none')) and contains(@value, 'Show More')]",
+          ".//input[@type='submit' and contains(@data-group-loop, 'Employment') and not(contains(@style, 'display:none')) and contains(@value, 'Show More')]",
+          ".//input[@type='submit' and contains(@data-group-loop, 'Work') and contains(@data-group-loop, 'Exp') and not(contains(@style, 'display:none')) and contains(@value, 'Show More')]",
+          "//table[contains(@id, 'WorkExperience')]/ancestor::td//input[contains(@class, 'add')]"
+        ],
+        "containerPath": [
+          "//span[contains(@class, 'iCIMS_LabelText') and contains(., 'Experience')]//ancestor::div[contains(@class, 'iCIMS_CollectionContainer') and not(contains(@class, 'NoDisplay')) and .//div[@data-index='__indexPlusOne__']]",
+          ".//div[contains(@data-group-loop-name, 'Work_Exp')][__indexPlusOne__]",
+          ".//div[contains(@data-group-loop-name, 'Employment')][__indexPlusOne__]",
+          ".//div[contains(@data-group-loop-name, 'Work') and contains(@data-group-loop-name, 'Exp')][__indexPlusOne__]",
+          "(//table[contains(@id, 'WorkExperience')]/ancestor::td//div[contains(@class, 'loop')])[__indexPlusOne__]",
+          "//div[contains(@class, 'iCIMS_CollectionContainer')][.//legend/span[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'most') and contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'recent') and contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'experience')]][__indexPlusOne__]"
+        ],
+        "removeButtonPath": [
+          ".//div[contains(@class, 'RemoveButton') and not(contains(@class, 'NoDisplay'))]//a"
+        ],
+        "options": {
+          "ignoreExistingValue": true,
+          "checkAddButtonVisibility": true,
+          "skipSectionSubEntitiesCheck": true
+        },
+        "entities": [
+          [
+            "companyName",
+            [
+              ".//input[@type='text' and contains(@name, 'PersonProfileFields.rcf3212')]",
+              ".//input[@type='text' and contains(@id, 'icims___index__EmpName5')]",
+              ".//input[@type='text' and contains(@id, 'Emp') and contains(@id, 'Name')]",
+              ".//input[@type='text' and contains(@id, 'Comp') and contains(@id, 'Name')]",
+              ".//input[@type='text' and contains(@class, 'iCIMS_Forms_Qemp_name')]"
+            ]
+          ],
+          [
+            "title",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[@type='text' and contains(@name, 'PersonProfileFields.rcf3213')]",
+                    ".//input[@type='text' and contains(@id, '_YourTitle_')]",
+                    ".//input[@type='text' and contains(@id, '_Emplyposition_')]",
+                    ".//input[@type='text' and contains(@id, 'Emp') and contains(@id, 'Title')]",
+                    ".//input[@type='text' and contains(@id, 'Job') and contains(@id, 'Title')]",
+                    ".//input[@type='text' and contains(@class, 'iCIMS_Forms_Qemp_job_title')]"
+                  ],
+                  "method": "setValue",
+                  "options": {
+                    "removeSpecialChars": true
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "cityState",
+            [
+              ".//input[@type='text' and contains(@name, 'PersonProfileFields.rcf3264')]",
+              ".//input[@type='text' and contains(@id, '_Address_')]"
+            ]
+          ],
+          [
+            "city",
+            [
+              ".//input[@type='text' and contains(@name, 'PersonProfileFields.rcf3216')]",
+              ".//input[@type='text' and contains(@id, 'icims___index__EmpCity5')]",
+              ".//input[@type='text' and contains(@id, '_City_')]",
+              ".//input[@type='text' and contains(@class, 'iCIMS_Forms_Qemp_city')]",
+              ".//input[@type='text' and contains(@id, 'Emp') and contains(@id, 'City')]",
+              ".//input[@type='text' and contains(@id, 'Comp') and contains(@id, 'City')]"
+            ]
+          ],
+          [
+            "postalCode",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[@type='text' and contains(@name, 'PersonProfileFields.rcf3265')]"
+                  ],
+                  "method": "setValue",
+                  "options": {
+                    "resetValue": true
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "country",
+            [
+              {
+                "actions": [
+                  {
+                    "path": [
+                      ".//a[contains(@aria-label, 'Country') and contains(@id, 'PersonProfileFields')]",
+                      ".//select[@id = //label[CONTAINS_TEXT('country', true)]/@for]"
+                    ],
+                    "method": "click"
+                  },
+                  {
+                    "path": [
+                      ".//a[contains(@aria-label, 'Country') and contains(@id, '-__indexPlusOne___PersonProfileFields') and not(contains(@aria-label, 'No states available'))]/parent::*//input[contains(@aria-controls, 'PersonProfileFields') and contains(@aria-controls, 'dropdown-results')]",
+                      ".//a[contains(@aria-label, 'Country') and contains(@id, 'PersonProfileFields') and not(contains(@aria-label, 'No states available'))]/parent::*//input[contains(@aria-controls, 'PersonProfileFields') and contains(@aria-controls, 'dropdown-results')]",
+                      ".//select[@id = //label[CONTAINS_TEXT('country', true) and not(contains(@aria-label, 'No states available'))]/@for]/parent::*//input[contains(@aria-controls, 'PersonProfileFields') and contains(@aria-controls, 'dropdown-results')]"
+                    ],
+                    "method": "setValue",
+                    "time": 500,
+                    "options": {
+                      "triggerBlurEvent": false,
+                      "triggerKeyUpEvent": true,
+                      "triggerKeyDownEvent": true,
+                      "waitForNetworkAfterInteraction": true
+                    }
+                  },
+                  {
+                    "path": [
+                      ".//ul[contains(@id, 'PersonProfileFields') and contains(@id, 'dropdown-results')]"
+                    ],
+                    "method": "clickOptionAsync",
+                    "options": {
+                      "waitForNetworkBeforeInteraction": true,
+                      "similarMatch": true,
+                      "containerElement": "container",
+                      "optionMatchAttribute": [
+                        "aria-label",
+                        "title"
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "actions": [
+                  {
+                    "path": [
+                      ".//select[contains(@id, 'Emp') and contains(@id, 'Country')]"
+                    ],
+                    "method": "clickOption"
+                  }
+                ]
+              }
+            ]
+          ],
+          [
+            "stateName",
+            [
+              {
+                "actions": [
+                  {
+                    "path": [
+                      ".//a[contains(@id, '-__indexPlusOne___PersonProfileFields.rcf3217') and contains(@aria-Label, 'State')]",
+                      ".//select[@id = //label[CONTAINS_TEXT('state', true)]/@for]"
+                    ],
+                    "method": "click"
+                  },
+                  {
+                    "path": [
+                      ".//a[contains(@id, '-__indexPlusOne___PersonProfileFields.rcf3217_icimsDropdown') and not(contains(@aria-label, 'No states available'))]/parent::*//input[contains(@aria-controls, 'PersonProfileFields.rcf3217_dropdown-results')]",
+                      ".//select[@id = //label[CONTAINS_TEXT('state', true) and not(contains(@aria-label, 'No states available'))]/@for]/parent::*//input[contains(@aria-controls, 'dropdown-results')]"
+                    ],
+                    "method": "setValue",
+                    "options": {
+                      "triggerBlurEvent": false,
+                      "triggerKeyUpEvent": true,
+                      "triggerKeyDownEvent": true,
+                      "waitForNetworkAfterInteraction": true
+                    },
+                    "time": 500
+                  },
+                  {
+                    "path": [
+                      ".//ul[contains(@id, '__indexPlusOne___PersonProfileFields.rcf3217_dropdown-results')]",
+                      ".//select[@id = //label[CONTAINS_TEXT('state', true)]/@for]/parent::*//ul[contains(@id, 'PersonProfileFields') and contains(@id, 'dropdown-results')]"
+                    ],
+                    "method": "clickOptionAsync",
+                    "options": {
+                      "similarMatch": true,
+                      "containerElement": "container",
+                      "waitForNetworkBeforeInteraction": true,
+                      "optionMatchAttribute": [
+                        "aria-label",
+                        "title"
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "actions": [
+                  {
+                    "path": [
+                      ".//select[contains(@class, 'iCIMS_Forms_Qemp_state')]",
+                      ".//select[contains(@id, 'Emp') and contains(@id, 'State')]",
+                      ".//select[contains(@id, 'Comp') and contains(@id, 'State')]"
+                    ],
+                    "method": "clickOption",
+                    "options": {
+                      "forceOptionSearch": true
+                    }
+                  }
+                ]
+              }
+            ]
+          ],
+          [
+            "startDateMonthText",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//select[contains(@id, 'PersonProfileFields.rcf3214_Month')]",
+                    ".//select[contains(@id, 'icims__index__Emp5From_Month')]",
+                    ".//select[contains(@id, 'StartDate') and contains(@id, '_Month')]"
+                  ],
+                  "method": "clickOption",
+                  "values": {
+                    "January": [
+                      "Jan",
+                      "January",
+                      "01",
+                      "1"
+                    ],
+                    "February": [
+                      "Feb",
+                      "February",
+                      "02"
+                    ],
+                    "March": [
+                      "Mar",
+                      "March",
+                      "03"
+                    ],
+                    "April": [
+                      "Apr",
+                      "April",
+                      "04"
+                    ],
+                    "May": [
+                      "May",
+                      "05"
+                    ],
+                    "June": [
+                      "Jun",
+                      "June",
+                      "06"
+                    ],
+                    "July": [
+                      "Jul",
+                      "July",
+                      "07"
+                    ],
+                    "August": [
+                      "Aug",
+                      "August",
+                      "08"
+                    ],
+                    "September": [
+                      "Sep",
+                      "September",
+                      "09"
+                    ],
+                    "October": [
+                      "Oct",
+                      "October",
+                      "10"
+                    ],
+                    "November": [
+                      "Nov",
+                      "November",
+                      "11"
+                    ],
+                    "December": [
+                      "Dec",
+                      "December",
+                      "12"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "startDateMonth",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//label[CONTAINS_TEXT('start')]//ancestor::div[contains(@class, 'iCIMS_TableRow')]//select[contains(@name, '_Date')]",
+                    ".//select[contains(@id, 'StartDate') and contains(@id, 'Month')]"
+                  ],
+                  "method": "clickOption"
+                }
+              ]
+            }
+          ],
+          [
+            "startDateMonthAbbr",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//select[contains(@id, 'PersonProfileFields.rcf3214_Month')]",
+                    ".//select[contains(@id, 'From') and contains(@id, 'Month')]",
+                    ".//select[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'start') and contains(@class, 'iCIMS_Forms_MonthInput')]"
+                  ],
+                  "method": "clickOption"
+                }
+              ]
+            }
+          ],
+          [
+            "startDateDay",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//select[contains(@id, 'PersonProfileFields.rcf3214_Date')]",
+                    ".//select[contains(@id, 'rcf3115_Date')]",
+                    ".//select[contains(@id, 'icims__index__Emp5From_Date')]",
+                    ".//select[contains(@id, 'StartDate') and contains(@class, 'iCIMS_Forms_DayInput')]",
+                    ".//select[contains(@id, 'From') and contains(@class, 'iCIMS_Forms_DayInput')]",
+                    ".//select[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'start') and contains(@class, 'iCIMS_Forms_DayInput')]"
+                  ],
+                  "method": "clickOption",
+                  "values": {
+                    "": [
+                      "1",
+                      "01"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "startDateYear",
+            [
+              ".//input[@type='text' and contains(@name, 'PersonProfileFields.rcf3214_Year')]",
+              ".//input[@type='text' and contains(@name, 'rcf3115_Year')]",
+              ".//input[@type='text' and contains(@id, 'icims__index__Emp5From_Year')]",
+              ".//input[contains(@id, 'StartDate') and contains(@id, 'Year')]",
+              ".//input[contains(@id, 'From') and contains(@id, 'Year')]",
+              ".//input[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'start') and contains(@class, 'iCIMS_Forms_YearInput')]"
+            ]
+          ],
+          [
+            "endDateMonthText",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//select[contains(@id, 'PersonProfileFields.rcf3215_Month')]",
+                    ".//select[contains(@id, 'icims__index__Emp5To_Month')]",
+                    ".//select[contains(@id, 'EndDate') and contains(@id, '_Month')]"
+                  ],
+                  "method": "clickOption",
+                  "values": {
+                    "January": [
+                      "Jan",
+                      "January",
+                      "01"
+                    ],
+                    "February": [
+                      "Feb",
+                      "February",
+                      "02"
+                    ],
+                    "March": [
+                      "Mar",
+                      "March",
+                      "03"
+                    ],
+                    "April": [
+                      "Apr",
+                      "April",
+                      "04"
+                    ],
+                    "May": [
+                      "May",
+                      "05"
+                    ],
+                    "June": [
+                      "Jun",
+                      "June",
+                      "06"
+                    ],
+                    "July": [
+                      "Jul",
+                      "July",
+                      "07"
+                    ],
+                    "August": [
+                      "Aug",
+                      "August",
+                      "08"
+                    ],
+                    "September": [
+                      "Sep",
+                      "September",
+                      "09"
+                    ],
+                    "October": [
+                      "Oct",
+                      "October",
+                      "10"
+                    ],
+                    "November": [
+                      "Nov",
+                      "November",
+                      "11"
+                    ],
+                    "December": [
+                      "Dec",
+                      "December",
+                      "12"
+                    ],
+                    "": [
+                      ""
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "endDateMonth",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//select[contains(@id, 'EndDate') and contains(@id, 'Month') and not(contains(@id, 'SchoolEndDate'))]"
+                  ],
+                  "method": "clickOption"
+                }
+              ]
+            }
+          ],
+          [
+            "endDateMonthAbbr",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//select[contains(@id, 'PersonProfileFields.rcf3215_Month')]",
+                    ".//select[contains(@id, 'To') and contains(@id, 'Month') and not(contains(@id, 'SchoolEndDate'))]",
+                    ".//select[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'end') and contains(@class, 'iCIMS_Forms_MonthInput')]"
+                  ],
+                  "method": "clickOption",
+                  "options": {
+                    "saveAnsweredId": true
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "endDateDay",
+            [
+              {
+                "actions": [
+                  {
+                    "path": [
+                      ".//select[contains(@id, 'PersonProfileFields.rcf3215_Date')]",
+                      ".//select[contains(@id, 'EndDate') and contains(@class, 'iCIMS_Forms_DayInput')]",
+                      ".//select[contains(@id, 'To') and contains(@class, 'iCIMS_Forms_DayInput')]",
+                      ".//select[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'end') and contains(@class, 'iCIMS_Forms_DayInput')]"
+                    ],
+                    "method": "clickOption",
+                    "values": {
+                      "": [
+                        "0",
+                        ""
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "actions": [
+                  {
+                    "path": [
+                      ".//select[contains(@id, 'EmpyTo') and contains(@class, 'iCIMS_Forms_DayInput')]"
+                    ],
+                    "method": "clickOption",
+                    "values": {
+                      "": [
+                        "0",
+                        ""
+                      ]
+                    },
+                    "options": {
+                      "saveAnsweredId": true
+                    }
+                  }
+                ]
+              }
+            ]
+          ],
+          [
+            "endDateYear",
+            [
+              ".//input[@type='text' and contains(@name, 'PersonProfileFields.rcf3215_Year')]",
+              ".//input[@type='text' and contains(@id, 'icims__index__Emp5To_Year')]",
+              ".//input[contains(@id, 'EndDate') and contains(@id, 'Year') and not(contains(@id, 'SchoolEndDate'))]",
+              ".//input[contains(@id, 'To') and contains(@id, 'Year') and not(contains(@id, 'SchoolEndDate'))]",
+              ".//input[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'end') and contains(@class, 'iCIMS_Forms_YearInput')]"
+            ]
+          ],
+          [
+            "description",
+            [
+              ".//textarea[contains(@id, 'PersonProfileFields.rcf3219')]",
+              ".//textarea[contains(@id, 'Empyjob')]",
+              ".//textarea[contains(@id, 'Emp') and contains(@id, 'Desc')]",
+              ".//textarea[contains(@id, 'Duties')]"
+            ],
+            [
+              ".//textarea[contains(@id, 'icims__index__Emp5Description')]"
+            ]
+          ],
+          [
+            "reasonLeaving",
+            [
+              ".//textarea[contains(@id, 'PersonProfileFields.rcf3268')]",
+              ".//textarea[contains(@id, 'Reason')]",
+              ".//textarea[contains(@class, 'iCIMS_Forms_Qemp_reason_left')]",
+              ".//textarea[contains(@id, 'Emp') and contains(@id, 'Reas') and contains(@id, 'Leav')]"
+            ],
+            [
+              ".//textarea[contains(@id, 'icims__index__Emp5ReasonLeaving')]"
+            ]
+          ]
+        ]
+      }
+    ],
+    [
+      "education",
+      {
+        "initialAddButtonPath": [
+          ".//input[@type='radio' and contains(@id, 'ProvideEducation_yes') and not(@checked)]"
+        ],
+        "addButtonPath": [
+          "(.//span[contains(@class, 'iCIMS_LabelText') and contains(., 'Education')]//ancestor::div[contains(@class, 'iCIMS_CollectionContainer') and not(contains(@class, 'NoDisplay'))]//div[contains(@class, 'iCIMS_CollectionButtonsRow') and not(contains(@class, 'NoDisplay'))])//a[@role='button' and starts-with(., 'Add More') and not(CONTAINS_TEXT('additional'))]",
+          "(.//span[contains(@class, 'iCIMS_LabelText') and contains(., 'Education')]//ancestor::div[contains(@class, 'iCIMS_CollectionContainer') and not(contains(@class, 'NoDisplay'))]//div[contains(@class, 'iCIMS_CollectionButtonsRow') and not(contains(@class, 'NoDisplay'))])[last()]//a[@role='button' and starts-with(., 'Add More')]",
+          ".//input[@type='submit' and contains(@data-group-loop, 'Education') and not(contains(@style, 'display:none')) and contains(@value, 'Show More')]",
+          ".//input[@type='submit' and contains(@data-group-loop, 'Education') and not(contains(@style, 'display:none')) and contains(@value, 'Add') and contains(@value, 'Education')]"
+        ],
+        "containerPath": [
+          "(.//div[contains(@class, 'iCIMS_CollectionContainer CandProfileFields.Education') and contains(@class, '-Container')])[__indexPlusOne__]",
+          "(.//span[contains(@class, 'iCIMS_LabelText') and contains(normalize-space(.), 'Education') and not(contains(normalize-space(.), 'Additional'))]//ancestor::div[contains(@class, 'iCIMS_CollectionContainer') and not(contains(@class, 'NoDisplay')) and not(parent::div[preceding-sibling::h2[contains(normalize-space(.), 'Additional Education')]])])[__indexPlusOne__]",
+          ".//div[contains(@data-group-loop-name, 'Education')][__indexPlusOne__]"
+        ],
+        "removeButtonPath": [
+          ".//div[contains(@class, 'RemoveButton') and not(contains(@class, 'NoDisplay'))]//a"
+        ],
+        "options": {
+          "afterAddButtonAsyncDelay": 10000,
+          "ignoreExistingValue": true,
+          "checkAddButtonVisibility": true,
+          "skipSectionSubEntitiesCheck": true
+        },
+        "entities": [
+          [
+            "name",
+            [
+              {
+                "actions": [
+                  {
+                    "path": [
+                      ".//input[@type='text' and contains(@id, 'PersonProfileFields.rcf2027')]",
+                      ".//input[@type='text' and contains(@class, 'iCIMS_Forms_Qedu_name')]",
+                      ".//input[@type='text' and contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'otherschool')]"
+                    ],
+                    "method": "setValue"
+                  }
+                ]
+              },
+              {
+                "actions": [
+                  {
+                    "path": [
+                      ".//select[contains(@id, 'ProfileFields.School')]",
+                      ".//a[contains(@id, 'CandProfileFields.School')]",
+                      ".//select[@id = //label[CONTAINS_TEXT('school', true)]/@for]"
+                    ],
+                    "method": "click"
+                  },
+                  {
+                    "path": [
+                      ".//a[contains(@id, 'CandProfileFields.School_icimsDropdown')]/parent::*//input[contains(@aria-controls, 'CandProfileFields.School_dropdown-results')]",
+                      ".//input[@type='text' and contains(@id, 'SchoolName')]",
+                      ".//select[@id = //label[CONTAINS_TEXT('school', true)]/@for]/parent::*//input[contains(@aria-controls, 'dropdown-results')]"
+                    ],
+                    "method": "setValue",
+                    "time": 1000,
+                    "options": {
+                      "triggerBlurEvent": false,
+                      "triggerKeyUpEvent": true,
+                      "triggerKeyDownEvent": true,
+                      "waitForNetworkAfterInteraction": true,
+                      "resetValue": true
+                    }
+                  },
+                  {
+                    "path": [
+                      ".//ul[contains(@id, 'CandProfileFields.School_dropdown-results')]",
+                      ".//select[@id = //label[CONTAINS_TEXT('school', true)]/@for]/parent::*//ul[contains(@id, 'PersonProfileFields') and contains(@id, 'dropdown-results')]"
+                    ],
+                    "method": "clickOptionAsync",
+                    "options": {
+                      "waitForNetworkBeforeInteraction": true,
+                      "optionMatchAttribute": [
+                        "aria-label",
+                        "title"
+                      ],
+                      "similarMatch": true,
+                      "noMatchesFallbackText": [
+                        "Other",
+                        "not listed"
+                      ],
+                      "resetSearch": true,
+                      "containerElement": "container"
+                    }
+                  }
+                ]
+              },
+              {
+                "actions": [
+                  {
+                    "path": [
+                      ".//input[@type='text' and contains(@id, 'School') and not(contains(@id, 'OtherSchool'))]"
+                    ],
+                    "method": "setValue",
+                    "time": 1000
+                  }
+                ]
+              },
+              {
+                "actions": [
+                  {
+                    "path": [
+                      ".//select[contains(@id, 'CandProfileFields.School')]"
+                    ],
+                    "method": "clickOption",
+                    "defaultValue": "Other School"
+                  },
+                  {
+                    "path": [
+                      ".//label[CONTAINS_TEXT('institution') or CONTAINS_TEXT('school') or CONTAINS_TEXT('college') or CONTAINS_TEXT('university')]//ancestor::div[contains(@class, 'iCIMS_TableRow')]//input[@type='text']"
+                    ],
+                    "method": "setValue"
+                  }
+                ]
+              },
+              {
+                "actions": [
+                  {
+                    "path": [
+                      ".//input[contains(@id, 'OtherSchool') and ancestor::div[contains(@class, 'iCIMS_CollectionContainer')][1][not(.//select[contains(@id, 'School')]/option[@selected='selected'])]]"
+                    ],
+                    "method": "setValue"
+                  }
+                ]
+              }
+            ]
+          ],
+          [
+            "degree",
+            [
+              {
+                "actions": [
+                  {
+                    "path": [
+                      ".//a[contains(@id, 'CandProfileFields.Degree')]",
+                      ".//a[contains(@id, 'PersonProfileFields.rcf2026')]"
+                    ],
+                    "method": "click",
+                    "time": 300,
+                    "options": {
+                      "trackQuestion": true
+                    }
+                  },
+                  {
+                    "path": [
+                      ".//ul[contains(@id, 'CandProfileFields.Degree_dropdown-results')]",
+                      ".//ul[contains(@id, 'rcf2026_dropdown-results')]",
+                      ".//select[contains(@id, 'EducationLevel')]",
+                      ".//select[contains(@id, '_Degree')]"
+                    ],
+                    "method": "clickOption",
+                    "options": {
+                      "questionContainer": [],
+                      "optionMatchAttribute": [
+                        "aria-label",
+                        "title"
+                      ]
+                    },
+                    "values": {
+                      "bachelor's": [
+                        "B.S.",
+                        "B.Sc",
+                        "Bachelor",
+                        "BS"
+                      ],
+                      "master's": [
+                        "M.S.",
+                        "M.Sc",
+                        "Master",
+                        "MS"
+                      ],
+                      "associate": [
+                        "A.A.",
+                        "Associate",
+                        "AA"
+                      ],
+                      "highschool": [
+                        "High School",
+                        "Some High School",
+                        "Other"
+                      ],
+                      "High School / GED": [
+                        "High School",
+                        "Some High School",
+                        "Other"
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "actions": [
+                  {
+                    "path": [
+                      ".//input[@type='text' and contains(@class, 'iCIMS_Forms_Qedu_degree')]"
+                    ],
+                    "method": "setValue"
+                  }
+                ]
+              },
+              {
+                "actions": [
+                  {
+                    "path": [
+                      ".//select[@id = //label[CONTAINS_TEXT('degree', true)]/@for]"
+                    ],
+                    "method": "click",
+                    "time": 300,
+                    "options": {
+                      "trackQuestion": true
+                    }
+                  },
+                  {
+                    "path": [
+                      ".//select[@id = //label[CONTAINS_TEXT('degree', true)]/@for]/parent::*//input[contains(@aria-controls, 'dropdown-results')]"
+                    ],
+                    "method": "setValue",
+                    "time": 1000,
+                    "options": {
+                      "triggerBlurEvent": false,
+                      "triggerKeyUpEvent": true,
+                      "triggerKeyDownEvent": true,
+                      "waitForNetworkAfterInteraction": true,
+                      "resetValue": true
+                    }
+                  },
+                  {
+                    "path": [
+                      ".//select[@id = //label[CONTAINS_TEXT('degree', true)]/@for]/parent::*//ul[contains(@id, 'PersonProfileFields') and contains(@id, 'dropdown-results')]"
+                    ],
+                    "method": "clickOptionAsync",
+                    "options": {
+                      "waitForNetworkBeforeInteraction": true,
+                      "optionMatchAttribute": [
+                        "aria-label",
+                        "title"
+                      ],
+                      "similarMatch": true,
+                      "noMatchesFallbackText": "Other",
+                      "resetSearch": true,
+                      "containerElement": "container"
+                    }
+                  }
+                ]
+              }
+            ]
+          ],
+          [
+            "major",
+            [
+              {
+                "actions": [
+                  {
+                    "path": [
+                      ".//input[@type='text' and contains(@id, 'PersonProfileFields.rcf2029')]",
+                      ".//input[@type='text' and contains(@class, 'iCIMS_Forms_Qedu_major')]",
+                      ".//input[@type='text' and contains(@id, 'Major')]"
+                    ],
+                    "method": "setValue"
+                  }
+                ]
+              },
+              {
+                "actions": [
+                  {
+                    "path": [
+                      ".//a[contains(@id, 'CandProfileFields.Major')]",
+                      ".//select[@id = //label[CONTAINS_TEXT('major', true)]/@for]"
+                    ],
+                    "method": "click"
+                  },
+                  {
+                    "path": [
+                      ".//a[contains(@id, 'CandProfileFields.Major_icimsDropdown') and not(contains(@aria-label, 'No states available'))]/parent::*//input[contains(@aria-controls, 'CandProfileFields.Major_dropdown-results')]",
+                      ".//select[@id = //label[CONTAINS_TEXT('major', true) and not(contains(@aria-label, 'No states available'))]/@for]/parent::*//input[contains(@aria-controls, 'dropdown-results')]"
+                    ],
+                    "method": "setValue",
+                    "time": 500,
+                    "options": {
+                      "triggerBlurEvent": false,
+                      "triggerKeyUpEvent": true,
+                      "triggerDownUpEvent": true,
+                      "waitForNetworkAfterInteraction": true
+                    }
+                  },
+                  {
+                    "path": [
+                      ".//ul[contains(@id, 'CandProfileFields.Major_dropdown-results')]",
+                      ".//select[@id = //label[CONTAINS_TEXT('major', true) and not(contains(@aria-label, 'No states available'))]/@for]/parent::*//ul[contains(@id, 'PersonProfileFields') and contains(@id, 'dropdown-results')]"
+                    ],
+                    "method": "clickOptionAsync",
+                    "options": {
+                      "waitForNetworkBeforeInteraction": true,
+                      "optionMatchAttribute": [
+                        "aria-label",
+                        "title"
+                      ],
+                      "filledVariantContainerXPath": [
+                        ".//div[contains(@class, 'CandProfileFields.Education') and not(contains(@class, 'Container'))][.//a[contains(@id, 'CandProfileFields.Major')]]"
+                      ],
+                      "containerElement": "container"
+                    }
+                  }
+                ]
+              },
+              {
+                "actions": [
+                  {
+                    "path": [
+                      ".//select[contains(@id, 'SchoolMajor')]"
+                    ],
+                    "method": "clickOption"
+                  }
+                ]
+              }
+            ]
+          ],
+          [
+            "endDate",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[@type='text' and contains(@id, 'PersonProfileFields.rcf2011')]"
+                  ],
+                  "method": "setValue"
+                }
+              ]
+            }
+          ],
+          [
+            "endDateMonth",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//select[contains(@id, 'GraduationDate_Month')]",
+                    ".//select[contains(@id, 'SchoolEndDate') and contains(@id, '_Month')]",
+                    ".//select[@id = //label[CONTAINS_TEXT('month', true)]/@for]"
+                  ],
+                  "method": "clickOption",
+                  "values": {
+                    "1": [
+                      "Jan",
+                      "January",
+                      "01"
+                    ],
+                    "2": [
+                      "Feb",
+                      "February",
+                      "02"
+                    ],
+                    "3": [
+                      "Mar",
+                      "March",
+                      "03"
+                    ],
+                    "4": [
+                      "Apr",
+                      "April",
+                      "04"
+                    ],
+                    "5": [
+                      "May",
+                      "05"
+                    ],
+                    "6": [
+                      "Jun",
+                      "June",
+                      "06"
+                    ],
+                    "7": [
+                      "Jul",
+                      "July",
+                      "07"
+                    ],
+                    "8": [
+                      "Aug",
+                      "August",
+                      "08"
+                    ],
+                    "9": [
+                      "Sep",
+                      "September",
+                      "09"
+                    ],
+                    "10": [
+                      "Oct",
+                      "October",
+                      "10"
+                    ],
+                    "11": [
+                      "Nov",
+                      "November",
+                      "11"
+                    ],
+                    "12": [
+                      "Dec",
+                      "December",
+                      "12"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "endDateDay",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//select[contains(@id, 'GraduationDate_Date')]",
+                    ".//select[contains(@id, 'SchoolEndDate') and contains(@id, '_Date')]",
+                    ".//select[@id = //label[CONTAINS_TEXT('day', true)]/@for]"
+                  ],
+                  "method": "clickOption"
+                }
+              ]
+            }
+          ],
+          [
+            "endDateYear",
+            [
+              ".//input[@type='text' and contains(@name, 'GraduationDate_Year')]",
+              ".//input[@type='text' and contains(@id, 'SchoolEndDate') and contains(@id, '_Year')]",
+              ".//input[@id = //label[CONTAINS_TEXT('year', true) and not(CONTAINS_TEXT('number', true))]/@for]"
+            ]
+          ],
+          [
+            "gpa",
+            [
+              ".//input[@type='text' and contains(@name, 'GPA')]"
+            ]
+          ],
+          [
+            "isGraduated",
+            [
+              {
+                "actions": [
+                  {
+                    "path": [
+                      ".//select[contains(@id, 'IsGraduated')]",
+                      ".//select[contains(@id, 'SchoolGraduated')]",
+                      ".//select[contains(@class, 'iCIMS_Forms_Qedu_grad')]"
+                    ],
+                    "method": "clickOption",
+                    "values": {
+                      "true": [
+                        "yes"
+                      ],
+                      "false": [
+                        "no"
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "actions": [
+                  {
+                    "path": [
+                      ".//select[@id = //label[CONTAINS_TEXT('graduate', true)]/@for]"
+                    ],
+                    "method": "click"
+                  },
+                  {
+                    "path": [
+                      ".//select[@id = //label[CONTAINS_TEXT('graduate', true)]/@for]/parent::*//ul[contains(@id, 'PersonProfileFields') and contains(@id, 'dropdown-results')]"
+                    ],
+                    "method": "clickOption",
+                    "values": {
+                      "true": [
+                        "yes"
+                      ],
+                      "false": [
+                        "no"
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          ],
+          [
+            "yearsCompleted",
+            [
+              ".//input[@type='text' and contains(@name, 'YearsCompleted')]",
+              ".//input[@type='text' and contains(@id, 'YearsCompleted')]",
+              ".//input[@type='text' and contains(@class, 'iCIMS_Forms_Qedu_years_complete')]"
+            ]
+          ],
+          [
+            "country",
+            [
+              {
+                "actions": [
+                  {
+                    "path": [
+                      ".//select[contains(@id, 'SchoolCountry')]",
+                      ".//select[contains(@id, 'EducationCountry')]",
+                      ".//select[contains(@class, 'iCIMS_Forms_Qedu_country')]"
+                    ],
+                    "method": "clickOption",
+                    "values": {
+                      "": [
+                        "United States"
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "actions": [
+                  {
+                    "path": [
+                      ".//a[contains(@id, 'PersonProfileFields.rcf2042')]",
+                      ".//a[contains(@id, 'EducationCountry')]"
+                    ],
+                    "method": "click"
+                  },
+                  {
+                    "path": [
+                      ".//a[contains(@id, 'rcf2042_icimsDropdown') and not(contains(@aria-label, 'No states available'))]/parent::*//input[contains(@aria-controls, 'rcf2042_dropdown-results')]",
+                      ".//a[contains(@id, 'CandProfileFields.EducationCountry') and not(contains(@aria-label, 'No states available'))]/parent::*//input[contains(@aria-controls, 'CandProfileFields.EducationCountry_dropdown-results')]"
+                    ],
+                    "method": "setValue",
+                    "time": 500,
+                    "options": {
+                      "triggerBlurEvent": false,
+                      "triggerKeyUpEvent": true,
+                      "triggerKeyDownEvent": true,
+                      "waitForNetworkAfterInteraction": true
+                    }
+                  },
+                  {
+                    "path": [
+                      "(.//ul[contains(@id, 'rcf2042_dropdown-results')])[__indexPlusOne__]",
+                      "(.//ul[contains(@id, 'CandProfileFields.EducationCountry_dropdown-results')])[__indexPlusOne__]"
+                    ],
+                    "method": "clickOptionAsync",
+                    "options": {
+                      "waitForNetworkBeforeInteraction": true,
+                      "optionMatchAttribute": [
+                        "aria-label",
+                        "title"
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          ],
+          [
+            "city",
+            [
+              ".//input[@type='text' and contains(@name, 'EducationCity')]",
+              ".//input[@type='text' and contains(@id, 'SchoolCity')]",
+              ".//input[@type='text' and contains(@id, 'PersonProfileFields.rcf2012')]",
+              ".//input[@type='text' and contains(@class, 'iCIMS_Forms_Qedu_city')]"
+            ]
+          ],
+          [
+            "stateName",
+            [
+              {
+                "actions": [
+                  {
+                    "path": [
+                      ".//a[contains(@id, 'CandProfileFields.EducationState')]",
+                      ".//a[contains(@id, 'PersonProfileFields.rcf2013')]"
+                    ],
+                    "method": "click"
+                  },
+                  {
+                    "path": [
+                      ".//a[contains(@id, 'CandProfileFields.EducationState_icimsDropdown') and not(contains(@aria-label, 'No states available'))]/parent::*//input[contains(@aria-controls, 'CandProfileFields.EducationState_dropdown-results')]",
+                      ".//a[contains(@id, 'rcf2013_icimsDropdown') and not(contains(@aria-label, 'No states available'))]/parent::*//input[contains(@aria-controls, 'rcf2013_dropdown-results')]"
+                    ],
+                    "method": "setValue",
+                    "time": 500,
+                    "options": {
+                      "triggerBlurEvent": false,
+                      "triggerKeyUpEvent": true,
+                      "triggerKeyDownEvent": true,
+                      "waitForNetworkAfterInteraction": true
+                    }
+                  },
+                  {
+                    "path": [
+                      "(.//ul[contains(@id, 'CandProfileFields.EducationState_dropdown-results')])[__indexPlusOne__]",
+                      "(.//ul[contains(@id, 'rcf2013_dropdown-results')])[__indexPlusOne__]"
+                    ],
+                    "method": "clickOptionAsync",
+                    "options": {
+                      "waitForNetworkBeforeInteraction": true,
+                      "optionMatchAttribute": [
+                        "aria-label",
+                        "title"
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "actions": [
+                  {
+                    "path": [
+                      ".//select[contains(@id, 'SchoolState')]",
+                      ".//select[contains(@id, 'EducationState')]",
+                      ".//select[contains(@class, 'iCIMS_Forms_Qedu_state')]"
+                    ],
+                    "method": "clickOption"
+                  }
+                ]
+              }
+            ]
+          ],
+          [
+            "startDateMonthAbbr",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//select[contains(@id, 'EducationStartDate_Month')]"
+                  ],
+                  "method": "clickOption"
+                }
+              ]
+            }
+          ],
+          [
+            "startDateDay",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//select[contains(@id, 'ProfileFields.EducationStartDate_Date')]",
+                    ".//select[contains(@id, 'EducationStartDate') and contains(@id, '_Date')]"
+                  ],
+                  "method": "clickOption",
+                  "values": {
+                    "": [
+                      "1",
+                      "01"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "startDateYear",
+            [
+              ".//input[@type='text' and contains(@id, 'EducationStartDate_Year')]"
+            ]
+          ]
+        ]
+      }
+    ],
+    [
+      "highestEducation.name",
+      [
+        {
+          "actions": [
+            {
+              "path": [
+                "//div[contains(@class,'iCIMS_FieldRow')][.//label[contains(normalize-space(), 'School')]][.//select]//a"
+              ],
+              "method": "click",
+              "time": 1000
+            },
+            {
+              "path": [
+                "//div[contains(@class,'iCIMS_FieldRow')][.//label[contains(normalize-space(), 'School')]][.//select]//input"
+              ],
+              "method": "setValue",
+              "options": {
+                "triggerBlurEvent": false,
+                "triggerKeyUpEvent": true,
+                "triggerKeyDownEvent": true,
+                "waitForNetworkAfterInteraction": true
+              },
+              "time": 500
+            },
+            {
+              "path": [
+                "//div[contains(@class,'iCIMS_FieldRow')][.//label[contains(normalize-space(), 'School')]][.//select]//ul[contains(@class, 'dropdown-results')]"
+              ],
+              "method": "clickOptionAsync"
+            },
+            {
+              "path": [
+                "//select[@id = //div[contains(@class, 'iCIMS_InfoField')]/label[CONTAINS_TEXT('university')]/@for and not(self::input[@type='text'])]"
+              ],
+              "method": "clickOption",
+              "options": {
+                "optionMapper": true,
+                "maxSelectOptionsCount": 7000,
+                "optionMatchAttribute": [
+                  "value"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    ],
+    [
+      "birthDay",
+      [
+        {
+          "actions": [
+            {
+              "path": [
+                ".//a[contains(@aria-label, 'Birth Day')]"
+              ],
+              "method": "click"
+            },
+            {
+              "path": [
+                ".//a[contains(@aria-label, 'Birth Day')]/following-sibling::div[contains(@class, 'dropdown-container')]//input[@type='text']"
+              ],
+              "method": "setValue",
+              "options": {
+                "triggerBlurEvent": false,
+                "triggerKeyUpEvent": true,
+                "triggerKeyDownEvent": true,
+                "waitForNetworkAfterInteraction": true
+              },
+              "time": 500
+            },
+            {
+              "path": [
+                ".//a[contains(@aria-label, 'Birth Day')]/following-sibling::div[contains(@class, 'dropdown-container')]//ul[contains(@class, 'dropdown-results')]"
+              ],
+              "method": "clickOptionAsync",
+              "options": {
+                "waitForNetworkBeforeInteraction": true,
+                "optionMatchAttribute": [
+                  "aria-label",
+                  "title"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "path": [
+            ".//select[@name='CandProfileFields.Origin']"
+          ],
+          "method": "clickOption"
+        }
+      ]
+    ],
+    [
+      "startMonthAvailabilityString",
+      {
+        "actions": [
+          {
+            "path": [
+              "//select[@id='rcf2037_Month']"
+            ],
+            "method": "clickOption"
+          }
+        ]
+      }
+    ],
+    [
+      "startDayAvailabilityString",
+      {
+        "actions": [
+          {
+            "path": [
+              "//select[@id='rcf2037_Date' or @id='rcf3115_Date']",
+              "//select[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'icims_f_dateavailable_date')]",
+              "//select[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'icims_f_dateavailabletostart_date')]"
+            ],
+            "method": "clickOption",
+            "options": {
+              "optionMapper": true
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "startYearAvailabilityString",
+      [
+        "//input[@id='rcf2037_Year' or @id='rcf3115_Year']",
+        "//input[@type='text' and contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'icims_f_dateavailable_year')]",
+        "//input[@type='text' and contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'icims_f_dateavailabletostart_year')]"
+      ]
+    ],
+    [
+      "workStartDateFormatted.startDateMonthAbbr",
+      {
+        "actions": [
+          {
+            "path": [
+              "//select[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'icims_f_dateavailable_month')]",
+              "//select[contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'icims_f_dateavailabletostart_month')]",
+              "//select[@id='rcf3115_Month']"
+            ],
+            "method": "clickOption"
+          }
+        ]
+      }
+    ],
+    [
+      "fullName",
+      {
+        "actions": [
+          {
+            "path": [
+              "//input[@type='text' and contains(@id, 'icims_f_Name')]",
+              "//input[@type='text' and contains(@id, 'icims_f_FullName')]"
+            ],
+            "method": "setValue"
+          }
+        ]
+      }
+    ],
+    [
+      "currentDate.currentDateMonthAbbr",
+      {
+        "actions": [
+          {
+            "path": [
+              "//select[contains(@id, 'icims_f_Date_Month')]"
+            ],
+            "method": "clickOption"
+          }
+        ]
+      }
+    ],
+    [
+      "currentDate.dayOfTheMonthNoZeroPad",
+      {
+        "actions": [
+          {
+            "path": [
+              "//select[contains(@id, 'icims_f_Date_Date')]"
+            ],
+            "method": "clickOption"
+          }
+        ]
+      }
+    ],
+    [
+      "currentDate.currentDateYear",
+      {
+        "actions": [
+          {
+            "path": [
+              "//input[@type='text' and contains(@id, 'icims_f_Date_Year')]"
+            ],
+            "method": "setValue"
+          }
+        ]
+      }
+    ],
+    [
+      "contactAgreement",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//div[contains(@class, 'FieldRow') and contains(normalize-space(), 'you consent to receive')]//a[@role='combobox']"
+            ],
+            "method": "click"
+          },
+          {
+            "path": [
+              ".//div[contains(@class, 'FieldRow') and contains(normalize-space(), 'you consent to receive') and contains(@id, .//div[contains(@class, 'FieldRow') and contains(normalize-space(), 'you consent to receive')]//a[@role='combobox']/@id)]//ul"
+            ],
+            "method": "clickOption",
+            "values": {
+              "true": [
+                "Yes"
+              ],
+              "false": [
+                "No"
+              ]
+            },
+            "defaultValue": "true"
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "consent to receive"
+        ]
+      }
+    ]
+  ],
+  "sections": {
+    "options": {
+      "routeDetection": true
+    },
+    "section": [
+      {
+        "route": [
+          "/login"
+        ],
+        "entities": [
+          "email",
+          "privacyAgreement",
+          "agreement",
+          "applyBtn",
+          "refuseAddDevice",
+          "phoneCode"
+        ]
+      },
+      {
+        "route": [
+          "/eeo",
+          "/questions"
+        ],
+        "entities": [
+          "over18",
+          "workAuth",
+          "sponsorship",
+          "gender",
+          "race"
+        ]
+      },
+      {
+        "urlParams": [
+          "form=Applicant_Diversity"
+        ],
+        "entities": [
+          "gender",
+          "disability"
+        ]
+      },
+      {
+        "urlParams": [
+          "form=Voluntary_Self_Identification_Forms",
+          "form=OFCCP_Forms_Packet",
+          "form=Cand_Submission",
+          "form=Custom_EEO_Forms",
+          "form=EEO_",
+          "selected=Voluntary_Self_Identification_of_Disability",
+          "form=SRC_Complete_Application"
+        ],
+        "entities": [
+          "fullName",
+          "firstName",
+          "lastName",
+          "privacyAgreement",
+          "agreement",
+          "workAuth",
+          "sponsorship",
+          "currentDate.currentDateMonthAbbr",
+          "currentDate.dayOfTheMonthNoZeroPad",
+          "currentDate.currentDateYear",
+          "education",
+          "experience",
+          "nameInitials"
+        ]
+      },
+      {
+        "urlParams": [
+          "form=New_EEO_Person_Form_Public",
+          "form=Applicant_Statement",
+          "form=Driver_Portal",
+          "form=Application_and_Consent",
+          "form=App_Packet",
+          "form=New_US_App",
+          "form=Application_Acknowledgement",
+          "form=Agreement_To_Arbitrate",
+          "form=Application&"
+        ],
+        "entities": [
+          "fullName",
+          "privacyAgreement",
+          "agreement",
+          "race",
+          "gender",
+          "currentDate.currentDateMonthAbbr",
+          "currentDate.dayOfTheMonthNoZeroPad",
+          "currentDate.currentDateYear"
+        ]
+      },
+      {
+        "urlParams": [
+          "form=Employment_Application"
+        ],
+        "entities": [
+          "name",
+          "experience",
+          "education",
+          "certification",
+          "privacyAgreement",
+          "agreement",
+          "workStartDateFormatted.startDateMonthAbbr",
+          "startDayAvailabilityString",
+          "startYearAvailabilityString"
+        ]
+      }
+    ]
+  }
+}

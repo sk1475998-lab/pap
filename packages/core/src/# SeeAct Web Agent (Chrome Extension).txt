@@ -1,0 +1,60 @@
+# SeeAct Web Agent (Chrome Extension)
+
+Chrome extension to allow users to leverage the logic/behavior of the Python code in 
+the [SeeAct repository](https://github.com/OSU-NLP-Group/SeeAct/tree/main) (i.e. just loading a chrome extension 
+rather than having to install python and playwright locally and then download/run SeeAct). It also allows them to use 
+their own login sessions (since it runs in their existing Chrome window/tab rather than in a separate/playwright-created 
+browser window).
+
+## Features
+
+The SeeAct Chrome Web Agent is a powerful browser extension that allows you to instruct an AI 'agent' to perform tasks on your behalf through the browser. This agent can navigate websites, find information, and even fill out forms to prepare transactions, all based on your instructions.
+
+Key features:
+
+* AI-powered web navigation and interaction
+* Ability to perform complex, multi-step tasks
+* Monitor mode for supervised operation
+* Task history and logging for transparency
+
+Whether you're looking to automate a tedious web task (while you do something else away from the computer) or simply to explore the capabilities of AI-assisted browsing, SeeAct is here to help.  
+More details [in the user manual](documents/user_manual.pdf).
+
+# Setup
+
+## End users of Chrome extension
+
+A prepared zip file of each official version of the extension can be found in the [releases section](https://github.com/OSU-NLP-Group/SeeActChromeExtension/releases) of this repo.
+
+1. Open the "Chrome Extensions" menu and ensure "Developer Mode" is enabled (in upper right corner of page).
+2. _Load_ the dist folder in the (downloaded and decompressed) release zip as an _unpacked_ extension.
+3. Review and agree to the privacy policy and license agreement in the "installation greeting" page.
+4. Pin the extension's icon, open its sidebar by clicking the pinned icon, and then open the Options menu (lower left 
+corner of sidebar).
+5. Configure the extension to support your desired use case and click Save
+   1. Web Agent: choose an AI provider and enter your API key for that provider's API
+   2. Unsafe Actions Annotation: enable Annotator Mode
+
+<details>
+<summary>Exhaustive Installation Walkthrough (friendly to non-software-'technical' people)</summary>
+
+Once you download the zip file for a version of your choice, you can extract its contents to a folder on your computer.
+![unzipping archive](images/unzipping.png)
+
+Once you have extracted the contents of the release zip, please follow these steps to load the extension into Chrome:
+1. Open a new tab in Chrome.
+2. Enter "chrome://extensions" in the address bar and press Enter.
+3. Ensure that the "Developer mode" switch in the upper right corner is turned on.
+4. Click the "Load unpacked" button.
+   ![button for loading extension](images/click_load_unpacked.png)
+5. Navigate to the dist folder in the release zip and click the "Select Folder" button.
+   ![Loading dist folder into Chrome](images/loading_dist_into_chrome.png)
+6. In the resulting "installation greeting" page, review the privacy policy and license agreement, then click the "I agree ..." button at the bottom to enable the extension's functionality.
+   ![Accepting Privacy Policy and License Agreement](images/accepting_privacy_policy.png)
+7. Click on the "Extensions" puzzle-piece icon near upper right corner of window
+   ![Opening Extensions dropdown](images/opening_extensions_dropdown.png)
+8. Click the pin icon next to the "SeeAct Web Agent for Chrome" extension to make its icon show up in the browser's upper right corner.
+   ![Pin extension to toolbar](images/pinning_extension.png)
+9. Click the extension's icon (robot next to monitor) to open the extension's side-panel.
+   ![Opening extension's side panel](images/open_side_panel.png)
+10. Op

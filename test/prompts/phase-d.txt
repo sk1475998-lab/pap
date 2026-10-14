@@ -1,0 +1,33 @@
+Execute Phase D: Live Site End-to-End Testing.
+
+TASKS:
+1. Load sandbox application pages and verify autofill registry.
+2. Simulate multi-page navigation and state recovery.
+3. Verify OTP interception and session login.
+4. Verify Shadow DOM and iframe traversal using deepScanDOM.
+
+Produce a JSON output matching the Phase D handoff schema exactly.
+Example schema output format:
+===HANDOFF_JSON_START===
+{
+  "phase": "D",
+  "platform_results": [
+    {
+      "platform": "Naukri",
+      "protocols_run": ["D-PROTOCOL-1", "D-PROTOCOL-2"],
+      "fields_tested": [
+        {
+          "label": "Full Name",
+          "resolved_as": "fullName",
+          "value_written": "Jane Doe",
+          "registered": true
+        }
+      ],
+      "bugs_found": [],
+      "observations": "..."
+    }
+  ],
+  "all_bugs": [],
+  "critical_blockers": []
+}
+===HANDOFF_JSON_END===

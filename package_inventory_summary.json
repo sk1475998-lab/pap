@@ -1,0 +1,2697 @@
+{
+  "analytics": [
+    {
+      "file": "package.json",
+      "size": 535,
+      "loc": 24
+    },
+    {
+      "file": "tsconfig.json",
+      "size": 276,
+      "loc": 12
+    },
+    {
+      "file": "src\\event-bus.ts",
+      "size": 8820,
+      "loc": 354
+    },
+    {
+      "file": "src\\index.ts",
+      "size": 703,
+      "loc": 32
+    },
+    {
+      "file": "src\\metrics.ts",
+      "size": 7487,
+      "loc": 293
+    },
+    {
+      "file": "src\\tracker.ts",
+      "size": 3668,
+      "loc": 120
+    }
+  ],
+  "applier": [
+    {
+      "file": "package.json",
+      "size": 706,
+      "loc": 29
+    },
+    {
+      "file": "tsconfig.json",
+      "size": 218,
+      "loc": 10
+    },
+    {
+      "file": "src\\browser.ts",
+      "size": 2067,
+      "loc": 63
+    },
+    {
+      "file": "src\\human-timing.ts",
+      "size": 1598,
+      "loc": 62
+    },
+    {
+      "file": "src\\index.ts",
+      "size": 939,
+      "loc": 21
+    },
+    {
+      "file": "src\\mouse-path.ts",
+      "size": 2455,
+      "loc": 79
+    },
+    {
+      "file": "src\\otp-interceptor.ts",
+      "size": 3269,
+      "loc": 96
+    },
+    {
+      "file": "src\\page-fill.ts",
+      "size": 14200,
+      "loc": 428
+    },
+    {
+      "file": "src\\page-scan.ts",
+      "size": 6598,
+      "loc": 161
+    },
+    {
+      "file": "src\\pipeline.ts",
+      "size": 27158,
+      "loc": 745
+    },
+    {
+      "file": "src\\rate-governor.ts",
+      "size": 4377,
+      "loc": 128
+    },
+    {
+      "file": "src\\types.ts",
+      "size": 3978,
+      "loc": 133
+    },
+    {
+      "file": "src\\vision-fallback.ts",
+      "size": 3733,
+      "loc": 109
+    },
+    {
+      "file": "src\\cli\\index.ts",
+      "size": 6616,
+      "loc": 182
+    },
+    {
+      "file": "src\\sources\\generic.ts",
+      "size": 2632,
+      "loc": 73
+    },
+    {
+      "file": "src\\sources\\glassdoor.ts",
+      "size": 4318,
+      "loc": 117
+    },
+    {
+      "file": "src\\sources\\indeed.ts",
+      "size": 5521,
+      "loc": 148
+    },
+    {
+      "file": "src\\sources\\linkedin.ts",
+      "size": 12771,
+      "loc": 311
+    },
+    {
+      "file": "src\\sources\\naukri.ts",
+      "size": 3729,
+      "loc": 104
+    },
+    {
+      "file": "src\\sources\\rate-policies.ts",
+      "size": 1160,
+      "loc": 26
+    },
+    {
+      "file": "src\\sources\\types.ts",
+      "size": 1090,
+      "loc": 26
+    }
+  ],
+  "ats-config": [
+    {
+      "file": "package.json",
+      "size": 654,
+      "loc": 28
+    },
+    {
+      "file": "tsconfig.json",
+      "size": 276,
+      "loc": 12
+    },
+    {
+      "file": "src\\apply-detector.ts",
+      "size": 16313,
+      "loc": 551
+    },
+    {
+      "file": "src\\autofill-engine.ts",
+      "size": 27269,
+      "loc": 936
+    },
+    {
+      "file": "src\\builtin-configs.ts",
+      "size": 10423,
+      "loc": 335
+    },
+    {
+      "file": "src\\config-signing.ts",
+      "size": 4709,
+      "loc": 125
+    },
+    {
+      "file": "src\\detector.ts",
+      "size": 16599,
+      "loc": 534
+    },
+    {
+      "file": "src\\form-scanner.ts",
+      "size": 17194,
+      "loc": 602
+    },
+    {
+      "file": "src\\generic-detector.ts",
+      "size": 7640,
+      "loc": 240
+    },
+    {
+      "file": "src\\iframe-manager.ts",
+      "size": 22783,
+      "loc": 747
+    },
+    {
+      "file": "src\\index.ts",
+      "size": 2994,
+      "loc": 129
+    },
+    {
+      "file": "src\\platform-overrides.ts",
+      "size": 2808,
+      "loc": 34
+    },
+    {
+      "file": "src\\remote-config.ts",
+      "size": 9310,
+      "loc": 321
+    },
+    {
+      "file": "src\\schemas.ts",
+      "size": 12317,
+      "loc": 289
+    },
+    {
+      "file": "src\\site-registry.ts",
+      "size": 15591,
+      "loc": 550
+    }
+  ],
+  "core": [
+    {
+      "file": "package.json",
+      "size": 1011,
+      "loc": 30
+    },
+    {
+      "file": "tsconfig.json",
+      "size": 189,
+      "loc": 9
+    },
+    {
+      "file": "src\\application-readiness.ts",
+      "size": 5453,
+      "loc": 137
+    },
+    {
+      "file": "src\\ats.ts",
+      "size": 17041,
+      "loc": 400
+    },
+    {
+      "file": "src\\career-intelligence.ts",
+      "size": 19210,
+      "loc": 357
+    },
+    {
+      "file": "src\\company-context.ts",
+      "size": 1754,
+      "loc": 59
+    },
+    {
+      "file": "src\\contact-finder.ts",
+      "size": 4503,
+      "loc": 136
+    },
+    {
+      "file": "src\\countries.ts",
+      "size": 27057,
+      "loc": 404
+    },
+    {
+      "file": "src\\cover-letter.ts",
+      "size": 8414,
+      "loc": 206
+    },
+    {
+      "file": "src\\docx.ts",
+      "size": 3134,
+      "loc": 80
+    },
+    {
+      "file": "src\\env.ts",
+      "size": 627,
+      "loc": 13
+    },
+    {
+      "file": "src\\field-policy.ts",
+      "size": 8171,
+      "loc": 143
+    },
+    {
+      "file": "src\\field-similarity.test.ts",
+      "size": 4652,
+      "loc": 103
+    },
+    {
+      "file": "src\\field-similarity.ts",
+      "size": 8061,
+      "loc": 217
+    },
+    {
+      "file": "src\\global-assignment.test.ts",
+      "size": 3169,
+      "loc": 83
+    },
+    {
+      "file": "src\\global-assignment.ts",
+      "size": 6440,
+      "loc": 176
+    },
+    {
+      "file": "src\\globals.d.ts",
+      "size": 471,
+      "loc": 20
+    },
+    {
+      "file": "src\\human-pacing.test.ts",
+      "size": 7119,
+      "loc": 173
+    },
+    {
+      "file": "src\\human-pacing.ts",
+      "size": 7507,
+      "loc": 200
+    },
+    {
+      "file": "src\\index.test.ts",
+      "size": 39801,
+      "loc": 831
+    },
+    {
+      "file": "src\\index.ts",
+      "size": 2141,
+      "loc": 62
+    },
+    {
+      "file": "src\\india-intelligence.ts",
+      "size": 13864,
+      "loc": 266
+    },
+    {
+      "file": "src\\jd-analyzer.ts",
+      "size": 3629,
+      "loc": 118
+    },
+    {
+      "file": "src\\job-freshness.ts",
+      "size": 1696,
+      "loc": 36
+    },
+    {
+      "file": "src\\job-gating.test.ts",
+      "size": 2668,
+      "loc": 59
+    },
+    {
+      "file": "src\\job-gating.ts",
+      "size": 4530,
+      "loc": 116
+    },
+    {
+      "file": "src\\job-key-adapters.ts",
+      "size": 2006,
+      "loc": 39
+    },
+    {
+      "file": "src\\job-key.ts",
+      "size": 952,
+      "loc": 23
+    },
+    {
+      "file": "src\\job-recommendation.ts",
+      "size": 8812,
+      "loc": 182
+    },
+    {
+      "file": "src\\job-risk.ts",
+      "size": 6482,
+      "loc": 152
+    },
+    {
+      "file": "src\\job-tracker.ts",
+      "size": 7311,
+      "loc": 237
+    },
+    {
+      "file": "src\\linkedin-controls.test.ts",
+      "size": 2195,
+      "loc": 85
+    },
+    {
+      "file": "src\\linkedin-controls.ts",
+      "size": 4331,
+      "loc": 111
+    },
+    {
+      "file": "src\\linkedin-results.test.ts",
+      "size": 3973,
+      "loc": 74
+    },
+    {
+      "file": "src\\linkedin-results.ts",
+      "size": 5198,
+      "loc": 151
+    },
+    {
+      "file": "src\\llm-config.ts",
+      "size": 7751,
+      "loc": 184
+    },
+    {
+      "file": "src\\login-helpers.ts",
+      "size": 1258,
+      "loc": 38
+    },
+    {
+      "file": "src\\matcher.ts",
+      "size": 8648,
+      "loc": 219
+    },
+    {
+      "file": "src\\network-retry.test.ts",
+      "size": 2027,
+      "loc": 44
+    },
+    {
+      "file": "src\\network-retry.ts",
+      "size": 2970,
+      "loc": 94
+    },
+    {
+      "file": "src\\outreach.ts",
+      "size": 2202,
+      "loc": 45
+    },
+    {
+      "file": "src\\parser.ts",
+      "size": 30023,
+      "loc": 858
+    },
+    {
+      "file": "src\\pii-scrubber.test.ts",
+      "size": 5281,
+      "loc": 97
+    },
+    {
+      "file": "src\\profile-brain.ts",
+      "size": 6807,
+      "loc": 196
+    },
+    {
+      "file": "src\\profile-complete.ts",
+      "size": 11920,
+      "loc": 357
+    },
+    {
+      "file": "src\\profile-repair.ts",
+      "size": 4974,
+      "loc": 135
+    },
+    {
+      "file": "src\\profile.ts",
+      "size": 19833,
+      "loc": 466
+    },
+    {
+      "file": "src\\prompt-injection.test.ts",
+      "size": 2711,
+      "loc": 62
+    },
+    {
+      "file": "src\\qa-fixtures.test.ts",
+      "size": 3999,
+      "loc": 106
+    },
+    {
+      "file": "src\\qa-fixtures.ts",
+      "size": 10263,
+      "loc": 243
+    },
+    {
+      "file": "src\\question-classifier.ts",
+      "size": 3034,
+      "loc": 92
+    },
+    {
+      "file": "src\\resolver.ts",
+      "size": 22367,
+      "loc": 477
+    },
+    {
+      "file": "src\\resume-version.ts",
+      "size": 13869,
+      "loc": 367
+    },
+    {
+      "file": "src\\runtime-audit.ts",
+      "size": 5855,
+      "loc": 188
+    },
+    {
+      "file": "src\\salary-engine.ts",
+      "size": 3069,
+      "loc": 92
+    },
+    {
+      "file": "src\\screening-answers.test.ts",
+      "size": 6456,
+      "loc": 142
+    },
+    {
+      "file": "src\\screening-answers.ts",
+      "size": 17413,
+      "loc": 442
+    },
+    {
+      "file": "src\\session-guardrails.test.ts",
+      "size": 4842,
+      "loc": 132
+    },
+    {
+      "file": "src\\session-guardrails.ts",
+      "size": 6209,
+      "loc": 168
+    },
+    {
+      "file": "src\\settings.ts",
+      "size": 15175,
+      "loc": 350
+    },
+    {
+      "file": "src\\skill-extractor.ts",
+      "size": 18369,
+      "loc": 389
+    },
+    {
+      "file": "src\\skill-graph-data.ts",
+      "size": 9221,
+      "loc": 115
+    },
+    {
+      "file": "src\\skill-graph.ts",
+      "size": 6021,
+      "loc": 143
+    },
+    {
+      "file": "src\\storage.ts",
+      "size": 11477,
+      "loc": 337
+    },
+    {
+      "file": "src\\story-bank.ts",
+      "size": 1911,
+      "loc": 61
+    },
+    {
+      "file": "src\\sync.test.ts",
+      "size": 12649,
+      "loc": 279
+    },
+    {
+      "file": "src\\sync.ts",
+      "size": 19839,
+      "loc": 508
+    },
+    {
+      "file": "src\\tenant-store.ts",
+      "size": 2060,
+      "loc": 51
+    },
+    {
+      "file": "src\\types.ts",
+      "size": 13089,
+      "loc": 348
+    },
+    {
+      "file": "src\\visa-verify.ts",
+      "size": 3211,
+      "loc": 93
+    },
+    {
+      "file": "src\\cli\\index.ts",
+      "size": 6450,
+      "loc": 168
+    },
+    {
+      "file": "src\\crypto\\passphrase-crypto.ts",
+      "size": 2359,
+      "loc": 66
+    },
+    {
+      "file": "src\\llm\\adapters.ts",
+      "size": 9954,
+      "loc": 293
+    },
+    {
+      "file": "src\\llm\\cache.ts",
+      "size": 3022,
+      "loc": 88
+    },
+    {
+      "file": "src\\llm\\cached-client.ts",
+      "size": 1748,
+      "loc": 62
+    },
+    {
+      "file": "src\\llm\\cost-router.ts",
+      "size": 9193,
+      "loc": 342
+    },
+    {
+      "file": "src\\llm\\index.ts",
+      "size": 6207,
+      "loc": 182
+    },
+    {
+      "file": "src\\llm\\rate-limiter.ts",
+      "size": 821,
+      "loc": 37
+    },
+    {
+      "file": "src\\llm\\robust.test.ts",
+      "size": 6345,
+      "loc": 154
+    },
+    {
+      "file": "src\\llm\\robust.ts",
+      "size": 9725,
+      "loc": 238
+    },
+    {
+      "file": "src\\llm\\types.ts",
+      "size": 2380,
+      "loc": 68
+    }
+  ],
+  "crew": [
+    {
+      "file": "package.json",
+      "size": 703,
+      "loc": 29
+    },
+    {
+      "file": "tsconfig.json",
+      "size": 172,
+      "loc": 9
+    },
+    {
+      "file": "src\\agent-ecosystem.ts",
+      "size": 4843,
+      "loc": 146
+    },
+    {
+      "file": "src\\framework.ts",
+      "size": 6098,
+      "loc": 207
+    },
+    {
+      "file": "src\\index.ts",
+      "size": 3244,
+      "loc": 95
+    },
+    {
+      "file": "src\\rag-context.ts",
+      "size": 12222,
+      "loc": 273
+    },
+    {
+      "file": "src\\react-loop.ts",
+      "size": 11152,
+      "loc": 283
+    },
+    {
+      "file": "src\\scheduler.ts",
+      "size": 2821,
+      "loc": 99
+    },
+    {
+      "file": "src\\session.ts",
+      "size": 3125,
+      "loc": 95
+    },
+    {
+      "file": "src\\sop.ts",
+      "size": 8591,
+      "loc": 254
+    },
+    {
+      "file": "src\\agents\\applier.ts",
+      "size": 4325,
+      "loc": 112
+    },
+    {
+      "file": "src\\agents\\healer.ts",
+      "size": 19031,
+      "loc": 462
+    },
+    {
+      "file": "src\\agents\\recon-agent.ts",
+      "size": 12332,
+      "loc": 312
+    },
+    {
+      "file": "src\\agents\\researcher.ts",
+      "size": 2384,
+      "loc": 73
+    },
+    {
+      "file": "src\\agents\\reviewer.ts",
+      "size": 11564,
+      "loc": 319
+    },
+    {
+      "file": "src\\agents\\scorer.ts",
+      "size": 4238,
+      "loc": 105
+    },
+    {
+      "file": "src\\agents\\tailor.ts",
+      "size": 2320,
+      "loc": 57
+    },
+    {
+      "file": "src\\cli\\index.ts",
+      "size": 6610,
+      "loc": 189
+    },
+    {
+      "file": "src\\fleet\\apply-worker.ts",
+      "size": 4844,
+      "loc": 153
+    },
+    {
+      "file": "src\\fleet\\fleet-orchestrator.ts",
+      "size": 5459,
+      "loc": 176
+    },
+    {
+      "file": "src\\fleet\\fleet.test.ts",
+      "size": 6962,
+      "loc": 220
+    },
+    {
+      "file": "src\\fleet\\index.ts",
+      "size": 370,
+      "loc": 10
+    },
+    {
+      "file": "src\\fleet\\resume-enhancer.ts",
+      "size": 7363,
+      "loc": 213
+    },
+    {
+      "file": "src\\fleet\\types.ts",
+      "size": 2798,
+      "loc": 95
+    }
+  ],
+  "email-monitor": [
+    {
+      "file": "package.json",
+      "size": 795,
+      "loc": 32
+    },
+    {
+      "file": "tsconfig.json",
+      "size": 172,
+      "loc": 9
+    },
+    {
+      "file": "src\\imap-client.ts",
+      "size": 2635,
+      "loc": 86
+    },
+    {
+      "file": "src\\index.ts",
+      "size": 257,
+      "loc": 8
+    },
+    {
+      "file": "src\\monitor.ts",
+      "size": 2667,
+      "loc": 57
+    },
+    {
+      "file": "src\\reply-agent.ts",
+      "size": 2497,
+      "loc": 75
+    },
+    {
+      "file": "src\\smtp-sender.ts",
+      "size": 1801,
+      "loc": 54
+    },
+    {
+      "file": "src\\tracker-sync.ts",
+      "size": 2881,
+      "loc": 58
+    },
+    {
+      "file": "src\\types.ts",
+      "size": 1436,
+      "loc": 44
+    },
+    {
+      "file": "src\\classifiers\\classifier.ts",
+      "size": 7687,
+      "loc": 135
+    },
+    {
+      "file": "src\\cli\\index.ts",
+      "size": 4731,
+      "loc": 84
+    }
+  ],
+  "extension": [
+    {
+      "file": "package.json",
+      "size": 799,
+      "loc": 35
+    },
+    {
+      "file": "postcss.config.js",
+      "size": 70,
+      "loc": 3
+    },
+    {
+      "file": "tailwind.config.js",
+      "size": 145,
+      "loc": 6
+    },
+    {
+      "file": "tsconfig.json",
+      "size": 502,
+      "loc": 21
+    },
+    {
+      "file": "wxt.config.ts",
+      "size": 4798,
+      "loc": 131
+    },
+    {
+      "file": "scripts\\gen-icons.mjs",
+      "size": 2496,
+      "loc": 83
+    },
+    {
+      "file": "scripts\\gen-logo.py",
+      "size": 4267,
+      "loc": 117
+    },
+    {
+      "file": "scripts\\logo-preview.png",
+      "size": 53863,
+      "loc": 433
+    },
+    {
+      "file": "src\\style.css",
+      "size": 202,
+      "loc": 11
+    },
+    {
+      "file": "src\\vite-env.d.ts",
+      "size": 120,
+      "loc": 6
+    },
+    {
+      "file": "src\\content\\shadow-dom.ts",
+      "size": 2774,
+      "loc": 64
+    },
+    {
+      "file": "src\\entrypoints\\agent.content.ts",
+      "size": 344,
+      "loc": 11
+    },
+    {
+      "file": "src\\entrypoints\\background.ts",
+      "size": 36344,
+      "loc": 895
+    },
+    {
+      "file": "src\\entrypoints\\content.ts",
+      "size": 5314,
+      "loc": 123
+    },
+    {
+      "file": "src\\entrypoints\\demo.content.ts",
+      "size": 1607,
+      "loc": 43
+    },
+    {
+      "file": "src\\entrypoints\\interceptor.content.ts",
+      "size": 5458,
+      "loc": 169
+    },
+    {
+      "file": "src\\entrypoints\\orchestrator.content.ts",
+      "size": 642,
+      "loc": 18
+    },
+    {
+      "file": "src\\entrypoints\\onboarding\\index.html",
+      "size": 7680,
+      "loc": 114
+    },
+    {
+      "file": "src\\entrypoints\\onboarding\\main.ts",
+      "size": 2644,
+      "loc": 78
+    },
+    {
+      "file": "src\\entrypoints\\popup\\App.tsx",
+      "size": 14240,
+      "loc": 300
+    },
+    {
+      "file": "src\\entrypoints\\popup\\ErrorBoundary.tsx",
+      "size": 5771,
+      "loc": 184
+    },
+    {
+      "file": "src\\entrypoints\\popup\\index.html",
+      "size": 366,
+      "loc": 13
+    },
+    {
+      "file": "src\\entrypoints\\popup\\main.tsx",
+      "size": 1597,
+      "loc": 37
+    },
+    {
+      "file": "src\\entrypoints\\sidepanel\\FleetPanel.tsx",
+      "size": 23990,
+      "loc": 527
+    },
+    {
+      "file": "src\\entrypoints\\sidepanel\\ReviewQueuePanel.tsx",
+      "size": 21225,
+      "loc": 518
+    },
+    {
+      "file": "src\\entrypoints\\sidepanel\\SidePanelApp.tsx",
+      "size": 28772,
+      "loc": 537
+    },
+    {
+      "file": "src\\entrypoints\\sidepanel\\index.html",
+      "size": 299,
+      "loc": 12
+    },
+    {
+      "file": "src\\entrypoints\\sidepanel\\main.tsx",
+      "size": 271,
+      "loc": 10
+    },
+    {
+      "file": "src\\lib\\answer-memory.ts",
+      "size": 1872,
+      "loc": 51
+    },
+    {
+      "file": "src\\lib\\app-state.ts",
+      "size": 7592,
+      "loc": 230
+    },
+    {
+      "file": "src\\lib\\application-lock.ts",
+      "size": 1913,
+      "loc": 55
+    },
+    {
+      "file": "src\\lib\\ats-adapter.ts",
+      "size": 3962,
+      "loc": 124
+    },
+    {
+      "file": "src\\lib\\ats-adapters.ts",
+      "size": 11814,
+      "loc": 270
+    },
+    {
+      "file": "src\\lib\\ats-advanced.ts",
+      "size": 2190,
+      "loc": 88
+    },
+    {
+      "file": "src\\lib\\ats-config-index.ts",
+      "size": 2607,
+      "loc": 66
+    },
+    {
+      "file": "src\\lib\\ats-configs-data.ts",
+      "size": 815937,
+      "loc": 26162
+    },
+    {
+      "file": "src\\lib\\ats-detector.ts",
+      "size": 15810,
+      "loc": 499
+    },
+    {
+      "file": "src\\lib\\audit-store.ts",
+      "size": 2985,
+      "loc": 89
+    },
+    {
+      "file": "src\\lib\\autofill-guard.ts",
+      "size": 579,
+      "loc": 25
+    },
+    {
+      "file": "src\\lib\\autofill.ts",
+      "size": 28883,
+      "loc": 786
+    },
+    {
+      "file": "src\\lib\\campaign-agent.ts",
+      "size": 14718,
+      "loc": 441
+    },
+    {
+      "file": "src\\lib\\credential-store.ts",
+      "size": 4377,
+      "loc": 137
+    },
+    {
+      "file": "src\\lib\\cursor-agent.ts",
+      "size": 6730,
+      "loc": 214
+    },
+    {
+      "file": "src\\lib\\custom-question-handler.ts",
+      "size": 20760,
+      "loc": 638
+    },
+    {
+      "file": "src\\lib\\detector.ts",
+      "size": 16689,
+      "loc": 478
+    },
+    {
+      "file": "src\\lib\\diagnostics.ts",
+      "size": 6110,
+      "loc": 195
+    },
+    {
+      "file": "src\\lib\\dom-deep-scan.ts",
+      "size": 4488,
+      "loc": 147
+    },
+    {
+      "file": "src\\lib\\dropdown-handler.ts",
+      "size": 9408,
+      "loc": 281
+    },
+    {
+      "file": "src\\lib\\dropdown-strategies.ts",
+      "size": 38888,
+      "loc": 1069
+    },
+    {
+      "file": "src\\lib\\entity-processor.ts",
+      "size": 20743,
+      "loc": 648
+    },
+    {
+      "file": "src\\lib\\feature-flags.ts",
+      "size": 2100,
+      "loc": 68
+    },
+    {
+      "file": "src\\lib\\fiber-injector.ts",
+      "size": 10272,
+      "loc": 289
+    },
+    {
+      "file": "src\\lib\\field-highlighter.ts",
+      "size": 4565,
+      "loc": 145
+    },
+    {
+      "file": "src\\lib\\filler-utils.ts",
+      "size": 5973,
+      "loc": 149
+    },
+    {
+      "file": "src\\lib\\filler.ts",
+      "size": 29462,
+      "loc": 755
+    },
+    {
+      "file": "src\\lib\\fleet-runner.ts",
+      "size": 9432,
+      "loc": 264
+    },
+    {
+      "file": "src\\lib\\form-error-recovery.ts",
+      "size": 14377,
+      "loc": 378
+    },
+    {
+      "file": "src\\lib\\icons.tsx",
+      "size": 5284,
+      "loc": 130
+    },
+    {
+      "file": "src\\lib\\idb-store.ts",
+      "size": 2363,
+      "loc": 62
+    },
+    {
+      "file": "src\\lib\\iframe-autofill.ts",
+      "size": 6535,
+      "loc": 222
+    },
+    {
+      "file": "src\\lib\\job-extract.ts",
+      "size": 13424,
+      "loc": 408
+    },
+    {
+      "file": "src\\lib\\job-search-service.ts",
+      "size": 15015,
+      "loc": 359
+    },
+    {
+      "file": "src\\lib\\learning-agent.ts",
+      "size": 5806,
+      "loc": 181
+    },
+    {
+      "file": "src\\lib\\linkedin-autopilot.ts",
+      "size": 32387,
+      "loc": 784
+    },
+    {
+      "file": "src\\lib\\linkedin-external-apply.ts",
+      "size": 12473,
+      "loc": 278
+    },
+    {
+      "file": "src\\lib\\linkedin-fab.ts",
+      "size": 17942,
+      "loc": 396
+    },
+    {
+      "file": "src\\lib\\linkedin.ts",
+      "size": 16289,
+      "loc": 445
+    },
+    {
+      "file": "src\\lib\\login-agent.ts",
+      "size": 8373,
+      "loc": 238
+    },
+    {
+      "file": "src\\lib\\message-router.ts",
+      "size": 3278,
+      "loc": 128
+    },
+    {
+      "file": "src\\lib\\messaging.ts",
+      "size": 1840,
+      "loc": 41
+    },
+    {
+      "file": "src\\lib\\mimic-user.ts",
+      "size": 12576,
+      "loc": 416
+    },
+    {
+      "file": "src\\lib\\navigation.ts",
+      "size": 16372,
+      "loc": 469
+    },
+    {
+      "file": "src\\lib\\network-monitor.ts",
+      "size": 6731,
+      "loc": 242
+    },
+    {
+      "file": "src\\lib\\observability-timeline.ts",
+      "size": 1647,
+      "loc": 62
+    },
+    {
+      "file": "src\\lib\\orchestrator.ts",
+      "size": 746,
+      "loc": 24
+    },
+    {
+      "file": "src\\lib\\overlay.ts",
+      "size": 3548,
+      "loc": 92
+    },
+    {
+      "file": "src\\lib\\page-observer.ts",
+      "size": 5100,
+      "loc": 153
+    },
+    {
+      "file": "src\\lib\\pattern-cache.ts",
+      "size": 8514,
+      "loc": 251
+    },
+    {
+      "file": "src\\lib\\permission-policy.ts",
+      "size": 7342,
+      "loc": 256
+    },
+    {
+      "file": "src\\lib\\platforms.ts",
+      "size": 1937,
+      "loc": 58
+    },
+    {
+      "file": "src\\lib\\profile-vault.ts",
+      "size": 3242,
+      "loc": 76
+    },
+    {
+      "file": "src\\lib\\programmatic-interaction.ts",
+      "size": 479,
+      "loc": 10
+    },
+    {
+      "file": "src\\lib\\resume-store.ts",
+      "size": 5444,
+      "loc": 171
+    },
+    {
+      "file": "src\\lib\\resume-version-store.ts",
+      "size": 2196,
+      "loc": 51
+    },
+    {
+      "file": "src\\lib\\runtime-guard.ts",
+      "size": 250,
+      "loc": 8
+    },
+    {
+      "file": "src\\lib\\secure-message-router.ts",
+      "size": 4801,
+      "loc": 139
+    },
+    {
+      "file": "src\\lib\\sensitive-profile.ts",
+      "size": 1751,
+      "loc": 56
+    },
+    {
+      "file": "src\\lib\\side-panel.ts",
+      "size": 49218,
+      "loc": 1116
+    },
+    {
+      "file": "src\\lib\\store.ts",
+      "size": 3556,
+      "loc": 101
+    },
+    {
+      "file": "src\\lib\\submit-guard.ts",
+      "size": 12977,
+      "loc": 304
+    },
+    {
+      "file": "src\\lib\\tab-submitter.ts",
+      "size": 4627,
+      "loc": 120
+    },
+    {
+      "file": "src\\lib\\team-workspace.ts",
+      "size": 1878,
+      "loc": 65
+    },
+    {
+      "file": "src\\lib\\ui.ts",
+      "size": 8271,
+      "loc": 214
+    },
+    {
+      "file": "src\\lib\\agents\\copilot-agent.ts",
+      "size": 1076,
+      "loc": 32
+    },
+    {
+      "file": "src\\lib\\agents\\orchestrator.ts",
+      "size": 1378,
+      "loc": 53
+    },
+    {
+      "file": "src\\lib\\agents\\recruiter-assistant.ts",
+      "size": 1782,
+      "loc": 37
+    },
+    {
+      "file": "src\\lib\\ats-config-chunks\\index.json",
+      "size": 24340,
+      "loc": 624
+    },
+    {
+      "file": "src\\lib\\auth\\auth-service.ts",
+      "size": 5618,
+      "loc": 147
+    },
+    {
+      "file": "src\\lib\\auth\\credential-generator.ts",
+      "size": 2385,
+      "loc": 63
+    },
+    {
+      "file": "src\\lib\\auth\\email-alias-manager.ts",
+      "size": 1094,
+      "loc": 36
+    },
+    {
+      "file": "src\\lib\\auth\\entitlement.ts",
+      "size": 2145,
+      "loc": 61
+    },
+    {
+      "file": "src\\lib\\auth\\index.ts",
+      "size": 279,
+      "loc": 7
+    },
+    {
+      "file": "src\\lib\\auth\\recaptcha-detector.ts",
+      "size": 1385,
+      "loc": 38
+    },
+    {
+      "file": "src\\lib\\auth\\sign-in-handler.ts",
+      "size": 3494,
+      "loc": 121
+    },
+    {
+      "file": "src\\lib\\auth\\sign-up-handler.ts",
+      "size": 4740,
+      "loc": 128
+    },
+    {
+      "file": "src\\lib\\auth\\verification-handler.ts",
+      "size": 1816,
+      "loc": 61
+    },
+    {
+      "file": "src\\lib\\autopilot\\autopilot-state.ts",
+      "size": 4859,
+      "loc": 130
+    },
+    {
+      "file": "src\\lib\\autopilot\\event-scheduler.ts",
+      "size": 2053,
+      "loc": 64
+    },
+    {
+      "file": "src\\lib\\autopilot\\external-autopilot-engine.ts",
+      "size": 28902,
+      "loc": 659
+    },
+    {
+      "file": "src\\lib\\autopilot\\index.ts",
+      "size": 124,
+      "loc": 3
+    },
+    {
+      "file": "src\\lib\\autopilot\\linkedin-autopilot-engine.ts",
+      "size": 41883,
+      "loc": 924
+    },
+    {
+      "file": "src\\lib\\autopilot\\linkedin-resume-policy.ts",
+      "size": 401,
+      "loc": 9
+    },
+    {
+      "file": "src\\lib\\autopilot\\stagnant-detector.ts",
+      "size": 2117,
+      "loc": 63
+    },
+    {
+      "file": "src\\lib\\autopilot\\user-interaction-monitor.ts",
+      "size": 3306,
+      "loc": 80
+    },
+    {
+      "file": "src\\lib\\enterprise\\compliance.ts",
+      "size": 1182,
+      "loc": 35
+    },
+    {
+      "file": "src\\lib\\lifecycle\\application-tracker.ts",
+      "size": 7826,
+      "loc": 238
+    },
+    {
+      "file": "src\\lib\\lifecycle\\index.ts",
+      "size": 400,
+      "loc": 8
+    },
+    {
+      "file": "src\\lib\\lifecycle\\status-events.ts",
+      "size": 6053,
+      "loc": 155
+    },
+    {
+      "file": "src\\lib\\lifecycle\\status-machine.ts",
+      "size": 8434,
+      "loc": 289
+    },
+    {
+      "file": "src\\lib\\onboarding\\PanelOnboarding.tsx",
+      "size": 8622,
+      "loc": 220
+    },
+    {
+      "file": "src\\lib\\onboarding\\onboarding-store.ts",
+      "size": 2733,
+      "loc": 120
+    },
+    {
+      "file": "src\\lib\\orchestrator\\autofill-runner.ts",
+      "size": 7046,
+      "loc": 145
+    },
+    {
+      "file": "src\\lib\\orchestrator\\job-intelligence.ts",
+      "size": 7871,
+      "loc": 138
+    },
+    {
+      "file": "src\\lib\\orchestrator\\login-coordinator.ts",
+      "size": 3391,
+      "loc": 75
+    },
+    {
+      "file": "src\\lib\\orchestrator\\main.ts",
+      "size": 14613,
+      "loc": 334
+    },
+    {
+      "file": "src\\lib\\orchestrator\\panel-coordinator.ts",
+      "size": 12518,
+      "loc": 260
+    },
+    {
+      "file": "src\\lib\\panel-react\\PanelFillLog.tsx",
+      "size": 4229,
+      "loc": 106
+    },
+    {
+      "file": "src\\lib\\panel-react\\PanelHeader.tsx",
+      "size": 4784,
+      "loc": 119
+    },
+    {
+      "file": "src\\lib\\panel-react\\PanelMissingFields.tsx",
+      "size": 4619,
+      "loc": 111
+    },
+    {
+      "file": "src\\lib\\panel-react\\PanelOutreach.tsx",
+      "size": 3872,
+      "loc": 102
+    },
+    {
+      "file": "src\\lib\\panel-react\\PanelProfileView.tsx",
+      "size": 9316,
+      "loc": 290
+    },
+    {
+      "file": "src\\lib\\panel-react\\PanelRoot.tsx",
+      "size": 27061,
+      "loc": 701
+    },
+    {
+      "file": "src\\lib\\panel-react\\PanelStatus.tsx",
+      "size": 2899,
+      "loc": 76
+    },
+    {
+      "file": "src\\lib\\panel-react\\PanelSubmitCountdown.tsx",
+      "size": 2517,
+      "loc": 55
+    },
+    {
+      "file": "src\\lib\\panel-react\\PanelTeamWorkspace.tsx",
+      "size": 2692,
+      "loc": 72
+    },
+    {
+      "file": "src\\lib\\panel-react\\PanelVerifyPrompt.tsx",
+      "size": 1737,
+      "loc": 40
+    },
+    {
+      "file": "src\\lib\\panel-react\\index.ts",
+      "size": 401,
+      "loc": 15
+    },
+    {
+      "file": "src\\lib\\panel-react\\panel-store.ts",
+      "size": 8129,
+      "loc": 320
+    },
+    {
+      "file": "src\\lib\\panel-react\\panel-theme.css",
+      "size": 25529,
+      "loc": 1081
+    },
+    {
+      "file": "src\\lib\\quota\\quota-client.ts",
+      "size": 4143,
+      "loc": 140
+    },
+    {
+      "file": "src\\lib\\sync\\autopilot-state.ts",
+      "size": 4973,
+      "loc": 159
+    },
+    {
+      "file": "src\\lib\\sync\\sync-client.ts",
+      "size": 7960,
+      "loc": 241
+    },
+    {
+      "file": "src\\lib\\telemetry\\anonymizer.ts",
+      "size": 1113,
+      "loc": 38
+    },
+    {
+      "file": "src\\lib\\telemetry\\event-bus.ts",
+      "size": 2833,
+      "loc": 87
+    },
+    {
+      "file": "src\\popup\\api.ts",
+      "size": 15218,
+      "loc": 361
+    },
+    {
+      "file": "src\\popup\\tabs\\ApplyTab.tsx",
+      "size": 11372,
+      "loc": 259
+    },
+    {
+      "file": "src\\popup\\tabs\\AtsTab.tsx",
+      "size": 6882,
+      "loc": 150
+    },
+    {
+      "file": "src\\popup\\tabs\\CampaignsTab.tsx",
+      "size": 11239,
+      "loc": 312
+    },
+    {
+      "file": "src\\popup\\tabs\\IndiaCoachTab.tsx",
+      "size": 5539,
+      "loc": 107
+    },
+    {
+      "file": "src\\popup\\tabs\\IntelligenceTab.tsx",
+      "size": 6159,
+      "loc": 137
+    },
+    {
+      "file": "src\\popup\\tabs\\ProfileTab.tsx",
+      "size": 42952,
+      "loc": 807
+    },
+    {
+      "file": "src\\popup\\tabs\\RecommendedTab.tsx",
+      "size": 19241,
+      "loc": 398
+    },
+    {
+      "file": "src\\popup\\tabs\\SettingsTab.tsx",
+      "size": 41030,
+      "loc": 939
+    },
+    {
+      "file": "src\\popup\\tabs\\TrackerTab.tsx",
+      "size": 12097,
+      "loc": 311
+    },
+    {
+      "file": "src\\public\\demo-job.html",
+      "size": 9925,
+      "loc": 205
+    },
+    {
+      "file": "src\\public\\demo-job.js",
+      "size": 2014,
+      "loc": 58
+    },
+    {
+      "file": "src\\public\\pdf.worker.min.mjs",
+      "size": 1375838,
+      "loc": 21
+    },
+    {
+      "file": "src\\public\\ats-config-chunks\\adp.json",
+      "size": 27869,
+      "loc": 1042
+    },
+    {
+      "file": "src\\public\\ats-config-chunks\\adp_v2.json",
+      "size": 21550,
+      "loc": 920
+    },
+    {
+      "file": "src\\public\\ats-config-chunks\\ashbyhq.json",
+      "size": 33606,
+      "loc": 1346
+    },
+    {
+      "file": "src\\public\\ats-config-chunks\\bamboohr.json",
+      "size": 9931,
+      "loc": 437
+    },
+    {
+      "file": "src\\public\\ats-config-chunks\\breezyhr.json",
+      "size": 14836,
+      "loc": 648
+    },
+    {
+      "file": "src\\public\\ats-config-chunks\\careerplug.json",
+      "size": 15209,
+      "loc": 806
+    },
+    {
+      "file": "src\\public\\ats-config-chunks\\greenhouse.json",
+      "size": 82386,
+      "loc": 2529
+    },
+    {
+      "file": "src\\public\\ats-config-chunks\\hireology.json",
+      "size": 20902,
+      "loc": 993
+    },
+    {
+      "file": "src\\public\\ats-config-chunks\\icims.json",
+      "size": 98963,
+      "loc": 2874
+    },
+    {
+      "file": "src\\public\\ats-config-chunks\\index.json",
+      "size": 24340,
+      "loc": 624
+    },
+    {
+      "file": "src\\public\\ats-config-chunks\\jazzhr.json",
+      "size": 17662,
+      "loc": 920
+    },
+    {
+      "file": "src\\public\\ats-config-chunks\\jobvite.json",
+      "size": 29752,
+      "loc": 1200
+    },
+    {
+      "file": "src\\public\\ats-config-chunks\\lever.json",
+      "size": 17579,
+      "loc": 838
+    },
+    {
+      "file": "src\\public\\ats-config-chunks\\meta.json",
+      "size": 22290,
+      "loc": 964
+    },
+    {
+      "file": "src\\public\\ats-config-chunks\\oraclecloud.json",
+      "size": 132133,
+      "loc": 3948
+    },
+    {
+      "file": "src\\public\\ats-config-chunks\\paylocity.json",
+      "size": 33989,
+      "loc": 1439
+    },
+    {
+      "file": "src\\public\\ats-config-chunks\\taleo.json",
+      "size": 68790,
+      "loc": 2285
+    },
+    {
+      "file": "src\\public\\ats-config-chunks\\workable.json",
+      "size": 15836,
+      "loc": 716
+    },
+    {
+      "file": "src\\public\\ats-config-chunks\\workday.json",
+      "size": 68236,
+      "loc": 2034
+    },
+    {
+      "file": "src\\public\\icon\\128.png",
+      "size": 9535,
+      "loc": 71
+    },
+    {
+      "file": "src\\public\\icon\\16.png",
+      "size": 692,
+      "loc": 11
+    },
+    {
+      "file": "src\\public\\icon\\32.png",
+      "size": 1581,
+      "loc": 15
+    },
+    {
+      "file": "src\\public\\icon\\48.png",
+      "size": 2660,
+      "loc": 29
+    },
+    {
+      "file": "src\\public\\icon\\512.png",
+      "size": 53863,
+      "loc": 433
+    },
+    {
+      "file": "src\\runner\\watchdog.ts",
+      "size": 1997,
+      "loc": 73
+    }
+  ],
+  "mcp": [
+    {
+      "file": "package.json",
+      "size": 451,
+      "loc": 21
+    },
+    {
+      "file": "tsconfig.json",
+      "size": 435,
+      "loc": 18
+    },
+    {
+      "file": "tsconfig.tsbuildinfo",
+      "size": 89569,
+      "loc": 1
+    },
+    {
+      "file": "src\\index.ts",
+      "size": 5054,
+      "loc": 154
+    }
+  ],
+  "scraper": [
+    {
+      "file": "package.json",
+      "size": 587,
+      "loc": 26
+    },
+    {
+      "file": "tsconfig.json",
+      "size": 172,
+      "loc": 9
+    },
+    {
+      "file": "src\\aggregator.ts",
+      "size": 3557,
+      "loc": 108
+    },
+    {
+      "file": "src\\crew-source.ts",
+      "size": 2364,
+      "loc": 69
+    },
+    {
+      "file": "src\\framework.ts",
+      "size": 7613,
+      "loc": 205
+    },
+    {
+      "file": "src\\index.ts",
+      "size": 937,
+      "loc": 22
+    },
+    {
+      "file": "src\\boards\\arbeitnow.ts",
+      "size": 2344,
+      "loc": 77
+    },
+    {
+      "file": "src\\boards\\company.ts",
+      "size": 3990,
+      "loc": 106
+    },
+    {
+      "file": "src\\boards\\indeed.ts",
+      "size": 5076,
+      "loc": 145
+    },
+    {
+      "file": "src\\boards\\remoteok.ts",
+      "size": 2152,
+      "loc": 70
+    },
+    {
+      "file": "src\\cli\\index.ts",
+      "size": 2447,
+      "loc": 66
+    }
+  ],
+  "server": [
+    {
+      "file": "package.json",
+      "size": 698,
+      "loc": 30
+    },
+    {
+      "file": "tsconfig.json",
+      "size": 229,
+      "loc": 12
+    },
+    {
+      "file": ".playwright-profile\\Last Version",
+      "size": 13,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Local State",
+      "size": 4024,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Variations",
+      "size": 85,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\first_party_sets.db",
+      "size": 49152,
+      "loc": 23
+    },
+    {
+      "file": ".playwright-profile\\first_party_sets.db-journal",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\BrowserMetrics\\BrowserMetrics-6A9C4906-B70.pma",
+      "size": 4194304,
+      "loc": 1125
+    },
+    {
+      "file": ".playwright-profile\\Crashpad\\settings.dat",
+      "size": 40,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\Account Web Data",
+      "size": 77824,
+      "loc": 46
+    },
+    {
+      "file": ".playwright-profile\\Default\\Account Web Data-journal",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\Default\\Affiliation Database",
+      "size": 53248,
+      "loc": 21
+    },
+    {
+      "file": ".playwright-profile\\Default\\Affiliation Database-journal",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\Default\\BookmarkMergedSurfaceOrdering",
+      "size": 6,
+      "loc": 2
+    },
+    {
+      "file": ".playwright-profile\\Default\\Favicons",
+      "size": 20480,
+      "loc": 15
+    },
+    {
+      "file": ".playwright-profile\\Default\\Favicons-journal",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\Default\\History",
+      "size": 163840,
+      "loc": 49
+    },
+    {
+      "file": ".playwright-profile\\Default\\History-journal",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\Default\\LOCK",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\Default\\LOG",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\Default\\Login Data",
+      "size": 40960,
+      "loc": 26
+    },
+    {
+      "file": ".playwright-profile\\Default\\Login Data For Account",
+      "size": 40960,
+      "loc": 26
+    },
+    {
+      "file": ".playwright-profile\\Default\\Login Data For Account-journal",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\Default\\Login Data-journal",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\Default\\Preferences",
+      "size": 5952,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\README",
+      "size": 204,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\Secure Preferences",
+      "size": 9276,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\ServerCertificate",
+      "size": 20480,
+      "loc": 6
+    },
+    {
+      "file": ".playwright-profile\\Default\\ServerCertificate-journal",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\Default\\Top Sites",
+      "size": 20480,
+      "loc": 6
+    },
+    {
+      "file": ".playwright-profile\\Default\\Top Sites-journal",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\Default\\Web Data",
+      "size": 157696,
+      "loc": 166
+    },
+    {
+      "file": ".playwright-profile\\Default\\Web Data-journal",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\Default\\engine_allowlist.bf",
+      "size": 360,
+      "loc": 9
+    },
+    {
+      "file": ".playwright-profile\\Default\\Cache\\Cache_Data\\data_0",
+      "size": 45056,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\Cache\\Cache_Data\\data_1",
+      "size": 270336,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\Cache\\Cache_Data\\data_2",
+      "size": 8192,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\Cache\\Cache_Data\\data_3",
+      "size": 8192,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\Cache\\Cache_Data\\index",
+      "size": 524656,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\Cache\\No_Vary_Search\\journal.baj",
+      "size": 4,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\Cache\\No_Vary_Search\\snapshot.baf",
+      "size": 20,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\chrome_cart_db\\LOCK",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\Default\\chrome_cart_db\\LOG",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\Default\\ClientCertificates\\LOCK",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\Default\\ClientCertificates\\LOG",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\Default\\Code Cache\\js\\index",
+      "size": 24,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\Code Cache\\js\\index-dir\\the-real-index",
+      "size": 48,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\Code Cache\\wasm\\index",
+      "size": 24,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\Code Cache\\wasm\\index-dir\\the-real-index",
+      "size": 48,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\commerce_subscription_db\\LOCK",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\Default\\commerce_subscription_db\\LOG",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\Default\\DawnGraphiteCache\\data_0",
+      "size": 8192,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\DawnGraphiteCache\\data_1",
+      "size": 270336,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\DawnGraphiteCache\\data_2",
+      "size": 8192,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\DawnGraphiteCache\\data_3",
+      "size": 8192,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\DawnGraphiteCache\\index",
+      "size": 262512,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\DawnWebGPUCache\\data_0",
+      "size": 8192,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\DawnWebGPUCache\\data_1",
+      "size": 270336,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\DawnWebGPUCache\\data_2",
+      "size": 8192,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\DawnWebGPUCache\\data_3",
+      "size": 8192,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\DawnWebGPUCache\\index",
+      "size": 262512,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\discounts_db\\LOCK",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\Default\\discounts_db\\LOG",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\Default\\discount_infos_db\\LOCK",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\Default\\discount_infos_db\\LOG",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\Default\\Extension Rules\\000003.log",
+      "size": 76,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\Extension Rules\\CURRENT",
+      "size": 16,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\Extension Rules\\LOCK",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\Default\\Extension Rules\\LOG",
+      "size": 403,
+      "loc": 2
+    },
+    {
+      "file": ".playwright-profile\\Default\\Extension Rules\\MANIFEST-000001",
+      "size": 41,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\Extension Scripts\\000003.log",
+      "size": 38,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\Extension Scripts\\CURRENT",
+      "size": 16,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\Extension Scripts\\LOCK",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\Default\\Extension Scripts\\LOG",
+      "size": 407,
+      "loc": 2
+    },
+    {
+      "file": ".playwright-profile\\Default\\Extension Scripts\\MANIFEST-000001",
+      "size": 41,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\Extension State\\000003.log",
+      "size": 114,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\Extension State\\CURRENT",
+      "size": 16,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\Extension State\\LOCK",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\Default\\Extension State\\LOG",
+      "size": 403,
+      "loc": 2
+    },
+    {
+      "file": ".playwright-profile\\Default\\Extension State\\MANIFEST-000001",
+      "size": 41,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\GPUCache\\data_0",
+      "size": 8192,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\GPUCache\\data_1",
+      "size": 270336,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\GPUCache\\data_2",
+      "size": 8192,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\GPUCache\\data_3",
+      "size": 8192,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\GPUCache\\index",
+      "size": 262512,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\Local Storage\\leveldb\\000003.log",
+      "size": 30,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\Local Storage\\leveldb\\CURRENT",
+      "size": 16,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\Local Storage\\leveldb\\LOCK",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\Default\\Local Storage\\leveldb\\LOG",
+      "size": 415,
+      "loc": 2
+    },
+    {
+      "file": ".playwright-profile\\Default\\Local Storage\\leveldb\\MANIFEST-000001",
+      "size": 41,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\Network\\Cookies",
+      "size": 20480,
+      "loc": 6
+    },
+    {
+      "file": ".playwright-profile\\Default\\Network\\Cookies-journal",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\Default\\Network\\Device Bound Sessions",
+      "size": 20480,
+      "loc": 6
+    },
+    {
+      "file": ".playwright-profile\\Default\\Network\\Device Bound Sessions-journal",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\Default\\Network\\Network Persistent State",
+      "size": 111,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\Network\\NetworkDataMigrated",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\Default\\Network\\Reporting and NEL",
+      "size": 36864,
+      "loc": 11
+    },
+    {
+      "file": ".playwright-profile\\Default\\Network\\Reporting and NEL-journal",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\Default\\Network\\SCT Auditing Pending Reports",
+      "size": 2,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\Network\\Trust Tokens",
+      "size": 36864,
+      "loc": 12
+    },
+    {
+      "file": ".playwright-profile\\Default\\Network\\Trust Tokens-journal",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\Default\\parcel_tracking_db\\LOCK",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\Default\\parcel_tracking_db\\LOG",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\Default\\PersistentOriginTrials\\LOCK",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\Default\\PersistentOriginTrials\\LOG",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\Default\\Safe Browsing Network\\NetworkDataMigrated",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\Default\\Safe Browsing Network\\Safe Browsing Cookies",
+      "size": 20480,
+      "loc": 6
+    },
+    {
+      "file": ".playwright-profile\\Default\\Safe Browsing Network\\Safe Browsing Cookies-journal",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\Default\\Segmentation Platform\\SegmentInfoDB\\LOCK",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\Default\\Segmentation Platform\\SegmentInfoDB\\LOG",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\Default\\Segmentation Platform\\SignalDB\\LOCK",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\Default\\Segmentation Platform\\SignalDB\\LOG",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\Default\\Segmentation Platform\\SignalStorageConfigDB\\LOCK",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\Default\\Segmentation Platform\\SignalStorageConfigDB\\LOG",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\Default\\Session Storage\\000003.log",
+      "size": 68,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\Session Storage\\CURRENT",
+      "size": 16,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\Session Storage\\LOCK",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\Default\\Session Storage\\LOG",
+      "size": 403,
+      "loc": 2
+    },
+    {
+      "file": ".playwright-profile\\Default\\Session Storage\\MANIFEST-000001",
+      "size": 41,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\Sessions\\Session_13433100806759270",
+      "size": 1968,
+      "loc": 6
+    },
+    {
+      "file": ".playwright-profile\\Default\\Sessions\\Tabs_13433100806795097",
+      "size": 1534,
+      "loc": 3
+    },
+    {
+      "file": ".playwright-profile\\Default\\Shared Dictionary\\db",
+      "size": 45056,
+      "loc": 20
+    },
+    {
+      "file": ".playwright-profile\\Default\\Shared Dictionary\\db-journal",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\Default\\Shared Dictionary\\cache\\index",
+      "size": 24,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\Shared Dictionary\\cache\\index-dir\\the-real-index",
+      "size": 48,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\shared_proto_db\\000003.log",
+      "size": 6737,
+      "loc": 213
+    },
+    {
+      "file": ".playwright-profile\\Default\\shared_proto_db\\CURRENT",
+      "size": 16,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\shared_proto_db\\LOCK",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\Default\\shared_proto_db\\LOG",
+      "size": 403,
+      "loc": 2
+    },
+    {
+      "file": ".playwright-profile\\Default\\shared_proto_db\\MANIFEST-000001",
+      "size": 41,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\shared_proto_db\\metadata\\000003.log",
+      "size": 706,
+      "loc": 3
+    },
+    {
+      "file": ".playwright-profile\\Default\\shared_proto_db\\metadata\\CURRENT",
+      "size": 16,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\shared_proto_db\\metadata\\LOCK",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\Default\\shared_proto_db\\metadata\\LOG",
+      "size": 421,
+      "loc": 2
+    },
+    {
+      "file": ".playwright-profile\\Default\\shared_proto_db\\metadata\\MANIFEST-000001",
+      "size": 41,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\Site Characteristics Database\\000003.log",
+      "size": 40,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\Site Characteristics Database\\CURRENT",
+      "size": 16,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\Site Characteristics Database\\LOCK",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\Default\\Site Characteristics Database\\LOG",
+      "size": 431,
+      "loc": 2
+    },
+    {
+      "file": ".playwright-profile\\Default\\Site Characteristics Database\\MANIFEST-000001",
+      "size": 41,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\Sync Data\\LevelDB\\000003.log",
+      "size": 118,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\Sync Data\\LevelDB\\CURRENT",
+      "size": 16,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\Default\\Sync Data\\LevelDB\\LOCK",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\Default\\Sync Data\\LevelDB\\LOG",
+      "size": 407,
+      "loc": 2
+    },
+    {
+      "file": ".playwright-profile\\Default\\Sync Data\\LevelDB\\MANIFEST-000001",
+      "size": 41,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\GPUPersistentCache\\DawnGraphiteCache\\C6YIJ5ZAKC6TXEMDAQ6UAWWQBARS2Q4L\\cache.db",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\GPUPersistentCache\\DawnGraphiteCache\\C6YIJ5ZAKC6TXEMDAQ6UAWWQBARS2Q4L\\cache.db-wal",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\GPUPersistentCache\\DawnGraphiteCache\\C6YIJ5ZAKC6TXEMDAQ6UAWWQBARS2Q4L\\cache.journal",
+      "size": 0,
+      "loc": 0
+    },
+    {
+      "file": ".playwright-profile\\segmentation_platform\\ukm_db",
+      "size": 49152,
+      "loc": 20
+    },
+    {
+      "file": ".playwright-profile\\ShaderCache\\data_0",
+      "size": 8192,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\ShaderCache\\data_1",
+      "size": 270336,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\ShaderCache\\data_2",
+      "size": 8192,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\ShaderCache\\data_3",
+      "size": 8192,
+      "loc": 1
+    },
+    {
+      "file": ".playwright-profile\\ShaderCache\\index",
+      "size": 262512,
+      "loc": 1
+    },
+    {
+      "file": "src\\index.ts",
+      "size": 29347,
+      "loc": 625
+    },
+    {
+      "file": "src\\pipeline-runner.ts",
+      "size": 12783,
+      "loc": 332
+    },
+    {
+      "file": "src\\scheduler.ts",
+      "size": 2062,
+      "loc": 76
+    },
+    {
+      "file": "src\\lib\\discovery.ts",
+      "size": 2460,
+      "loc": 62
+    },
+    {
+      "file": "src\\lib\\identity.ts",
+      "size": 13243,
+      "loc": 350
+    },
+    {
+      "file": "src\\lib\\job-presentation.ts",
+      "size": 3666,
+      "loc": 82
+    },
+    {
+      "file": "src\\lib\\llm.ts",
+      "size": 1801,
+      "loc": 45
+    },
+    {
+      "file": "src\\lib\\pii-scrubber.ts",
+      "size": 4405,
+      "loc": 122
+    },
+    {
+      "file": "src\\lib\\rate-limit.ts",
+      "size": 4498,
+      "loc": 113
+    },
+    {
+      "file": "src\\lib\\tenant.ts",
+      "size": 8182,
+      "loc": 207
+    },
+    {
+      "file": "src\\routes\\alerts.ts",
+      "size": 3657,
+      "loc": 98
+    },
+    {
+      "file": "src\\routes\\apps.ts",
+      "size": 12840,
+      "loc": 336
+    },
+    {
+      "file": "src\\routes\\auth.ts",
+      "size": 11253,
+      "loc": 314
+    },
+    {
+      "file": "src\\routes\\billing.ts",
+      "size": 12458,
+      "loc": 343
+    },
+    {
+      "file": "src\\routes\\career.ts",
+      "size": 7742,
+      "loc": 171
+    },
+    {
+      "file": "src\\routes\\chat.ts",
+      "size": 11031,
+      "loc": 247
+    },
+    {
+      "file": "src\\routes\\company.ts",
+      "size": 7812,
+      "loc": 212
+    },
+    {
+      "file": "src\\routes\\email.ts",
+      "size": 2865,
+      "loc": 97
+    },
+    {
+      "file": "src\\routes\\india.ts",
+      "size": 8974,
+      "loc": 168
+    },
+    {
+      "file": "src\\routes\\interview.ts",
+      "size": 9404,
+      "loc": 187
+    },
+    {
+      "file": "src\\routes\\jobs.ts",
+      "size": 9975,
+      "loc": 249
+    },
+    {
+      "file": "src\\routes\\notifications.ts",
+      "size": 6345,
+      "loc": 173
+    },
+    {
+      "file": "src\\routes\\outreach.ts",
+      "size": 5477,
+      "loc": 142
+    },
+    {
+      "file": "src\\routes\\resume.ts",
+      "size": 25073,
+      "loc": 619
+    },
+    {
+      "file": "src\\routes\\skills.ts",
+      "size": 9467,
+      "loc": 182
+    },
+    {
+      "file": "src\\routes\\sync.ts",
+      "size": 6024,
+      "loc": 169
+    }
+  ]
+}

@@ -1,0 +1,1199 @@
+{
+  "atsName": "jobvite",
+  "urls": [
+    "*://jobs.jobvite.com/*/apply*"
+  ],
+  "urlsExclude": [
+    "*://jobs.jobvite.com/*/applyConfirmation*",
+    "*://jobs.jobvite.com/*/duplicateApplication*"
+  ],
+  "submitButtonPaths": [
+    ".//button[@type='submit' and not(contains(@class, 'ng-hide')) and @aria-label='Send Application']",
+    ".//button[@type='submit' and not(contains(@class, 'ng-hide')) and contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'send') and contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'application')]"
+  ],
+  "jobIdExtractPatterns": [
+    "jobs\\.jobvite\\.com\\/[^\\/]+\\/job\\/([a-zA-Z0-9]+)"
+  ],
+  "questionsInSubmitPage": true,
+  "nextStepButtonPaths": [
+    ".//button[contains(@class, 'jv-button-primary') and contains(@aria-label, 'Next')]",
+    ".//button[@type='button' and contains(@class, 'jv-button-primary') and @ng-click='nextStep()']",
+    ".//button[@type='submit' and contains(@class, 'jv-button-primary') and not(contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'send')) and not(contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'application'))]",
+    ".//button[@type='submit' and @ng-disabled='submitting' and contains(@class, 'jv-button-primary') and not(contains(@class, 'ng-hide')) and contains(@aria-label, 'Next')]"
+  ],
+  "nextStepDynamicLoad": true,
+  "validationErrorXPaths": [
+    ".//div[@ng-show='!resumeName' and not(contains(@class, 'ng-hide'))]//div[@ng-if='errors.resume && !applyWithErrors.resumeUpload']//span[@aria-alert='true' and contains(@class, 'jv-form-error')]",
+    ".//span[@aria-alert='true' and contains(@class, 'jv-form-error')]",
+    "//p[@ng-if='applyWithErrors.resumeUpload']"
+  ],
+  "errorBannerXPaths": [],
+  "targetNodeXPath": [
+    ".//div[contains(@class, 'jv-form') and contains(@class, 'jv-apply-form')]",
+    ".//form[contains(@class, 'jv-form') and contains(@name, 'consentForm')]",
+    ".//article[contains(@class, 'jv-page-body')]"
+  ],
+  "targetFrameNodeXPath": [
+    ".//div[@class='jv-page-container']"
+  ],
+  "questionValidationErrorSelectors": [
+    "input[class*='ng-invalid'], textarea[class*='ng-invalid'], input[class*='ng-invalid'], select[class*='ng-invalid']"
+  ],
+  "canJobBeAppliedXPaths": {
+    "applyButton": [
+      ".//a[contains(@class, 'jv-button-primary') and contains(@class, 'jv-button-apply')]",
+      ".//a[contains(@class, 'jv-button') and contains(@href, '/apply')]"
+    ]
+  },
+  "customQuestions": {
+    "patterns": {
+      "questionId": "",
+      "innerSelectors": [],
+      "maxLabelLevel": ""
+    },
+    "selectors": {
+      "title": "h1",
+      "label": "label[for]",
+      "legend": "legend",
+      "ariaLabelledBy": "label",
+      "roleOption": "[role='option']",
+      "radioInput": "input[type='radio']",
+      "monthInput": "input[aria-valuetext='MM']",
+      "dateInput": "input[aria-valuetext='DD']",
+      "yearInput": "input[aria-valuetext='YYYY']",
+      "checkbox": "input[type='checkbox']",
+      "question": "fieldset[ng-switch-when='radio'], fieldset[ng-switch-when='checkbox'], input[id^='jv-field']",
+      "subTitle": "h2, h3, h4"
+    },
+    "xpaths": {
+      "currentListItem": [],
+      "listInputBackBtnText": [],
+      "selectPopupXPath": [],
+      "listBoxPopupXPath": [],
+      "selectedItemListXPath": [],
+      "targetNodeXPath": [],
+      "requiredFieldXPath": [
+        ".//span[contains(@class, 'jv-required-label')]",
+        ".//span[CONTAINS_TEXT('*', true)]"
+      ]
+    },
+    "ignoreQuestions": [],
+    "ignoreContainerQuestions": [
+      ".//footer[contains(@class, 'jv-footer')]"
+    ]
+  },
+  "jobXPaths": {
+    "entities": [
+      [
+        "titleDisplay",
+        [
+          ".//h2[contains(@class, 'jv-header')]"
+        ]
+      ],
+      [
+        "originalCompanyName",
+        [
+          ".//header//h1[contains(@class, 'jv-logo')]/a/img/@alt",
+          ".//header//h1[contains(@class, 'jv-logo')]/a"
+        ]
+      ],
+      [
+        "jobTypes",
+        []
+      ],
+      [
+        "postingDate",
+        []
+      ],
+      [
+        "url",
+        []
+      ],
+      [
+        "desc",
+        [
+          ".//div[contains(@class, 'jv-job-detail-description')]"
+        ]
+      ],
+      [
+        "locationDisplay",
+        [
+          ".//h3[contains(@class, 'jv-job-detail-location')]",
+          ".//h2[contains(@class, 'jv-header')]/following-sibling::p/span[contains(@class, 'jv-inline-separator')]/following-sibling::text()",
+          ".//h2[contains(@class, 'jv-header')]/following-sibling::p"
+        ]
+      ]
+    ]
+  },
+  "preApply": {
+    "urls": [
+      "*://jobs.jobvite.com/*/job/*"
+    ],
+    "urlsExclude": [],
+    "entities": [
+      [
+        "applyBtn",
+        {
+          "actions": [
+            {
+              "key": "canJobBeAppliedXPaths.applyButton",
+              "method": "click"
+            }
+          ]
+        }
+      ]
+    ]
+  },
+  "sections": {
+    "path": [
+      "//div[contains(@class, 'jv-wrapper')]//h3[not(@id='jv-resume-header')]"
+    ],
+    "section": [
+      {
+        "title": [
+          "Personal Information",
+          "Profile",
+          "Experience"
+        ],
+        "entities": [
+          "firstName",
+          "lastName",
+          "email",
+          "phoneFormatted",
+          "phoneStripped",
+          "preferredFirstName",
+          "legalFirstName",
+          "legalLastName",
+          "fullName",
+          "addressLine1",
+          "addressLine2",
+          "gender",
+          "postalCode",
+          "recentExperience.startDate",
+          "recentExperience.endDate",
+          "recentExperience.title",
+          "state",
+          "stateName",
+          "city",
+          "cityStateName",
+          "country",
+          "birthDate",
+          "resume",
+          "experience",
+          "companyName",
+          "startDate",
+          "endDate",
+          "title",
+          "workAuth",
+          "sponsorship",
+          "startDateMonth_comma_YYYY",
+          "endDateMonth_comma_YYYY",
+          "workStartDateAvailabilityString",
+          "minYearlySalaryDesired",
+          "workStartDateFormatted.startDateDashes_YYYYMMDD",
+          "highestEducation.degreeDisplay",
+          "highestEducation.name",
+          "agreement",
+          "answerSource"
+        ]
+      },
+      {
+        "title": [
+          "Identification"
+        ],
+        "entities": [
+          "gender",
+          "hispanicLatino",
+          "race",
+          "veteran",
+          "name",
+          "disability",
+          "currentDate.dateString",
+          "currentDateDashes"
+        ]
+      },
+      {
+        "title": [
+          "Data Consent"
+        ],
+        "entities": [
+          "country"
+        ]
+      },
+      {
+        "title": [
+          "Screening Questions"
+        ],
+        "entities": [
+          "workAuth",
+          "sponsorship",
+          "over18",
+          "education",
+          "certification",
+          "name",
+          "issueDate",
+          "agreement"
+        ]
+      }
+    ]
+  },
+  "entities": [
+    [
+      "firstName",
+      [
+        ".//input[@autocomplete='given-name']"
+      ]
+    ],
+    [
+      "lastName",
+      [
+        ".//input[@autocomplete='family-name']"
+      ]
+    ],
+    [
+      "preferredFirstName",
+      [
+        ".//input[@autocomplete='family-name']"
+      ]
+    ],
+    [
+      "legalFirstName",
+      []
+    ],
+    [
+      "legalLastName",
+      []
+    ],
+    [
+      "nameInitials",
+      [
+        "//input[@type='text' and @id = //label[CONTAINS_TEXT('by initialing')]/@for]"
+      ]
+    ],
+    [
+      "fullName",
+      []
+    ],
+    [
+      "email",
+      [
+        ".//input[@autocomplete='email']"
+      ]
+    ],
+    [
+      "phone",
+      []
+    ],
+    [
+      "addressLine1",
+      [
+        ".//input[@autocomplete='address-line1']"
+      ]
+    ],
+    [
+      "recentExperience.companyName",
+      []
+    ],
+    [
+      "recentExperience.startDate",
+      [
+        {
+          "actions": [
+            {
+              "method": "setDateInput",
+              "format": "MM/yyyy",
+              "fullDate": {
+                "path": [
+                  "//input[@id = //label[CONTAINS_TEXT('date') and CONTAINS_TEXT('started')]/@for]"
+                ],
+                "format": "yyyy-MM-dd"
+              }
+            }
+          ]
+        }
+      ]
+    ],
+    [
+      "recentExperience.endDate",
+      [
+        {
+          "actions": [
+            {
+              "method": "setDateInput",
+              "format": "MM/yyyy",
+              "fullDate": {
+                "path": [
+                  "//input[@id = //label[CONTAINS_TEXT('date') and CONTAINS_TEXT('left')]/@for]"
+                ],
+                "format": "yyyy-MM-dd"
+              }
+            }
+          ]
+        }
+      ]
+    ],
+    [
+      "recentExperience.title",
+      []
+    ],
+    [
+      "state",
+      []
+    ],
+    [
+      "stateName",
+      [
+        {
+          "actions": [
+            {
+              "path": [
+                ".//select[@autocomplete='address-level1']"
+              ],
+              "method": "clickOption"
+            }
+          ]
+        }
+      ]
+    ],
+    [
+      "postalCode",
+      [
+        ".//input[@autocomplete='postal-code']"
+      ]
+    ],
+    [
+      "city",
+      [
+        ".//input[@autocomplete='address-level2']"
+      ]
+    ],
+    [
+      "cityStateName",
+      []
+    ],
+    [
+      "country",
+      [
+        {
+          "actions": [
+            {
+              "path": [
+                ".//select[@autocomplete='country-name']"
+              ],
+              "method": "clickOption"
+            }
+          ]
+        },
+        {
+          "actions": [
+            {
+              "path": [
+                "//select[@id='jv-country-select']",
+                "//div[./fieldset/legend[contains(text(), 'Please select your answer.')]][preceding::p/span[contains(text(), 'primary residence in the United States')]]"
+              ],
+              "method": "clickOption",
+              "options": {
+                "optionMapper": true
+              },
+              "values": {
+                "English": [
+                  "United States"
+                ],
+                "united states": [
+                  "Yes",
+                  "All Countries",
+                  "Global",
+                  "Other"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    ],
+    [
+      "birthDate",
+      [
+        {
+          "actions": [
+            {
+              "method": "setDateInput",
+              "format": "MM/dd/yyyy",
+              "fullDate": {
+                "path": [
+                  "//input[@id = //label[CONTAINS_TEXT('date') and CONTAINS_TEXT('birth')]/@for]"
+                ],
+                "format": "yyyy-MM-dd"
+              }
+            }
+          ]
+        }
+      ]
+    ],
+    [
+      "education",
+      {}
+    ],
+    [
+      "experience",
+      {
+        "addButtonPath": [],
+        "confirmAddedPath": [],
+        "containerPath": [
+          ".//h4[contains(@class, 'jv-prescreen-section-header') and CONTAINS_TEXT('present') and CONTAINS_TEXT('employer')]/parent::div[@ng-form='section.form']",
+          "//div[@class='jv-form jv-apply-form' and .//div[@ng-repeat='field in applyFields' and @jv-apply-field='field'] and .//label[contains(text(), 'Company Name')]]"
+        ],
+        "entities": [
+          [
+            "companyName",
+            [
+              {
+                "actions": [
+                  {
+                    "path": [
+                      "(//input[@id = //label[CONTAINS_TEXT('company') and CONTAINS_TEXT('name')]/@for])[__indexPlusOne__]"
+                    ],
+                    "method": "setValue"
+                  }
+                ]
+              }
+            ]
+          ],
+          [
+            "startDate",
+            {
+              "actions": [
+                {
+                  "method": "setDateInput",
+                  "format": "MM/yyyy",
+                  "fullDate": {
+                    "path": [
+                      "(//input[@id = //label[CONTAINS_TEXT('start') and CONTAINS_TEXT('date')]/@for])[__indexPlusOne__]"
+                    ],
+                    "format": "yyyy-MM-dd"
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "endDate",
+            {
+              "actions": [
+                {
+                  "method": "setDateInput",
+                  "format": "MM/yyyy",
+                  "fullDate": {
+                    "path": [
+                      "(//input[@id = //label[CONTAINS_TEXT('end') and CONTAINS_TEXT('date')]/@for])[__indexPlusOne__]"
+                    ],
+                    "format": "yyyy-MM-dd"
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "title",
+            [
+              {
+                "actions": [
+                  {
+                    "path": [
+                      "(//input[@id = //label[CONTAINS_TEXT('title')]/@for])[__indexPlusOne__]"
+                    ],
+                    "method": "setValue"
+                  }
+                ]
+              }
+            ]
+          ],
+          [
+            "startDateMonth_comma_YYYY",
+            {
+              "actions": [
+                {
+                  "path": [
+                    "((//p[span[contains(text(), 'From/To')]])[__indexPlusOne__]/following::input[@type='text'])[1]"
+                  ],
+                  "method": "setValue"
+                }
+              ]
+            }
+          ],
+          [
+            "endDateMonth_comma_YYYY",
+            {
+              "actions": [
+                {
+                  "path": [
+                    "((//p[span[contains(text(), 'From/To')]])[__indexPlusOne__]/following::input[@type='text'])[2]"
+                  ],
+                  "method": "setValue",
+                  "fallbackValue": "N/A"
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    [
+      "over18",
+      {
+        "actions": [
+          {
+            "path": [
+              "//fieldset[.//legend[contains(text(), 'over 18 years')]]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "true": [
+                "Yes"
+              ],
+              "false": [
+                "No"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "workAuth",
+      {
+        "actions": [
+          {
+            "path": [
+              "//fieldset[.//legend[contains(text(), 'able to work in the United States')]]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "true": [
+                "Yes"
+              ],
+              "false": [
+                "No"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "sponsorship",
+      {
+        "actions": [
+          {
+            "path": [
+              "//div[./fieldset/legend[contains(text(), 'Please select your answer.')]][preceding::p/span[contains(text(), 'require sponsorship')]]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "true": [
+                "Yes"
+              ],
+              "false": [
+                "No"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "lift50PoundsWeightAbility",
+      {}
+    ],
+    [
+      "resume",
+      [
+        {
+          "actions": [
+            {
+              "path": [
+                ".//div[@id='attachResume' and not(descendant::div[@class='jv-file'])]//ancestor::body//input[@type='file']"
+              ]
+            }
+          ]
+        },
+        {
+          "actions": [
+            {
+              "path": [
+                ".//button[@attachment-label='Resume']"
+              ],
+              "method": "click"
+            },
+            {
+              "path": [
+                ".//div[@class = 'jv-add-attachment-item']//input[@type='file']"
+              ],
+              "method": "uploadResume"
+            }
+          ]
+        }
+      ]
+    ],
+    [
+      "agreement",
+      [
+        {
+          "actions": [
+            {
+              "path": [
+                ".//label[CONTAINS_TEXT('agree', true) or CONTAINS_TEXT('i certify', true) or CONTAINS_TEXT('i understand', true) or CONTAINS_TEXT('consent', true) or CONTAINS_TEXT('signature', true) or CONTAINS_TEXT('i authorize', true) or CONTAINS_TEXT('i understand', true)]//input[@type='checkbox']"
+              ],
+              "method": "clickMultiple"
+            }
+          ]
+        },
+        {
+          "actions": [
+            {
+              "path": [
+                "//select[@id = //label[CONTAINS_TEXT('prohibited') and CONTAINS_TEXT('person')]/@for and not(self::input[@type='text'])]"
+              ],
+              "method": "clickOption",
+              "values": {
+                "true": [
+                  "Yes"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    ],
+    [
+      "hispanicLatino",
+      {}
+    ],
+    [
+      "gender",
+      {
+        "actions": [
+          {
+            "path": [
+              "//fieldset[.//legend[contains(text(), 'Gender')]]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "Male": [
+                "Male",
+                "Man"
+              ],
+              "Female": [
+                "Female",
+                "Woman"
+              ],
+              "Other": [
+                "Other"
+              ],
+              "Decline to identify": [
+                "Decline to identify",
+                "Decline",
+                "I don't wish",
+                "Prefer not",
+                "Opt Out"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "genderPronouns",
+      {}
+    ],
+    [
+      "transgender",
+      {}
+    ],
+    [
+      "race",
+      {
+        "actions": [
+          {
+            "path": [
+              "//select[contains(@id, 'race') and contains(@name, 'race')]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "Black or African American": [
+                "Black",
+                "African"
+              ],
+              "East Asian": [
+                "East Asian",
+                "Asian"
+              ],
+              "Hispanic or Latino": "Hispanic",
+              "Southeast Asian": [
+                "Southeast Asian",
+                "Asian"
+              ],
+              "South Asian": [
+                "South Asian",
+                "Asian"
+              ],
+              "Native Hawaiian or Other Pacific Islander": [
+                "Native Hawaiian",
+                "Pacific Islander"
+              ],
+              "American Indian or Alaska Native": [
+                "American Indian",
+                "Alaskan Native"
+              ],
+              "White": "White",
+              "Two or More Races": "Two or More",
+              "Some Other Race": [
+                "Other",
+                "Decline"
+              ],
+              "Decline to Answer": [
+                "Decline",
+                "Prefer not"
+              ],
+              "": [
+                "Decline"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "veteran",
+      {
+        "actions": [
+          {
+            "path": [
+              "//select[contains(@id, 'veteranStatus') and contains(@name, 'veteranStatus')]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "true": [
+                "Veteran",
+                "I am a ",
+                "I identify ",
+                "Yes"
+              ],
+              "false": [
+                "Not a ",
+                "I am not a ",
+                "I don't ",
+                "No",
+                "Prefer not"
+              ],
+              "": [
+                "Decline",
+                "I am not a ",
+                "I don't ",
+                "No",
+                "Prefer not"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "disability",
+      {}
+    ],
+    [
+      "sexualOrientation",
+      {}
+    ],
+    [
+      "linkedin",
+      []
+    ],
+    [
+      "github",
+      []
+    ],
+    [
+      "twitter",
+      []
+    ],
+    [
+      "behance",
+      []
+    ],
+    [
+      "answerSource",
+      [
+        {
+          "actions": [
+            {
+              "path": [
+                ".//label[contains(normalize-space(.),'hear about')]/ancestor::div[1]//select"
+              ],
+              "method": "click",
+              "options": {
+                "unmarkFilledStatusIfSomeFails": true
+              }
+            },
+            {
+              "path": [
+                ".//label[contains(normalize-space(.),'hear about')]/ancestor::div[1]//select"
+              ],
+              "method": "clickOptionWithMultiAnswers",
+              "values": {
+                "source": [
+                  "Google",
+                  "Other"
+                ]
+              },
+              "options": {
+                "lowPriority": [
+                  "Indeed",
+                  "ZipRecruiter",
+                  "LinkedIn",
+                  "Glassdoor",
+                  "Simplyhired",
+                  "Dice",
+                  "CareerBuilder",
+                  "Monster"
+                ],
+                "prohibited": [
+                  "referral",
+                  "referred",
+                  "connection",
+                  "at the company",
+                  "for the organization",
+                  "employee",
+                  "select",
+                  "current worker"
+                ],
+                "ignoreFirst": true,
+                "selectFirstExcludingProhibited": true
+              }
+            }
+          ]
+        }
+      ],
+      {
+        "keywords": [
+          "hear about"
+        ]
+      }
+    ],
+    [
+      "countryName",
+      []
+    ],
+    [
+      "phoneFormatted",
+      {
+        "actions": [
+          {
+            "path": [
+              "//input[@type='tel' and @id = //label[CONTAINS_TEXT('xxx-xxx-xxxx')]/@for]"
+            ],
+            "method": "setValueMultiple"
+          }
+        ]
+      }
+    ],
+    [
+      "phoneStripped",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//input[@autocomplete='tel']"
+            ],
+            "method": "setValueMultiple"
+          }
+        ]
+      }
+    ],
+    [
+      "phoneCode",
+      []
+    ],
+    [
+      "phoneAreaCode",
+      [
+        "(//input[contains(@id, 'jv-field-phone') and @type='text'])[count(//input[contains(@id, 'jv-field-phone') and @type='text']) = 3][1]"
+      ]
+    ],
+    [
+      "phonePrefix",
+      [
+        "(//input[contains(@id, 'jv-field-phone') and @type='text'])[count(//input[contains(@id, 'jv-field-phone') and @type='text']) = 3][2]"
+      ]
+    ],
+    [
+      "phoneLineNumber",
+      [
+        "(//input[contains(@id, 'jv-field-phone') and @type='text'])[count(//input[contains(@id, 'jv-field-phone') and @type='text']) = 3][3]"
+      ]
+    ],
+    [
+      "deviceType",
+      {}
+    ],
+    [
+      "certification",
+      {
+        "addButtonPath": [
+          ""
+        ],
+        "confirmAddedPath": [
+          ""
+        ],
+        "containerPath": [
+          "//div[@class='jv-form jv-apply-form' and .//label[contains(text(), 'Credential')]]"
+        ],
+        "entities": [
+          [
+            "name",
+            {
+              "actions": [
+                {
+                  "path": [
+                    "(.//label[contains(normalize-space(), 'Credential Other')]/following-sibling::div//input)[__indexPlusOne__]"
+                  ],
+                  "method": "setValue"
+                }
+              ]
+            }
+          ],
+          [
+            "issueDate",
+            {
+              "actions": [
+                {
+                  "path": [
+                    "(.//label[contains(normalize-space(), 'Credential Date')]/following-sibling::div//input)[__indexPlusOne__]"
+                  ],
+                  "method": "setDateInput",
+                  "format": "MM/yyyy",
+                  "fullDate": {
+                    "path": [
+                      "(.//label[contains(normalize-space(), 'Credential Date')]/following-sibling::div//input)[__indexPlusOne__]"
+                    ],
+                    "format": "yyyy-MM-dd"
+                  }
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ],
+    [
+      "skill",
+      {}
+    ],
+    [
+      "lgbt",
+      {}
+    ],
+    [
+      "armedForces",
+      {}
+    ],
+    [
+      "currentDate.dateString",
+      [
+        {
+          "actions": [
+            {
+              "method": "setDateInput",
+              "format": "MM/dd/yyyy",
+              "multiple": true,
+              "fullDate": {
+                "path": [
+                  "//input[@id = //label[CONTAINS_TEXT('agreement') and CONTAINS_TEXT('date')]/@for]",
+                  "//input[@id = //label[normalize-space(translate(., '*', '')) = 'Date']/@for]"
+                ],
+                "format": "yyyy-MM-dd"
+              }
+            }
+          ]
+        }
+      ]
+    ],
+    [
+      "currentDateDashes",
+      {
+        "actions": [
+          {
+            "path": [
+              "//input[contains(@name, 'input-date') and @type='date' and @id = //label[starts-with(normalize-space(text()), 'Today') or starts-with(normalize-space(text()), 'Date')]/@for]",
+              "//input[@id = //label[CONTAINS_TEXT('signature') and CONTAINS_TEXT('date') and @for]/@for]"
+            ],
+            "method": "setValueMultiple",
+            "options": {
+              "isRepeatedAcrossSteps": true
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "highestEducation.name",
+      [
+        {
+          "actions": [
+            {
+              "path": [
+                "//select[@id = //label[(CONTAINS_TEXT('university') or CONTAINS_TEXT('college') or CONTAINS_TEXT('school') or CONTAINS_TEXT('institution'))]/@for and not(self::input[@type='text'])]"
+              ],
+              "method": "clickOption",
+              "options": {
+                "fallbackToOptionIndex": 2
+              }
+            }
+          ]
+        }
+      ]
+    ],
+    [
+      "highestEducation.degreeDisplay",
+      [
+        {
+          "actions": [
+            {
+              "path": [
+                "//input[@type='text' and @id = //label[CONTAINS_TEXT('degree')]/@for]"
+              ],
+              "method": "setValue"
+            }
+          ]
+        }
+      ]
+    ],
+    [
+      "workStartDateAvailabilityString",
+      [
+        {
+          "actions": [
+            {
+              "method": "setDateInput",
+              "format": "MM/dd/yyyy",
+              "fullDate": {
+                "path": [
+                  "//input[@id = //label[(CONTAINS_TEXT('date') and CONTAINS_TEXT('start') and not(CONTAINS_TEXT('employment'))) or (CONTAINS_TEXT('available') and CONTAINS_TEXT('begin') and not(CONTAINS_TEXT('employment')))]/@for]"
+                ],
+                "format": "yyyy-MM-dd"
+              }
+            }
+          ]
+        }
+      ]
+    ],
+    [
+      "minYearlySalaryDesired",
+      [
+        {
+          "actions": [
+            {
+              "path": [
+                "//input[@id = //label[CONTAINS_TEXT('desired') and CONTAINS_TEXT('salary')]/@for]",
+                "//div[@id = //label[CONTAINS_TEXT('expected') and CONTAINS_TEXT('salary')]/@for]//input",
+                "//input[@id=//label[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'salary')]/@for]"
+              ],
+              "method": "setValue"
+            }
+          ]
+        }
+      ]
+    ],
+    [
+      "workStartDateFormatted.startDateDashes_YYYYMMDD",
+      [
+        {
+          "actions": [
+            {
+              "path": [
+                "//input[@type='date' and @id = //label[CONTAINS_TEXT('availab') and CONTAINS_TEXT('start')]/@for]"
+              ],
+              "method": "setValue"
+            }
+          ]
+        }
+      ]
+    ],
+    [
+      "privacyAgreement",
+      {}
+    ],
+    [
+      "cityLocated",
+      []
+    ],
+    [
+      "phoneType",
+      {}
+    ],
+    [
+      "addressType",
+      {}
+    ],
+    [
+      "county",
+      {}
+    ],
+    [
+      "language",
+      {
+        "actions": [
+          {
+            "path": [
+              "//select[@id='jv-country-select' and @ng-required='true']"
+            ],
+            "method": "click"
+          },
+          {
+            "path": [
+              "//select[@id='jv-country-select']"
+            ],
+            "method": "clickOption",
+            "values": {
+              "English": [
+                "English"
+              ]
+            },
+            "options": {
+              "fallbackOption": "Other"
+            }
+          }
+        ]
+      }
+    ]
+  ],
+  "confirmSubmittedForm": {
+    "confirmMessageXPath": [
+      ".//body[contains(@class, 'jv-page-applyconfirm')]//h2[contains(@class, 'jv-page-message-header')]",
+      ".//body[contains(@class, 'jv-page-applyduplicate')]//p[contains(@class, 'jv-page-error-header')]"
+    ]
+  },
+  "signIn": {
+    "urls": [],
+    "submitButton": [],
+    "createAccount": [],
+    "forgotPassword": [],
+    "email": [],
+    "password": [],
+    "errorMessage": [],
+    "endpoint": "",
+    "verifyPassword": []
+  },
+  "signUp": {
+    "errorMessage": [],
+    "submitButton": [],
+    "email": [],
+    "password": [],
+    "verifyPassword": [],
+    "endpoint": "",
+    "saveStrategy": "",
+    "urls": [],
+    "userName": []
+  }
+}

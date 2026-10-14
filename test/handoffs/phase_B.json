@@ -1,0 +1,144 @@
+{
+  "phase": "B",
+  "security_findings": [
+    {
+      "id": "SEC-001",
+      "category": "hardcoded-credential",
+      "severity": "high",
+      "file": "test/test_keys.ts",
+      "line": 1,
+      "description": "A live OpenRouter API key (sk-or-v1-18e47...) is hardcoded in a test file committed to the repository. This is a real credential that could be abused for unauthorized API usage and financial cost.",
+      "exploit_scenario": "An attacker or unauthorized contributor reads the test file, extracts the key, and uses it to make API calls against the OpenRouter account, incurring charges or accessing LLM capabilities tied to the account.",
+      "fix": "Remove the key from the file immediately, rotate the compromised key in the OpenRouter dashboard, and replace with environment variable injection (e.g., process.env.OPENROUTER_API_KEY) for test runs."
+    },
+    {
+      "id": "SEC-002",
+      "category": "smtp-header-injection",
+      "severity": "high",
+      "file": "packages/email-monitor/src/smtp-sender.ts",
+      "line": 35,
+      "description": "The SmtpSender.send() method passes reply.toEmail directly to nodemailer's sendMail({ to: ... }) without any sanitization or validation. The toEmail originates from recruiterEmailAddress (user-supplied or email parser output). An attacker-controlled email address containing CRLF sequences could inject additional SMTP headers (Bcc, Cc, etc.) or modify the message body.",
+      "exploit_scenario": "A malicious recruiter email address such as 'attacker@evil.com\\nBcc: victim@company.com' could cause nodemailer to add an unauthorized Bcc recipient, enabling the attacker to intercept copies of all automated replies or perform mail bombing.",
+      "fix": "Validate reply.toEmail with a strict email regex (e.g., /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/) and reject addresses containing newlines, commas, or spaces. Alternatively, use a dedicated email-address parsing library that handles RFC 5322 safely."
+    },
+    {
+      "id": "SEC-003",
+      "category": "rate-governor-timezone-mismatch",
+      "severity": "medium",
+      "file": "packages/applier/src/rate-governor.ts",
+      "line": 36,
+      "description": "The daily reset check uses `new Date().toDateString()` which returns the local system timezone date, but the hour-of-operation check manually computes IST offset. If the user's machine timezone is not IST, the daily reset boundary will be misaligned — e.g., at 11 PM IST the local toDateString may already show 'tomorrow', causing premature reset and allowing a full extra day's quota.",
+      "exploit_scenario": "A user in US Eastern timezone (UTC-5) sets their machine clock to local time. At 11 PM IST (10:30 AM EST), toDateString returns the EST date which is the same day, but at midnight EST (11:30 AM IST next day) the date flips early, resetting the rate governor before the actual IST day ends. This allows exceeding daily limits.",
+      "fix": "Compute todayStr using the same IST offset used for hour checks: `const istTime = new Date(Date.now() + 5.5*60*60*1000); const todayStr = istTime.toISOString().slice(0,10);` to ensure consistent timezone handling."
+    },
+    {
+      "id": "SEC-004",
+      "category": "rate-governor-in-memory-desync",
+      "severity": "medium",
+      "file": "packages/applier/src/rate-governor.ts",
+      "line": 10,
+      "description": "The `limits` Map is initialized with hardcoded `appliedToday: 0` values and is never synced from the persisted state. The `canApply()` method reads from `state.platformApplies` (persisted) but the `limits` Map is only used for `dailyLimit` lookups. If `recordSuccess` is called, it updates the persisted state but never updates the in-memory `limits` Map. This is currently benign because canApply reads from persisted state, but the `limits` Map is dead code that could mislead future developers into trusting it.",
+      "exploit_scenario": "A future refactor that reads `platformLimit.appliedToday` from the in-memory Map instead of the persisted state would allow unlimited bypass of daily limits since the in-memory counter is never incremented by recordSuccess.",
+      "fix": "Remove the `appliedToday` field from the in-memory `limits` Map entirely, or add a comment marking it as config-only. Ensure all rate-limiting logic reads exclusively from the persisted state."
+    },
+    {
+      "id": "SEC-005",
+      "category": "xss-unsanitized-innerhtml",
+      "severity": "medium",
+      "file": "packages/extension/src/lib/side-panel.ts",
+      "line": 395,
+      "description": "In setMissingFields(), the field label is inserted via textContent (safe), but the field's `field.fieldKey` is also used in the label span. However, the `setAwaitingOtp` method at line ~418 uses innerHTML with a template literal: `otpPrompt.innerHTML = \\`Enter the OTP in ${fieldCount} field(s)...\\``. While fieldCount is currently a number (safe), if the type is widened or the value is ever user-controlled, this becomes an XSS vector. Additionally, `setCareerInsights` sets `visaReason.textContent` from `data.visa.reason` which comes from LLM output — textContent is safe but the data flows from an untrusted source without validation.",
+      "exploit_scenario": "If fieldCount is ever passed as a string containing HTML (e.g., from a future refactor), it would be rendered as HTML inside the shadow DOM, executing script in the extension's isolated context. While shadow DOM provides some isolation, this could still exfiltrate data from the panel.",
+      "fix": "Replace innerHTML with textContent for the otpPrompt assignment. Add type enforcement (number) for fieldCount parameter. Validate/sanitize LLM-generated strings before insertion."
+    },
+    {
+      "id": "SEC-006",
+      "category": "credential-logging-risk",
+      "severity": "medium",
+      "file": "packages/extension/src/lib/login-agent.ts",
+      "line": 82,
+      "description": "The autofillLogin function logs `cred.email` to diagnostics: `diagLog('autopilot', 'login-filled', { data: { hostname: cred.hostname, email: cred.email } })`. While passwords are not logged, the email address is PII that gets persisted in chrome.storage.local as part of the diagnostics ring buffer. This could be exposed via the Diagnostics export or visible to anyone with access to the extension's storage.",
+      "exploit_scenario": "A user exports diagnostics for troubleshooting and shares the JSON file. The file contains all email addresses used for logins across sites, revealing the user's account footprint and potentially enabling targeted phishing.",
+      "fix": "Hash or truncate email addresses before logging to diagnostics (e.g., `email.slice(0, 3) + '***' + email.slice(email.indexOf('@'))`)."
+    },
+    {
+      "id": "SEC-007",
+      "category": "content-script-host-permissions",
+      "severity": "high",
+      "file": "packages/extension/wxt.config.ts",
+      "line": 13,
+      "description": "The extension requests `<all_urls>` host permissions, allowing the content script to be injected into every website including banking, email, and government portals. Combined with the content script's ability to read and fill any form field, this creates a broad attack surface where any compromise of the extension (e.g., via a malicious update or XSS in the panel) could harvest credentials from any site.",
+      "exploit_scenario": "If the extension is compromised (supply chain attack or malicious update), it can read passwords and OTPs from any website the user visits, including banking, Aadhaar/PAN portals, and email services, since the content script has unrestricted DOM access on all pages.",
+      "fix": "Restrict host_permissions to specific job board domains (e.g., `https://www.linkedin.com/*`, `https://www.naukri.com/*`) or use optional_permissions with user consent for site-specific access. Implement a site allowlist in the content script as defense-in-depth."
+    },
+    {
+      "id": "SEC-008",
+      "category": "smtp-reply-subject-injection",
+      "severity": "low",
+      "file": "packages/email-monitor/src/reply-agent.ts",
+      "line": 58,
+      "description": "The reply subject is constructed as `Re: ${originalSubject}` where originalSubject comes from the recruiter's email subject line. If the subject contains newline characters, this could lead to SMTP header injection when passed to nodemailer's subject field. Nodemailer has some built-in protection but it is not guaranteed.",
+      "exploit_scenario": "A recruiter sends an email with subject 'Job Offer\\nBcc: attacker@evil.com'. The reply subject becomes 'Re: Job Offer\\nBcc: attacker@evil.com', potentially adding a Bcc header to the outgoing email.",
+      "fix": "Sanitize originalSubject by replacing all newline characters with spaces before constructing the reply subject: `originalSubject.replace(/[\\r\\n]/g, ' ')`."
+    },
+    {
+      "id": "SEC-009",
+      "category": "field-policy-sensitive-data-caching",
+      "severity": "low",
+      "file": "packages/core/src/field-policy.ts",
+      "line": 130,
+      "description": "The shouldNeverCacheQuestion() function correctly prevents caching of credential, sensitive-id, EEO, and assessment fields. However, the decideFieldPolicy() function allows `allowSensitiveDefaults` to be set in autonomous mode, which would fill sensitive fields (PAN, Aadhaar) from the profile without user confirmation. If the profile data is stale or incorrect, this could submit wrong identity numbers to employers.",
+      "exploit_scenario": "In autonomous mode, a user's outdated PAN number is auto-submitted to a job application without review, potentially causing application rejection or legal issues if the PAN is incorrect or belongs to a different person due to profile corruption.",
+      "fix": "Remove the `allowSensitiveDefaults` option entirely for PAN/Aadhaar fields, or add a separate `allowIdAutofill` flag that defaults to false. Always require explicit user confirmation for government ID fields."
+    },
+    {
+      "id": "SEC-010",
+      "category": "diagnostics-data-leakage",
+      "severity": "low",
+      "file": "packages/extension/src/lib/diagnostics.ts",
+      "line": 42,
+      "description": "The diagLog function captures `location.href` (up to 200 chars) with every diagnostic entry. URLs may contain sensitive query parameters (tokens, session IDs, PII in job application URLs). The diagnostics are stored in chrome.storage.local and can be exported as JSON by any code running in the extension context.",
+      "exploit_scenario": "A job application URL contains `?token=abc123&email=user@example.com`. This URL is logged with every autofill event. When diagnostics are exported for debugging, the tokens and PII are exposed in plain text.",
+      "fix": "Strip query parameters from URLs before logging, keeping only the origin and pathname: `new URL(location.href).origin + new URL(location.href).pathname`."
+    }
+  ],
+  "permission_audit": [
+    {
+      "permission": "storage",
+      "used": true,
+      "where": "packages/extension/src/lib/credential-store.ts, packages/extension/src/lib/diagnostics.ts, packages/extension/src/lib/store.ts, packages/applier/src/rate-governor.ts",
+      "store_risk": "Stores encrypted credentials, diagnostics with PII (emails, URLs), and rate governor state. Data is local-only (chrome.storage.local) but accessible to all extension pages. Risk: medium — no encryption at rest for non-credential data."
+    },
+    {
+      "permission": "activeTab",
+      "used": true,
+      "where": "packages/extension/src/entrypoints/background.ts (tab message sending)",
+      "store_risk": "Used to send messages to the active tab's content script. Minimal risk — does not expose tab content to the background."
+    },
+    {
+      "permission": "scripting",
+      "used": true,
+      "where": "Implicit via content_scripts in manifest; scripting.executeScript could be used for dynamic injection",
+      "store_risk": "High — allows executing arbitrary scripts in any tab. Combined with <all_urls>, this enables full page control. Risk is mitigated by CSP and shadow DOM isolation but the permission surface is broad."
+    },
+    {
+      "permission": "contextMenus",
+      "used": true,
+      "where": "packages/extension/src/entrypoints/background.ts (context menu creation and click handler)",
+      "store_risk": "Low — only creates a single menu item. No data stored or transmitted via this permission."
+    },
+    {
+      "permission": "alarms",
+      "used": true,
+      "where": "packages/extension/src/entrypoints/background.ts (keepalive alarm every 24 seconds)",
+      "store_risk": "Low — used only to prevent MV3 service worker termination. No sensitive data involved."
+    },
+    {
+      "permission": "job board domains (host)",
+      "used": true,
+      "where": "packages/extension/wxt.config.ts manifest.host_permissions",
+      "store_risk": "Low — restricted to specific job board and ATS domains (LinkedIn, Naukri, Greenhouse, Lever, etc.). No injection on banking or email portals."
+    }
+  ],
+  "critical_blockers": []
+}

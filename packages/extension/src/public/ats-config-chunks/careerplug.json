@@ -1,0 +1,805 @@
+{
+  "atsName": "careerplug",
+  "urls": [
+    "*://*.careerplug.com/jobs/*",
+    "*://*.careerplug.com/jobs/*/apps/*",
+    "*://*.careerplug.com/apps/*/forms/*",
+    "*://*.careerplug.com/jobs/*/apps/new",
+    "*://*.careerplug.com/jobs/apps/*/forms"
+  ],
+  "urlsExclude": [],
+  "questionsInSubmitPage": true,
+  "submitButtonPaths": [
+    ".//input[@type='submit']",
+    ".//input[@type='button' and translate(@value, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz') = 'submit']"
+  ],
+  "nextStepButtonPaths": [],
+  "nextStepDynamicLoad": false,
+  "formLoadingXPaths": [],
+  "validationCheckFormValidity": false,
+  "errorBannerXPaths": [],
+  "validationErrorXPaths": [],
+  "validationErrorPersistent": false,
+  "checkErrorsAfterSubmit": true,
+  "confirmSubmittedForm": {
+    "confirmMessageXPath": [
+      ".//div[@class='thank-you-message']",
+      ".//div[@class='content' and contains(translate(normalize-space(.), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'thank you')]"
+    ],
+    "urls": []
+  },
+  "questionValidationErrorSelectors": [
+    ".has-error"
+  ],
+  "validateUsingQuestionErrorSelectors": true,
+  "targetNodeXPath": [
+    ".//div[@id='apply-now-form']//form",
+    ".//form[@id='new_completed_form']",
+    ".//div[@class='thank-you-message']",
+    ".//div[@class='content' and contains(translate(normalize-space(.), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'thank you')]"
+  ],
+  "targetFrameNodeXPath": [],
+  "canJobBeAppliedXPaths": {
+    "applyButton": [],
+    "submitButton": "",
+    "email": [],
+    "next": []
+  },
+  "customQuestions": {
+    "patterns": {
+      "questionId": "",
+      "innerSelectors": [],
+      "selectInputTagName": "",
+      "selectInputAttrName": "",
+      "selectInputAttrValue": "",
+      "radioGroupMatchQuerySelector": "",
+      "fieldsetMatchQuerySelector": ".form-wrapper",
+      "maxLabelLevel": "",
+      "radioGroupAttrName": "",
+      "radioGroupAttrValue": "",
+      "listboxTagName": ""
+    },
+    "selectors": {
+      "question": ".form-wrapper",
+      "questionParent": ".form-group:not(.hidden):not(.collapse):not(.attach-link):not(#app_referred_input):not(#app_referred_by_input):not(:has(fieldset#employee_referral, #cover_letter, .resume-area))",
+      "title": "h1",
+      "subTitle": ".header > .job-info",
+      "label": "label",
+      "legend": "legend",
+      "roleOption": "[role='option']",
+      "radioInput": "input[type='radio']",
+      "monthInput": "input[aria-valuetext='MM'], input[type='month']",
+      "dateInput": "input[aria-valuetext='DD']",
+      "yearInput": "input[aria-valuetext='YYYY']",
+      "checkbox": "input[type='checkbox']",
+      "optionsSelector": "label.choice, label.radio-inline"
+    },
+    "xpaths": {
+      "currentListItem": [],
+      "listInputBackBtnText": [],
+      "selectPopupXPath": [],
+      "listBoxPopupXPath": [],
+      "selectedItemListXPath": [],
+      "requiredFieldXPath": [
+        ".//span[@title='required' and text()='*']/parent::label",
+        ".//label[contains(@class, 'control-label')]"
+      ],
+      "targetNodeXPath": []
+    },
+    "ignoreQuestions": [],
+    "ignoreContainerQuestions": []
+  },
+  "jobXPaths": {
+    "entities": [
+      [
+        "titleDisplay",
+        [
+          ".//h1[@class='headline']"
+        ]
+      ],
+      [
+        "originalCompanyName",
+        [
+          "//span[contains(@class, 'brand-logo')]/a/img/@alt"
+        ]
+      ],
+      [
+        "jobTypes",
+        []
+      ],
+      [
+        "postingDate",
+        []
+      ],
+      [
+        "url",
+        []
+      ],
+      [
+        "desc",
+        []
+      ],
+      [
+        "locationDisplay",
+        []
+      ],
+      [
+        "location",
+        []
+      ]
+    ]
+  },
+  "preApply": {
+    "urls": [],
+    "entities": [
+      [
+        "consent",
+        {}
+      ],
+      [
+        "phoneStrippedCountryCode",
+        {}
+      ],
+      [
+        "continueButton",
+        {}
+      ],
+      [
+        "chooseVerificationMethod",
+        {}
+      ],
+      [
+        "sendButton",
+        {}
+      ]
+    ],
+    "urlsExclude": []
+  },
+  "entities": [
+    [
+      "answerSource",
+      []
+    ],
+    [
+      "applyBtn",
+      {}
+    ],
+    [
+      "firstName",
+      [
+        ".//input[@id='app_applicant_attributes_firstname' or @name='app[applicant_attributes][firstname]']"
+      ]
+    ],
+    [
+      "lastName",
+      [
+        ".//input[@id='app_applicant_attributes_lastname' or @name='app[applicant_attributes][lastname]']"
+      ]
+    ],
+    [
+      "preferredFirstName",
+      []
+    ],
+    [
+      "legalFirstName",
+      []
+    ],
+    [
+      "legalLastName",
+      []
+    ],
+    [
+      "fullName",
+      []
+    ],
+    [
+      "email",
+      [
+        ".//input[@id='app_applicant_attributes_email' or @name='app[applicant_attributes][email]']"
+      ]
+    ],
+    [
+      "phone",
+      [
+        ".//input[@id='app_applicant_attributes_phone' or @name='app[applicant_attributes][phone]']"
+      ]
+    ],
+    [
+      "agreement",
+      {
+        "actions": [
+          {
+            "path": [
+              "//input[@type='checkbox' and (@id='app_user_phone_number_attributes_applicant_agrees_sms' or @name='app[user_phone_number_attributes][applicant_agrees_sms]')]"
+            ],
+            "method": "click"
+          }
+        ]
+      }
+    ],
+    [
+      "addressLine1",
+      [
+        ".//input[@id='app_applicant_attributes_address' or @name='app[applicant_attributes][address]']"
+      ]
+    ],
+    [
+      "city",
+      [
+        ".//input[@id='app_applicant_attributes_city' or @name='app[applicant_attributes][city]']"
+      ]
+    ],
+    [
+      "state",
+      []
+    ],
+    [
+      "stateName",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//select[@id='app_applicant_attributes_state' or @name='app[applicant_attributes][state]']"
+            ],
+            "method": "clickOption"
+          }
+        ]
+      }
+    ],
+    [
+      "postalCode",
+      [
+        ".//input[@id='app_applicant_attributes_zip' or @name='app[applicant_attributes][zip]']"
+      ]
+    ],
+    [
+      "cityStateName",
+      []
+    ],
+    [
+      "country",
+      []
+    ],
+    [
+      "resume",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//input[@id='app_has_attachments_attributes_0_attachment' or @name='app[has_attachments_attributes][0][attachment]']",
+              ".//fieldset[contains(@class, 'resume-area')]//input[@type='file' and contains(@accept, '.pdf')]"
+            ],
+            "method": "uploadResume",
+            "options": {
+              "processOnErrorPersistent": true
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "over18",
+      []
+    ],
+    [
+      "minYearlySalaryDesired",
+      []
+    ],
+    [
+      "workStartDateAvailabilityString",
+      []
+    ],
+    [
+      "recentExperience.companyName",
+      [
+        ".//input[@id='app_applicant_attributes_recent_employer' or @name='app[applicant_attributes][app_applicant_attributes_recent_employer]']"
+      ]
+    ],
+    [
+      "recentExperience.title",
+      [
+        ".//input[@id='app_applicant_attributes_recent_title' or @name='app[applicant_attributes][recent_title]']"
+      ]
+    ],
+    [
+      "experience",
+      {
+        "addButtonPath": [
+          ""
+        ],
+        "confirmAddedPath": [
+          ""
+        ],
+        "containerPath": [
+          ""
+        ],
+        "entities": [
+          [
+            "companyName",
+            []
+          ],
+          [
+            "city",
+            []
+          ],
+          [
+            "state",
+            []
+          ],
+          [
+            "title",
+            []
+          ],
+          [
+            "cityState",
+            []
+          ],
+          [
+            "isCurrent",
+            []
+          ],
+          [
+            "startDate",
+            []
+          ],
+          [
+            "endDate",
+            []
+          ],
+          [
+            "description",
+            []
+          ]
+        ]
+      }
+    ],
+    [
+      "weekdaysAvailability",
+      {}
+    ],
+    [
+      "weekendsAvailability",
+      []
+    ],
+    [
+      "openSchedule",
+      {}
+    ],
+    [
+      "flexibleSchedule",
+      {}
+    ],
+    [
+      "dayShift",
+      {}
+    ],
+    [
+      "nightShift",
+      {}
+    ],
+    [
+      "swingShift",
+      {}
+    ],
+    [
+      "overnightShift",
+      {}
+    ],
+    [
+      "anyShift",
+      {}
+    ],
+    [
+      "highestEducationLevel",
+      []
+    ],
+    [
+      "education",
+      {
+        "addButtonPath": [],
+        "confirmAddedPath": [],
+        "containerPath": [],
+        "entities": [
+          [
+            "name",
+            []
+          ],
+          [
+            "degree",
+            []
+          ],
+          [
+            "major",
+            []
+          ],
+          [
+            "startDateMonth_MM",
+            []
+          ],
+          [
+            "endDateMonth_MM",
+            []
+          ],
+          [
+            "startDateMonthText",
+            []
+          ],
+          [
+            "endDateMonthText",
+            []
+          ],
+          [
+            "startDateYear",
+            []
+          ],
+          [
+            "endDateYear",
+            []
+          ],
+          [
+            "city",
+            []
+          ],
+          [
+            "state",
+            []
+          ]
+        ]
+      }
+    ],
+    [
+      "workAuth",
+      []
+    ],
+    [
+      "agreement",
+      {}
+    ],
+    [
+      "sponsorship",
+      {}
+    ],
+    [
+      "lift50PoundsWeightAbility",
+      {}
+    ],
+    [
+      "gender",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//select[@id='app_eeoc_gender' or @name='app[eeoc_gender]']"
+            ],
+            "method": "clickOption",
+            "values": {
+              "Male": [
+                "Male",
+                "Man"
+              ],
+              "Female": [
+                "Female",
+                "Woman"
+              ],
+              "I do not want to answer": [
+                "Decline",
+                "I don't wish",
+                "Prefer not"
+              ],
+              "": [
+                "Decline",
+                "I don't wish",
+                "Prefer not"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "hispanicLatino",
+      {}
+    ],
+    [
+      "genderPronouns",
+      {}
+    ],
+    [
+      "transgender",
+      {}
+    ],
+    [
+      "race",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//select[@id='app_eeoc_race' or @name='app[eeoc_race]']"
+            ],
+            "method": "clickOption",
+            "values": {
+              "Black or African American": [
+                "Black",
+                "African"
+              ],
+              "East Asian": [
+                "East Asian",
+                "Asian"
+              ],
+              "Hispanic or Latino": "Hispanic",
+              "Southeast Asian": [
+                "Southeast Asian",
+                "Asian"
+              ],
+              "South Asian": [
+                "South Asian",
+                "Asian"
+              ],
+              "Native Hawaiian or Other Pacific Islander": [
+                "Native Hawaiian",
+                "Pacific Islander"
+              ],
+              "American Indian or Alaska Native": [
+                "American Indian",
+                "Alaskan Native"
+              ],
+              "White": "White",
+              "Two or More Races": "Two or More",
+              "Some Other Race": [
+                "Other",
+                "Decline"
+              ],
+              "Decline to Answer": [
+                "Decline",
+                "Prefer not"
+              ],
+              "": [
+                "Decline"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "veteran",
+      {}
+    ],
+    [
+      "disability",
+      {}
+    ],
+    [
+      "sexualOrientation",
+      {}
+    ],
+    [
+      "linkedin",
+      []
+    ],
+    [
+      "github",
+      []
+    ],
+    [
+      "twitter",
+      []
+    ],
+    [
+      "behance",
+      []
+    ],
+    [
+      "countryName",
+      []
+    ],
+    [
+      "phoneStripped",
+      []
+    ],
+    [
+      "phoneCode",
+      []
+    ],
+    [
+      "deviceType",
+      {}
+    ],
+    [
+      "certification",
+      {
+        "addButtonPath": [],
+        "confirmAddedPath": [],
+        "containerPath": [],
+        "entities": [
+          [
+            "name",
+            []
+          ],
+          [
+            "issueDateSlashes_MMDDYYYY",
+            []
+          ]
+        ]
+      }
+    ],
+    [
+      "skill",
+      {
+        "containerPath": [],
+        "entities": [
+          [
+            "name",
+            []
+          ]
+        ],
+        "options": {
+          "clickOutsideAtEnd": false
+        }
+      }
+    ],
+    [
+      "lgbt",
+      {}
+    ],
+    [
+      "armedForces",
+      {}
+    ],
+    [
+      "currentDate.dateString",
+      {}
+    ],
+    [
+      "currentDateDashes",
+      {}
+    ],
+    [
+      "language",
+      {}
+    ],
+    [
+      "privacyAgreement",
+      {}
+    ],
+    [
+      "middleName",
+      {}
+    ],
+    [
+      "street",
+      []
+    ],
+    [
+      "cityLocated",
+      []
+    ],
+    [
+      "phoneType",
+      {}
+    ],
+    [
+      "phoneFormatted",
+      []
+    ],
+    [
+      "homePhoneFormatted",
+      []
+    ],
+    [
+      "referral",
+      {}
+    ],
+    [
+      "applyDate",
+      {}
+    ],
+    [
+      "birthMonth",
+      {}
+    ],
+    [
+      "birthDay",
+      {}
+    ],
+    [
+      "birthYear",
+      {}
+    ],
+    [
+      "addressType",
+      {}
+    ],
+    [
+      "startMonthAvailabilityString",
+      {}
+    ],
+    [
+      "startDayAvailabilityString",
+      {}
+    ],
+    [
+      "startYearAvailabilityString",
+      []
+    ],
+    [
+      "county",
+      {}
+    ],
+    [
+      "nameInitials",
+      []
+    ],
+    [
+      "addressLine2",
+      []
+    ],
+    [
+      "highestEducation.name",
+      []
+    ],
+    [
+      "highestEducation.degreeDisplay",
+      []
+    ],
+    [
+      "workStartDateAvailability",
+      []
+    ],
+    [
+      "currencyType",
+      {}
+    ],
+    [
+      "willingToWorkHolidays",
+      {}
+    ],
+    [
+      "employmentInvoluntarilyTerminated",
+      {}
+    ],
+    [
+      "startMonthNameAvailabilityString",
+      {}
+    ],
+    [
+      "cityState",
+      {}
+    ]
+  ],
+  "globalOptions": {
+    "waitForAllRequestsBeforeFillingStep": false
+  },
+  "signIn": {
+    "urls": [],
+    "formPath": [],
+    "submitButton": [],
+    "toSignInButton": [],
+    "createAccount": [],
+    "forgotPassword": [],
+    "email": [],
+    "password": [],
+    "errorMessage": [],
+    "endpoint": "",
+    "verifyPassword": [],
+    "isInlineForm": false,
+    "isEmailRequired": false,
+    "errorPersistAfterReload": false
+  },
+  "signUp": {
+    "errorMessage": [],
+    "submitButton": [],
+    "formStepPath": [],
+    "email": [],
+    "password": [],
+    "verifyPassword": [],
+    "endpoint": "",
+    "saveStrategy": "",
+    "urls": [],
+    "verifyEmail": [],
+    "userName": []
+  },
+  "nextStepButtonFallbackToParentFrame": false,
+  "attachedContainer": [],
+  "alwaysSyncWindowId": false
+}

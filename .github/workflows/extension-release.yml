@@ -1,0 +1,81 @@
+# SuperJobAgent — Chrome Extension Release Pipeline
+# ─────────────────────────────────────────────────────────────────────────────
+# GAP 6.2 FIX: Automates the WXT build, ASCII fix, verification, ZIP packaging
+# and (optional) Chrome Web Store upload draft on every versioned tag.
+# ─────────────────────────────────────────────────────────────────────────────
+name: Extension Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"           # e.g. v0.2.0, v1.0.0
+  workflow_dispatch:       # Allow manual trigger for testing
+
+jobs:
+  build-extension:
+    name: Build & Package Chrome Extension (MV3)
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: TypeScript typecheck
+        run: npm run typecheck
+
+      - name: Build Chrome MV3 extension
+        run: npm run build:ext
+        env:
+          NODE_ENV: production
+
+      - name: Fix non-ASCII characters (WXT artifact)
+        run: python3 ascii-fix.py
+
+      - name: Verify built scripts
+        run: node scripts/verify-built-scripts.mjs
+
+      - name: Package extension as ZIP
+        run: |
+          cd packages/extension/.output/chrome-mv3
+          zip -r ../../../../SuperJobAgent-${{ github.ref_name }}.zip .
+          cd ../../../../
+          echo "Built: SuperJobAgent-${{ github.ref_name }}.zip"
+
+      - name: Upload extension ZIP as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: SuperJobAgent-chrome-mv3-${{ github.ref_name }}
+          path: SuperJobAgent-${{ github.ref_name }}.zip
+          retention-days: 90
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: SuperJobAgent-${{ github.ref_name }}.zip
+          generate_release_notes: true
+          draft: true  # Review before publishing
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # ── Chrome Web Store Upload (optional — needs CWS secrets) ────────────
+      # Uncomment after setting these secrets in GitHub repo settings:
+      #   CHROME_CLIENT_ID, CHROME_CLIENT_SECRET, CHROME_REFRESH_TOKEN, CHROME_EXTENSION_ID
+      #
+      # - name: Upload to Chrome Web Store (draft)
+      #   uses: mnao305/chrome-extension-upload@v4.0.1
+      #   with:
+      #     file-path: SuperJobAgent-${{ github.ref_name }}.zip
+      #     extension-id: ${{ secrets.CHROME_EXTENSION_ID }}
+      #     client-id: ${{ secrets.CHROME_CLIENT_ID }}
+      #     client-secret: ${{ secrets.CHROME_CLIENT_SECRET }}
+      #     refresh-token: ${{ secrets.CHROME_REFRESH_TOKEN }}
+      #     publish: false  # submit as draft, not auto-publish

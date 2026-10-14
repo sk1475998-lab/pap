@@ -1,0 +1,126 @@
+{
+  "phase": "D",
+  "platform_results": [
+    {
+      "platform": "Sandbox/Greenhouse-style (jsdom)",
+      "protocols_run": [
+        "D-PROTOCOL-1"
+      ],
+      "fields_tested": [
+        {
+          "label": "First Name",
+          "resolved_as": "firstName",
+          "value_written": "Jane",
+          "registered": true
+        },
+        {
+          "label": "Last Name",
+          "resolved_as": "lastName",
+          "value_written": "Doe",
+          "registered": true
+        },
+        {
+          "label": "Email Address",
+          "resolved_as": "email",
+          "value_written": "jane.doe@example.com",
+          "registered": true
+        },
+        {
+          "label": "Phone Number",
+          "resolved_as": "phone",
+          "value_written": "+91-9876543210",
+          "registered": true
+        },
+        {
+          "label": "LinkedIn Profile URL",
+          "resolved_as": "linkedin",
+          "value_written": "https://linkedin.com/in/janedoe",
+          "registered": true
+        },
+        {
+          "label": "Years of Experience",
+          "resolved_as": "yearsOfExperience",
+          "value_written": "5",
+          "registered": true
+        },
+        {
+          "label": "Current CTC (LPA)",
+          "resolved_as": "currentCTC",
+          "value_written": "10",
+          "registered": true
+        },
+        {
+          "label": "Expected CTC (LPA)",
+          "resolved_as": "expectedCTC",
+          "value_written": "15",
+          "registered": true
+        },
+        {
+          "label": "Cover Letter",
+          "resolved_as": "ai",
+          "value_written": "(none)",
+          "registered": false
+        }
+      ],
+      "bugs_found": [],
+      "observations": "jsdom sandbox form: 9 fields detected. 8/9 classified (non-ai). Cover Letter classified as 'ai' (expected — needs LLM). Current/Expected CTC resolved correctly from profile. LinkedIn URL resolved to 'linkedin' fieldKey correctly."
+    },
+    {
+      "platform": "Sandbox/Shadow-DOM (jsdom)",
+      "protocols_run": [
+        "D-PROTOCOL-2"
+      ],
+      "fields_tested": [
+        {
+          "label": "First Name",
+          "resolved_as": "firstName",
+          "value_written": "(dedup test)",
+          "registered": true
+        },
+        {
+          "label": "Email",
+          "resolved_as": "email",
+          "value_written": "(dedup test)",
+          "registered": true
+        },
+        {
+          "label": "Phone",
+          "resolved_as": "phone",
+          "value_written": "(dedup test)",
+          "registered": true
+        }
+      ],
+      "bugs_found": [],
+      "observations": "dedupeFields correctly removed 2 duplicates (5→3 fields). collectDeepRoots() iframe/shadowRoot traversal logic confirmed via static analysis of dom-deep-scan.ts — cross-origin iframes properly wrapped in try/catch."
+    },
+    {
+      "platform": "Naukri (live site)",
+      "protocols_run": [
+        "D-PROTOCOL-3"
+      ],
+      "fields_tested": [],
+      "bugs_found": [],
+      "observations": "UNTESTED — reason: Playwright Chromium cannot be launched in this sandbox environment (missing system-level browser process on Windows PowerShell sandbox). Test requires: (1) npm run postinstall to install Chromium, (2) valid Naukri test account credentials, (3) IMAP config for OTP interception. Manual verification recommended on staging environment."
+    },
+    {
+      "platform": "LinkedIn (live site)",
+      "protocols_run": [
+        "D-PROTOCOL-4"
+      ],
+      "fields_tested": [],
+      "bugs_found": [],
+      "observations": "UNTESTED — reason: Same as Naukri (no Playwright runtime). Additionally, LinkedIn automation requires careful TOS compliance — test account must be used, autoSubmit must remain false (confirmed in settings.ts default). LinkedIn modal classes (.artdeco-modal__content, .jobs-easy-apply-content) identified as brittle selectors in Phase A handoff — platform-specific adapter test recommended when Playwright is available."
+    },
+    {
+      "platform": "OTP Login (live site)",
+      "protocols_run": [
+        "D-PROTOCOL-5"
+      ],
+      "fields_tested": [],
+      "bugs_found": [],
+      "observations": "UNTESTED — reason: Requires active IMAP connection to test email account and live OTP delivery. Code analysis confirmed: OTPInterceptor polls every 3s for up to 90s, uses platform-specific regex patterns (naukri/linkedin/shine/foundit), and has isValidSender() whitelist. Security issue BUG-C9-001 (includes() spoofing) already documented in Phase C."
+    }
+  ],
+  "all_bugs": [],
+  "critical_blockers": []
+}

@@ -1,0 +1,961 @@
+{
+  "atsName": "meta",
+  "urls": [
+    "*://*.metacareers.com/resume/*"
+  ],
+  "detectPageQuestions": true,
+  "submitButtonPaths": [
+    "//button[@id='appSubmitButton']"
+  ],
+  "nextStepButtonPaths": [
+    "//a[div[normalize-space(text())='Next']]"
+  ],
+  "backStepButtonPaths": [
+    "//a[div[normalize-space(text())='Back']]"
+  ],
+  "backStepDiscardButtonPaths": [],
+  "checkForErrorsBeforeNext": true,
+  "validateUsingQuestionErrorSelectors": true,
+  "validationErrorXPaths": [],
+  "pageFailureKeywords": [],
+  "errorBannerXPaths": [],
+  "globalOptions": {
+    "waitForAllRequestsBeforeFillingStep": true
+  },
+  "networkOptions": {
+    "blacklistedUrlParts": [
+      "linkedin",
+      "analytics",
+      "insights",
+      "collect"
+    ]
+  },
+  "confirmSubmittedForm": {
+    "confirmMessageXPath": [],
+    "urls": [],
+    "confirmMessageSelector": ""
+  },
+  "questionValidationErrorSelectors": [
+    "span[class*='x2h8tww']"
+  ],
+  "targetNodeXPath": [
+    ".//main[@id='main']",
+    "(.//div[@id='careersContentContainer']//div[.//ul and .//div]/div)[last()]"
+  ],
+  "expiredJob": [
+    {
+      "container": [
+        ".//p"
+      ],
+      "keywords": [
+        "no longer available",
+        "has been removed"
+      ],
+      "urls": [
+        "*://metacareers.dejobs.org/jobs/*"
+      ]
+    }
+  ],
+  "forceNewJobSearch": true,
+  "canJobBeAppliedXPaths": {
+    "applyButton": []
+  },
+  "formatElements": "",
+  "customQuestions": {
+    "patterns": {
+      "questionId": "",
+      "questionParent": ""
+    },
+    "selectors": {
+      "question": "input[type='text']:not([aria-hidden='true'])",
+      "questionParent": "div[class*='jobLocations']",
+      "subTitle": "h2",
+      "label": "label",
+      "legend": "",
+      "ariaLabelledBy": "",
+      "roleOption": "li[role='option']",
+      "radioInput": "input[type='radio']",
+      "checkbox": "input[type='checkbox']",
+      "mapOption": "li[role='option']",
+      "selectPopup": ""
+    },
+    "xpaths": {
+      "currentListItem": [],
+      "listInputBackBtnText": [],
+      "selectPopupXPath": [],
+      "listBoxPopupXPath": [],
+      "selectedItemListXPath": [],
+      "requiredFieldXPath": []
+    },
+    "ignoreQuestions": [
+      "//input[@placeholder='Concentration']"
+    ]
+  },
+  "jobXPaths": {
+    "entities": [
+      [
+        "titleDisplay",
+        [
+          "(//h2[//span]//span)[1]",
+          "//meta[@property='og:title']/@content"
+        ]
+      ],
+      [
+        "originalCompanyName",
+        [
+          "//h1[contains(@class, 'sr-only')]",
+          "//meta[@property='og:site_name']/@content"
+        ]
+      ],
+      [
+        "jobTypes",
+        [
+          ".//span[@data-ui='job-type']"
+        ]
+      ],
+      [
+        "url",
+        [
+          "//meta[@property='og:url']/@content"
+        ]
+      ],
+      [
+        "desc",
+        [
+          "//div[contains(@class, 'prose') and @tabindex='0']",
+          "//div[contains(@id, 'careersContentContainer')]/div/div[2]"
+        ]
+      ],
+      [
+        "locationDisplay",
+        [
+          "(//h2[//span]//span)[2]"
+        ]
+      ]
+    ]
+  },
+  "preApply": {
+    "urls": [
+      "*://metacareers.dejobs.org/*/job/*",
+      "*://*.metacareers.com/jobs/*"
+    ],
+    "entities": [
+      [
+        "applyButton",
+        {
+          "actions": [
+            {
+              "path": [
+                ".//a[CONTAINS_TEXT('apply now', true)]",
+                ".//a[@role='button' and CONTAINS_TEXT('apply to', true)]"
+              ],
+              "method": "openLinkInSameTab"
+            }
+          ]
+        },
+        {
+          "keywords": [
+            "apply"
+          ]
+        }
+      ]
+    ]
+  },
+  "entities": [
+    [
+      "fullName",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//input[@name='candidateName']"
+            ],
+            "method": "setValue",
+            "options": {
+              "wait": 0
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "full name"
+        ]
+      }
+    ],
+    [
+      "cityStateName",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//div[@id='candidateLocationFBID']//input[@role='combobox']"
+            ],
+            "method": "setValue",
+            "options": {
+              "waitForNetworkAfterInteraction": true,
+              "triggerBlurEvent": false,
+              "triggerKeyDownEvent": true,
+              "triggerFocusEvent": true,
+              "triggerFocusInEvent": true,
+              "wait": 300
+            }
+          },
+          {
+            "path": [
+              "//div[@data-ownerid=//div[@id='candidateLocationFBID']//label[input[@role='combobox']]/@id]//ul"
+            ],
+            "method": "clickOption",
+            "options": {
+              "optionMapper": true,
+              "waitForNetworkBeforeInteraction": true
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "location"
+        ]
+      }
+    ],
+    [
+      "email",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//input[@name='candidateEmail']"
+            ],
+            "method": "setValue",
+            "options": {
+              "wait": 0
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "email"
+        ]
+      }
+    ],
+    [
+      "phone",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//input[@name='candidatePhone']"
+            ],
+            "method": "setValue",
+            "options": {
+              "wait": 0
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "phone"
+        ]
+      }
+    ],
+    [
+      "resume",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//div[h2[CONTAINS_TEXT('resume', true)]]//input[@name='file']"
+            ],
+            "method": "uploadResume"
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "resume"
+        ]
+      }
+    ],
+    [
+      "useParser",
+      {
+        "actions": [
+          {
+            "path": [
+              "(.//div[contains(@class, 'candidateResumeFile')]//input[@type='radio'])[2]"
+            ],
+            "method": "click"
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "add the information myself",
+          "resume"
+        ]
+      }
+    ],
+    [
+      "education",
+      {
+        "addButtonPath": [
+          "//button[contains(., 'Add Another Degree')]"
+        ],
+        "containerPath": [
+          "(.//div[div[contains(@id, 'college')]])[__indexPlusOne__]"
+        ],
+        "confirmAddedPath": [
+          "(.//div[div[contains(@id, 'college')]])[__indexPlusOne__]"
+        ],
+        "entities": [
+          [
+            "name",
+            [
+              ".//div[contains(@id, 'college')]//input"
+            ],
+            {
+              "keywords": [
+                "school"
+              ]
+            }
+          ],
+          [
+            "degree",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//select"
+                  ],
+                  "method": "clickOption",
+                  "values": {
+                    "bachelor's": [
+                      "Bachelors"
+                    ],
+                    "master's": [
+                      "Masters"
+                    ],
+                    "doctorate": [
+                      "PHD"
+                    ]
+                  },
+                  "options": {
+                    "usePrototypeValueSetter": true,
+                    "optionMapper": false
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "degree"
+              ]
+            }
+          ],
+          [
+            "major",
+            {
+              "actions": [
+                {
+                  "path": [
+                    "(.//div[contains(@id, 'concentration')]//input)[1]"
+                  ],
+                  "method": "setValue",
+                  "options": {
+                    "wait": 0
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "concentration"
+              ]
+            }
+          ]
+        ],
+        "options": {
+          "disabledAddButtonCaching": true,
+          "skipDegree": "highschool"
+        }
+      },
+      {
+        "keywords": [
+          "education"
+        ]
+      }
+    ],
+    [
+      "highschool",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//input[@name='highSchoolName']"
+            ],
+            "method": "setValue",
+            "options": {
+              "wait": 0
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "highschool"
+        ]
+      }
+    ],
+    [
+      "isFirstJob",
+      {
+        "actions": [
+          {
+            "path": [
+              "(.//div[contains(@class, 'noWorkExperience')]//input[@type='radio'])[2]"
+            ],
+            "method": "click"
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "your first job"
+        ]
+      }
+    ],
+    [
+      "experience",
+      {
+        "addButtonPath": [
+          "//button[contains(., 'Add Another Job')]"
+        ],
+        "containerPath": [
+          "(.//div[div[contains(@id, 'workEmployerNames')]])[__indexPlusOne__]"
+        ],
+        "confirmAddedPath": [
+          "(.//div[div[contains(@id, 'workEmployerNames')]])[__indexPlusOne__]"
+        ],
+        "entities": [
+          [
+            "title",
+            [
+              ".//div[contains(@id, 'workPositionNames')]//input"
+            ],
+            {
+              "keywords": [
+                "title",
+                "position"
+              ]
+            }
+          ],
+          [
+            "companyName",
+            [
+              ".//div[contains(@id, 'workEmployerNames')]//input"
+            ],
+            {
+              "keywords": [
+                "company",
+                "employer"
+              ]
+            }
+          ],
+          [
+            "cityStateName",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//div[contains(@id, 'workLocationFBIDs')]//input[@role='combobox']"
+                  ],
+                  "method": "setValue",
+                  "options": {
+                    "waitForNetworkAfterInteraction": true,
+                    "triggerBlurEvent": false,
+                    "triggerKeyDownEvent": true,
+                    "triggerFocusEvent": true,
+                    "triggerFocusInEvent": true,
+                    "wait": 300
+                  }
+                },
+                {
+                  "path": [
+                    "//div[@data-ownerid=//div[contains(@id, 'workLocationFBIDs')][__index__]//label[input[@role='combobox']]/@id]//ul"
+                  ],
+                  "method": "clickOption",
+                  "options": {
+                    "optionMapper": true,
+                    "waitForNetworkBeforeInteraction": true
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "location"
+              ]
+            }
+          ],
+          [
+            "description",
+            [
+              ".//textarea[contains(@name, 'workDescriptions')]"
+            ],
+            {
+              "keywords": [
+                "description",
+                "summary"
+              ]
+            }
+          ],
+          [
+            "startDate",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[contains(@name,'workStartMonths')]"
+                  ],
+                  "method": "setValue",
+                  "options": {
+                    "wait": 0
+                  }
+                },
+                {
+                  "path": [
+                    ".//input[contains(@name,'workStartMonths')]"
+                  ],
+                  "method": "pressEnterKey"
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "start"
+              ]
+            }
+          ],
+          [
+            "endDate",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[contains(@name,'workEndMonths')]"
+                  ],
+                  "method": "setValue",
+                  "options": {
+                    "wait": 0
+                  }
+                },
+                {
+                  "path": [
+                    ".//input[contains(@name,'workEndMonths')]"
+                  ],
+                  "method": "pressEnterKey"
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "end"
+              ]
+            }
+          ],
+          [
+            "isCurrent",
+            [
+              ".//input[@type='checkbox' and contains(@id,'workIsCurrent')]"
+            ],
+            {
+              "keywords": [
+                "currently work"
+              ]
+            }
+          ]
+        ],
+        "options": {
+          "disabledAddButtonCaching": true
+        }
+      },
+      {
+        "keywords": [
+          "experience"
+        ]
+      }
+    ],
+    [
+      "skill",
+      {
+        "containerPath": [
+          ".//div[contains(@id, 'candidateSkills')]"
+        ],
+        "entities": [
+          [
+            "name",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[@role='combobox']"
+                  ],
+                  "method": "setValue",
+                  "options": {
+                    "triggerKeyDownEvent": true,
+                    "triggerFocusEvent": true,
+                    "triggerFocusInEvent": true,
+                    "triggerBlurEvent": false,
+                    "wait": 0,
+                    "waitForNetworkAfterInteraction": true
+                  }
+                },
+                {
+                  "path": [
+                    "//div[@data-ownerid=//div[contains(@id, 'candidateSkills')]//label[input[@role='combobox']]/@id]//ul/li[@role='option']"
+                  ],
+                  "method": "click",
+                  "options": {
+                    "waitForNetworkBeforeInteraction": true,
+                    "waitForElementTimeout": 5000
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "skills"
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "keywords": [
+          "skills"
+        ]
+      }
+    ],
+    [
+      "sponsorship",
+      {
+        "actions": [
+          {
+            "path": [
+              "//div[contains(@class, 'requiresSponsorship')]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "true": "Yes",
+              "false": "No"
+            },
+            "options": {
+              "closestCommon": "div",
+              "elementToClick": "input[type='radio']"
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "sponsorship"
+        ]
+      }
+    ],
+    [
+      "workAuth",
+      {
+        "actions": [
+          {
+            "path": [
+              "//div[contains(@class, 'workEligibleUS')]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "true": "Yes",
+              "false": "No"
+            },
+            "options": {
+              "closestCommon": "div",
+              "elementToClick": "input[type='radio']"
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "work authorization"
+        ]
+      }
+    ],
+    [
+      "gender",
+      {
+        "actions": [
+          {
+            "path": [
+              "//div[contains(@class, 'candidateGender')]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "Male": [
+                "Male"
+              ],
+              "Female": [
+                "Female"
+              ],
+              "Other": [
+                "I choose not to disclose"
+              ],
+              "Decline to identify": [
+                "I choose not to disclose"
+              ]
+            },
+            "options": {
+              "closestCommon": "div",
+              "elementToClick": "input[type='radio']"
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "your gender"
+        ]
+      }
+    ],
+    [
+      "race",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//div[contains(@class, 'candidateRaceEthnicities')]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "Black or African American": [
+                "Black",
+                "African American"
+              ],
+              "East Asian": [
+                "Asian"
+              ],
+              "Hispanic or Latino": [
+                "Hispanic",
+                "Latino"
+              ],
+              "Southeast Asian": [
+                "Asian"
+              ],
+              "South Asian": [
+                "Asian"
+              ],
+              "Native Hawaiian or Other Pacific Islander": [
+                "Native Hawaiian",
+                "Pacific Islander"
+              ],
+              "American Indian or Alaska Native": [
+                "Native American",
+                "Alaska Native"
+              ],
+              "White": [
+                "White"
+              ],
+              "Two or More Races": [
+                "Two or More Races"
+              ],
+              "Some Other Race": [
+                "I choose not to "
+              ],
+              "Decline to Answer": [
+                "I choose not to "
+              ],
+              "": [
+                "I choose not to "
+              ]
+            },
+            "options": {
+              "closestCommon": "div",
+              "elementToClick": "input[type='radio']",
+              "caseSentiveOption": true
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "race and ethnicity"
+        ]
+      }
+    ],
+    [
+      "veteran",
+      [
+        {
+          "actions": [
+            {
+              "path": [
+                "//div[contains(@class, 'veteranStatus')]"
+              ],
+              "method": "clickOption",
+              "values": {
+                "true": [
+                  "I identify "
+                ],
+                "false": [
+                  "I am not a "
+                ],
+                "": [
+                  "I choose not "
+                ]
+              },
+              "options": {
+                "closestCommon": "div",
+                "elementToClick": "input[type='radio']"
+              }
+            }
+          ]
+        }
+      ],
+      {
+        "keywords": [
+          "veteran"
+        ]
+      }
+    ],
+    [
+      "disability",
+      [
+        {
+          "actions": [
+            {
+              "path": [
+                "//div[contains(@class, 'disabilityStatus')]"
+              ],
+              "method": "clickOption",
+              "values": {
+                "true": [
+                  "Yes, "
+                ],
+                "false": [
+                  "No, "
+                ],
+                "": [
+                  "I do not want"
+                ]
+              },
+              "options": {
+                "closestCommon": "div",
+                "elementToClick": "input[type='radio']"
+              }
+            }
+          ]
+        }
+      ],
+      {
+        "keywords": [
+          "disability"
+        ]
+      }
+    ]
+  ],
+  "entitiesAfterLLM": [
+    [
+      "country",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//input[@id='remoteGeoCountryPreferences']"
+            ],
+            "method": "setValue",
+            "defaultValue": "United States",
+            "options": {
+              "triggerKeyDownEvent": true,
+              "triggerFocusEvent": true,
+              "triggerFocusInEvent": true,
+              "triggerBlurEvent": false,
+              "wait": 300
+            }
+          },
+          {
+            "path": [
+              "//div[@data-ownerid=//div[@id='remoteGeoCountryPreferences']//label[input[@role='combobox']]/@id]//ul"
+            ],
+            "method": "clickOption",
+            "values": {
+              "United States": [
+                "United States"
+              ]
+            },
+            "options": {
+              "waitForNetworkBeforeInteraction": true
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "country"
+        ]
+      }
+    ],
+    [
+      "userLocationStateNames",
+      {
+        "containerPath": [
+          ".//div[contains(@id, 'remoteGeoStatePreferences')]"
+        ],
+        "entities": [
+          [
+            "name",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[@role='combobox']"
+                  ],
+                  "method": "setValue",
+                  "options": {
+                    "triggerKeyDownEvent": true,
+                    "triggerFocusEvent": true,
+                    "triggerFocusInEvent": true,
+                    "triggerBlurEvent": false,
+                    "wait": 300
+                  }
+                },
+                {
+                  "path": [
+                    "//div[@data-ownerid=//div[@id='remoteGeoStatePreferences']//label[input[@role='combobox']]/@id]//ul"
+                  ],
+                  "method": "clickOption",
+                  "options": {
+                    "waitForNetworkBeforeInteraction": true
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "state"
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "keywords": [
+          "state"
+        ]
+      }
+    ]
+  ],
+  "alwaysSyncWindowId": true,
+  "screenshot": {
+    "hide": []
+  }
+}

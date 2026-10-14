@@ -1,0 +1,34 @@
+{
+  "overall_score": 64,
+  "subscores": {
+    "stability": 93,
+    "security": 61,
+    "performance": 100,
+    "ux": 83,
+    "mv3_compliance": 100
+  },
+  "production_ready": false,
+  "web_store_ready": false,
+  "blockers": [
+    "Phase B Security Finding (SEC-001): A live OpenRouter API key (sk-or-v1-18e47...) is hardcoded in a test file committed to the repository. This is a real credential that could be abused for unauthorized API usage and financial cost.",
+    "Phase B Security Finding (SEC-002): The SmtpSender.send() method passes reply.toEmail directly to nodemailer's sendMail({ to: ... }) without any sanitization or validation. The toEmail originates from recruiterEmailAddress (user-supplied or email parser output). An attacker-controlled email address containing CRLF sequences could inject additional SMTP headers (Bcc, Cc, etc.) or modify the message body.",
+    "Phase B Security Finding (SEC-007): The extension requests `<all_urls>` host permissions, allowing the content script to be injected into every website including banking, email, and government portals. Combined with the content script's ability to read and fill any form field, this creates a broad attack surface where any compromise of the extension (e.g., via a malicious update or XSS in the panel) could harvest credentials from any site.",
+    "Phase B Blocker: Hardcoded live API key in test/test_keys.ts (SEC-001). An active OpenRouter API key is committed to the repository and must be rotated immediately.",
+    "Phase B Blocker: SMTP header injection vulnerability in smtp-sender.ts (SEC-002). User-supplied email addresses are passed directly to nodemailer without sanitization, enabling email header injection attacks."
+  ],
+  "nice_to_have": [
+    "Phase B Security Finding (SEC-003): The daily reset check uses `new Date().toDateString()` which returns the local system timezone date, but the hour-of-operation check manually computes IST offset. If the user's machine timezone is not IST, the daily reset boundary will be misaligned — e.g., at 11 PM IST the local toDateString may already show 'tomorrow', causing premature reset and allowing a full extra day's quota.",
+    "Phase B Security Finding (SEC-004): The `limits` Map is initialized with hardcoded `appliedToday: 0` values and is never synced from the persisted state. The `canApply()` method reads from `state.platformApplies` (persisted) but the `limits` Map is only used for `dailyLimit` lookups. If `recordSuccess` is called, it updates the persisted state but never updates the in-memory `limits` Map. This is currently benign because canApply reads from persisted state, but the `limits` Map is dead code that could mislead future developers into trusting it.",
+    "Phase B Security Finding (SEC-005): In setMissingFields(), the field label is inserted via textContent (safe), but the field's `field.fieldKey` is also used in the label span. However, the `setAwaitingOtp` method at line ~418 uses innerHTML with a template literal: `otpPrompt.innerHTML = \\`Enter the OTP in ${fieldCount} field(s)...\\``. While fieldCount is currently a number (safe), if the type is widened or the value is ever user-controlled, this becomes an XSS vector. Additionally, `setCareerInsights` sets `visaReason.textContent` from `data.visa.reason` which comes from LLM output — textContent is safe but the data flows from an untrusted source without validation.",
+    "Phase B Security Finding (SEC-006): The autofillLogin function logs `cred.email` to diagnostics: `diagLog('autopilot', 'login-filled', { data: { hostname: cred.hostname, email: cred.email } })`. While passwords are not logged, the email address is PII that gets persisted in chrome.storage.local as part of the diagnostics ring buffer. This could be exposed via the Diagnostics export or visible to anyone with access to the extension's storage.",
+    "Phase B Security Finding (SEC-008): The reply subject is constructed as `Re: ${originalSubject}` where originalSubject comes from the recruiter's email subject line. If the subject contains newline characters, this could lead to SMTP header injection when passed to nodemailer's subject field. Nodemailer has some built-in protection but it is not guaranteed.",
+    "Phase B Security Finding (SEC-009): The shouldNeverCacheQuestion() function correctly prevents caching of credential, sensitive-id, EEO, and assessment fields. However, the decideFieldPolicy() function allows `allowSensitiveDefaults` to be set in autonomous mode, which would fill sensitive fields (PAN, Aadhaar) from the profile without user confirmation. If the profile data is stale or incorrect, this could submit wrong identity numbers to employers.",
+    "Phase B Security Finding (SEC-010): The diagLog function captures `location.href` (up to 200 chars) with every diagnostic entry. URLs may contain sensitive query parameters (tokens, session IDs, PII in job application URLs). The diagnostics are stored in chrome.storage.local and can be exported as JSON by any code running in the extension context.",
+    "Phase C Bug (BUG-C8-001): loadState() uses new Date().toDateString() which returns the local system timezone date. canApply() correctly uses a +5.5h IST offset for hour-of-day checks, but the daily reset boundary is based on the local clock. On machines outside IST (e.g. UTC−5 US East), the day boundary fires at the wrong real-world moment, allowing up to one full extra quota day. Confirmed as SEC-003 in Phase B.",
+    "Phase C Bug (BUG-C8-002): The in-memory `limits` Map initializes `appliedToday: 0` for every platform, but recordSuccess() only updates the persisted store — it never increments appliedToday in the Map. canApply() correctly reads persisted state, so this is currently dead code, but a future refactor that reads from the Map instead of persisted state would silently bypass all rate limits.",
+    "Phase C Bug (BUG-C9-001): isValidSender() uses lowerFrom.includes(domain) for whitelist matching. A malicious sender could craft their email address to contain a whitelisted domain as a substring (e.g. 'evil-naukri.com@attacker.com' includes '@naukri.com' as a substring). This would allow an attacker who can send email to the monitored inbox to inject arbitrary OTP codes into the application pipeline."
+  ],
+  "recommended_next_actions": [
+    "Resolve all remaining critical and high blockers."
+  ]
+}

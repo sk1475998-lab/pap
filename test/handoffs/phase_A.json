@@ -1,0 +1,187 @@
+{
+  "phase": "A",
+  "dependency_map": {
+    "@superjob/core": {
+      "imports": [],
+      "imported_by": [
+        "@superjob/extension",
+        "@superjob/applier",
+        "@superjob/crew",
+        "@superjob/scraper",
+        "@superjob/email-monitor"
+      ]
+    },
+    "@superjob/extension": {
+      "imports": [
+        "@superjob/core"
+      ],
+      "imported_by": []
+    },
+    "@superjob/applier": {
+      "imports": [
+        "@superjob/core",
+        "@superjob/email-monitor"
+      ],
+      "imported_by": []
+    },
+    "@superjob/scraper": {
+      "imports": [
+        "@superjob/core"
+      ],
+      "imported_by": [
+        "@superjob/crew"
+      ]
+    },
+    "@superjob/crew": {
+      "imports": [
+        "@superjob/core",
+        "@superjob/scraper"
+      ],
+      "imported_by": []
+    },
+    "@superjob/email-monitor": {
+      "imports": [
+        "@superjob/core"
+      ],
+      "imported_by": [
+        "@superjob/applier"
+      ]
+    }
+  },
+  "workflows": [
+    {
+      "name": "extension autofill",
+      "entry_point": "packages/extension/src/lib/autofill.ts:autofill",
+      "exit_conditions": [
+        "filled all detected fields",
+        "signal.aborted is true"
+      ],
+      "external_deps": [
+        "chrome.runtime",
+        "DOM document",
+        "LLM provider via createLLM()",
+        "external ATS sites (LinkedIn, Workday)"
+      ],
+      "risk_surface": [
+        "DOM mutations during fill and stale selectors",
+        "LLM hallucination on sensitive or EEO fields",
+        "credential leakage through diagnostics logs"
+      ]
+    },
+    {
+      "name": "headless applier",
+      "entry_point": "packages/applier/src/pipeline.ts:runPipeline",
+      "exit_conditions": [
+        "all cards processed",
+        "reached maxApplications limit",
+        "critical error: missing profile or login"
+      ],
+      "external_deps": [
+        "Playwright BrowserContext",
+        "LLM provider",
+        "external job boards (LinkedIn, Naukri)",
+        "IMAP for OTP retrieval"
+      ],
+      "risk_surface": [
+        "IP blocking or rate-limiting by job boards",
+        "stale Playwright selectors on dynamic multi-step modals",
+        "login failures due to OTP delivery delay"
+      ]
+    },
+    {
+      "name": "OTP interceptor",
+      "entry_point": "packages/applier/src/otp-interceptor.ts:waitForOTP",
+      "exit_conditions": [
+        "returns valid OTP code",
+        "throws after 90s timeout"
+      ],
+      "external_deps": [
+        "IMAP email server",
+        "valid sender whitelist"
+      ],
+      "risk_surface": [
+        "false positive OTP extraction from random email",
+        "OTP delivery delay causing timeout"
+      ]
+    },
+    {
+      "name": "email monitor",
+      "entry_point": "packages/email-monitor/src/monitor.ts:watchInbox",
+      "exit_conditions": [
+        "process receives SIGTERM or SIGINT",
+        "watchHandle.stop() called"
+      ],
+      "external_deps": [
+        "IMAP server via ImapConfig"
+      ],
+      "risk_surface": [
+        "inaccurate classification of non-job-related emails",
+        "IMAP rate limits or auth token expiry"
+      ]
+    },
+    {
+      "name": "rate governor",
+      "entry_point": "packages/applier/src/rate-governor.ts:canApply",
+      "exit_conditions": [
+        "{ allowed: true } when under daily/platform limits",
+        "{ allowed: false, reason } when limit reached or out-of-hours"
+      ],
+      "external_deps": [],
+      "risk_surface": [
+        "timezone miscalculations (hardcoded IST offset)",
+        "state not persisted after crash"
+      ]
+    }
+  ],
+  "brittle_selectors": [
+    {
+      "selector": ".artdeco-modal__content",
+      "file": "packages/extension/src/entrypoints/content.ts",
+      "reason": "LinkedIn internal CSS class, subject to change during UI refreshes"
+    },
+    {
+      "selector": ".jobs-easy-apply-content",
+      "file": "packages/extension/src/lib/linkedin-autopilot.ts",
+      "reason": "LinkedIn internal class naming, no stability guarantee"
+    },
+    {
+      "selector": "[data-test-easy-apply-success]",
+      "file": "packages/extension/src/lib/linkedin-autopilot.ts",
+      "reason": "LinkedIn data-test attribute used internally, unstable API"
+    },
+    {
+      "selector": ".post-apply-timestamp",
+      "file": "packages/extension/src/lib/linkedin-autopilot.ts",
+      "reason": "LinkedIn specific CSS class, may change across site variants"
+    },
+    {
+      "selector": "[class*='react-select']",
+      "file": "packages/extension/src/lib/detector.ts",
+      "reason": "Partial-match className selector can break if React Select changes prefix or uses CSS-in-JS hash naming"
+    },
+    {
+      "selector": "[class*='MuiAutocomplete']",
+      "file": "packages/extension/src/lib/detector.ts",
+      "reason": "MUI internal class pattern, may be renamed or removed in major version upgrades"
+    }
+  ],
+  "api_surface": [
+    {
+      "api": "Ollama / OpenAI / Anthropic / Gemini LLM",
+      "key_storage": "hardcoded",
+      "file": "packages/core/src/llm/index.ts"
+    },
+    {
+      "api": "LinkedIn / Naukri / Shine credential login",
+      "key_storage": "user",
+      "file": "packages/extension/src/lib/credential-store.ts"
+    },
+    {
+      "api": "IMAP email monitor",
+      "key_storage": "user",
+      "file": "packages/email-monitor/src/imap-client.ts"
+    }
+  ],
+  "circular_deps": [],
+  "critical_blockers": []
+}

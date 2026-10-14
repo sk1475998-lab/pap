@@ -1,0 +1,33 @@
+{
+  "name": "@superjob/core",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "./src/index.ts",
+  "module": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./llm": "./src/llm/index.ts",
+    "./ocr": "./src/ocr.ts"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "cli": "tsx src/cli/index.ts",
+    "test": "node --test --import tsx src/index.test.ts src/sync.test.ts src/global-assignment.test.ts src/job-gating.test.ts src/linkedin-controls.test.ts src/session-guardrails.test.ts src/human-pacing.test.ts src/screening-answers.test.ts src/network-retry.test.ts src/field-similarity.test.ts src/qa-fixtures.test.ts src/linkedin-results.test.ts src/llm/robust.test.ts src/tailor/semantic-diff.test.ts src/parser/universal-parser.test.ts src/brain/brain.test.ts src/discovery/discovery.test.ts src/ranker/rank-gpt.test.ts"
+  },
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.100",
+    "fflate": "^0.8.2",
+    "nanoid": "^5.0.7",
+    "pdfjs-dist": "^4.10.38",
+    "tesseract.js": "^6.0.1",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.0",
+    "jsdom": "^29.1.1",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.3"
+  }
+}

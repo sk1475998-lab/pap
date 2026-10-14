@@ -1,0 +1,15 @@
+node_modules
+**/node_modules
+**/dist
+**/.output
+**/.wxt
+.git
+*.log
+.env
+.env.*
+coverage
+.DS_Store
+integration
+packages/extension
+packages/dashboard
+ai-job-agent-research

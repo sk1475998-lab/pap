@@ -1,0 +1,1346 @@
+{
+  "atsName": "ashbyhq",
+  "urls": [
+    "*://*.ashbyhq.com/*/*/application",
+    "*://jobs.ashbyhq.com/*/*/application"
+  ],
+  "urlsExclude": [],
+  "networkOptions": {
+    "blacklistedUrlParts": [
+      "linkedin",
+      "analytics",
+      "insights",
+      "collect",
+      "datadoghq",
+      "non-user",
+      "blob"
+    ],
+    "allowedUrlParts": [],
+    "preApplyCheck": false
+  },
+  "detectPageQuestions": true,
+  "addQuestionLabelId": false,
+  "submitButtonPaths": [
+    "//button[.//span[text()='Submit Application']] "
+  ],
+  "nextStepButtonPaths": [],
+  "validationErrorXPaths": [
+    "//div[@role='alert']"
+  ],
+  "validationCheckFormValidity": false,
+  "monitorSubmitFlow": true,
+  "waitForSubmitOutcome": true,
+  "tabWillNotUpdateAfterSubmit": true,
+  "errorBannerXPaths": [
+    "//div[@role='alert']"
+  ],
+  "questionValidationErrorSelectors": [
+    "div[role='alert']"
+  ],
+  "confirmSubmittedForm": {
+    "confirmMessageXPath": [
+      "//div[@role='status' and contains(@class, 'ashby-application-form-success-container')]"
+    ],
+    "urls": [],
+    "confirmMessageSelector": "[h2*='Success']"
+  },
+  "targetNodeXPath": [
+    ".//div[contains(@class,'ashby-job-posting-right-pane')]"
+  ],
+  "targetFrameNodeXPath": [],
+  "expiredJob": [
+    {
+      "container": [
+        "//div[contains(@class, 'container')]"
+      ],
+      "keywords": [
+        "job not found",
+        "was not found"
+      ]
+    }
+  ],
+  "canJobBeAppliedXPaths": {
+    "applyButton": [
+      "//button[contains(text(), 'Apply')]"
+    ],
+    "submitButton": "",
+    "options": {
+      "checkApplyBtnOutsideIframe": false
+    },
+    "refuseAddDevice": [],
+    "email": [],
+    "next": []
+  },
+  "customQuestions": {
+    "patterns": {
+      "questionId": "",
+      "innerSelectors": [],
+      "fieldsetMatchQuerySelector": "",
+      "questionParent": "",
+      "selectInputXPath": [],
+      "selectInputTagName": "",
+      "selectInputAttrName": "",
+      "selectInputAttrValue": "",
+      "radioGroupMatchQuerySelector": "",
+      "maxLabelLevel": "",
+      "radioGroupAttrName": "",
+      "radioGroupAttrValue": "",
+      "listboxTagName": "",
+      "selectInputTagNames": []
+    },
+    "selectors": {
+      "question": "div[class*='fieldEntry'] > div[class*='container'], div[class*='fieldEntry'] > input, div[class*='fieldEntry'] > div > input,  div[class*='fieldEntry'] > textarea,  fieldset[class*='fieldEntry'], input[type='text']",
+      "subTitle": "div[class*='description']",
+      "label": "label[class*='question-title'], label[for*='labeled-checkbox']",
+      "legend": "legend",
+      "optionsSelector": "button[class*='option'], div[class*='option']",
+      "mapOption": "div[role='option']",
+      "listOption": "div[class*='resultContainer']",
+      "title": "div[class*='sectionHeader']"
+    },
+    "xpaths": {
+      "currentListItem": [],
+      "listInputBackBtnText": [],
+      "selectPopupXPath": [],
+      "listBoxPopupXPath": [],
+      "selectedItemListXPath": [],
+      "requiredFieldXPath": [
+        "self::*[contains(@class, 'required')]"
+      ],
+      "requiredTextContent": [],
+      "targetNodeXPath": []
+    },
+    "ignoreQuestions": [
+      "//div[contains(@class, 'fieldEntry')]//div[contains(@class, 'container') and .//input[contains(@id, 'resume') and @type='file']]",
+      "//div[contains(@class, 'fieldEntry')]//div[contains(@class, 'container') and .//input[contains(@id, 'cover_letter') and @type='file']]",
+      "//div//label[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'company') and not(translate(normalize-space(text()), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz') = 'current company')]/following-sibling::input",
+      "//div//label[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'position') and not(translate(normalize-space(text()), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz') = 'notice to start a new position')]/following-sibling::input",
+      "//div//label[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'responsibilities')]/following-sibling::textarea",
+      "//div//label[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'reason') and contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'leaving')]/following-sibling::input"
+    ],
+    "ignoreContainerQuestions": [],
+    "useSelectorForCustomFields": false
+  },
+  "jobXPaths": {
+    "entities": [
+      [
+        "titleDisplay",
+        [
+          "//h1[contains(@class, 'title')]"
+        ]
+      ],
+      [
+        "originalCompanyName",
+        [
+          "//a[contains(translate(@class, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'logo')]/img/@alt"
+        ]
+      ],
+      [
+        "jobTypes",
+        [
+          "//div[h2[normalize-space(text())='Employment Type']]/p"
+        ]
+      ],
+      [
+        "url",
+        [
+          ".//meta[@property='og:url']/@content"
+        ]
+      ],
+      [
+        "desc",
+        [
+          ".//div[contains(@class,'descriptionText')]"
+        ]
+      ],
+      [
+        "locationDisplay",
+        [
+          "//div[h2[normalize-space(text())='Location']]/p"
+        ]
+      ]
+    ]
+  },
+  "contextData": {
+    "classifier": {
+      "applyBtnPath": [
+        "//button[contains(text(), 'Apply for this')]"
+      ]
+    },
+    "options": {}
+  },
+  "preApply": {
+    "urls": [
+      "*://*.ashbyhq.com/*/*"
+    ],
+    "entities": [
+      [
+        "applyButton",
+        {
+          "actions": [
+            {
+              "key": "canJobBeAppliedXPaths.applyButton",
+              "method": "click"
+            }
+          ]
+        },
+        {
+          "keywords": [
+            "Apply"
+          ]
+        }
+      ]
+    ],
+    "urlsExclude": [],
+    "continueFilling": true
+  },
+  "entities": [
+    [
+      "answerSource",
+      []
+    ],
+    [
+      "firstName",
+      [
+        "//div[label[contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'first name')]]//input[contains(@id, 'systemfield_name')]"
+      ],
+      {
+        "keywords": [
+          "first name"
+        ]
+      }
+    ],
+    [
+      "lastName",
+      []
+    ],
+    [
+      "preferredFirstName",
+      []
+    ],
+    [
+      "legalFirstName",
+      []
+    ],
+    [
+      "legalLastName",
+      []
+    ],
+    [
+      "fullName",
+      {
+        "actions": [
+          {
+            "path": [
+              "//div[label[not(contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'first name'))]]//input[contains(@id, 'systemfield_name')]"
+            ],
+            "method": "setValue",
+            "options": {
+              "triggerBlurEvent": false
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "name"
+        ]
+      }
+    ],
+    [
+      "email",
+      {
+        "actions": [
+          {
+            "path": [
+              "//input[contains(@id, 'systemfield_email')]"
+            ],
+            "method": "setValue",
+            "options": {
+              "triggerBlurEvent": false
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "email"
+        ]
+      }
+    ],
+    [
+      "phoneFormatted",
+      {
+        "actions": [
+          {
+            "path": [
+              "//input[@id='phone']",
+              "//input[@type='tel']"
+            ],
+            "method": "setValue",
+            "options": {
+              "triggerChangeEvent": true,
+              "triggerBlurEvent": false
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "phone"
+        ]
+      }
+    ],
+    [
+      "phoneStripped",
+      {
+        "actions": [
+          {
+            "path": [
+              "//div[label[contains(text(), 'Phone Number')]]//input[@type='number']"
+            ],
+            "method": "setValue",
+            "options": {
+              "triggerChangeEvent": true,
+              "triggerBlurEvent": false
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "phone"
+        ]
+      }
+    ],
+    [
+      "addressLine1",
+      []
+    ],
+    [
+      "state",
+      {
+        "actions": [
+          {
+            "path": [
+              "//div[label[contains(text(), 'State')]]//input"
+            ],
+            "method": "setValue"
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "state"
+        ]
+      }
+    ],
+    [
+      "stateName",
+      {
+        "actions": [
+          {
+            "path": [
+              "//fieldset[label[contains(text(), 'state of residency')]]//input",
+              "//label[contains(., 'state')]/following-sibling::div[contains(@class, 'inputContainer')]//input"
+            ],
+            "method": "setValue"
+          },
+          {
+            "path": [
+              "//fieldset[label[contains(text(), 'state of residency')]]//input",
+              "//label[contains(., 'state')]/following-sibling::div[contains(@class, 'inputContainer')]//input"
+            ],
+            "method": "pressEnterKey",
+            "options": {
+              "waitForNetworkBeforeInteraction": true
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "state of residency",
+          "U.S. state"
+        ]
+      }
+    ],
+    [
+      "postalCode",
+      {
+        "actions": [
+          {
+            "path": [
+              "//div[label[contains(text(), 'Zip Code')]]//input"
+            ],
+            "method": "setValue"
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "zip code"
+        ]
+      }
+    ],
+    [
+      "country",
+      {
+        "actions": [
+          {
+            "path": [
+              "//label[contains(text(), 'Nationality / Citizenship')]/following::input[1]",
+              "//div[label[contains(text(), 'which country will you be based')]]//input",
+              "//div[label[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), ' country of residence')]]//input",
+              "//div[label[contains(translate(normalize-space(.), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'based')] and (.//text()[contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'only country')])]//input[@role='combobox']"
+            ],
+            "method": "setValue",
+            "time": 500
+          },
+          {
+            "path": [
+              "//div[@role='listbox']//div[contains(@class, 'resultContainer')]"
+            ],
+            "method": "clickOption",
+            "options": {
+              "waitForNetworkBeforeInteraction": true
+            }
+          },
+          {
+            "path": [
+              "//label[contains(text(), 'Nationality / Citizenship')]/following::input[1]",
+              "//div[label[contains(text(), 'which country will you be based')]]//input",
+              "//div[label[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), ' country of residence')]]//input"
+            ],
+            "method": "pressEnterKey"
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "nationality",
+          "citizenship",
+          "country will you be based",
+          "only country"
+        ]
+      }
+    ],
+    [
+      "cityStateName",
+      {
+        "actions": [
+          {
+            "path": [
+              "//div[label[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'which city and state do you')]]//input",
+              "//div[label[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'city, state')]]//input",
+              "//div[label[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'location')]]//input[@role='combobox']",
+              "//div[label[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'city') and not(contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'city, state')) and not(contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'which city and state do you currently reside'))]]//input[@role='combobox']",
+              "//div[label[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'which country will you work')]]//input[@role='combobox']",
+              "//div[label[contains(translate(normalize-space(.), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'based')] and not(.//text()[contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'only country')])]//input[@role='combobox']",
+              "//div[label[contains(translate(normalize-space(.), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'where') and contains(translate(normalize-space(.), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'located')]]//input[@role='combobox']",
+              "//div[label[contains(translate(normalize-space(text()), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'reside')]]//input[not(@type='checkbox')]",
+              "//div[h2[translate(normalize-space(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz') = 'candidate physical location']]/following-sibling::div//label[not(normalize-space())]/following-sibling::div//input"
+            ],
+            "method": "setValue",
+            "options": {
+              "waitForNetworkAfterInteraction": true,
+              "checkForValue": true
+            },
+            "time": 750
+          },
+          {
+            "path": [
+              "//div[@role='listbox']//div[contains(@class, 'resultContainer')]"
+            ],
+            "method": "clickOption",
+            "options": {
+              "waitForNetworkBeforeInteraction": true,
+              "fallbackOption": "United States",
+              "rerunFallbackValue": true
+            }
+          },
+          {
+            "path": [
+              "//div[label[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'location')]]//input[@role='combobox']"
+            ],
+            "method": "pressEnterKey"
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "country",
+          "location",
+          "city",
+          "based",
+          "located",
+          "reside"
+        ]
+      }
+    ],
+    [
+      "education",
+      {
+        "addButtonPath": [],
+        "confirmAddedPath": [],
+        "containerPath": [],
+        "options": {
+          "getRelevantEntities": false
+        },
+        "entities": [
+          [
+            "name",
+            []
+          ],
+          [
+            "degree",
+            []
+          ],
+          [
+            "major",
+            []
+          ],
+          [
+            "startDateMonth_MM",
+            []
+          ],
+          [
+            "endDateMonth_MM",
+            []
+          ],
+          [
+            "startDateMonthText",
+            []
+          ],
+          [
+            "endDateMonthText",
+            []
+          ],
+          [
+            "startDateYear",
+            []
+          ],
+          [
+            "endDateYear",
+            []
+          ]
+        ]
+      }
+    ],
+    [
+      "recentExperience.companyName",
+      {
+        "actions": [
+          {
+            "path": [
+              "//div[div[h2[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'most recent job')]]]//label[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'company name')]/following-sibling::input",
+              "//label[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'most recent company')]/following-sibling::input"
+            ],
+            "method": "setValue"
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "most recent"
+        ]
+      }
+    ],
+    [
+      "experience",
+      {
+        "addButtonPath": [],
+        "confirmAddedPath": [],
+        "containerPath": [
+          "//div[contains(@class, 'form-section-container')][.//h2[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'job')]]"
+        ],
+        "options": {
+          "getRelevantEntities": true
+        },
+        "entities": [
+          [
+            "companyName",
+            {
+              "actions": [
+                {
+                  "path": [
+                    "(//div[div[h2[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'job')]]]//label[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'company') and contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'name')]/following-sibling::input)[__indexPlusOne__]"
+                  ],
+                  "method": "setValue"
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "company name"
+              ]
+            }
+          ],
+          [
+            "cityState",
+            {
+              "actions": [
+                {
+                  "path": [
+                    "(//div[div[h2[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'job')]]]//label[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'company located')]/following-sibling::div//input)[__indexPlusOne__]"
+                  ],
+                  "method": "setValue",
+                  "time": 1000
+                },
+                {
+                  "path": [
+                    "//div[@role='listbox']//div[contains(@class, 'resultContainer')]"
+                  ],
+                  "method": "clickOption",
+                  "options": {
+                    "waitForNetworkBeforeInteraction": true
+                  }
+                },
+                {
+                  "path": [
+                    "(//div[div[h2[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'job')]]]//label[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'company located')]/following-sibling::div//input)[__indexPlusOne__]"
+                  ],
+                  "method": "pressEnterKey"
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "company located"
+              ]
+            }
+          ],
+          [
+            "title",
+            {
+              "actions": [
+                {
+                  "path": [
+                    "(//div[div[h2[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'job')]]]//label[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'position')]/following-sibling::input)[__indexPlusOne__]"
+                  ],
+                  "method": "setValue"
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "position",
+                "title"
+              ]
+            }
+          ],
+          [
+            "startDateSlashes_MMDDYYYY",
+            {
+              "actions": [
+                {
+                  "path": [
+                    "(//div[div[h2[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'job')]]]//label[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'begin working')]/following-sibling::div//input)[__indexPlusOne__]"
+                  ],
+                  "method": "setValue"
+                },
+                {
+                  "actions": [
+                    {
+                      "path": [
+                        "//div[contains(@class, 'datepicker')]//div[contains(@class, 'selected')]"
+                      ],
+                      "method": "clickOption"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "start date",
+                "begin working"
+              ]
+            }
+          ],
+          [
+            "isCurrent",
+            {
+              "actions": [
+                {
+                  "path": [
+                    "(//div[div[h2[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'most recent job')]]]//label[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'still')]/following-sibling::div)[__indexPlusOne__]"
+                  ],
+                  "method": "clickOption",
+                  "values": {
+                    "true": [
+                      "Yes"
+                    ],
+                    "false": [
+                      "No"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "still employed"
+              ]
+            }
+          ],
+          [
+            "endDateSlashes_MMDDYYYY",
+            {
+              "actions": [
+                {
+                  "path": [
+                    "(//div[div[h2[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'job')]]]//label[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'ended your employment')]/following-sibling::div//input)[__indexPlusOne__]"
+                  ],
+                  "method": "setValue"
+                },
+                {
+                  "path": [
+                    "//div[contains(@class, 'datepicker')]//div[contains(@class, 'selected')]"
+                  ],
+                  "method": "clickOption"
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "end date",
+                "ended your employment"
+              ]
+            }
+          ],
+          [
+            "description",
+            {
+              "actions": [
+                {
+                  "path": [
+                    "(//div[div[h2[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'job')]]]//label[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'responsibilities')]/following-sibling::textarea)[__indexPlusOne__]"
+                  ],
+                  "method": "setValue"
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "responsibilities"
+              ]
+            }
+          ],
+          [
+            "reasonLeaving",
+            {
+              "actions": [
+                {
+                  "path": [
+                    "(//div[div[h2[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'job')]]]//label[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'reason for leaving') or contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'why did you leave')]/following-sibling::input)[__indexPlusOne__]"
+                  ],
+                  "method": "setValue"
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "Reason for Leaving "
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "keywords": [
+          "recent job",
+          "previous job"
+        ]
+      }
+    ],
+    [
+      "over18",
+      {
+        "actions": [
+          {
+            "path": [
+              "//div[label[contains(text(), '18 years')]]//div[contains(@class, 'container')]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "true": [
+                "Yes"
+              ],
+              "false": [
+                "No"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "18 years"
+        ]
+      }
+    ],
+    [
+      "weekdaysAvailability",
+      {}
+    ],
+    [
+      "weekendsAvailability",
+      {}
+    ],
+    [
+      "openSchedule",
+      {}
+    ],
+    [
+      "flexibleSchedule",
+      {}
+    ],
+    [
+      "dayShift",
+      {}
+    ],
+    [
+      "nightShift",
+      {}
+    ],
+    [
+      "swingShift",
+      {}
+    ],
+    [
+      "overnightShift",
+      {}
+    ],
+    [
+      "anyShift",
+      {}
+    ],
+    [
+      "lift50PoundsWeightAbility",
+      {}
+    ],
+    [
+      "agreement",
+      []
+    ],
+    [
+      "hispanicLatino",
+      {}
+    ],
+    [
+      "genderPronouns",
+      {}
+    ],
+    [
+      "transgender",
+      {}
+    ],
+    [
+      "veteran",
+      {
+        "actions": [
+          {
+            "path": [
+              "//fieldset[label[contains(text(), 'Veteran')]]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "true": [
+                "I am a ",
+                "I identify ",
+                "Yes"
+              ],
+              "false": [
+                "I am not a ",
+                "I don't ",
+                "No",
+                "Prefer not"
+              ],
+              "": [
+                "I decline",
+                "I am not a ",
+                "I don't ",
+                "No",
+                "Prefer not"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "veteran"
+        ]
+      }
+    ],
+    [
+      "disability",
+      []
+    ],
+    [
+      "sexualOrientation",
+      {}
+    ],
+    [
+      "github",
+      []
+    ],
+    [
+      "twitter",
+      []
+    ],
+    [
+      "behance",
+      []
+    ],
+    [
+      "countryName",
+      []
+    ],
+    [
+      "county",
+      {}
+    ],
+    [
+      "phoneCode",
+      []
+    ],
+    [
+      "phoneType",
+      {}
+    ],
+    [
+      "certification",
+      {
+        "addButtonPath": [],
+        "options": {
+          "afterAddButtonAsyncDelay": 30000
+        },
+        "confirmAddedPath": [],
+        "containerPath": [],
+        "entities": [
+          [
+            "name",
+            []
+          ],
+          [
+            "issueDateSlashes_MMDDYYYY",
+            []
+          ]
+        ]
+      }
+    ],
+    [
+      "skill",
+      {
+        "containerPath": [],
+        "entities": [
+          [
+            "name",
+            []
+          ]
+        ],
+        "options": {
+          "clickOutsideAtEnd": false
+        }
+      }
+    ],
+    [
+      "lgbt",
+      {}
+    ],
+    [
+      "armedForces",
+      {}
+    ],
+    [
+      "currentDate",
+      []
+    ],
+    [
+      "currentDateDashes",
+      {}
+    ],
+    [
+      "workStartDateAvailabilityString",
+      {
+        "actions": [
+          {
+            "path": [
+              "//label[contains(text(), 'When can you start a new role')]/following::input[1]",
+              "//label[contains(text(), 'approximate start date')]/following::input[1]",
+              "//label[contains(text(), 'start working')]/following::input[1]"
+            ],
+            "method": "setValue"
+          },
+          {
+            "path": [
+              "//label[contains(text(), 'When can you start a new role')]/following::input[1]",
+              "//label[contains(text(), 'approximate start date')]/following::input[1]",
+              "//label[contains(text(), 'start working')]/following::input[1]"
+            ],
+            "method": "pressEnterKey"
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "when can you start a new role",
+          "approximate start date",
+          "start working"
+        ]
+      }
+    ],
+    [
+      "language",
+      {}
+    ],
+    [
+      "privacyAgreement",
+      {
+        "actions": [
+          {
+            "path": [
+              "//div[contains(@class, 'phoneNumberConsent')]//div[contains(@class, 'container')]//label[.//strong[normalize-space(text())='No']]//input"
+            ],
+            "method": "click"
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "privacy agreement",
+          "consent to"
+        ]
+      }
+    ],
+    [
+      "street",
+      []
+    ],
+    [
+      "cityLocated",
+      []
+    ],
+    [
+      "birthDate",
+      {}
+    ],
+    [
+      "phoneFormatted",
+      []
+    ],
+    [
+      "homePhoneFormatted",
+      []
+    ],
+    [
+      "workPhoneFormatted",
+      []
+    ],
+    [
+      "reference",
+      {}
+    ],
+    [
+      "referral",
+      {}
+    ],
+    [
+      "applyDate",
+      {}
+    ],
+    [
+      "minYearlySalaryDesired",
+      []
+    ],
+    [
+      "birthMonth",
+      {}
+    ],
+    [
+      "birthDay",
+      {}
+    ],
+    [
+      "birthYear",
+      {}
+    ],
+    [
+      "addressType",
+      {}
+    ],
+    [
+      "nameInitials",
+      []
+    ],
+    [
+      "startMonthAvailabilityString",
+      {}
+    ],
+    [
+      "startDayAvailabilityString",
+      {}
+    ],
+    [
+      "startYearAvailabilityString",
+      []
+    ],
+    [
+      "workStartDateFormatted.startDateMonthAbbr",
+      {}
+    ],
+    [
+      "currentDate.currentDateMonthAbbr",
+      {}
+    ],
+    [
+      "currentDate.dayOfTheMonthNoZeroPad",
+      {}
+    ],
+    [
+      "currentDate.currentDateYear",
+      {}
+    ],
+    [
+      "deviceType",
+      {}
+    ],
+    [
+      "recentExperience.startDate",
+      []
+    ],
+    [
+      "recentExperience.endDate",
+      []
+    ],
+    [
+      "cityStateName",
+      []
+    ],
+    [
+      "phoneAreaCode",
+      []
+    ],
+    [
+      "phonePrefix",
+      []
+    ],
+    [
+      "phoneLineNumber",
+      []
+    ],
+    [
+      "currentDate.dateString",
+      []
+    ],
+    [
+      "highestEducation.name",
+      []
+    ],
+    [
+      "highestEducation.degreeDisplay",
+      []
+    ],
+    [
+      "workStartDateFormatted.startDateDashes_YYYYMMDD",
+      []
+    ],
+    [
+      "currencyType",
+      {}
+    ],
+    [
+      "startMonthNameAvailabilityString",
+      {}
+    ],
+    [
+      "languages",
+      {
+        "addButtonPath": [],
+        "containerPath": [],
+        "confirmAddedPath": [],
+        "entryContainer": {
+          "title": [],
+          "subtitle": []
+        },
+        "options": {
+          "clickOutsideAtEnd": false,
+          "checkElementVisibility": false,
+          "containerInModal": false
+        },
+        "time": 1500,
+        "entities": [
+          [
+            "language",
+            []
+          ],
+          [
+            "speaking",
+            []
+          ],
+          [
+            "reading",
+            []
+          ],
+          [
+            "writting",
+            []
+          ],
+          [
+            "nextBtn",
+            []
+          ],
+          [
+            "checkErrors",
+            []
+          ]
+        ]
+      }
+    ],
+    [
+      "disabilitySignature",
+      {}
+    ],
+    [
+      "middleName",
+      {}
+    ],
+    [
+      "addressLine2",
+      []
+    ],
+    [
+      "workStartDateAvailability",
+      []
+    ],
+    [
+      "highestEducationLevel",
+      {}
+    ],
+    [
+      "willingToWorkHolidays",
+      {}
+    ],
+    [
+      "employmentInvoluntarilyTerminated",
+      {}
+    ],
+    [
+      "headline",
+      []
+    ],
+    [
+      "summary",
+      []
+    ],
+    [
+      "resume",
+      {
+        "actions": [
+          {
+            "path": [
+              "//input[contains(@id, 'systemfield_resume')]"
+            ],
+            "method": "uploadResume"
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "resume",
+          "cv"
+        ]
+      }
+    ]
+  ],
+  "globalOptions": {
+    "waitForAllRequestsBeforeFillingStep": false,
+    "waitForInteractionNetworkRequests": false
+  },
+  "backStepButtonPaths": [],
+  "backStepDiscardButtonPaths": [],
+  "autoFillOptions": {
+    "patterns": {
+      "date": [],
+      "fillAtEnd": []
+    },
+    "dateOrder": [],
+    "selectors": {
+      "date": ""
+    },
+    "settings": {
+      "date": {
+        "mode": ""
+      }
+    }
+  },
+  "pageFailureKeywords": [],
+  "verificationRequired": {
+    "errorXPath": []
+  },
+  "formatElements": "",
+  "signIn": {
+    "urls": [],
+    "formPath": [],
+    "submitButton": [],
+    "toSignInButton": [],
+    "createAccount": [],
+    "forgotPassword": [],
+    "email": [],
+    "password": [],
+    "errorMessage": [],
+    "endpoint": "",
+    "isEmailRequired": false,
+    "verifyPassword": [],
+    "isInlineForm": false,
+    "errorPersistAfterReload": false,
+    "recaptchaXpath": []
+  },
+  "signUp": {
+    "errorMessage": [],
+    "submitButton": [],
+    "formStepPath": [],
+    "email": [],
+    "password": [],
+    "verifyPassword": [],
+    "endpoint": "",
+    "saveStrategy": "",
+    "agreementPath": [],
+    "urls": [],
+    "verifyEmail": [],
+    "userName": [],
+    "recaptchaXpath": []
+  },
+  "screenshot": {
+    "hide": []
+  },
+  "alwaysSyncWindowId": true,
+  "verification": {
+    "enabled": false
+  },
+  "nextStepButtonFallbackToParentFrame": false,
+  "validationErrorPersistent": false,
+  "stepsNavigation": {
+    "containerPath": [],
+    "stepSelector": [],
+    "stepClickableSelector": [],
+    "activeStepSelector": []
+  },
+  "attachedContainer": [],
+  "questionsInSubmitPage": false,
+  "disableBeforeUnloadEvent": false,
+  "ignoreInitAnswersNeeded": false,
+  "formLoadingXPaths": [],
+  "formLoadingAfterNextStepClick": false,
+  "nextStepDynamicLoad": false,
+  "forceNewJobSearch": false,
+  "stopWaitingUserInteractionsInPreApply": false,
+  "exitModalWindow": [],
+  "clickErrorBannerAfterFailedSubmit": false,
+  "validateUsingQuestionErrorSelectors": false,
+  "formLoadingAfterSubmitClick": false,
+  "checkErrorsAfterSubmit": false,
+  "textContentFallbacks": []
+}

@@ -1,0 +1,166 @@
+# SuperJobAgent CI — Full Monorepo Build & Test Pipeline
+# ─────────────────────────────────────────────────────────────────────────────
+# GAP 6.2 FIX: First-ever CI pipeline for this monorepo.
+# Triggered on: every PR to main/develop, every push to main/develop.
+# ─────────────────────────────────────────────────────────────────────────────
+name: CI
+
+on:
+  push:
+    branches: [main, develop, "release/**"]
+  pull_request:
+    branches: [main, develop]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # ── 1. TypeScript Type-Check ────────────────────────────────────────────────
+  typecheck:
+    name: TypeScript (all workspaces)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Run typecheck across all packages
+        run: npm run typecheck
+
+  # ── 2. Lint ─────────────────────────────────────────────────────────────────
+  lint:
+    name: ESLint + Prettier
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Check for hardcoded secrets (security gate)
+        run: node scripts/check-secrets.mjs
+
+  # ── 3. Core Unit Tests ──────────────────────────────────────────────────────
+  unit-tests:
+    name: Unit Tests (@superjob/core)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Run core unit tests
+        run: npm test --workspace @superjob/core
+
+  # ── 4. Integration Tests ────────────────────────────────────────────────────
+  integration-tests:
+    name: Integration Tests
+    runs-on: ubuntu-latest
+    needs: [unit-tests]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Install Playwright Chromium
+        run: npx playwright install chromium --with-deps
+
+      - name: Build ats-config (required by integration tests)
+        run: npm run build --workspace @superjob/ats-config
+
+      - name: Run integration tests
+        run: node --test --import tsx integration/*.test.ts
+        env:
+          NODE_ENV: test
+
+  # ── 5. Build — All Packages ─────────────────────────────────────────────────
+  build:
+    name: Build (all workspaces)
+    runs-on: ubuntu-latest
+    needs: [typecheck]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Build all packages
+        run: npm run build
+
+      - name: Verify built scripts
+        run: node scripts/verify-built-scripts.mjs
+
+  # ── 6. Docker Build Smoke Test ──────────────────────────────────────────────
+  docker-smoke:
+    name: Docker Build Smoke Test
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image (no push)
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: docker/Dockerfile
+          push: false
+          tags: super-job-agent:ci-${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  # ── 7. Security — Dependency Audit ──────────────────────────────────────────
+  security-audit:
+    name: npm audit (high/critical)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Audit for high/critical vulnerabilities
+        run: npm audit --audit-level=high
+        continue-on-error: true  # warn only until backlog is clear

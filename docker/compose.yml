@@ -1,0 +1,113 @@
+# Super Job Agent — Docker Compose
+# Runs the multi-agent crew 24/7 with an API + dashboard.
+#
+# Quick start:
+#   1. docker compose -f docker/compose.yml build
+#   2. docker compose -f docker/compose.yml up
+#   3. Open http://localhost:3000
+#
+# All data (browser session, store.json, applications) persists in the
+# `superjob-data` volume across restarts.
+#
+# FIX (Gap 2.1, Gap 6.1): Added Redis service for job queue (BullMQ-ready)
+# and structured all env vars for future PostgreSQL migration.
+
+services:
+  # ── Redis (job queue + rate-limit state + WS ticket store) ────────────────
+  redis:
+    image: redis:7-alpine
+    container_name: super-job-agent-redis
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:6379:6379"
+    volumes:
+      - superjob-redis:/data
+    command: redis-server --appendonly yes --maxmemory 256mb --maxmemory-policy allkeys-lru
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ── API + Crew Agent ──────────────────────────────────────────────────────
+  agent:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: super-job-agent
+    restart: unless-stopped
+    depends_on:
+      redis:
+        condition: service_healthy
+    ports:
+      # Loopback only: do not expose applicant data/control endpoints to the LAN.
+      - "127.0.0.1:3000:3000"
+    volumes:
+      - superjob-data:/data
+    environment:
+      # --- search config ---
+      SEARCH_KEYWORDS: "software engineer"
+      SEARCH_LOCATION: "Remote"
+      SEARCH_MIN_SCORE: "50"
+      SEARCH_MAX_APPS: "5"
+      SEARCH_SCRAPE: "true"
+      # SEARCH_BOARDS: "arbeitnow,remoteok"
+      # SEARCH_COMPANY_BOARDS: "airbnb,stripe"
+
+      # --- schedule config ---
+      SCHEDULE_INTERVAL_MIN: "360"   # every 6 hours
+      SCHEDULE_MAX_RUNS: "0"         # 0 = infinite
+
+      # --- safety ---
+      DRY_RUN: "true"                # set to "false" to actually submit
+
+      # --- API security (required for all non-health dashboard/API routes) ---
+      # Set a long random value in a non-committed environment override before starting.
+      SUPERJOB_API_TOKEN: ""
+
+      # --- Auth secret (REQUIRED for multi-instance — set before scaling) ---
+      # SUPERJOB_AUTH_SECRET: "change-me-min-32-chars-random-secret"
+
+      # --- Google OAuth (enable Google sign-in) ---
+      # GOOGLE_CLIENT_ID: "your-client-id.apps.googleusercontent.com"
+
+      # --- Redis (job queue + WS tickets) ---
+      REDIS_URL: "redis://redis:6379"
+
+      # --- Database (future: PostgreSQL for multi-tenancy) ---
+      # DATABASE_URL: "postgresql://user:pass@db:5432/superjobagent"
+
+      # --- LLM (optional — defaults to local none) ---
+      SUPERJOB_LLM_PROVIDER: "none"
+      # SUPERJOB_LLM_API_KEY: "sk-..."
+
+      # --- Stripe billing ---
+      # STRIPE_SECRET_KEY: "sk_live_..."
+      # STRIPE_WEBHOOK_SECRET: "whsec_..."
+      # STRIPE_PRO_MONTHLY_PRICE_ID: "price_..."
+      # STRIPE_PRO_ANNUAL_PRICE_ID: "price_..."
+      # STRIPE_ULTRA_MONTHLY_PRICE_ID: "price_..."
+
+      # --- Email monitoring (optional — IMAP) ---
+      SUPERJOB_IMAP_PROVIDER: "gmail"
+      SUPERJOB_IMAP_USER: ""
+      SUPERJOB_IMAP_PASSWORD: ""
+      EMAIL_SCAN_INTERVAL_MIN: "30"
+
+      # --- App origin (needed for Stripe checkout redirect) ---
+      # APP_PUBLIC_URL: "https://your-domain.com"
+
+    # Chromium needs these
+    cap_add:
+      - SYS_ADMIN
+    shm_size: "2gb"
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://127.0.0.1:3000/api/health"]
+      interval: 30s
+      timeout: 5s
+      start_period: 15s
+      retries: 3
+
+volumes:
+  superjob-data:
+  superjob-redis:

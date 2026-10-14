@@ -1,0 +1,3 @@
+# Local provider credential. Copy to .onerc only on your own machine.
+# Never commit the copied file.
+ONE_SECRET=

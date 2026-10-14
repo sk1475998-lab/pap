@@ -1,0 +1,26 @@
+{
+  "name": "@superjob/analytics",
+  "version": "1.0.0",
+  "description": "Privacy-preserving analytics for Super Job Agent",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test --import tsx src/**/*.test.ts"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0"
+  },
+  "files": ["dist", "src"],
+  "license": "MIT"
+}

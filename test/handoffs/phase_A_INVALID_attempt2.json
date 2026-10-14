@@ -1,0 +1,320 @@
+{
+  "phase": "A",
+  "dependency_map": {
+    "@superjob/core": {
+      "imports": [
+        "profile.js",
+        "storage.js",
+        "matcher.js",
+        "ats.js",
+        "parser.js",
+        "cover-letter.js",
+        "resolver.js",
+        "field-policy.js",
+        "llm/index.js",
+        "env.js",
+        "settings.js",
+        "profile-complete.js",
+        "profile-brain.js",
+        "profile-repair.js",
+        "runtime-audit.js",
+        "login-helpers.js",
+        "skill-graph.js",
+        "skill-graph-data.js",
+        "jd-analyzer.js",
+        "job-risk.js",
+        "job-freshness.js",
+        "application-readiness.js",
+        "resume-version.js",
+        "docx.js",
+        "crypto/passphrase-crypto.js",
+        "visa-verify.js",
+        "outreach.js",
+        "salary-engine.js",
+        "question-classifier.js",
+        "story-bank.js",
+        "company-context.js"
+      ],
+      "imported_by": [
+        "packages/extension/src/lib/autofill.ts",
+        "packages/extension/src/lib/filler.ts",
+        "packages/extension/src/lib/detector.ts",
+        "packages/extension/src/lib/orchestrator.ts",
+        "packages/extension/src/lib/content.ts",
+        "packages/applier/src/browser.ts",
+        "packages/applier/src/page-scan.ts",
+        "packages/applier/src/page-fill.ts",
+        "packages/applier/src/pipeline.ts",
+        "packages/crew/src/framework.ts"
+      ]
+    },
+    "@superjob/extension": {
+      "imports": [
+        "@superjob/core",
+        "react",
+        "wxt",
+        "@wxt-dev/module-react"
+      ],
+      "imported_by": []
+    },
+    "@superjob/applier": {
+      "imports": [
+        "@superjob/core",
+        "@superjob/email-monitor",
+        "playwright"
+      ],
+      "imported_by": []
+    },
+    "@superjob/scraper": {
+      "imports": [
+        "@superjob/core"
+      ],
+      "imported_by": [
+        "packages/extension/src/lib/orchestrator.ts"
+      ]
+    },
+    "@superjob/crew": {
+      "imports": [
+        "@superjob/core"
+      ],
+      "imported_by": [
+        "packages/extension/src/lib/orchestrator.ts"
+      ]
+    },
+    "@superjob/email-monitor": {
+      "imports": [],
+      "imported_by": [
+        "@superjob/applier"
+      ]
+    }
+  },
+  "workflows": [
+    {
+      "name": "extension autofill",
+      "entry_point": "packages/extension/src/lib/autofill.ts",
+      "exit_conditions": [
+        "fieldPolicyCheck",
+        "fieldAlreadyFilledCheck",
+        "fieldFillingSuccess",
+        "fieldFillingRetry"
+      ],
+      "external_deps": [
+        "chrome.runtime",
+        "document/Element",
+        "fetch",
+        "CSS"
+      ],
+      "risk_surface": [
+        "browser_event_driven_state",
+        "react_spa_change_detection",
+        "form_validation_complexity",
+        "rate_limit_potential",
+        "session_timeout",
+        "coalesced_queue_processing"
+      ]
+    },
+    {
+      "name": "headless applier",
+      "entry_point": "packages/applier/src/browser.ts",
+      "exit_conditions": [
+        "application_validation",
+        "submission_attempt",
+        "page_timeout",
+        "browser_close"
+      ],
+      "external_deps": [
+        "playwright",
+        "https://www.linkedin.com",
+        "generic ATS pages",
+        "network_resources"
+      ],
+      "risk_surface": [
+        "playwright_security_context",
+        "site_terms_violation",
+        "behavior_detection",
+        "captcha_intervention",
+        "page_load_timing",
+        "browser_profile_isolation"
+      ]
+    },
+    {
+      "name": "OTP interceptor",
+      "entry_point": "packages/extension/src/lib/login-agent.ts",
+      "exit_conditions": [
+        "otp_detection",
+        "otp_field_identification",
+        "otp_pause_trigger",
+        "otp_resumption",
+        "otp_validation_success"
+      ],
+      "external_deps": [
+        "chrome.runtime.messaging",
+        "document/Observable"
+      ],
+      "risk_surface": [
+        "client_side_validation",
+        "session_synchronization",
+        "timing_attack_vector",
+        "user_interaction_capture",
+        "multi_tab_coordination"
+      ]
+    },
+    {
+      "name": "email monitor",
+      "entry_point": "packages/email-monitor/src/monitor.ts",
+      "exit_conditions": [
+        "imap_connection",
+        "incoming_message_processing",
+        "attachment_extraction",
+        "email_sanitization"
+      ],
+      "external_deps": [
+        "IMAP protocol",
+        "SMTP protocol",
+        "TLS encryption",
+        "email_parsing"
+      ],
+      "risk_surface": [
+        "email_storage_scope",
+        "access_credential_security",
+        "spam_filter_bypass",
+        "sanitization_failure_vector",
+        "server_response_handling"
+      ]
+    },
+    {
+      "name": "rate governor",
+      "entry_point": "packages/applier/src/browser.ts",
+      "exit_conditions": [
+        "delay_calculation",
+        "pipeline_throttling",
+        "inter_action_wait",
+        "rate_limit_respect"
+      ],
+      "external_deps": [
+        "exponential_backoff",
+        "time_based_state",
+        "external_api_affinity"
+      ],
+      "risk_surface": [
+        "request_coalescing",
+        "adaptive_pacing",
+        "service_provider_flexibility",
+        "cumulative_state_correlation",
+        "external_api_fairness"
+      ]
+    }
+  ],
+  "brittle_selectors": [
+    {
+      "selector": "[data-automation-id]",
+      "file": "packages/extension/src/lib/detector.ts",
+      "reason": "Workday specific, may change with UI updates"
+    },
+    {
+      "selector": "input[type=\"radio\"][name]",
+      "file": "packages/extension/src/lib/autofill.ts",
+      "reason": "Radio groups depend on consistent naming patterns"
+    },
+    {
+      "selector": "input[type=\"file\"]",
+      "file": "packages/extension/src/lib/filler.ts",
+      "reason": "File input upload mechanism is platform-dependent"
+    },
+    {
+      "selector": "[contenteditable=\"true\"]",
+      "file": "packages/extension/src/lib/detector.ts",
+      "reason": "Rich text editor detection is fragile with framework changes"
+    },
+    {
+      "selector": "[class*=\"react-select\"][class*=\"__control\"]",
+      "file": "packages/extension/src/lib/filler.ts",
+      "reason": "React Select library implementation may vary"
+    },
+    {
+      "selector": "wd-text-input, wd-select, wd-textarea",
+      "file": "packages/extension/src/lib/detector.ts",
+      "reason": "Workday web component name stability"
+    },
+    {
+      "selector": ".jobs-easy-apply-modal",
+      "file": "packages/extension/src/lib/content.ts",
+      "reason": "LinkedIn Easy Apply modal structure changes over time"
+    },
+    {
+      "selector": "[aria-label=\"*OTP*\", \"[placeholder*=\"*OTP*\"]",
+      "file": "packages/extension/src/lib/login-agent.ts",
+      "reason": "OTP field structure varies across authentication providers"
+    },
+    {
+      "selector": ".form-group .input, .field .input",
+      "file": "packages/extension/src/lib/detector.ts",
+      "reason": "Generic CSS selector dependent on organizational styling"
+    },
+    {
+      "selector": "input[aria-autocomplete=\"list\"]",
+      "file": "packages/extension/src/lib/filler.ts",
+      "reason": "Combobox attribute implementation varies across platforms"
+    }
+  ],
+  "api_surface": [
+    {
+      "api": "chrome.runtime",
+      "key_storage": "env",
+      "file": "packages/extension/src/lib/content.ts"
+    },
+    {
+      "api": "chrome.storage.local",
+      "key_storage": "env",
+      "file": "packages/extension/src/lib/app-state.ts"
+    },
+    {
+      "api": "fetch",
+      "key_storage": "env",
+      "file": "packages/core/src/job-freshness.ts"
+    },
+    {
+      "api": "playwright",
+      "key_storage": "env",
+      "file": "packages/applier/src/browser.ts"
+    },
+    {
+      "api": "document.querySelector",
+      "key_storage": "hardcoded",
+      "file": "packages/extension/src/lib/detector.ts"
+    },
+    {
+      "api": "CSS.escape",
+      "key_storage": "hardcoded",
+      "file": "packages/extension/src/lib/detector.ts"
+    },
+    {
+      "api": "nanoid",
+      "key_storage": "dev",
+      "file": "packages/extension/src/lib/store.ts"
+    },
+    {
+      "api": "zod",
+      "key_storage": "dev",
+      "file": "packages/core/src/types.ts"
+    },
+    {
+      "api": "pdfjs-dist",
+      "key_storage": "dev",
+      "file": "packages/core/src/parser.ts"
+    },
+    {
+      "api": "fflate",
+      "key_storage": "dev",
+      "file": "packages/core/package.json"
+    }
+  ],
+  "circular_deps": [],
+  "critical_blockers": [
+    "Missing implements for @superjob/scraper/framework.ts JobSource interface",
+    "Unresolved import in packages/extension/src/lib/credential-store.ts (context.error: Cannot find module 'opn' dependency)",
+    "Incomplete Player.tsx implementation in packages/extension/src/lib/player.tsx",
+    "Missing ProfileStore.ts implementation for @superjob/extension/src/lib/store.ts",
+    "Unfinalized searchEngine.ts implementation for @superjob/scraper/crew-source.ts"
+  ]
+}

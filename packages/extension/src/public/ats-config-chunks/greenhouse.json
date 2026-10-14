@@ -1,0 +1,2528 @@
+{
+  "atsName": "greenhouse",
+  "urls": [
+    "*://boards.eu.greenhouse.io/*",
+    "*://job-boards.eu.greenhouse.io/*",
+    "*://job-boards.greenhouse.io/*",
+    "*://boards.greenhouse.io/*",
+    "*://*/?gh_jid",
+    "*://*?gh_jid",
+    "*://*/&gh_jid",
+    "*://*&gh_jid",
+    "*://*?gh_search*"
+  ],
+  "urlsExclude": [
+    "*://boards.greenhouse.io/*/confirmation"
+  ],
+  "networkOptions": {
+    "blacklistedUrlParts": [
+      "linkedin",
+      "analytics",
+      "insights",
+      "track"
+    ]
+  },
+  "detectPageQuestions": true,
+  "addQuestionLabelId": true,
+  "submitButtonPaths": [
+    ".//input[@type='submit' and @data-trackingid='job-application-submit']",
+    ".//button[@type='submit' and contains(@class, 'submit-step')]",
+    ".//input[@type='button' and contains(@id, 'submit')]",
+    ".//div[contains(@class, 'application--submit')]//button[@type='submit']",
+    ".//button[@type='submit' and contains(@id, 'submit') and CONTAINS_TEXT('apply', true)]",
+    ".//form[contains(@action, '/api/greenhouse_jobs')]//input[@type='submit']",
+    ".//button[@type='button' and .//span[text()='Submit Application']]"
+  ],
+  "nextStepButtonPaths": [],
+  "validationErrorXPaths": [
+    "//div[@class='field-error-msg']",
+    "//p[contains(@class, 'helper-text--error')]"
+  ],
+  "validationCheckFormValidity": true,
+  "monitorSubmitFlow": true,
+  "waitForSubmitOutcome": true,
+  "checkForAlreadyAppliedAfterSubmit": true,
+  "errorBannerXPaths": [],
+  "questionValidationErrorSelectors": [
+    "[aria-invalid='true']",
+    "[class*='field-error']"
+  ],
+  "confirmSubmittedForm": {
+    "confirmMessageXPath": [
+      ".//div[contains(@id, 'call_to_action') and contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'thank you for applying') and contains(@style, 'display: block')]",
+      ".//div[contains(@id, 'application_confirmation')]",
+      ".//div[contains(@class, 'confirmation')]//div[contains(@class, 'confirmation__links')]"
+    ],
+    "confirmMessageSelector": [
+      "[id='application_confirmation']"
+    ],
+    "urls": []
+  },
+  "verificationAfterSubmit": true,
+  "verificationRequired": {
+    "errorXPath": [
+      "//label[@id='email-verification-label']",
+      "//label[@for='security_code']"
+    ]
+  },
+  "verification": {
+    "enabled": true,
+    "interval": 15000,
+    "maxDuration": 120000,
+    "codeConfig": [
+      {
+        "type": "segments",
+        "inputs": [
+          "//input[contains(@id, 'security-input-')]"
+        ]
+      },
+      {
+        "type": "single",
+        "inputs": [
+          "//input[@id='security_code']"
+        ]
+      }
+    ]
+  },
+  "targetNodeXPath": [
+    ".//form[starts-with(@action, 'https://boards.greenhouse.io/')]",
+    ".//form[starts-with(@action, 'https://boards.eu.greenhouse.io/')]",
+    ".//form[descendant::input[@type='hidden' and @name='action' and (@value='greenhouse/applications/submit' or @value='gh_application_submission')]]",
+    ".//form[@id='application-form']",
+    ".//div[@id='js-job-description-entry-point']",
+    ".//div[contains(@class, 'gh-single-job')]",
+    ".//div[contains(@class, 'job-page-ready-to-apply')]",
+    ".//div[contains(@class, '--greenhouse')]",
+    ".//form[@id='online-job-app']",
+    ".//form[@id='apply-form']"
+  ],
+  "targetFrameNodeXPath": [
+    ".//form[starts-with(@action, 'https://boards.greenhouse.io/embed/')]",
+    ".//form[starts-with(@action, 'https://boards.eu.greenhouse.io/embed/')]",
+    ".//form[starts-with(@action, 'https://boards.greenhouse.io/')]",
+    ".//form[starts-with(@action, 'https://boards.eu.greenhouse.io/')]",
+    ".//form[@class='greenhouse-form']//input[@type='hidden' and @name='jobId']",
+    ".//form[descendant::input[@type='hidden' and @name='action' and (@value='greenhouse/applications/submit' or @value='gh_application_submission')]]",
+    ".//form[@id='application-form']",
+    ".//form[@id='apply-form']",
+    ".//form[contains(@action, '/api/greenhouse_jobs')]",
+    ".//div[contains(@class, 'JobPageApplication__GreenhouseAppContainer')]"
+  ],
+  "expiredJob": [
+    {
+      "container": [
+        ".//h1",
+        ".//h2"
+      ],
+      "keywords": [
+        "current openings at",
+        "current job openings",
+        "no current openings.",
+        "open positions",
+        "/^\\d+\\s+Jobs$/i"
+      ]
+    }
+  ],
+  "canJobBeAppliedXPaths": {
+    "applyButton": [
+      ".//a[contains(@class, 'job-description-apply-button')]",
+      ".//button[contains(@class, 'applyNowButton')]",
+      ".//button[contains(@class, 'apply-button') and contains(@class, 'careers-detail')]",
+      "//div[contains(@id, 'greenhouse-apply-link')]//a[contains(@href, 'gh_jid=') and CONTAINS_TEXT('apply', true)]",
+      ".//a[@class='apply tab-button']"
+    ],
+    "submitButton": "submitButtonPaths",
+    "options": {
+      "checkApplyBtnOutsideIframe": true
+    }
+  },
+  "hiddenElementSelectors": "[class*='-offscreen'], [class*='-display-none']",
+  "customQuestions": {
+    "patterns": {
+      "questionId": "",
+      "innerSelectors": [
+        "select[name^='job']",
+        "select.dropdown[multiple='multiple']",
+        "textarea[name^='job']",
+        "input[autocomplete^='custom-question']",
+        "input[type='checkbox'][name^='job']"
+      ],
+      "fieldsetMatchQuerySelector": "[data-sja-question-group='checkbox']"
+    },
+    "selectors": {
+      "question": "label[id], label[for]:not(:empty), fieldset, div.field > label, label[class*='required']",
+      "title": "h1",
+      "label": "label[for='__questionId__'], .field:has(input[id='__questionId__']) label, #custom_fields label, #demographic_questions label, #eeoc_fields label, form[id='application-form'] label, form[id='apply-form'] label, form[id='online-job-app'] label",
+      "labelInputGroup": "label:not([for]):not(:has(label))",
+      "legend": "#custom_fields legend",
+      "ariaLabelledBy": "label",
+      "roleOption": "[role='option']",
+      "radioInput": "input[type='radio']",
+      "monthInput": "input[aria-valuetext='MM']",
+      "dateInput": "input[aria-valuetext='DD']",
+      "yearInput": "input[aria-valuetext='YYYY']",
+      "checkbox": "input[type='checkbox']",
+      "mapOption": "[role='option'], option",
+      "formGroup": "fieldset.checkbox"
+    },
+    "xpaths": {
+      "currentListItem": [],
+      "listInputBackBtnText": [],
+      "selectPopupXPath": [
+        "//div[contains(@class, 'select__menu-list')]",
+        "//div[contains(@class, 'rc-virtual-list-holder-inner')]"
+      ],
+      "listBoxPopupXPath": [
+        "//div[contains(@class, 'select2-drop-active') and @id='select2-drop']//ul"
+      ],
+      "selectedItemListXPath": [
+        "//div[contains(@class, 'select2-drop-active') and @id='select2-drop']//input[contains(@class, 'select2-input')]",
+        "//div[@class=' ant-select-item-option-active']"
+      ],
+      "requiredFieldXPath": [
+        ".//span[@class='asterisk']",
+        ".//span[CONTAINS_TEXT('*', true)]",
+        ".//label[contains(@class, 'ant-form-item-required')]"
+      ],
+      "requiredTextContent": [
+        "required",
+        "mandatory",
+        "if yes",
+        "please enter N/A"
+      ]
+    },
+    "ignoreQuestions": [
+      ".//div[contains(@class, 'select__input-container')]//input[contains(@id, 'end-date-month-')]",
+      ".//fieldset[@id='resume_fieldset' or @id='cover_letter_fieldset']",
+      ".//input[contains(@id, 'security_code') or @id='s2id_autogen2_search' or @id='s2id_autogen89_search']",
+      ".//label[contains(@id, 'cover_letter')]",
+      ".//label[contains(@id, 'resume')]",
+      ".//label[contains(@id, 'start-month-') or contains(@id, 'end-month-')]"
+    ],
+    "ignoreContainerQuestions": []
+  },
+  "jobXPaths": {
+    "entities": [
+      [
+        "titleDisplay",
+        [
+          ".//div[@id='app_body']//h1[@class='app-title']",
+          ".//div[@class='section-body' or @class='job__title']/h1",
+          ".//div[@class='job__header']//h1[@class='job-title']"
+        ]
+      ],
+      [
+        "originalCompanyName",
+        [
+          "substring(normalize-space(.//div[@id='app_body']//span[@class='company-name']/text()), 4)",
+          "substring-after(.//meta[(@property='og:site_name' or @name='application-name') and starts-with(@content, 'Careers at ')]/@content, 'Careers at ')",
+          ".//meta[@property='og:site_name' or @name='application-name']/@content"
+        ]
+      ],
+      [
+        "jobTypes",
+        []
+      ],
+      [
+        "postingDate",
+        []
+      ],
+      [
+        "url",
+        []
+      ],
+      [
+        "desc",
+        [
+          ".//div[@id='app_body']//div[@id='content']",
+          ".//*[@id='main']//div[@class='page-positions__content']",
+          ".//ion-content/main/ng-component/section/article/markdown[descendant::div[@class='content-intro']]"
+        ]
+      ],
+      [
+        "locationDisplay",
+        [
+          ".//div[@id='app_body']//div[@class='location']",
+          ".//div[@class='meta']/p[1]",
+          ".//span[@class='job-location']"
+        ]
+      ]
+    ]
+  },
+  "contextData": {
+    "classifier": {
+      "applyBtnPath": [
+        "//a[contains(@href, 'boards.eu.greenhouse.io') and CONTAINS_TEXT('apply', true)]",
+        "//a[contains(@href, 'boards.greenhouse.io') and CONTAINS_TEXT('apply', true)]",
+        "//a[contains(@href, 'gh_jid=') and CONTAINS_TEXT('apply', true)]",
+        "//script[contains(@src, 'boards.greenhouse.io/embed/job_board')]//following::button[contains(@id, 'apply-form-tab') and CONTAINS_TEXT('apply', true)][1]"
+      ]
+    },
+    "options": {}
+  },
+  "preApply": {
+    "urls": [],
+    "entities": []
+  },
+  "entities": [
+    [
+      "answerSource",
+      [
+        {
+          "actions": [
+            {
+              "path": [
+                ".//label[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'how') and contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'hear about') and (contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'us') or contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'position') or contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'role'))]//ul[@class='select2-choices']//input",
+                "//div[@class='field'][label[contains(text(), 'How did you hear about this job?')]]//a",
+                "//div[@class='field'][label[contains(text(), 'How did you hear about')]]//div[contains(@class, 'question')]//input"
+              ],
+              "method": "click",
+              "options": {
+                "unmarkFilledStatusIfSomeFails": true
+              }
+            },
+            {
+              "path": [
+                "//ul[@id='select2List1' and @role='listbox' and li]",
+                "//ul[contains(@class,'select2-results') and contains(@id,'select2List') and li]",
+                "//fieldset[legend[contains(text(), 'How did you learn about us?')]]"
+              ],
+              "method": "clickOption",
+              "values": {
+                "source": [
+                  "Google",
+                  "Other"
+                ]
+              },
+              "options": {
+                "exactXpathSearch": true,
+                "lowPriority": [
+                  "Indeed",
+                  "ZipRecruiter",
+                  "LinkedIn",
+                  "Glassdoor",
+                  "Simplyhired",
+                  "Dice",
+                  "CareerBuilder",
+                  "Monster"
+                ],
+                "prohibited": [
+                  "referral",
+                  "referred",
+                  "connection",
+                  "at the company",
+                  "for the organization",
+                  "employee",
+                  "select",
+                  "current worker"
+                ],
+                "ignoreFirst": true,
+                "selectFirstExcludingProhibited": true
+              }
+            }
+          ]
+        },
+        {
+          "actions": [
+            {
+              "path": [
+                "//input[contains(translate(@aria-label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'how did you hear about')]",
+                "//input[@autocomplete='custom-question-how-did-you-hear-about-this-job']",
+                "//input[contains(translate(@aria-label, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'selected &quot;other&quot;')]"
+              ],
+              "method": "setValue",
+              "defaultValue": "Job Board"
+            }
+          ]
+        }
+      ],
+      {
+        "keywords": [
+          "How did you hear",
+          "how-did-you-hear-about-this-job"
+        ]
+      }
+    ],
+    [
+      "applyBtn",
+      {
+        "actions": [
+          {
+            "key": "canJobBeAppliedXPaths.applyButton",
+            "method": "click"
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "Apply"
+        ]
+      }
+    ],
+    [
+      "firstName",
+      [
+        ".//input[@id='first_name']",
+        ".//input[@name='first_name']",
+        ".//label[CONTAINS_TEXT('first name')]/parent::*//input[@type='text' and not(ancestor::div[@class='contact-modal_component'])]"
+      ],
+      {
+        "keywords": [
+          "First Name"
+        ]
+      }
+    ],
+    [
+      "lastName",
+      [
+        ".//input[@id='last_name']",
+        ".//input[@name='last_name']",
+        ".//label[CONTAINS_TEXT('last name')]/parent::*//input[@type='text' and not(ancestor::div[@class='contact-modal_component'])]"
+      ],
+      {
+        "keywords": [
+          "Last Name"
+        ]
+      }
+    ],
+    [
+      "preferredFirstName",
+      [
+        ".//input[contains(@autocomplete, 'preferred-first-name')]"
+      ],
+      {
+        "keywords": [
+          "Preferred First Name",
+          "preferred-first-name"
+        ]
+      }
+    ],
+    [
+      "legalFirstName",
+      [
+        ".//input[contains(@autocomplete, 'legal-first-name')]"
+      ],
+      {
+        "keywords": [
+          "Legal First Name",
+          "legal-first-name"
+        ]
+      }
+    ],
+    [
+      "legalLastName",
+      [
+        ".//input[contains(@autocomplete, 'legal-last-name')]"
+      ],
+      {
+        "keywords": [
+          "Legal Last Name",
+          "legal-last-name"
+        ]
+      }
+    ],
+    [
+      "fullName",
+      [
+        ".//input[@id='full_name' or @id='legal_name']",
+        ".//input[@name='full_name' or @name='legal_name']",
+        ".//label[CONTAINS_TEXT('full name') or CONTAINS_TEXT('legal name')]/parent::*//input[@type='text']"
+      ],
+      {
+        "keywords": [
+          "Full Name",
+          "Legal Name"
+        ]
+      }
+    ],
+    [
+      "email",
+      [
+        ".//div[contains(@class, 'field')]//input[@id='email']",
+        ".//div[contains(@class, 'field')]//input[@name='email']",
+        ".//div[contains(@class, 'ant-form-item')]//input[@name='email']",
+        ".//div[@class='text-input-wrapper']//input[@id='email']",
+        ".//div[contains(@class, 'field')]//input[@id='email']",
+        "(.//div[contains(@class, 'email')]//input[@autocomplete='email'])[last()]"
+      ],
+      {
+        "keywords": [
+          "Email"
+        ]
+      }
+    ],
+    [
+      "phone",
+      [
+        ".//div[contains(@class, 'field')]//input[@id='phone']",
+        ".//div[contains(@class, 'field')]//input[@name='phone']",
+        ".//div[contains(@class, 'ant-form-item')]//input[@name='phone']",
+        ".//div[@class='text-input-wrapper']//input[@id='phone']"
+      ],
+      {
+        "keywords": [
+          "Phone"
+        ]
+      }
+    ],
+    [
+      "addressLine1",
+      [
+        ".//label[CONTAINS_TEXT('address') and not(CONTAINS_TEXT('email'))]/parent::*//input[@type='text' and not(ancestor::div[@class='contact-modal_component'])]",
+        ".//input[@autocomplete='custom-question-street-address']"
+      ],
+      {
+        "keywords": [
+          "Address",
+          "custom-question-street-address"
+        ]
+      }
+    ],
+    [
+      "recentExperience.companyName",
+      [
+        ".//input[contains(@autocomplete, 'current-company')]",
+        ".//label[(contains(text(), 'current company') or contains(text(), 'current employer')) and not(contains(text(), 'non-compete')) and not(contains(., 'prevents you'))]/parent::div//input[@type='text']",
+        ".//label[CONTAINS_TEXT('current') and CONTAINS_TEXT('employer') and not(contains(text(), 'non-compete')) and not(contains(., 'prevents you'))]/parent::div//input[@type='text']"
+      ],
+      {
+        "keywords": [
+          "Current Company",
+          "Current Employer"
+        ]
+      }
+    ],
+    [
+      "recentExperience.title",
+      [
+        ".//input[contains(@autocomplete, 'recent-job-title')]",
+        ".//label[CONTAINS_TEXT('current job') or CONTAINS_TEXT('current title')]/parent::div//input[@type='text']",
+        ".//label[CONTAINS_TEXT('current') and CONTAINS_TEXT('job title')]/parent::div//input[@type='text']"
+      ],
+      {
+        "keywords": [
+          "Current Job Title",
+          "Current Title"
+        ]
+      }
+    ],
+    [
+      "state",
+      [
+        {
+          "actions": [
+            {
+              "path": [
+                ".//label[CONTAINS_TEXT('state') and not(CONTAINS_TEXT('united')) and not(CONTAINS_TEXT('states'))]/parent::*//div[@class='select2-container']",
+                ".//label[CONTAINS_TEXT('state') and not(CONTAINS_TEXT('united')) and not(CONTAINS_TEXT('states'))]/parent::*//select[not(contains(@style, 'display: none'))]",
+                ".//div[@class='select2-container' and following-sibling::select[@name='job_application[state]']]",
+                ".//select[@name='job_application[state]' and not(contains(@style, 'display: none'))]"
+              ],
+              "method": "clickOption"
+            }
+          ]
+        },
+        {
+          "actions": [
+            {
+              "path": [
+                ".//label[CONTAINS_TEXT('state') and CONTAINS_TEXT('code') and not(CONTAINS_TEXT('states'))]/parent::*//input[@type='text' and not(ancestor::div[@class='contact-modal_component'])]",
+                ".//input[@autocomplete='custom-question-state-code']"
+              ],
+              "method": "setValue"
+            }
+          ]
+        }
+      ],
+      {
+        "keywords": [
+          "State",
+          "State Code"
+        ]
+      }
+    ],
+    [
+      "stateName",
+      [
+        {
+          "actions": [
+            {
+              "path": [
+                ".//label[CONTAINS_TEXT('state') and not(CONTAINS_TEXT('states'))]/parent::*//select[not(contains(@style, 'display: none'))]"
+              ],
+              "method": "clickOption",
+              "options": {
+                "unmarkFilledStatusIfSomeFails": true
+              }
+            },
+            {
+              "path": [
+                ".//label[CONTAINS_TEXT('state') and not(CONTAINS_TEXT('states'))]/parent::*//select[not(contains(@style, 'display: none'))]"
+              ],
+              "method": "pressEscapeKey"
+            }
+          ]
+        },
+        {
+          "actions": [
+            {
+              "path": [
+                ".//label[CONTAINS_TEXT('state') and not(CONTAINS_TEXT('states'))]/parent::*//div[@class='select2-container']"
+              ],
+              "method": "click",
+              "options": {
+                "unmarkFilledStatusIfSomeFails": true
+              }
+            },
+            {
+              "path": [
+                "//ul[@class='select2-results' and @id='select2List0']",
+                "//ul[@class='select2-results' and @role='listbox' and child::*]"
+              ],
+              "method": "clickOption"
+            }
+          ]
+        },
+        {
+          "actions": [
+            {
+              "path": [
+                "(.//label[contains(., 'Which state or province do you currently live in?') or contains(., 'Current State of Residence (U.S.)')]//a)[1]"
+              ],
+              "method": "click",
+              "options": {
+                "unmarkFilledStatusIfSomeFails": true
+              }
+            },
+            {
+              "path": [
+                "//label[contains(., 'Which state or province do you currently live in?') or contains(., 'Current State of Residence (U.S.)')]//select"
+              ],
+              "method": "clickOption",
+              "options": {
+                "similarMatch": true,
+                "waitForNetworkBeforeInteraction": true,
+                "waitForNetworkAfterInteraction": true
+              }
+            }
+          ]
+        }
+      ],
+      {
+        "keywords": [
+          "State"
+        ]
+      }
+    ],
+    [
+      "postalCode",
+      [
+        ".//label[CONTAINS_TEXT('zip code')]/parent::*//input[@type='text' and not(ancestor::div[@class='contact-modal_component'])]",
+        ".//input[@autocomplete='custom-question-zip-code']"
+      ],
+      {
+        "keywords": [
+          "Zip Code",
+          "custom-question-zip-code"
+        ]
+      }
+    ],
+    [
+      "cityStateName",
+      [
+        {
+          "actions": [
+            {
+              "path": [
+                ".//label[CONTAINS_TEXT('city') and not(CONTAINS_TEXT('state'))]/parent::*//input[@type='text' and not(@autocomplete) and not(ancestor::div[@class='contact-modal_component']) and not(ancestor::div[contains(@class, 'select__input-container')]) and not(@id='auto_complete_input')]",
+                ".//input[@autocomplete='custom-question-city' and not(@id='auto_complete_input')]",
+                ".//textarea[@autocomplete='custom-question-city' and not(@id='auto_complete_input')]",
+                ".//input[@id='candidate-location' and not(contains(@style, 'display: none')) and not(ancestor::div[contains(@class, 'select__input-container')])]"
+              ],
+              "method": "setValue",
+              "options": {
+                "triggerBlurEvent": false
+              }
+            }
+          ]
+        },
+        {
+          "actions": [
+            {
+              "path": [
+                ".//input[@id='candidate-location' and not(contains(@style, 'display: none'))]/ancestor::div[contains(@class, 'select__control')]",
+                ".//input[@id='candidate-location' and not(contains(@style, 'display: none'))]",
+                ".//input[@type='text' and @name='job_application[location]']"
+              ],
+              "method": "click",
+              "options": {
+                "waitForNetworkAfterInteraction": true
+              }
+            },
+            {
+              "path": [
+                ".//input[@id='candidate-location' and not(contains(@style, 'display: none'))]"
+              ],
+              "method": "setValue",
+              "options": {
+                "triggerBlurEvent": false,
+                "waitForNetworkBeforeInteraction": true,
+                "waitForNetworkAfterInteraction": true,
+                "triggerKeyDownEvent": true,
+                "triggerKeyUpEvent": true,
+                "trackQuestion": true
+              },
+              "time": 350
+            },
+            {
+              "path": [
+                ".//div[@id='location_autocomplete_root']//ul[not(@hidden)]",
+                ".//div[@id='candidate-location']//ul",
+                ".//ul[@role='listbox' and contains(@id, 'location')]",
+                ".//div[@role='listbox' and contains(@id, 'location')]"
+              ],
+              "method": "clickOptionAsync",
+              "options": {
+                "waitForNetworkBeforeInteraction": true,
+                "filledVariantIgnoreXPath": [
+                  "//span[starts-with(normalize-space(text()), '0 result')]"
+                ],
+                "fallbackToValueFromFields": [
+                  "cityStateName",
+                  "cityState"
+                ]
+              }
+            },
+            {
+              "path": [
+                ".//input[@id='candidate-location' and not(contains(@style, 'display: none'))]/ancestor::div[contains(@class, 'select__control')]",
+                ".//input[@id='candidate-location' and not(contains(@style, 'display: none'))]",
+                ".//input[@type='text' and @name='job_application[location]']"
+              ],
+              "method": "pressEscapeKey"
+            }
+          ]
+        },
+        {
+          "actions": [
+            {
+              "path": [
+                ".//input[contains(@autocomplete, 'from-where-do-you') or contains(@autocomplete, '-location')]"
+              ],
+              "method": "setValue"
+            }
+          ]
+        },
+        {
+          "actions": [
+            {
+              "path": [
+                ".//div[@id='location_autocomplete_root']//input[@type='text']"
+              ],
+              "method": "click"
+            },
+            {
+              "path": [
+                ".//div[@id='location_autocomplete_root']//input[@type='text']"
+              ],
+              "method": "setValue",
+              "options": {
+                "triggerBlurEvent": false,
+                "waitForNetworkAfterInteraction": true,
+                "triggerKeyDownEvent": true,
+                "triggerKeyUpEvent": true,
+                "trackQuestion": true
+              },
+              "time": 300
+            },
+            {
+              "path": [
+                ".//div[@id='location_autocomplete_root']//input[@type='text']"
+              ],
+              "method": "pressEnterKey",
+              "options": {
+                "triggerBlurEvent": false,
+                "waitForNetworkAfterInteraction": true
+              }
+            },
+            {
+              "path": [
+                ".//div[@id='location_autocomplete_root']//ul[not(@hidden)]"
+              ],
+              "method": "clickOptionAsync",
+              "options": {
+                "similarMatch": true,
+                "waitForNetworkBeforeInteraction": true,
+                "waitForNetworkAfterInteraction": true
+              }
+            },
+            {
+              "path": [
+                ".//div[@id='location_autocomplete_root']//input[@type='text']"
+              ],
+              "method": "pressEscapeKey"
+            }
+          ]
+        }
+      ],
+      {
+        "keywords": [
+          "City"
+        ]
+      }
+    ],
+    [
+      "cityState",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//label[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'city') and contains(translate(text(), 'CITYANDSTATE', 'cityandstate'), 'state')]/parent::*//input[@type='text' and not(ancestor::div[@class='contact-modal_component']) and not(ancestor::div[contains(@class, 'select__input-container')]) and not(@id='auto_complete_input')]"
+            ],
+            "method": "setValue"
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "city and state"
+        ]
+      }
+    ],
+    [
+      "country",
+      [
+        {
+          "actions": [
+            {
+              "path": [
+                ".//label[CONTAINS_TEXT('country') and not(CONTAINS_TEXT('authoriz')) and not(CONTAINS_TEXT('sponsor'))]/parent::*//div[@class='select2-container']",
+                ".//div[@class='select2-container' and following-sibling::select[@name='job_application[country]']]",
+                ".//label[CONTAINS_TEXT('country') and not(CONTAINS_TEXT('authoriz')) and not(CONTAINS_TEXT('sponsor'))]/parent::*//div[@class='select2-container']",
+                ".//label[CONTAINS_TEXT('country') and not(CONTAINS_TEXT('authoriz')) and not(CONTAINS_TEXT('sponsor'))]/parent::*//select[not(contains(@style, 'display: none')) and not(ancestor::div[@class='contact-modal_component'])]",
+                ".//select[@name='job_application[country]' and not(contains(@style, 'display: none')) and not(ancestor::div[@class='contact-modal_component'])]"
+              ],
+              "method": "clickOption"
+            }
+          ]
+        },
+        {
+          "actions": [
+            {
+              "path": [
+                ".//label[CONTAINS_TEXT('country') and not(CONTAINS_TEXT('authoriz')) and not(CONTAINS_TEXT('sponsor'))]/parent::*//select",
+                ".//label[CONTAINS_TEXT('country') and not(CONTAINS_TEXT('authoriz')) and not(CONTAINS_TEXT('sponsor'))]/parent::*//div[@class='select2-container']",
+                ".//label[CONTAINS_TEXT('country') and not(CONTAINS_TEXT('authoriz')) and not(CONTAINS_TEXT('sponsor'))]/parent::*//select[not(contains(@style, 'display: none'))]"
+              ],
+              "method": "clickOption"
+            }
+          ]
+        }
+      ],
+      {
+        "keywords": [
+          "Country"
+        ]
+      }
+    ],
+    [
+      "education",
+      {
+        "addButtonPath": [
+          ".//*[@id='add_education']",
+          ".//div[@data-name='educations']//a[contains(@class, 'form-multifield__add')]",
+          ".//div[contains(@class, 'education--container')]//button[contains(@class, 'add-another-button')]",
+          ".//a[contains(@class, 'education-question-add-education')]",
+          ".//button[contains(@class, 'add-education')]"
+        ],
+        "confirmAddedPath": [],
+        "containerPath": [
+          "(.//div[@id='education_section']//div[@class='education'])[__indexPlusOne__]",
+          "(.//div[@data-name='educations']/ul/li)[__indexPlusOne__]",
+          "(.//div[contains(@class, 'education--container')]//div[contains(@class, 'education--form')])[__indexPlusOne__]",
+          "(.//div[contains(@class, 'education-question-group')])[__indexPlusOne__]",
+          "(.//div[@class='job-education-fields'])[__indexPlusOne__]"
+        ],
+        "options": {
+          "getRelevantEntities": true
+        },
+        "entities": [
+          [
+            "name",
+            [
+              {
+                "actions": [
+                  {
+                    "path": [
+                      ".//label[contains(@id, 'school')]/following-sibling::div//div[contains(@class, 'select__control')]//input",
+                      "//a[.//span[@class='select2-chosen' and normalize-space()='Select a School']]"
+                    ],
+                    "method": "click",
+                    "time": 250,
+                    "options": {
+                      "unmarkFilledStatusIfSomeFails": true,
+                      "trackQuestion": true
+                    }
+                  },
+                  {
+                    "path": [
+                      "//div[contains(@class, 'select2-drop-active') and @id='select2-drop']//input[contains(@class, 'select2-input')]",
+                      ".//label[contains(@id, 'school')]/following-sibling::div//input[contains(@class, 'select__input')]",
+                      "(//input[@role='combobox' and @id = //label[contains(normalize-space(), 'School')]/@for])[__indexPlusOne__]"
+                    ],
+                    "method": "setValue",
+                    "options": {
+                      "triggerBlurEvent": false,
+                      "triggerKeyDownEvent": true,
+                      "triggerKeyUpEvent": true,
+                      "triggerInputEvent": true,
+                      "triggerKeyPressEvent": true,
+                      "waitForNetworkAfterInteraction": true,
+                      "resetValue": true,
+                      "checkAcronym": true
+                    },
+                    "time": 500
+                  },
+                  {
+                    "path": [
+                      "//div[contains(@class, 'select2-drop-active') and @id='select2-drop']//ul[count(li) > 0]",
+                      ".//div[contains(@class, 'select__menu-list') and @role='listbox']",
+                      "//div[contains(@class, 'select__menu-list') and @role='listbox']",
+                      ".//div[contains(@class, 'selectize-dropdown') and contains(@class, 'single')]//div[contains(@class, 'content')]",
+                      "(//div[contains(@class, 'select2-drop-active') and @id='select2-drop']//ul)[last()]",
+                      "//select[contains(@name, '[__index__][school_name_id]')]",
+                      ".//ul[@class='select2-results' and @role='listbox' and ./li]"
+                    ],
+                    "method": "clickOption",
+                    "options": {
+                      "waitForNetworkBeforeInteraction": true,
+                      "waitForNetworkAfterInteraction": true,
+                      "useNetworkQuietPeriod": true,
+                      "dropdownPersistent": true,
+                      "clickTrackedQuestion": true,
+                      "autocomplete": true,
+                      "checkAcronym": true,
+                      "similarExceptXPaths": [
+                        ".//li[contains(@class,'select2-result') and contains(translate(string(.),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'other') and not(normalize-space(translate(string(.),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'))='other') and not(contains(translate(string(.),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'not listed')) and not(contains(translate(string(.),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'0'))]//*"
+                      ],
+                      "fallbackOptionsArray": [
+                        "Other",
+                        "Not Listed",
+                        "Other - Not Listed"
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "actions": [
+                  {
+                    "path": [
+                      ".//div[contains(@class, 'school')]//input[@type='select-one']"
+                    ],
+                    "method": "click",
+                    "options": {
+                      "unmarkFilledStatusIfSomeFails": true
+                    }
+                  },
+                  {
+                    "path": [
+                      ".//div[contains(@class, 'school')]//input[@type='select-one']"
+                    ],
+                    "method": "setValue",
+                    "options": {
+                      "triggerKeyDownEvent": true,
+                      "triggerBlurEvent": false,
+                      "waitForNetworkAfterInteraction": true
+                    }
+                  },
+                  {
+                    "path": [
+                      ".//div[contains(@class, 'school')]//input[@type='select-one']"
+                    ],
+                    "method": "pressEnterKey"
+                  },
+                  {
+                    "path": [
+                      "(.//div[contains(@class, 'selectize-dropdown') and contains(@class, 'single')]//div[contains(@class, 'content')])[__indexPlusOne__]"
+                    ],
+                    "method": "clickOptionAsync",
+                    "options": {
+                      "similarMatch": true,
+                      "waitForNetworkBeforeInteraction": true
+                    }
+                  },
+                  {
+                    "path": [
+                      ".//div[contains(@class, 'school')]//input[@type='select-one']"
+                    ],
+                    "method": "pressEscapeKey",
+                    "options": {
+                      "waitForNetworkBeforeInteraction": true
+                    }
+                  }
+                ]
+              }
+            ],
+            {
+              "keywords": [
+                "School"
+              ]
+            }
+          ],
+          [
+            "degree",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//div[@id='s2id_education_degree___index__']//a",
+                    ".//label[contains(@id, 'degree')]/following-sibling::div//div[contains(@class, 'select__control')]//input"
+                  ],
+                  "method": "click",
+                  "options": {
+                    "waitForNetworkBeforeInteraction": true,
+                    "waitForNetworkAfterInteraction": true,
+                    "trackQuestion": true,
+                    "preventClickIfEmpty": true
+                  },
+                  "time": 250
+                },
+                {
+                  "path": [
+                    "//div[contains(@class, 'select2-drop-active') and @id='select2-drop']//input[contains(@class, 'select2-input')]"
+                  ],
+                  "method": "setValue",
+                  "options": {
+                    "waitForNetworkBeforeInteraction": true,
+                    "waitForNetworkAfterInteraction": true
+                  },
+                  "time": 250
+                },
+                {
+                  "path": [
+                    "//div[contains(@class, 'select2-drop-active') and @id='select2-drop']//ul",
+                    ".//div[contains(@class, 'select__menu-list') and @role='listbox']",
+                    ".//ul[@class='select2-results' and @role='listbox' and count(li) > 0]",
+                    "//select[contains(@name, '[__index__][degree_id]')]",
+                    ".//select[@id='education_degree___index__']"
+                  ],
+                  "method": "clickOption",
+                  "options": {
+                    "waitForNetworkBeforeInteraction": true,
+                    "dropdownPersistent": true
+                  },
+                  "values": {
+                    "bachelor's": [
+                      "Bachelor's Degree",
+                      "Bachelors"
+                    ],
+                    "master's": [
+                      "Master's Degree",
+                      "Master of Science",
+                      "Masters"
+                    ],
+                    "associate's": [
+                      "Associate's Degree"
+                    ]
+                  }
+                },
+                {
+                  "path": [
+                    ".//div[@id='s2id_education_degree___index__']//a",
+                    ".//label[contains(@id, 'degree')]/following-sibling::div//div[contains(@class, 'select__control')]"
+                  ],
+                  "method": "pressEscapeKey",
+                  "options": {
+                    "waitForNetworkBeforeInteraction": true
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "School",
+                "Degree"
+              ]
+            }
+          ],
+          [
+            "major",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//div[@id='s2id_education_discipline___index__']//a",
+                    ".//label[contains(@id, 'discipline')]/following-sibling::div//div[contains(@class, 'select__control')]"
+                  ],
+                  "method": "click",
+                  "options": {
+                    "waitForNetworkBeforeInteraction": true,
+                    "waitForNetworkAfterInteraction": true,
+                    "unmarkFilledStatusIfSomeFails": true
+                  },
+                  "time": 250
+                },
+                {
+                  "path": [
+                    "//div[contains(@class, 'select2-drop-active') and @id='select2-drop']//input[contains(@class, 'select2-input')]",
+                    ".//label[contains(@id, 'discipline')]/following-sibling::div//input[contains(@class, 'select__input')]"
+                  ],
+                  "method": "setValue",
+                  "options": {
+                    "trackQuestion": true,
+                    "resetValue": true,
+                    "triggerKeyDownEvent": true,
+                    "triggerInputEvent": true,
+                    "triggerKeyUpEvent": true,
+                    "triggerChangeEvent": true,
+                    "triggerFocusInEvent": true,
+                    "triggerKeyPressEvent": true,
+                    "ignoreExistingValue": true
+                  },
+                  "time": 500
+                },
+                {
+                  "path": [
+                    "//div[contains(@class, 'select2-drop-active') and @id='select2-drop']//ul",
+                    ".//div[contains(@class, 'select__menu-list') and @role='listbox']",
+                    "//div[contains(@class, 'select__menu-list') and @role='listbox']",
+                    "//select[@id='education_discipline___index__' and contains(@class, 'discipline')]",
+                    "//select[contains(@name, '[__index__][discipline_id]')]"
+                  ],
+                  "method": "clickOption",
+                  "options": {
+                    "autocomplete": true
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "Major",
+                "Discipline"
+              ]
+            }
+          ],
+          [
+            "startDateMonth_MM",
+            [
+              ".//input[@name='job_application[educations][][start_date][month]']",
+              ".//input[contains(@name, '[__index__][start_date][month]')]"
+            ],
+            {
+              "keywords": [
+                "Start Date"
+              ]
+            }
+          ],
+          [
+            "endDateMonth_MM",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[@name='job_application[educations][][end_date][month]']",
+                    ".//input[contains(@id, 'end_month') and contains(@id, 'question')]",
+                    ".//input[contains(@name, '[__index__][end_date][month]')]"
+                  ],
+                  "method": "setValue",
+                  "options": {
+                    "useTodayAsFallback": true
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "End Date"
+              ]
+            }
+          ],
+          [
+            "startDateMonthText",
+            [
+              {
+                "actions": [
+                  {
+                    "path": [
+                      ".//select[@name='educations[][start_date][month]' and not(contains(@style, 'display: none'))]"
+                    ],
+                    "method": "clickOption"
+                  }
+                ]
+              },
+              {
+                "actions": [
+                  {
+                    "path": [
+                      ".//label[contains(@id, 'start-month')]/following-sibling::div//div[contains(@class, 'select__control')]"
+                    ],
+                    "method": "click"
+                  },
+                  {
+                    "path": [
+                      ".//div[contains(@class, 'select__menu-list') and @role='listbox']",
+                      "//div[contains(@class, 'select__menu-list') and @role='listbox']"
+                    ],
+                    "method": "clickOption"
+                  }
+                ]
+              }
+            ],
+            {
+              "keywords": [
+                "Start Date"
+              ]
+            }
+          ],
+          [
+            "endDateMonthText",
+            [
+              {
+                "actions": [
+                  {
+                    "path": [
+                      ".//select[@name='educations[][end_date][month]' and not(contains(@style, 'display: none'))]"
+                    ],
+                    "method": "clickOption",
+                    "options": {
+                      "useTodayAsFallback": true
+                    }
+                  }
+                ]
+              },
+              {
+                "actions": [
+                  {
+                    "path": [
+                      ".//label[contains(@id, 'end-month')]/following-sibling::div//div[contains(@class, 'select__control')]"
+                    ],
+                    "method": "click"
+                  },
+                  {
+                    "path": [
+                      ".//div[contains(@class, 'select__menu-list') and @role='listbox']",
+                      "//div[contains(@class, 'select__menu-list') and @role='listbox']"
+                    ],
+                    "method": "clickOption",
+                    "options": {
+                      "useTodayAsFallback": true
+                    }
+                  }
+                ]
+              }
+            ],
+            {
+              "keywords": [
+                "End Date"
+              ]
+            }
+          ],
+          [
+            "startDateYear",
+            [
+              ".//input[@name='job_application[educations][][start_date][year]']",
+              ".//label[contains(@id, 'start-year')]/following-sibling::input[contains(@id, 'start-year')]",
+              ".//input[contains(@name, '[__index__][start_date][year]')]"
+            ],
+            {
+              "keywords": [
+                "Start Date"
+              ]
+            }
+          ],
+          [
+            "endDateYear",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[@name='job_application[educations][][end_date][year]']",
+                    ".//label[contains(@id, 'end-year')]/following-sibling::input[contains(@id, 'end-year')]",
+                    ".//input[contains(@id, 'end_year') and contains(@id, 'question')]",
+                    ".//input[contains(@name, '[__index__][end_date][year]')]"
+                  ],
+                  "method": "setValue",
+                  "options": {
+                    "useTodayAsFallback": true
+                  }
+                }
+              ]
+            },
+            {
+              "keywords": [
+                "End Date"
+              ]
+            }
+          ]
+        ]
+      },
+      {
+        "keywords": [
+          "School",
+          "Degree"
+        ]
+      }
+    ],
+    [
+      "experience",
+      {
+        "addButtonPath": [
+          ".//div[contains(@class, 'employment--container')]//button[contains(@class, 'add-another-button')]",
+          ".//a[contains(@id, 'add_employment')]"
+        ],
+        "confirmAddedPath": [
+          "(.//div[contains(@class, 'employment--container')]//div[contains(@class, 'employment-form')])[__indexPlusOne__]"
+        ],
+        "containerPath": [
+          "(.//div[contains(@class, 'employment--container')]//div[contains(@class, 'employment-form')])[__indexPlusOne__]",
+          "//div[@class='employment'][.//input[@id='employment_company_name___indexString__']]"
+        ],
+        "entities": [
+          [
+            "companyName",
+            [
+              ".//input[@id='company-name-__index__']",
+              "//input[@id='employment_company_name___index__']"
+            ]
+          ],
+          [
+            "title",
+            [
+              ".//input[@id='title-__index__']",
+              ".//input[@id='employment_title___index__']"
+            ]
+          ],
+          [
+            "cityState",
+            []
+          ],
+          [
+            "startDateMonthText",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[@id='start-date-month-__index__' and not(ancestor::div[contains(@class, 'select__control--is-disabled')])]"
+                  ],
+                  "method": "click",
+                  "options": {
+                    "unmarkFilledStatusIfSomeFails": true
+                  }
+                },
+                {
+                  "path": [
+                    ".//div[@id='react-select-start-date-month-__index__-listbox']"
+                  ],
+                  "method": "clickOption",
+                  "values": {
+                    "January": [
+                      "Jan",
+                      "January",
+                      "01",
+                      "1"
+                    ],
+                    "February": [
+                      "Feb",
+                      "February",
+                      "02"
+                    ],
+                    "March": [
+                      "Mar",
+                      "March",
+                      "03"
+                    ],
+                    "April": [
+                      "Apr",
+                      "April",
+                      "04"
+                    ],
+                    "May": [
+                      "May",
+                      "05"
+                    ],
+                    "June": [
+                      "Jun",
+                      "June",
+                      "06"
+                    ],
+                    "July": [
+                      "Jul",
+                      "July",
+                      "07"
+                    ],
+                    "August": [
+                      "Aug",
+                      "August",
+                      "08"
+                    ],
+                    "September": [
+                      "Sep",
+                      "September",
+                      "09"
+                    ],
+                    "October": [
+                      "Oct",
+                      "October",
+                      "10"
+                    ],
+                    "November": [
+                      "Nov",
+                      "November",
+                      "11"
+                    ],
+                    "December": [
+                      "Dec",
+                      "December",
+                      "12"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "startDateMonth_MM",
+            [
+              ".//input[contains(@class, 'start-date-month')]"
+            ]
+          ],
+          [
+            "startDateYear",
+            [
+              ".//input[@id='start-date-year-__index__']",
+              ".//input[@aria-label='Employment Start Year']"
+            ]
+          ],
+          [
+            "isCurrent",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//label[contains(@for, 'current-role-__index__')]",
+                    ".//input[contains(@id, 'employment_current___index__')]"
+                  ],
+                  "method": "click"
+                }
+              ]
+            }
+          ],
+          [
+            "endDateMonth_MM",
+            [
+              ".//input[contains(@class, 'end-date-month')]"
+            ]
+          ],
+          [
+            "endDateMonthText",
+            {
+              "actions": [
+                {
+                  "path": [
+                    ".//input[@id='end-date-month-__index__' and not(ancestor::div[contains(@class, 'select__control--is-disabled')])]"
+                  ],
+                  "method": "click",
+                  "options": {
+                    "unmarkFilledStatusIfSomeFails": true
+                  }
+                },
+                {
+                  "path": [
+                    ".//div[@id='react-select-end-date-month-__index__-listbox']"
+                  ],
+                  "method": "clickOption",
+                  "values": {
+                    "January": [
+                      "Jan",
+                      "January",
+                      "01",
+                      "1"
+                    ],
+                    "February": [
+                      "Feb",
+                      "February",
+                      "02"
+                    ],
+                    "March": [
+                      "Mar",
+                      "March",
+                      "03"
+                    ],
+                    "April": [
+                      "Apr",
+                      "April",
+                      "04"
+                    ],
+                    "May": [
+                      "May",
+                      "05"
+                    ],
+                    "June": [
+                      "Jun",
+                      "June",
+                      "06"
+                    ],
+                    "July": [
+                      "Jul",
+                      "July",
+                      "07"
+                    ],
+                    "August": [
+                      "Aug",
+                      "August",
+                      "08"
+                    ],
+                    "September": [
+                      "Sep",
+                      "September",
+                      "09"
+                    ],
+                    "October": [
+                      "Oct",
+                      "October",
+                      "10"
+                    ],
+                    "November": [
+                      "Nov",
+                      "November",
+                      "11"
+                    ],
+                    "December": [
+                      "Dec",
+                      "December",
+                      "12"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "endDateYear",
+            [
+              ".//input[@id='end-date-year-__index__']",
+              ".//input[@aria-label='Employment End Year']"
+            ]
+          ],
+          [
+            "description",
+            []
+          ]
+        ]
+      },
+      {
+        "keywords": [
+          "Company",
+          "Title"
+        ]
+      }
+    ],
+    [
+      "over18",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//label[(CONTAINS_TEXT('over') and CONTAINS_TEXT('18')) or CONTAINS_TEXT('18 years')]/parent::*//select",
+              ".//label[(CONTAINS_TEXT('over') and CONTAINS_TEXT('18')) or CONTAINS_TEXT('18 years')]/parent::*//div[@class='select2-container']",
+              ".//label[(CONTAINS_TEXT('over') and CONTAINS_TEXT('18')) or CONTAINS_TEXT('18 years')]/parent::*//select[not(contains(@style, 'display: none'))]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "true": [
+                "Yes"
+              ],
+              "false": [
+                "No"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "Over 18",
+          "at least 18 years"
+        ]
+      }
+    ],
+    [
+      "jobTypes",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//div[@class='field'][label[CONTAINS_TEXT('employment') and CONTAINS_TEXT('type') or CONTAINS_TEXT('job') and CONTAINS_TEXT('type')]]"
+            ],
+            "method": "clickMultipleCheckboxes",
+            "options": {
+              "checkboxSelector": "input[type='checkbox']",
+              "checkboxLabelSelector": "label"
+            }
+          }
+        ]
+      }
+    ],
+    [
+      "weekdaysAvailability",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//label[contains(text(), 'Select all days you are available to work')]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "true": [
+                "Weekdays (Monday-Friday)",
+                "Weekdays",
+                "Monday-Friday"
+              ],
+              "false": [
+                ""
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "Select all days you are available to work"
+        ]
+      }
+    ],
+    [
+      "weekendsAvailability",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//label[contains(text(), 'Select all days you are available to work') or contains(text(), 'What shift(s) are you willing to work?')]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "true": [
+                "Weekends (Saturday - Sunday)",
+                "Weekends",
+                "Saturday - Sunday"
+              ],
+              "false": [
+                ""
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "Select all days you are available to work"
+        ]
+      }
+    ],
+    [
+      "openSchedule",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//label[contains(text(), 'Select all days you are available to work') or contains(text(), 'What shift(s) are you willing to work?')]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "true": [
+                "Open Schedule (Monday - Sunday)"
+              ],
+              "false": [
+                ""
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "Select all days you are available to work"
+        ]
+      }
+    ],
+    [
+      "flexibleSchedule",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//label[contains(text(), 'Select all days you are available to work')]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "true": [
+                "Flexible schedule needed"
+              ],
+              "false": [
+                ""
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "Select all days you are available to work"
+        ]
+      }
+    ],
+    [
+      "dayShift",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//label[contains(text(), 'Select all shifts you are available to work') or contains(text(), 'What shift(s) are you willing to work?')]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "true": [
+                "Day Shift",
+                "1st Shift"
+              ],
+              "false": [
+                ""
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "Select all shifts you are available to work"
+        ]
+      }
+    ],
+    [
+      "nightShift",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//label[contains(text(), 'Select all shifts you are available to work') or contains(text(), 'What shift(s) are you willing to work?')]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "true": [
+                "Night Shift",
+                "3rd Shift"
+              ],
+              "false": [
+                ""
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "Select all shifts you are available to work"
+        ]
+      }
+    ],
+    [
+      "swingShift",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//label[contains(text(), 'Select all shifts you are available to work') or contains(text(), 'What shift(s) are you willing to work?')]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "true": [
+                "Swing Shift",
+                "2nd Shift"
+              ],
+              "false": [
+                ""
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "Select all shifts you are available to work"
+        ]
+      }
+    ],
+    [
+      "overnightShift",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//label[contains(text(), 'Select all shifts you are available to work') or contains(text(), 'What shift(s) are you willing to work?')]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "true": [
+                "Overnight Shift"
+              ],
+              "false": [
+                ""
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "Select all shifts you are available to work"
+        ]
+      }
+    ],
+    [
+      "anyShift",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//label[contains(text(), 'Select all shifts you are available to work') or contains(text(), 'What shift(s) are you willing to work?')]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "true": [
+                "Open to All",
+                "All Shifts",
+                "All"
+              ],
+              "false": [
+                ""
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "Select all shifts you are available to work"
+        ]
+      }
+    ],
+    [
+      "workAuth",
+      [
+        {
+          "actions": [
+            {
+              "path": [
+                ".//label[CONTAINS_TEXT('right to work in') or CONTAINS_TEXT('authorized to work') or CONTAINS_TEXT('eligible to be employed')]/parent::*//select",
+                ".//label[CONTAINS_TEXT('authorized to work') and not(CONTAINS_TEXT('sponsor'))]/parent::*//div[@class='select2-container']",
+                ".//label[CONTAINS_TEXT('right to work in')]/parent::*//div[@class='select2-container']",
+                ".//label[CONTAINS_TEXT('authorized to work') and not(CONTAINS_TEXT('sponsor'))]/parent::*//select[not(contains(@style, 'display: none'))]",
+                ".//label[CONTAINS_TEXT('right to work in')]/parent::*//select[not(contains(@style, 'display: none'))]",
+                "//div[@class='field'][label[contains(text(), 'authorized to work')]]//select"
+              ],
+              "method": "clickOption",
+              "values": {
+                "true": [
+                  "Yes"
+                ],
+                "false": [
+                  "No"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "actions": [
+            {
+              "path": [
+                ".//label[CONTAINS_TEXT('authorized to work') and not(CONTAINS_TEXT('sponsor'))]/parent::*//div[contains(@class, 'select__control')]",
+                "//div[@class='field'][label[contains(text(), 'authorized to work in')]]//a",
+                "//div[@class='field'][label[contains(text(), 'eligible to work')]]//a"
+              ],
+              "method": "click",
+              "options": {
+                "unmarkFilledStatusIfSomeFails": true
+              }
+            },
+            {
+              "path": [
+                ".//label[CONTAINS_TEXT('authorized to work') and not(CONTAINS_TEXT('sponsor'))]/parent::*//div[contains(@class, 'select__menu')]",
+                "//ul[@class='select2-results' and @id='select2List0']",
+                "//ul[@class='select2-results' and @role='listbox' and child::*]",
+                "//div[@class='field'][label[contains(text(), 'authorized to work in')]]//select"
+              ],
+              "method": "clickOption",
+              "values": {
+                "true": [
+                  "Yes"
+                ],
+                "false": [
+                  "No"
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      {
+        "keywords": [
+          "authorized to work",
+          "eligible to work"
+        ]
+      }
+    ],
+    [
+      "sponsorship",
+      [
+        {
+          "actions": [
+            {
+              "path": [
+                ".//label[CONTAINS_TEXT('sponsor') and not(CONTAINS_TEXT('authorized')) and not(CONTAINS_TEXT('eligible to work'))]/parent::*//select",
+                ".//label[(CONTAINS_TEXT('sponsor') or CONTAINS_TEXT('in the future require sponsorship') or CONTAINS_TEXT('will you require sponsorship') or CONTAINS_TEXT('do you require sponsorship')) and not(CONTAINS_TEXT('authoriz')) and not(CONTAINS_TEXT('eligible to work'))]/parent::*//div[@class='select2-container']",
+                ".//label[CONTAINS_TEXT('sponsorship for work auth') and not(CONTAINS_TEXT('eligible to work'))]/parent::*//div[@class='select2-container']",
+                ".//div[@class='select2-container' and following-sibling::select[@name='job_application[sponsorship]']]",
+                ".//label[CONTAINS_TEXT('sponsor') and not(CONTAINS_TEXT('authorized')) and not(CONTAINS_TEXT('eligible to work'))]/parent::*//select[not(contains(@style, 'display: none'))]",
+                ".//label[CONTAINS_TEXT('sponsorship for work auth') and not(CONTAINS_TEXT('eligible to work'))]/parent::*//select[not(contains(@style, 'display: none'))]",
+                ".//select[@name='job_application[sponsorship]' and not(contains(@style, 'display: none'))]",
+                "//div[@class='field'][.//label[contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'visa') or contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'sponsorship')]]//select"
+              ],
+              "method": "clickOption",
+              "values": {
+                "true": [
+                  "Yes"
+                ],
+                "false": [
+                  "No"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "actions": [
+            {
+              "path": [
+                ".//label[CONTAINS_TEXT('sponsor') and not(CONTAINS_TEXT('authorized'))]//div[@class='select2-container']//a",
+                "//label[contains(text(), 'sponsorship for work auth') or contains(text(), 'require visa sponsorship')]//select"
+              ],
+              "method": "click",
+              "options": {
+                "unmarkFilledStatusIfSomeFails": true
+              }
+            },
+            {
+              "path": [
+                "//ul[@class='select2-results' and child::*]",
+                "//div[@class='field'][label[contains(text(), 'sponsorship for work auth') or contains(text(), 'require visa sponsorship')]]//select"
+              ],
+              "method": "clickOption",
+              "values": {
+                "true": [
+                  "Yes"
+                ],
+                "false": [
+                  "No"
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      {
+        "keywords": [
+          "Visa sponsorship",
+          "sponsorship for",
+          "need sponsorship"
+        ]
+      }
+    ],
+    [
+      "lift50PoundsWeightAbility",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//label[CONTAINS_TEXT('to lift at least')]/parent::*//div[@class='select2-container']",
+              ".//label[CONTAINS_TEXT('to lift at least')]/parent::*//select[not(contains(@style, 'display: none'))]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "true": [
+                "Yes"
+              ],
+              "false": [
+                "No"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "to lift at least"
+        ]
+      }
+    ],
+    [
+      "resume",
+      [
+        {
+          "actions": [
+            {
+              "path": [
+                "//div[@required='required' and @data-allow-s3='false']//button[@aria-describedby='resume-allowable-file-types']"
+              ],
+              "method": "click"
+            },
+            {
+              "path": [
+                "//input[@type='file' and @id='resume_file']"
+              ],
+              "method": "uploadResume"
+            }
+          ]
+        },
+        {
+          "actions": [
+            {
+              "path": [
+                "//form[@id='s3_upload_for_resume']//input[@type='file']",
+                "//input[@type='file' and @id='resume']",
+                "//input[@type='file' and @name='resume']",
+                "//input[@type='file' and @id = //label[CONTAINS_TEXT('resume', true)]/@for]",
+                "//input[@type='file' and @data-testid='resume-text']",
+                "//span[@class='ant-upload']//input[@type='file']"
+              ],
+              "method": "uploadResume"
+            }
+          ]
+        }
+      ],
+      {
+        "keywords": [
+          "Resume",
+          "Resume/CV"
+        ]
+      }
+    ],
+    [
+      "agreement",
+      [
+        {
+          "actions": [
+            {
+              "path": [
+                ".//input[@type='checkbox' and (contains(translate(@description, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'privacy notice') or contains(translate(@description, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'privacy policy'))]"
+              ],
+              "method": "clickCheckbox"
+            }
+          ]
+        },
+        {
+          "actions": [
+            {
+              "path": [
+                ".//label[CONTAINS_TEXT('applicant statement') or CONTAINS_TEXT('i certify') or CONTAINS_TEXT('privacy acknowledgement')]/parent::*//select",
+                ".//label[CONTAINS_TEXT('applicant statement') or CONTAINS_TEXT('i certify') or CONTAINS_TEXT('privacy acknowledgement')]/parent::*//div[@class='select2-container']",
+                ".//label[CONTAINS_TEXT('finalize') and CONTAINS_TEXT('application') and CONTAINS_TEXT('yes')]/parent::*//select"
+              ],
+              "method": "clickOption",
+              "values": {
+                "true": [
+                  "Yes"
+                ],
+                "false": [
+                  "No"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "actions": [
+            {
+              "path": [
+                ".//label[CONTAINS_TEXT('privacy statement')]/parent::*//div[@class='select2-container']",
+                ".//label[CONTAINS_TEXT('privacy statement')]/parent::*//select[not(contains(@style, 'display: none'))]"
+              ],
+              "method": "clickOption",
+              "values": {
+                "true": [
+                  "I acknowledge"
+                ],
+                "false": [
+                  "No"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "actions": [
+            {
+              "path": [
+                ".//input[@type='checkbox' and contains(translate(@id, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'consent') and @required]"
+              ],
+              "method": "clickMultipleCheckboxes",
+              "options": {
+                "check": true
+              }
+            }
+          ]
+        }
+      ],
+      {
+        "keywords": [
+          "Agreement",
+          "Privacy",
+          "I consent to",
+          "I agree to",
+          "has my consent",
+          "finalize your application"
+        ]
+      }
+    ],
+    [
+      "genderPronouns",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//label[CONTAINS_TEXT('pronoun')]/parent::*//select",
+              ".//label[CONTAINS_TEXT('pronoun')]/parent::*//div[@class='select2-container']",
+              ".//label[CONTAINS_TEXT('pronoun')]/parent::*//select[not(contains(@style, 'display: none'))]",
+              ".//div[contains(@class, 'field') and contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'pronoun')]",
+              "//fieldset[@class='checkbox' and legend[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'what are your pronouns')]]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "He/him/his": [
+                "he"
+              ],
+              "She/her/hers": [
+                "she"
+              ],
+              "They/them/theirs": [
+                "they"
+              ],
+              "Ze/hir/hirs": [
+                "ze"
+              ],
+              "Xe/xem/xyrs": [
+                "xe"
+              ],
+              "Ey/em/eirs": [
+                "ey"
+              ],
+              "Ve/ver/vis": [
+                "ve"
+              ],
+              "Per/per/pers": [
+                "per"
+              ],
+              "Ne/nem/nirs": [
+                "ne"
+              ],
+              "Other": [
+                "other"
+              ],
+              "I do not want to answer": [
+                "Decline",
+                "I don't wish",
+                "Prefer not"
+              ],
+              "": [
+                "Decline",
+                "I don't wish",
+                "Prefer not"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "pronouns"
+        ]
+      }
+    ],
+    [
+      "transgender",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//label[CONTAINS_TEXT('transgender')]/parent::*//select[not(contains(@style, 'display: none'))]",
+              ".//select[@name='job_application[transgender]']",
+              ".//div[CONTAINS_TEXT('transgender')]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "true": [
+                "Yes"
+              ],
+              "false": [
+                "Decline",
+                "No",
+                "I don't wish",
+                "Prefer not"
+              ],
+              "": [
+                "Decline",
+                "No",
+                "I don't wish",
+                "Prefer not"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "transgender"
+        ]
+      }
+    ],
+    [
+      "race",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//select[@name='job_application[race]']",
+              ".//div[contains(@id,'select-race')]"
+            ],
+            "method": "click",
+            "options": {
+              "unmarkFilledStatusIfSomeFails": true
+            }
+          },
+          {
+            "path": [
+              ".//label[CONTAINS_TEXT('race') or CONTAINS_TEXT('racial') or CONTAINS_TEXT('ethnic')]/parent::*//select[not(contains(@style, 'display: none'))]",
+              ".//select[@name='job_application[race]']",
+              ".//div[contains(@class, 'field') and CONTAINS_TEXT('race') or CONTAINS_TEXT('racial') or CONTAINS_TEXT('ethnic')]",
+              ".//div[CONTAINS_TEXT('white') or CONTAINS_TEXT('races')]",
+              "//fieldset[@class='checkbox' and legend[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'race/ethnicity you identify')]]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "Black or African American": [
+                "Black",
+                "African"
+              ],
+              "East Asian": [
+                "East Asian",
+                "Asian"
+              ],
+              "Hispanic or Latino": "Hispanic",
+              "Southeast Asian": [
+                "Southeast Asian",
+                "Asian"
+              ],
+              "South Asian": [
+                "South Asian",
+                "Asian"
+              ],
+              "Native Hawaiian or Other Pacific Islander": [
+                "Native Hawaiian",
+                "Pacific Islander"
+              ],
+              "American Indian or Alaska Native": [
+                "American Indian",
+                "Alaskan Native"
+              ],
+              "White": "White",
+              "Two or More Races": "Two or More",
+              "Some Other Race": [
+                "Other",
+                "Decline"
+              ],
+              "Decline to Answer": [
+                "Decline",
+                "Prefer not"
+              ],
+              "": [
+                "Decline"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "racial/ethnic",
+          " specify the race"
+        ]
+      }
+    ],
+    [
+      "veteran",
+      [
+        {
+          "actions": [
+            {
+              "path": [
+                "//label[contains(text(), 'Protected Veteran Status')]/following-sibling::div//div[contains(@class, 'select__placeholder') and contains(text(), 'Select')]"
+              ],
+              "method": "click",
+              "options": {
+                "unmarkFilledStatusIfSomeFails": true
+              }
+            },
+            {
+              "path": [
+                ".//div[contains(@class, 'select__menu-list') and @role='listbox']"
+              ],
+              "method": "clickOption",
+              "values": {
+                "true": [
+                  "I am a ",
+                  "I identify ",
+                  "Yes"
+                ],
+                "false": [
+                  "I am not a ",
+                  "No"
+                ],
+                "": [
+                  "Decline",
+                  "I am not a ",
+                  "I don't ",
+                  "No",
+                  "Prefer not"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "actions": [
+            {
+              "path": [
+                "//label[contains(text(), 'Veteran Status') and not(contains(text(), 'Protected Veteran Status')) ]/following-sibling::div//div[contains(@class, 'select__placeholder') and contains(text(), 'Select')]"
+              ],
+              "method": "click",
+              "options": {
+                "unmarkFilledStatusIfSomeFails": true
+              }
+            },
+            {
+              "path": [
+                ".//div[CONTAINS_TEXT('veteran')]",
+                ".//label[CONTAINS_TEXT('veteran')]/parent::*//select[not(contains(@style, 'display: none'))]",
+                ".//select[@name='job_application[veteran_status]']",
+                ".//div[contains(@class, 'select__menu-list') and @role='listbox']"
+              ],
+              "method": "clickOption",
+              "values": {
+                "true": [
+                  "I am a ",
+                  "I identify ",
+                  "Yes"
+                ],
+                "false": [
+                  "I am not a ",
+                  "No"
+                ],
+                "": [
+                  "Decline",
+                  "I am not a ",
+                  "I don't ",
+                  "No",
+                  "Prefer not"
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      {
+        "keywords": [
+          "veteran"
+        ]
+      }
+    ],
+    [
+      "disability",
+      [
+        {
+          "actions": [
+            {
+              "path": [
+                "(//label[contains(text(), 'Disability')]/following-sibling::div//div[contains(@class, 'select__placeholder') and contains(text(), 'Select')])[1]/following-sibling::div"
+              ],
+              "method": "click",
+              "options": {
+                "unmarkFilledStatusIfSomeFails": true
+              }
+            },
+            {
+              "path": [
+                ".//div[contains(@class, 'select__menu remix')]"
+              ],
+              "method": "clickOption",
+              "values": {
+                "true": [
+                  "Yes",
+                  "I have"
+                ],
+                "false": [
+                  "No",
+                  "I do not have",
+                  "Prefer not"
+                ],
+                "": [
+                  "Decline",
+                  "I don't wish",
+                  "Prefer not",
+                  "No"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "actions": [
+            {
+              "path": [
+                "//div[contains(@id, 'select-disability_status-placeholder')]"
+              ],
+              "method": "click",
+              "options": {
+                "unmarkFilledStatusIfSomeFails": true
+              }
+            },
+            {
+              "path": [
+                ".//label[CONTAINS_TEXT('disability')]/parent::*//select[not(contains(@style, 'display: none'))]",
+                ".//select[@name='job_application[disability_status]']",
+                ".//div[contains(@class, 'select__menu-list') and @role='listbox']"
+              ],
+              "method": "clickOption",
+              "values": {
+                "true": [
+                  "Yes",
+                  "I have"
+                ],
+                "false": [
+                  "No",
+                  "I do not have",
+                  "Prefer not"
+                ],
+                "": [
+                  "Decline",
+                  "I don't wish",
+                  "Prefer not",
+                  "No"
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      {
+        "keywords": [
+          "disability",
+          "chronic condition"
+        ]
+      }
+    ],
+    [
+      "sexualOrientation",
+      {
+        "actions": [
+          {
+            "path": [
+              ".//label[CONTAINS_TEXT('sexual') and CONTAINS_TEXT('orient')]/parent::*//select[not(contains(@style, 'display: none'))]",
+              ".//select[@name='job_application[sexual_orientation]']",
+              ".//div[CONTAINS_TEXT('sexual') and CONTAINS_TEXT('orient')]"
+            ],
+            "method": "clickOption",
+            "values": {
+              "Heterosexual (straight)": [
+                "Heterosexual",
+                "Straight"
+              ],
+              "Homosexual (gay/lesbian)": [
+                "Homosexual",
+                "Gay",
+                "Lesbian"
+              ],
+              "Bisexual": [
+                "Bisexual"
+              ],
+              "Pansexual": [
+                "Pansexual"
+              ],
+              "Asexual": [
+                "Asexual"
+              ],
+              "Queer": [
+                "Queer"
+              ],
+              "Questioning/Uncertain": [
+                "Questioning",
+                "Uncertain"
+              ],
+              "Other": [
+                "Other"
+              ],
+              "I do not want to answer": [
+                "Decline",
+                "No",
+                "I don't wish",
+                "Prefer not"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "keywords": [
+          "sexual"
+        ]
+      }
+    ],
+    [
+      "github",
+      [
+        ".//input[contains(translate(@autocomplete, 'GITHUB', 'github'), 'github')]",
+        ".//label[CONTAINS_TEXT('github')]/parent::*//input[@type='text']"
+      ],
+      {
+        "keywords": [
+          "github"
+        ]
+      }
+    ],
+    [
+      "twitter",
+      [
+        ".//input[contains(translate(@autocomplete, 'TWITTER', 'twitter'), 'twitter')]",
+        ".//label[CONTAINS_TEXT('twitter')]/parent::div//input[@type='text']"
+      ],
+      {
+        "keywords": [
+          "twitter"
+        ]
+      }
+    ],
+    [
+      "behance",
+      [
+        ".//input[contains(translate(@autocomplete, 'BEHANCE', 'behance'), 'behance')]",
+        ".//label[CONTAINS_TEXT('behance')]/parent::div//input[@type='text']"
+      ],
+      {
+        "keywords": [
+          "behance"
+        ]
+      }
+    ]
+  ]
+}
